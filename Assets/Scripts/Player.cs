@@ -1,31 +1,36 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
 public class Player : MonoBehaviour
 {
-    public float moveSpeed = 5f; // Speed of movement
-    public float stepDistance = 1f; // Distance to move per step
+    [SerializeField] private float moveSpeed = 5f;
 
-    private Vector3 targetPosition; // Target position for movement
+    private CharacterController controller;
+    private Vector3 movement;
 
-    void Start()
+    private void Start()
     {
-        targetPosition = transform.position;
+        controller = GetComponent<CharacterController>();
     }
 
-    void Update()
+    private void Update()
     {
-        // Check for movement input
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        float moveInputX = Input.GetAxis("Horizontal");
+        float moveInputY = Input.GetAxis("Vertical");
 
-        if (Mathf.Abs(horizontalInput) > 0.1f || Mathf.Abs(verticalInput) > 0.1f)
+        // Calculate the movement direction
+        Vector3 inputDirection = new Vector3(moveInputX, 0f, moveInputY).normalized;
+
+        // Calculate the movement vector
+        movement = inputDirection * moveSpeed * Time.deltaTime;
+
+        // Apply movement
+        controller.Move(movement);
+
+        // If no movement input, stop the character instantly
+        if (Mathf.Approximately(moveInputX, 0f) && Mathf.Approximately(moveInputY, 0f))
         {
-            // Calculate the new target position based on input and step distance
-            Vector3 inputDirection = new Vector3(horizontalInput, 0f, verticalInput).normalized;
-            targetPosition = transform.position + inputDirection * stepDistance;
+            controller.Move(Vector3.zero);
         }
-
-        // Move towards the target position
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
     }
 }
