@@ -1,36 +1,46 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
-
+    public float speed = 6.0f;
+    private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
-    private Vector3 movement;
 
-    private void Start()
+    void Start()
     {
         controller = GetComponent<CharacterController>();
     }
 
-    private void Update()
+    void Update()
     {
-        float moveInputX = Input.GetAxis("Horizontal");
-        float moveInputY = Input.GetAxis("Vertical");
+        MovePlayer();
+    }
 
-        // Calculate the movement direction
-        Vector3 inputDirection = new Vector3(moveInputX, 0f, moveInputY).normalized;
+    void MovePlayer()
+    {
+        float horizontalInput = GetHorizontalInput();
+        float verticalInput = GetVerticalInput();
 
-        // Calculate the movement vector
-        movement = inputDirection * moveSpeed * Time.deltaTime;
+        moveDirection = new Vector3(horizontalInput, 0, verticalInput);
+        moveDirection = transform.TransformDirection(moveDirection);
+        moveDirection *= speed;
 
-        // Apply movement
-        controller.Move(movement);
-
-        // If no movement input, stop the character instantly
-        if (Mathf.Approximately(moveInputX, 0f) && Mathf.Approximately(moveInputY, 0f))
+        // Make the player face the direction of movement
+        if (moveDirection != Vector3.zero)
         {
-            controller.Move(Vector3.zero);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveDirection), 0.15F);
         }
+
+        controller.Move(moveDirection * Time.deltaTime);
+    }
+
+    public float GetHorizontalInput()
+    {
+        return Input.GetAxis("Horizontal");
+    }
+
+    public float GetVerticalInput()
+    {
+        return Input.GetAxis("Vertical");
     }
 }

@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.I))
         {
             initialVisibility = !initialVisibility;  // Toggle the stored visibility state
             inventory.SetActive(initialVisibility);  // Set the visibility based on the stored state
