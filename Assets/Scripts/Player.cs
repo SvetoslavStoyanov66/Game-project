@@ -6,13 +6,14 @@ public class Player : MonoBehaviour
     public float moveSpeed = 5.0f;
 
     private float rotationSpeed = 100f;
-    
 
+    PlayerInteraction playerInteraction;
     private CharacterController characterController;
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        playerInteraction = GetComponentInChildren<PlayerInteraction>();
     }
    
 
@@ -32,9 +33,17 @@ public class Player : MonoBehaviour
             // Rotate the character to face the movement direction
             Quaternion targetRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.1f);
+            Interact();
         }
 
 
+    }
+    public void Interact()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            playerInteraction.Interact();
+        }
     }
     public float GetHorizontalInput()
     {

@@ -16,6 +16,8 @@ public class AnimaationsPlayer : MonoBehaviour
 
     void Update()
     {
+        
+
         // Retrieve movement inputs from the Player script
         float horizontal = player.GetHorizontalInput();
         float vertical = player.GetVerticalInput();
@@ -26,11 +28,8 @@ public class AnimaationsPlayer : MonoBehaviour
         // Set the "walking" parameter in the animator
         animator.SetBool("isWalking", isWalking);
 
-        // Determine if the character is turning left
-        bool isTurningLeft = horizontal < -0.1f && Mathf.Abs(vertical) < 0.1f;
-
-        // Set the "turnLeft" parameter in the animator
-        animator.SetBool("isTurningLeft", isTurningLeft);
+        
+       
     }
 
 }
