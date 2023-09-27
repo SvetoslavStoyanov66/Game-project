@@ -23,7 +23,14 @@ public class AnimaationsPlayer : MonoBehaviour
         // Determine if the character is walking
         bool isWalking = Mathf.Abs(horizontal) > 0.1f || Mathf.Abs(vertical) > 0.1f;
 
-        // Set the trigger to start walking if moving
-        animator.SetBool("walking", isWalking);
+        // Set the "walking" parameter in the animator
+        animator.SetBool("isWalking", isWalking);
+
+        // Determine if the character is turning left
+        bool isTurningLeft = horizontal < -0.1f && Mathf.Abs(vertical) < 0.1f;
+
+        // Set the "turnLeft" parameter in the animator
+        animator.SetBool("isTurningLeft", isTurningLeft);
     }
+
 }

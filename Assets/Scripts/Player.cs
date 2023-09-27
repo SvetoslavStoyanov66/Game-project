@@ -1,39 +1,41 @@
-﻿using UnityEngine;
+﻿using System.Drawing;
+using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 6.0f;
-    private Vector3 moveDirection = Vector3.zero;
-    private CharacterController controller;
+    public float moveSpeed = 5.0f;
+
+    private float rotationSpeed = 100f;
+    float rotationFactorPerFrame = 1;
+
+    private CharacterController characterController;
 
     void Start()
     {
-        controller = GetComponent<CharacterController>();
+        characterController = GetComponent<CharacterController>();
     }
+   
 
     void Update()
     {
-        MovePlayer();
-    }
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
 
-    void MovePlayer()
-    {
-        float horizontalInput = GetHorizontalInput();
-        float verticalInput = GetVerticalInput();
+        // Calculate movement direction
+        Vector3 movementDirection = new Vector3(horizontalInput, 0.0f, verticalInput).normalized;
 
-        moveDirection = new Vector3(horizontalInput, 0, verticalInput);
-        moveDirection = transform.TransformDirection(moveDirection);
-        moveDirection *= speed;
-
-        // Make the player face the direction of movement
-        if (moveDirection != Vector3.zero)
+        // Move the character
+        if (movementDirection.magnitude > 0.1f)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveDirection), 0.15F);
+            transform.Translate(movementDirection * moveSpeed * Time.deltaTime, Space.World);
+
+            // Rotate the character to face the movement direction
+            Quaternion targetRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.1f);
         }
 
-        controller.Move(moveDirection * Time.deltaTime);
-    }
 
+    }
     public float GetHorizontalInput()
     {
         return Input.GetAxis("Horizontal");
