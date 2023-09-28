@@ -3,33 +3,72 @@
 public class Inventory : MonoBehaviour
 {
     public static Inventory Instance { get; private set; }
-    private bool initialVisibility = true;
-    public GameObject inventory;
 
-    [Header("Tools")]
-    public ItemData[] Tools = new ItemData[8];
-    public ItemData equippedTool = null;
+    [Header("Hotbar")]
+    public ItemData[] hotbarItems = new ItemData[8];
 
-
-    [Header("Items")]
-    public ItemData[] Items = new ItemData[8];
-    public ItemData eqquipedItem = null;
+    [Header("Inventory")]
+    public ItemData[] inventoryItems = new ItemData[8];
 
     private void Awake()
     {
-       
-        
         if (Instance != null && Instance != this)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         else
         {
             Instance = this;
         }
-
     }
-   
 
-  
+    public void InventoryToHotBar(int inventoryIndex)
+    {
+        if (inventoryIndex < 0 || inventoryIndex >= inventoryItems.Length)
+        {
+            Debug.LogError("Invalid inventory index.");
+            return;
+        }
+
+        ItemData itemToMove = inventoryItems[inventoryIndex];
+        if (itemToMove != null)
+        {
+            inventoryItems[inventoryIndex] = null;
+
+            for (int i = 0; i < hotbarItems.Length; i++)
+            {
+                if (hotbarItems[i] == null)
+                {
+                    hotbarItems[i] = itemToMove;
+                    UImanager.Instance.DisplayHotbarItem(itemToMove, i);  // Display the item in the hotbar slot
+                    return;
+                }
+            }
+        }
+    }
+
+    public void HotBarToInventory(int hotbarIndex)
+    {
+        if (hotbarIndex < 0 || hotbarIndex >= hotbarItems.Length)
+        {
+            Debug.LogError("Invalid hotbar index.");
+            return;
+        }
+
+        ItemData itemToMove = hotbarItems[hotbarIndex];
+        if (itemToMove != null)
+        {
+            hotbarItems[hotbarIndex] = null;
+
+            for (int i = 0; i < inventoryItems.Length; i++)
+            {
+                if (inventoryItems[i] == null)
+                {
+                    inventoryItems[i] = itemToMove;
+                    UImanager.Instance.RenderInventory();
+                    return;
+                }
+            }
+        }
+    }
 }
