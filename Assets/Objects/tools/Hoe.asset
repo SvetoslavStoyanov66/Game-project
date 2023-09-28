@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3240c99bea6d54d8b3f25b20602764, type: 3}
   m_Name: Hoe
   m_EditorClassIdentifier: 
-  description: 
+  description: For trilling the land
   thumbnail: {fileID: 0}
   gameModel: {fileID: 0}
   toolType: 0

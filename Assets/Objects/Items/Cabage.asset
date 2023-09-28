@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d819e31fe161c48a6ef9713656453a, type: 3}
   m_Name: Cabage
   m_EditorClassIdentifier: 
+  description: A leafy green vegateble.
+  thumbnail: {fileID: 0}
+  gameModel: {fileID: 0}
