@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Pickaxe
   m_EditorClassIdentifier: 
   description: 
-  thumbnail: {fileID: 0}
+  thumbnail: {fileID: 21300000, guid: d8a7aedc19b70524ea7c77fc273a0f01, type: 3}
   gameModel: {fileID: 0}
-  toolType: 0
+  toolType: 3

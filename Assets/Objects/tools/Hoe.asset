@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Hoe
   m_EditorClassIdentifier: 
   description: For trilling the land
-  thumbnail: {fileID: 0}
-  gameModel: {fileID: 0}
+  thumbnail: {fileID: 21300000, guid: 853c5c465145b2b40a00da8a30345ed5, type: 3}
+  gameModel: {fileID: 919132149155446097, guid: bb5924d9a93d64340a940fa61f2875c6,
+    type: 3}
   toolType: 0

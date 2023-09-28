@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEditor.EventSystems;
 
-
-public class InventorySlot : MonoBehaviour
+public class InventorySlot : MonoBehaviour, IPointerEnterHandler
 {
     ItemData itemToDisplay;
     public Image ItemDisplayImage;
@@ -18,5 +19,10 @@ public class InventorySlot : MonoBehaviour
             return;
         }
         ItemDisplayImage.gameObject.SetActive(false);
+    }
+
+    void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
+    {
+        
     }
 }

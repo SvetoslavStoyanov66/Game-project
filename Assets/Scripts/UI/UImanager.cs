@@ -31,7 +31,6 @@ public class UImanager : MonoBehaviour
     {
         REnderInventory();
     }
-
     public void REnderInventory()
     {
         ItemData[] inventoryToolSlots = Inventory.Instance.Tools;
@@ -48,7 +47,7 @@ public class UImanager : MonoBehaviour
     }
     public void ToggleInventoryPanel()
     {
-        
+        inventoryPanel.SetActive(!inventoryPanel.activeSelf);
         REnderInventory();
     }
    
