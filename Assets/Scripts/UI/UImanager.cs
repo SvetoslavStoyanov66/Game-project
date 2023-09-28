@@ -12,7 +12,8 @@ public class UImanager : MonoBehaviour
     public InventorySlot[] toolSlots;
     public InventorySlot[] itemSlots;
 
-
+    public Text itemNameText;
+    public Text itemDescriptionText; 
     private void Awake()
     {
 
@@ -50,6 +51,16 @@ public class UImanager : MonoBehaviour
         inventoryPanel.SetActive(!inventoryPanel.activeSelf);
         REnderInventory();
     }
-   
 
+    public void DispalyItemInfo(ItemData data)
+    {
+        if (data == null)
+        {
+            itemNameText.text = "";
+            itemDescriptionText.text = "";
+            return;
+        }
+        itemDescriptionText.text = data.description;
+        itemNameText.text = data.name;  
+    }
 }

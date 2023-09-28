@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEditor.EventSystems;
 
-public class InventorySlot : MonoBehaviour, IPointerEnterHandler
+public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     ItemData itemToDisplay;
     public Image ItemDisplayImage;
@@ -23,6 +23,11 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler
 
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
-        
+        UImanager.Instance.DispalyItemInfo(itemToDisplay);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        UImanager.Instance.DispalyItemInfo(null);
     }
 }
