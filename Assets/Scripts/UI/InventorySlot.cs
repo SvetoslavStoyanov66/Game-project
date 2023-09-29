@@ -4,25 +4,31 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    ItemData itemToDisplay;
+    protected ItemData itemToDisplay;
     public Image ItemDisplayImage;
     public int slotIndex;
 
+    private void Start()
+    {
+        UpdateDisplay();  // Call UpdateDisplay in Start to update the display when the game starts
+    }
     public void Display(ItemData itemToDisplay)
     {
         this.itemToDisplay = itemToDisplay;
         UpdateDisplay();
     }
 
-    private void UpdateDisplay()
+    protected void UpdateDisplay()
     {
         if (itemToDisplay != null)
         {
             ItemDisplayImage.sprite = itemToDisplay.thumbnail;
+            ItemDisplayImage.enabled = true;  // Enable the image component
         }
         else
         {
-            ItemDisplayImage.sprite = null; // Set the sprite to null if there's no item
+            
+                ItemDisplayImage.enabled = false;  // Disable the image component
         }
     }
 
@@ -33,14 +39,11 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public virtual void OnPointerClick(PointerEventData eventData)
     {
-        // Check if it's an inventory item or a hotbar item
-        if (slotIndex < Inventory.Instance.hotbarItems.Length)
+        if (itemToDisplay != null)
         {
             Inventory.Instance.InventoryToHotBar(slotIndex);
-        }
-        else
-        {
-            Inventory.Instance.HotBarToInventory(slotIndex - Inventory.Instance.hotbarItems.Length);
+            itemToDisplay = null;
+            UpdateDisplay();
         }
     }
 

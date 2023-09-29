@@ -7,7 +7,7 @@ public class UImanager : MonoBehaviour
 
     [Header("Inventory System")]
     public GameObject inventoryPanel;
-    public InventorySlot[] combinedSlots; // Combine both toolSlots and itemSlots into a single array
+    public InventorySlot[] combinedSlots;
     public InventoryToHandBar EquipSLot;
     public InventorySlot[] hotbarSlots;
     public Text itemNameText;
@@ -36,6 +36,7 @@ public class UImanager : MonoBehaviour
         ItemData[] inventorySlots = Inventory.Instance.inventoryItems;
         RenderInventoryPanel(inventorySlots, combinedSlots);
     }
+
     public void DisplayHotbarItem(ItemData item, int hotbarIndex)
     {
         if (hotbarIndex >= 0 && hotbarIndex < hotbarSlots.Length)
@@ -43,6 +44,7 @@ public class UImanager : MonoBehaviour
             hotbarSlots[hotbarIndex].Display(item);
         }
     }
+
     void RenderInventoryPanel(ItemData[] slots, InventorySlot[] uiSlots)
     {
         for (int i = 0; i < uiSlots.Length; i++)
@@ -67,7 +69,7 @@ public class UImanager : MonoBehaviour
 
         for (int i = 0; i < hotbarSlots.Length; i++)
         {
-            hotbarSlots[i].AssignIndex(i); // Assign correct indexes for hotbar slots
+            hotbarSlots[i].AssignIndex(i);
         }
     }
 
@@ -87,5 +89,10 @@ public class UImanager : MonoBehaviour
         }
         itemDescriptionText.text = data.description;
         itemNameText.text = data.name;
+    }
+
+    public bool IsInventoryPanelActive()
+    {
+        return inventoryPanel.activeSelf;
     }
 }

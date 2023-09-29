@@ -24,6 +24,12 @@ public class Inventory : MonoBehaviour
 
     public void InventoryToHotBar(int inventoryIndex)
     {
+        if (!UImanager.Instance.IsInventoryPanelActive()) // Check if the inventory is active
+        {
+            Debug.LogError("Inventory is not active. Cannot transfer item to hotbar.");
+            return;
+        }
+
         if (inventoryIndex < 0 || inventoryIndex >= inventoryItems.Length)
         {
             Debug.LogError("Invalid inventory index.");
@@ -49,26 +55,32 @@ public class Inventory : MonoBehaviour
 
     public void HotBarToInventory(int hotbarIndex)
     {
-        if (hotbarIndex < 0 || hotbarIndex >= hotbarItems.Length)
+        if (UImanager.Instance.IsInventoryPanelActive()) // Check if the inventory panel is active
         {
-            Debug.LogError("Invalid hotbar index.");
+            if (hotbarIndex < 0 || hotbarIndex >= hotbarItems.Length)
+            {
+                Debug.LogError("Invalid hotbar index.");
+                return;
+            }
+
+            ItemData itemToMove = hotbarItems[hotbarIndex];
+            if (itemToMove != null)
+            {
+                hotbarItems[hotbarIndex] = null;
+
+                for (int i = 0; i < inventoryItems.Length; i++)
+                {
+                    if (inventoryItems[i] == null)
+                    {
+                        inventoryItems[i] = itemToMove;
+                        UImanager.Instance.RenderInventory();
+                        return;
+                    }
+                }
+            }
             return;
         }
 
-        ItemData itemToMove = hotbarItems[hotbarIndex];
-        if (itemToMove != null)
-        {
-            hotbarItems[hotbarIndex] = null;
-
-            for (int i = 0; i < inventoryItems.Length; i++)
-            {
-                if (inventoryItems[i] == null)
-                {
-                    inventoryItems[i] = itemToMove;
-                    UImanager.Instance.RenderInventory();
-                    return;
-                }
-            }
-        }
+        
     }
 }
