@@ -13,6 +13,7 @@ public class UImanager : MonoBehaviour
     public Text itemNameText;
     public Text itemDescriptionText;
     public int selectedSlotIndex = 0;
+    [SerializeField] private Image slotHighlightImage;
 
     private void Awake()
     {
@@ -63,6 +64,7 @@ public class UImanager : MonoBehaviour
     private void Update()
     {
         HandleInput();
+        UpdateSlotUI();
     }
 
     public void AssignSlotIndexes()
@@ -160,6 +162,37 @@ public class UImanager : MonoBehaviour
         else
         {
             Debug.LogError("Invalid slot index: " + selectedSlotIndex);
+        }
+
+    }
+    void UpdateSlotUI()
+    {
+        if (slotHighlightImage != null)
+        {
+            // Check if the selected slot is valid
+            if (selectedSlotIndex >= 0 && selectedSlotIndex < hotbarSlots.Length)
+            {
+                RectTransform slotTransform = hotbarSlots[selectedSlotIndex].GetComponent<RectTransform>();
+                RectTransform highlightTransform = slotHighlightImage.GetComponent<RectTransform>();
+
+                // Position the highlight image at the selected slot
+                highlightTransform.position = slotTransform.position;
+
+                // Update the color of the selected slot
+                for (int i = 0; i < hotbarSlots.Length; i++)
+                {
+                    Image image = hotbarSlots[i].GetComponent<Image>();
+                    image.color = (i == selectedSlotIndex) ? Color.yellow : Color.white;
+                }
+
+                // Ensure the highlight image is visible
+                slotHighlightImage.enabled = true;
+            }
+            else
+            {
+                // Hide the highlight image if the selected slot is invalid
+                slotHighlightImage.enabled = false;
+            }
         }
     }
 }
