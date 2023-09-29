@@ -12,6 +12,7 @@ public class UImanager : MonoBehaviour
     public InventorySlot[] hotbarSlots;
     public Text itemNameText;
     public Text itemDescriptionText;
+    public int selectedSlotIndex = 0;
 
     private void Awake()
     {
@@ -59,6 +60,10 @@ public class UImanager : MonoBehaviour
             }
         }
     }
+    private void Update()
+    {
+        HandleInput();
+    }
 
     public void AssignSlotIndexes()
     {
@@ -95,4 +100,67 @@ public class UImanager : MonoBehaviour
     {
         return inventoryPanel.activeSelf;
     }
+    void HandleInput()
+    {
+        int slotNumber = selectedSlotIndex + 1;  // Adjusting to start from 1-based index
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            selectedSlotIndex = 0;
+
+
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            selectedSlotIndex = 1;
+
+
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            selectedSlotIndex = 2;
+
+
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            selectedSlotIndex = 3;
+
+
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            selectedSlotIndex = 4;
+
+
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            selectedSlotIndex = 5;
+
+
+        }
+
+
+        // Check if the selected slot is within the hotbar slots
+        if (selectedSlotIndex >= 0 && selectedSlotIndex < hotbarSlots.Length)
+        {
+            InventorySlot selectedSlot = hotbarSlots[selectedSlotIndex];
+            ItemData selectedItem = selectedSlot.Get_Item();
+
+            if (selectedItem != null)
+            {
+                Debug.Log("Slot " + slotNumber + ": Item Name - " + selectedItem.name);
+            }
+            else
+            {
+                Debug.Log("Slot " + slotNumber + ": No item.");
+            }
+        }
+        else
+        {
+            Debug.LogError("Invalid slot index: " + selectedSlotIndex);
+        }
+    }
 }
+

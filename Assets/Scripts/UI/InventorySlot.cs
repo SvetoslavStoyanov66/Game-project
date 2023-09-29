@@ -56,4 +56,11 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         UImanager.Instance.DisplayItemInfo(null);
     }
+    public ItemData Get_Item()
+    {
+        // Return the item associated with this slot
+        // Assuming you have a way to get the item data
+        // You might want to manage this through your Inventory class
+        return Inventory.Instance.hotbarItems[slotIndex];
+    }
 }
