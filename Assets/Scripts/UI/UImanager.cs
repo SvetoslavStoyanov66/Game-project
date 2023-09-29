@@ -13,6 +13,8 @@ public class UImanager : MonoBehaviour
     public Text itemNameText;
     public Text itemDescriptionText;
     public int selectedSlotIndex = 0;
+    
+    Land selectedLand;
 
     [Header("Selection Marker")]
     public Image selectionMarkerImage;  // Assign the selection marker image in the inspector
@@ -144,6 +146,15 @@ public class UImanager : MonoBehaviour
             if (selectedItem != null)
             {
                 Debug.Log("Slot " + slotNumber + ": Item Name - " + selectedItem.name);
+                // Pass the selected item name to the land's Interact method
+                if (selectedLand != null)
+                {
+                    selectedLand.Interact(selectedItem.name);
+                }
+                else
+                {
+                    Debug.Log("No land selected.");
+                }
             }
             else
             {
@@ -164,4 +175,6 @@ public class UImanager : MonoBehaviour
     {
         // Update the color of the selected slot (if needed)
     }
+
+    
 }
