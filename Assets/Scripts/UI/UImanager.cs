@@ -182,7 +182,7 @@ public class UImanager : MonoBehaviour
                 for (int i = 0; i < hotbarSlots.Length; i++)
                 {
                     Image image = hotbarSlots[i].GetComponent<Image>();
-                    image.color = (i == selectedSlotIndex) ? Color.yellow : Color.white;
+                    image.color = (i == selectedSlotIndex) ? Color.yellow : Color.grey;
                 }
 
                 // Ensure the highlight image is visible
