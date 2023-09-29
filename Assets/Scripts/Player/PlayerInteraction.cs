@@ -6,6 +6,7 @@ public class PlayerInteraction : MonoBehaviour
 {
     Player playerController;
     Land selectedLand = null;
+    public string selectedToolName;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,7 @@ public class PlayerInteraction : MonoBehaviour
     void Update()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down,out hit,1))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1))
         {
             OnInteractableHit(hit);
         }
@@ -47,16 +48,18 @@ public class PlayerInteraction : MonoBehaviour
         selectedLand = land;
         land.Selected(true);
     }
+
+    
     public void Interact()
     {
         if (selectedLand != null)
         {
-            selectedLand.Interact();
+            selectedLand.Interact("hoe");  // Pass the selected tool name
             return;
         }
         else
         {
-            Debug.Log("not");
+            Debug.Log("No land selected or no tool selected.");
         }
     }
 }

@@ -35,14 +35,14 @@ public class Player : MonoBehaviour
             // Rotate the character to face the movement direction
             Quaternion targetRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.1f);
-            Interact();
+           
         }
-
+        Interact();
 
     }
     public void Interact()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             playerInteraction.Interact();
         }

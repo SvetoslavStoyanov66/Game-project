@@ -13,7 +13,11 @@ public class UImanager : MonoBehaviour
     public Text itemNameText;
     public Text itemDescriptionText;
     public int selectedSlotIndex = 0;
-    [SerializeField] private Image slotHighlightImage;
+    
+    Land selectedLand;
+
+    [Header("Selection Marker")]
+    public Image selectionMarkerImage;  // Assign the selection marker image in the inspector
 
     private void Awake()
     {
@@ -61,6 +65,7 @@ public class UImanager : MonoBehaviour
             }
         }
     }
+
     private void Update()
     {
         HandleInput();
@@ -102,6 +107,7 @@ public class UImanager : MonoBehaviour
     {
         return inventoryPanel.activeSelf;
     }
+
     void HandleInput()
     {
         int slotNumber = selectedSlotIndex + 1;  // Adjusting to start from 1-based index
@@ -109,40 +115,27 @@ public class UImanager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             selectedSlotIndex = 0;
-
-
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             selectedSlotIndex = 1;
-
-
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             selectedSlotIndex = 2;
-
-
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             selectedSlotIndex = 3;
-
-
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             selectedSlotIndex = 4;
-
-
         }
         else if (Input.GetKeyDown(KeyCode.Alpha6))
         {
             selectedSlotIndex = 5;
-
-
         }
-
 
         // Check if the selected slot is within the hotbar slots
         if (selectedSlotIndex >= 0 && selectedSlotIndex < hotbarSlots.Length)
@@ -153,47 +146,35 @@ public class UImanager : MonoBehaviour
             if (selectedItem != null)
             {
                 Debug.Log("Slot " + slotNumber + ": Item Name - " + selectedItem.name);
+                // Pass the selected item name to the land's Interact method
+                if (selectedLand != null)
+                {
+                    selectedLand.Interact(selectedItem.name);
+                }
+                else
+                {
+                    Debug.Log("No land selected.");
+                }
             }
             else
             {
                 Debug.Log("Slot " + slotNumber + ": No item.");
             }
+
+            // Update the position of the selection marker to the selected slot
+            RectTransform selectedSlotTransform = hotbarSlots[selectedSlotIndex].GetComponent<RectTransform>();
+            selectionMarkerImage.rectTransform.position = selectedSlotTransform.position;
         }
         else
         {
             Debug.LogError("Invalid slot index: " + selectedSlotIndex);
         }
-
     }
+
     void UpdateSlotUI()
     {
-        if (slotHighlightImage != null)
-        {
-            // Check if the selected slot is valid
-            if (selectedSlotIndex >= 0 && selectedSlotIndex < hotbarSlots.Length)
-            {
-                RectTransform slotTransform = hotbarSlots[selectedSlotIndex].GetComponent<RectTransform>();
-                RectTransform highlightTransform = slotHighlightImage.GetComponent<RectTransform>();
-
-                // Position the highlight image at the selected slot
-                highlightTransform.position = slotTransform.position;
-
-                // Update the color of the selected slot
-                for (int i = 0; i < hotbarSlots.Length; i++)
-                {
-                    Image image = hotbarSlots[i].GetComponent<Image>();
-                    image.color = (i == selectedSlotIndex) ? Color.yellow : Color.grey;
-                }
-
-                // Ensure the highlight image is visible
-                slotHighlightImage.enabled = true;
-            }
-            else
-            {
-                // Hide the highlight image if the selected slot is invalid
-                slotHighlightImage.enabled = false;
-            }
-        }
+        // Update the color of the selected slot (if needed)
     }
-}
 
+    
+}
