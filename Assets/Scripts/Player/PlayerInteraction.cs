@@ -7,6 +7,7 @@ public class PlayerInteraction : MonoBehaviour
     Player playerController;
     Land selectedLand = null;
     public string selectedToolName;
+    UImanager manager;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,7 +55,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (selectedLand != null)
         {
-            selectedLand.Interact("hoe");  // Pass the selected tool name
+            selectedLand.Interact("Hoe");  // Pass the selected tool name
             return;
         }
         else

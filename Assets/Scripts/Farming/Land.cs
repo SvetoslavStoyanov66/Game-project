@@ -48,7 +48,7 @@ public class Land : MonoBehaviour
     public void Interact(string selectedItemName)
     {
         // Change the land state to farmland only if the selected item is a "hoe"
-        if (selectedItemName.Equals("hoe"))
+        if (selectedItemName.Equals("Hoe"))
         {
             SwitchLandStatus(LandStatus.Farmland);
             Debug.Log("Land has been changed to farmland.");

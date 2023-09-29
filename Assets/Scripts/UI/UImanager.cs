@@ -14,6 +14,7 @@ public class UImanager : MonoBehaviour
     public Text itemDescriptionText;
     public int selectedSlotIndex = 0;
     
+   
     Land selectedLand;
 
     [Header("Selection Marker")]
@@ -101,6 +102,8 @@ public class UImanager : MonoBehaviour
         }
         itemDescriptionText.text = data.description;
         itemNameText.text = data.name;
+
+        
     }
 
     public bool IsInventoryPanelActive()

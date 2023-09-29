@@ -651,7 +651,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &299953401
 Transform:
   m_ObjectHideFlags: 0
@@ -680,8 +680,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hotbarItems:
-  - {fileID: 11400000, guid: e98046e6b20116945acc6364a108ff1a, type: 2}
-  - {fileID: 11400000, guid: 36be0c8a1d5cac64083b9375af58701e, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -724,7 +724,7 @@ MonoBehaviour:
   itemNameText: {fileID: 92471580}
   itemDescriptionText: {fileID: 1485792037}
   selectedSlotIndex: 0
-  slotHighlightImage: {fileID: 0}
+  selectionMarkerImage: {fileID: 0}
 --- !u!1001 &306608523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3514,6 +3514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6def6ac963ee1644aaaa03b15695a38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedToolName: 
 --- !u!114 &1943784502
 MonoBehaviour:
   m_ObjectHideFlags: 0
