@@ -6,6 +6,7 @@ public class UImanager : MonoBehaviour
     public static UImanager Instance { get; private set; }
 
     [Header("Inventory System")]
+    public PlayerInteraction playerInteraction;
     public GameObject inventoryPanel;
     public InventorySlot[] combinedSlots;
     public InventoryToHandBar EquipSLot;
@@ -43,7 +44,7 @@ public class UImanager : MonoBehaviour
         ItemData[] inventorySlots = Inventory.Instance.inventoryItems;
         RenderInventoryPanel(inventorySlots, combinedSlots);
     }
-
+   
     public void DisplayHotbarItem(ItemData item, int hotbarIndex)
     {
         if (hotbarIndex >= 0 && hotbarIndex < hotbarSlots.Length)
@@ -71,6 +72,7 @@ public class UImanager : MonoBehaviour
     {
         HandleInput();
         UpdateSlotUI();
+
     }
 
     public void AssignSlotIndexes()
@@ -110,7 +112,14 @@ public class UImanager : MonoBehaviour
     {
         return inventoryPanel.activeSelf;
     }
-
+    public ItemData GetSelectedHotbarItem()
+    {
+        if (selectedSlotIndex >= 0 && selectedSlotIndex < hotbarSlots.Length)
+        {
+            return hotbarSlots[selectedSlotIndex].Get_Item();
+        }
+        return null;
+    }
     void HandleInput()
     {
         int slotNumber = selectedSlotIndex + 1;  // Adjusting to start from 1-based index

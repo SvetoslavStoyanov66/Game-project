@@ -112,6 +112,10 @@ public class Timer : MonoBehaviour
     {
         return years * 4 * 30;
     }
+    public void data()
+    {
+        
+    }
 
     public static int SeasonToDays(int season)
     {

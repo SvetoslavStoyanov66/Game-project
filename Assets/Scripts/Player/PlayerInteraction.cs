@@ -6,14 +6,19 @@ public class PlayerInteraction : MonoBehaviour
 {
     Player playerController;
     Land selectedLand = null;
-    public string selectedToolName;
+    private ItemData selectedTool;
+    
     UImanager manager;
     // Start is called before the first frame update
     void Start()
     {
         playerController = transform.parent.GetComponent<Player>();
+        manager = UImanager.Instance;
     }
-
+    private void UpdateSelectedTool()
+    {
+        selectedTool = manager.GetSelectedHotbarItem();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -22,6 +27,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             OnInteractableHit(hit);
         }
+        UpdateSelectedTool();
     }
 
     void OnInteractableHit(RaycastHit hit)
@@ -50,15 +56,15 @@ public class PlayerInteraction : MonoBehaviour
         land.Selected(true);
     }
 
-    
+
     public void InteractWithLand()
     {
-        if (selectedLand != null)
+        if (selectedLand != null && selectedTool != null)
         {
-            selectedLand.Interact("Watercan");  // Pass the selected tool name
+            selectedLand.Interact(selectedTool.name);
             return;
         }
-   
+
         else
         {
             Debug.Log("No land selected or no tool selected.");
