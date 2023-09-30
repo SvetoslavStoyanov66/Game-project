@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class Player : MonoBehaviour
 {
@@ -11,7 +11,9 @@ public class Player : MonoBehaviour
     private float rotationSpeed = 1f;
     public float gravity = 9.81f;
     public Timer timer;
-    private float timer1 = 0f;// Reference to the Timer script
+    private float timer1 = 0f;
+    int counter;
+    // Reference to the Timer script
 
 
     PlayerInteraction playerInteraction;
@@ -22,7 +24,7 @@ public class Player : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         playerInteraction = GetComponentInChildren<PlayerInteraction>();
         timer = FindObjectOfType<Timer>();  // Find the Timer script in the scene
-        
+
     }
 
     void Update()
@@ -51,34 +53,36 @@ public class Player : MonoBehaviour
         if (fillAmount <= 0)
         {
             StartCoroutine(SecondsBeforeChangingData());
-           
+
         }
         var animationsPlayer = FindObjectOfType<AnimaationsPlayer>();
         if (animationsPlayer != null)
         {
             animationsPlayer.TriggerAnimations();
         }
-        
+
         EnergyDisplay();
         EnergyTextDisplay();
-        
-        
-            // Update the timer
-            timer1 += Time.deltaTime;
 
-            // Check if 30 seconds have passed
-            if (timer1 >= 30f)
-            {
-                // Decrease fillAmount by 1
-                fillAmount -= 0.01f;
 
-                // Ensure fillAmount doesn't go below 0
-                fillAmount = Mathf.Max(0, fillAmount);
 
-                // Reset the timer
-                timer1 = 0f;
-            }
-        
+        timer1 += Time.deltaTime;
+
+        // Check if 30 seconds have passed
+        if (timer1 >= 30f)
+        {
+            // Decrease fillAmount by 1
+            fillAmount -= 0.01f;
+
+            // Ensure fillAmount doesn't go below 0
+            fillAmount = Mathf.Max(0, fillAmount);
+
+            // Reset the timer
+            timer1 = 0f;
+        }
+
+
+
     }
 
     public void Interact()
@@ -94,7 +98,7 @@ public class Player : MonoBehaviour
         }
 
     }
-    
+
     private void EnergyDisplay()
     {
         energyFill.fillAmount = fillAmount;
@@ -118,12 +122,21 @@ public class Player : MonoBehaviour
     }
     public IEnumerator SecondsBeforeChangingData()
     {
-       yield return new WaitForSeconds(2.5f);
-        timer.day++;  // Advance to the next day
-        timer.hours = 8;  // Reset hours to 8
-        fillAmount = 0.75f;  // Reset energy to 75%
+
+        yield return new WaitForSeconds(2.5f);
+
+        
+        timer.hours = 8;
+        fillAmount = 0.75f;
+        if (counter < 1)
+        {
+            timer.day++;
+        }
+        counter++;
+        yield return new WaitForSeconds(5);
+        counter = 0;
     }
-   
+
 
 
 }

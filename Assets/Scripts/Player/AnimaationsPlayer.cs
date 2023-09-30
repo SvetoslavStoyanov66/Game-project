@@ -45,7 +45,7 @@ public class AnimaationsPlayer : MonoBehaviour
             {
                 animator.SetBool("IsForceSleeping", false);
                 animator.SetBool("IsStandingUp", true);
-                StartCoroutine(ResetStandingUpAfterDelay(2.0f));
+                StartCoroutine(ResetStandingUpAfterDelay(2));
             }
         }
     }
