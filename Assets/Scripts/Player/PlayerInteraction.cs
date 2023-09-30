@@ -51,13 +51,14 @@ public class PlayerInteraction : MonoBehaviour
     }
 
     
-    public void Interact()
+    public void InteractWithLand()
     {
         if (selectedLand != null)
         {
-            selectedLand.Interact("Hoe");  // Pass the selected tool name
+            selectedLand.Interact("Watercan");  // Pass the selected tool name
             return;
         }
+   
         else
         {
             Debug.Log("No land selected or no tool selected.");

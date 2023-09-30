@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Land : MonoBehaviour
 {
+
+    public LandStatus landStatus = LandStatus.Soil;
     public enum LandStatus 
     {
         Soil,Farmland,Watared
     }
 
-    public LandStatus landStatus;
+    
 
     public Material soilMat, farmlandMat, wataredMat;
     new Renderer renderer;
@@ -18,12 +20,14 @@ public class Land : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        renderer = GetComponent<Renderer>();    
+        renderer = GetComponent<Renderer>();
         SwitchLandStatus(LandStatus.Soil);
     }
+   
 
     public void SwitchLandStatus(LandStatus statusToSwich)
     {
+
         landStatus = statusToSwich;
         Material materialTpSwich = soilMat;
         switch (statusToSwich)
@@ -53,10 +57,16 @@ public class Land : MonoBehaviour
             SwitchLandStatus(LandStatus.Farmland);
             Debug.Log("Land has been changed to farmland.");
         }
+        else if (selectedItemName.Equals("Watercan"))
+        {
+            SwitchLandStatus(LandStatus.Watared);
+            Debug.Log("Land has been changed to watared.");
+        }
         else
         {
             Debug.Log("Selected item is not a hoe. Land state remains unchanged.");
         }
     }
+   
 }
 

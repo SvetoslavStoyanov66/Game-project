@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            playerInteraction.Interact();
+            playerInteraction.InteractWithLand();
         }
     }
     public float GetHorizontalInput()
