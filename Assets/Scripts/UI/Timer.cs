@@ -7,6 +7,8 @@ using UnityEngine.XR;
 
 public class Timer : MonoBehaviour
 {
+    Player player1;
+    AnimaationsPlayer player;
     public List<Land> landObjects;
     public Transform SunTransform;
     public Text timerText;
@@ -112,10 +114,7 @@ public class Timer : MonoBehaviour
     {
         return years * 4 * 30;
     }
-    public void data()
-    {
-        
-    }
+ 
 
     public static int SeasonToDays(int season)
     {

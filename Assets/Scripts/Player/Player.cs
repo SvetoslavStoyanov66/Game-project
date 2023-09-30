@@ -10,7 +10,9 @@ public class Player : MonoBehaviour
     public Text energyAmountText;
     private float rotationSpeed = 1f;
     public float gravity = 9.81f;
-    public Timer timer;  // Reference to the Timer script
+    public Timer timer;
+    private float timer1 = 0f;// Reference to the Timer script
+
 
     PlayerInteraction playerInteraction;
     private CharacterController characterController;
@@ -20,6 +22,7 @@ public class Player : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         playerInteraction = GetComponentInChildren<PlayerInteraction>();
         timer = FindObjectOfType<Timer>();  // Find the Timer script in the scene
+        
     }
 
     void Update()
@@ -55,8 +58,27 @@ public class Player : MonoBehaviour
         {
             animationsPlayer.TriggerAnimations();
         }
+        
         EnergyDisplay();
         EnergyTextDisplay();
+        
+        
+            // Update the timer
+            timer1 += Time.deltaTime;
+
+            // Check if 30 seconds have passed
+            if (timer1 >= 30f)
+            {
+                // Decrease fillAmount by 1
+                fillAmount -= 0.01f;
+
+                // Ensure fillAmount doesn't go below 0
+                fillAmount = Mathf.Max(0, fillAmount);
+
+                // Reset the timer
+                timer1 = 0f;
+            }
+        
     }
 
     public void Interact()
@@ -72,7 +94,7 @@ public class Player : MonoBehaviour
         }
 
     }
-
+    
     private void EnergyDisplay()
     {
         energyFill.fillAmount = fillAmount;
@@ -96,9 +118,12 @@ public class Player : MonoBehaviour
     }
     public IEnumerator SecondsBeforeChangingData()
     {
-       yield return new WaitForSeconds(3);
+       yield return new WaitForSeconds(2.5f);
         timer.day++;  // Advance to the next day
         timer.hours = 8;  // Reset hours to 8
         fillAmount = 0.75f;  // Reset energy to 75%
     }
+   
+
+
 }

@@ -5,6 +5,7 @@ public class AnimaationsPlayer : MonoBehaviour
 {
     private Animator animator;
     private Player player;
+    Timer timer;
 
     void Start()
     {
@@ -26,9 +27,7 @@ public class AnimaationsPlayer : MonoBehaviour
 
         // Set the "walking" parameter in the animator
         animator.SetBool("isWalking", isWalking);
-
-        // Check if fill amount is 0 or below
-        Debug.LogError(player.fillAmount);
+        
         
     }
     public void TriggerAnimations()
