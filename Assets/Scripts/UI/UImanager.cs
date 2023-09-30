@@ -163,10 +163,7 @@ public class UImanager : MonoBehaviour
                 {
                     selectedLand.Interact(selectedItem.name);
                 }
-                else
-                {
-                    Debug.Log("No land selected.");
-                }
+                
             }
             else
             {

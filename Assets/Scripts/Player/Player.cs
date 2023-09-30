@@ -1,11 +1,14 @@
-﻿using System.Drawing;
+﻿
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     public float moveSpeed = 5.0f;
-
-    private float rotationSpeed = 100f;
+    public float fillAmounth = 1.0f;
+    public Image eneregyfull;
+    public Text EnergyAmountText;
+    private float rotationSpeed = 1f;
     public float gravity = 9.81f;
     PlayerInteraction playerInteraction;
     private CharacterController characterController;
@@ -38,13 +41,20 @@ public class Player : MonoBehaviour
            
         }
         Interact();
-
+        EnergyDisplay();
+        EnergyTextDispaly();
     }
     public void Interact()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
             playerInteraction.InteractWithLand();
+            if (playerInteraction.selectedTool != null && playerInteraction.selectedTool.name.Equals("Hoe"))
+            {
+                fillAmounth -= 0.1f;
+                fillAmounth = Mathf.Clamp(fillAmounth, 0.0f, 1.0f);
+                EnergyDisplay();  // Update the energy display
+            }
         }
     }
     public float GetHorizontalInput()
@@ -55,5 +65,16 @@ public class Player : MonoBehaviour
     public float GetVerticalInput()
     {
         return Input.GetAxis("Vertical");
+    }
+    private void EnergyDisplay()
+    {
+        eneregyfull.fillAmount = fillAmounth;
+    }
+    private void EnergyTextDispaly()
+    {
+        if (EnergyAmountText != null)
+        {
+            EnergyAmountText.text = "Energy- " + (fillAmounth * 100).ToString("0");
+        }
     }
 }

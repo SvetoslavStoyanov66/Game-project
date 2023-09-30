@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Land : MonoBehaviour
 {
-
     public LandStatus landStatus = LandStatus.Soil;
     public enum LandStatus 
     {

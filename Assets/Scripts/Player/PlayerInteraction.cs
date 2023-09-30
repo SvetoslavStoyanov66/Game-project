@@ -6,7 +6,7 @@ public class PlayerInteraction : MonoBehaviour
 {
     Player playerController;
     Land selectedLand = null;
-    private ItemData selectedTool;
+    public ItemData selectedTool;
     
     UImanager manager;
     // Start is called before the first frame update
@@ -15,7 +15,7 @@ public class PlayerInteraction : MonoBehaviour
         playerController = transform.parent.GetComponent<Player>();
         manager = UImanager.Instance;
     }
-    private void UpdateSelectedTool()
+    public void UpdateSelectedTool()
     {
         selectedTool = manager.GetSelectedHotbarItem();
     }
@@ -62,7 +62,8 @@ public class PlayerInteraction : MonoBehaviour
         if (selectedLand != null && selectedTool != null)
         {
             selectedLand.Interact(selectedTool.name);
-            return;
+            
+           return;
         }
 
         else
