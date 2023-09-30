@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class AnimaationsPlayer : MonoBehaviour
 {
@@ -16,8 +17,6 @@ public class AnimaationsPlayer : MonoBehaviour
 
     void Update()
     {
-        
-
         // Retrieve movement inputs from the Player script
         float horizontal = player.GetHorizontalInput();
         float vertical = player.GetVerticalInput();
@@ -28,8 +27,33 @@ public class AnimaationsPlayer : MonoBehaviour
         // Set the "walking" parameter in the animator
         animator.SetBool("isWalking", isWalking);
 
+        // Check if fill amount is 0 or below
+        Debug.LogError(player.fillAmount);
         
-       
+    }
+    public void TriggerAnimations()
+    {
+        if (player.fillAmount <= 0)
+        {
+            // Start the "IsForceSleeping" animation
+            animator.SetBool("IsForceSleeping", true);
+            animator.SetBool("IsStandingUp", false);
+        }
+        else
+        {
+            // If we were in the sleeping state, reset it and trigger standing up
+            if (animator.GetBool("IsForceSleeping"))
+            {
+                animator.SetBool("IsForceSleeping", false);
+                animator.SetBool("IsStandingUp", true);
+                StartCoroutine(ResetStandingUpAfterDelay(2.0f));
+            }
+        }
+    }
+    private IEnumerator ResetStandingUpAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        animator.SetBool("IsStandingUp", false);
     }
 
 }

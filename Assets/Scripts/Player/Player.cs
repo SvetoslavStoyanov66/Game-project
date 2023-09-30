@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -46,11 +47,14 @@ public class Player : MonoBehaviour
         // Check if energy is 0 and update day and energy accordingly
         if (fillAmount <= 0)
         {
-            timer.day++;  // Advance to the next day
-            timer.hours = 8;  // Reset hours to 8
-            fillAmount = 0.75f;  // Reset energy to 75%
+            StartCoroutine(SecondsBeforeChangingData());
+           
         }
-
+        var animationsPlayer = FindObjectOfType<AnimaationsPlayer>();
+        if (animationsPlayer != null)
+        {
+            animationsPlayer.TriggerAnimations();
+        }
         EnergyDisplay();
         EnergyTextDisplay();
     }
@@ -66,6 +70,7 @@ public class Player : MonoBehaviour
                 EnergyDisplay();  // Update the energy display
             }
         }
+
     }
 
     private void EnergyDisplay()
@@ -88,5 +93,12 @@ public class Player : MonoBehaviour
     public float GetVerticalInput()
     {
         return Input.GetAxis("Vertical");
+    }
+    public IEnumerator SecondsBeforeChangingData()
+    {
+       yield return new WaitForSeconds(3);
+        timer.day++;  // Advance to the next day
+        timer.hours = 8;  // Reset hours to 8
+        fillAmount = 0.75f;  // Reset energy to 75%
     }
 }
