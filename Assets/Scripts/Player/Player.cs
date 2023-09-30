@@ -1,15 +1,16 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     public float moveSpeed = 5.0f;
-    public float fillAmounth = 1.0f;
-    public Image eneregyfull;
-    public Text EnergyAmountText;
+    public float fillAmount = 1.0f;  // Corrected typo in variable name
+    public Image energyFill;
+    public Text energyAmountText;
     private float rotationSpeed = 1f;
     public float gravity = 9.81f;
+    public Timer timer;  // Reference to the Timer script
+
     PlayerInteraction playerInteraction;
     private CharacterController characterController;
 
@@ -17,8 +18,8 @@ public class Player : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         playerInteraction = GetComponentInChildren<PlayerInteraction>();
+        timer = FindObjectOfType<Timer>();  // Find the Timer script in the scene
     }
-   
 
     void Update()
     {
@@ -38,12 +39,22 @@ public class Player : MonoBehaviour
             // Rotate the character to face the movement direction
             Quaternion targetRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.1f);
-           
         }
+
         Interact();
+
+        // Check if energy is 0 and update day and energy accordingly
+        if (fillAmount <= 0)
+        {
+            timer.day++;  // Advance to the next day
+            timer.hours = 8;  // Reset hours to 8
+            fillAmount = 0.75f;  // Reset energy to 75%
+        }
+
         EnergyDisplay();
-        EnergyTextDispaly();
+        EnergyTextDisplay();
     }
+
     public void Interact()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -51,10 +62,22 @@ public class Player : MonoBehaviour
             playerInteraction.InteractWithLand();
             if (playerInteraction.selectedTool != null && playerInteraction.selectedTool.name.Equals("Hoe") && playerInteraction.selectedLand != null)
             {
-                fillAmounth -= 0.1f;
-                fillAmounth = Mathf.Clamp(fillAmounth, 0.0f, 1.0f);
+                fillAmount -= 0.1f;
                 EnergyDisplay();  // Update the energy display
             }
+        }
+    }
+
+    private void EnergyDisplay()
+    {
+        energyFill.fillAmount = fillAmount;
+    }
+
+    private void EnergyTextDisplay()
+    {
+        if (energyAmountText != null)
+        {
+            energyAmountText.text = "Energy - " + (fillAmount * 100).ToString("0");
         }
     }
     public float GetHorizontalInput()
@@ -65,16 +88,5 @@ public class Player : MonoBehaviour
     public float GetVerticalInput()
     {
         return Input.GetAxis("Vertical");
-    }
-    private void EnergyDisplay()
-    {
-        eneregyfull.fillAmount = fillAmounth;
-    }
-    private void EnergyTextDispaly()
-    {
-        if (EnergyAmountText != null)
-        {
-            EnergyAmountText.text = "Energy - " + (fillAmounth * 100).ToString("0");
-        }
     }
 }
