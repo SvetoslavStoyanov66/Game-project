@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             playerInteraction.InteractWithLand();
-            if (playerInteraction.selectedTool != null && playerInteraction.selectedTool.name.Equals("Hoe"))
+            if (playerInteraction.selectedTool != null && playerInteraction.selectedTool.name.Equals("Hoe") && playerInteraction.selectedLand != null)
             {
                 fillAmounth -= 0.1f;
                 fillAmounth = Mathf.Clamp(fillAmounth, 0.0f, 1.0f);
@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
     {
         if (EnergyAmountText != null)
         {
-            EnergyAmountText.text = "Energy- " + (fillAmounth * 100).ToString("0");
+            EnergyAmountText.text = "Energy - " + (fillAmounth * 100).ToString("0");
         }
     }
 }

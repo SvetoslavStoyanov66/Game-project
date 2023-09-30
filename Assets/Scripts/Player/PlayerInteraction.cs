@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
     Player playerController;
-    Land selectedLand = null;
+    public Land selectedLand = null;
     public ItemData selectedTool;
     
     UImanager manager;
