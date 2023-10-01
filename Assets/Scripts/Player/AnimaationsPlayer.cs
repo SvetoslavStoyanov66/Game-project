@@ -52,5 +52,15 @@ public class AnimaationsPlayer : MonoBehaviour
         yield return new WaitForSeconds(delay);
         animator.SetBool("IsStandingUp", false);
     }
+    public void HoeUsageAnimations()
+    {
+        animator.SetBool("IsUsingHoe", true);
+        StartCoroutine(ResetHoe(1.5f));
+    }
+    private IEnumerator ResetHoe(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        animator.SetBool("IsUsingHoe", false);
+    }
 
 }

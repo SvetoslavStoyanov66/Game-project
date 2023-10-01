@@ -7,6 +7,8 @@ public class PlayerInteraction : MonoBehaviour
     Player playerController;
     public Land selectedLand = null;
     public ItemData selectedTool;
+    public AnimaationsPlayer player;
+    public Player player1;
     
     UImanager manager;
     // Start is called before the first frame update
@@ -28,6 +30,7 @@ public class PlayerInteraction : MonoBehaviour
             OnInteractableHit(hit);
         }
         UpdateSelectedTool();
+
     }
 
     void OnInteractableHit(RaycastHit hit)
@@ -62,6 +65,10 @@ public class PlayerInteraction : MonoBehaviour
         if (selectedLand != null && selectedTool != null)
         {
             selectedLand.Interact(selectedTool.name);
+            if (selectedTool.name == "Hoe")
+            {
+                player.HoeUsageAnimations();
+            }
             
            return;
         }

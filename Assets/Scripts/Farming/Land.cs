@@ -54,6 +54,7 @@ public class Land : MonoBehaviour
         {
             SwitchLandStatus(LandStatus.Farmland);
             Debug.Log("Land has been changed to farmland.");
+            
         }
         else if (selectedItemName.Equals("Wateringcan"))
         {

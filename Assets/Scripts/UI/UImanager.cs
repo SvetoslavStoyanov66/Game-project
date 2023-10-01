@@ -14,6 +14,7 @@ public class UImanager : MonoBehaviour
     public Text itemNameText;
     public Text itemDescriptionText;
     public int selectedSlotIndex = 0;
+    public GameObject hoe;
     
    
     Land selectedLand;
@@ -154,10 +155,18 @@ public class UImanager : MonoBehaviour
         {
             InventorySlot selectedSlot = hotbarSlots[selectedSlotIndex];
             ItemData selectedItem = selectedSlot.Get_Item();
+            
 
             if (selectedItem != null)
             {
-                Debug.Log("Slot " + slotNumber + ": Item Name - " + selectedItem.name);
+                if (selectedItem.name == "Hoe")
+                {
+                    hoe.SetActive(true);
+                }
+                else
+                {
+                    hoe.SetActive(false);
+                }
                 // Pass the selected item name to the land's Interact method
                 if (selectedLand != null)
                 {
@@ -167,7 +176,7 @@ public class UImanager : MonoBehaviour
             }
             else
             {
-                Debug.Log("Slot " + slotNumber + ": No item.");
+                
             }
 
             // Update the position of the selection marker to the selected slot

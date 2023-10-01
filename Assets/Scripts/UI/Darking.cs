@@ -15,7 +15,7 @@ public class Darking : MonoBehaviour
             {
                 StartDarkenAnimation();
             }
-            Debug.Log(player.fillAmount);
+            
         }
         
         
