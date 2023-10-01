@@ -51,7 +51,9 @@ public class Player : MonoBehaviour
         // Check if energy is 0 and update day and energy accordingly
         if (fillAmount <= 0)
         {
+            StartCoroutine(DiseableMovement());
             StartCoroutine(SecondsBeforeChangingData());
+            
 
         }
         var animationsPlayer = FindObjectOfType<AnimaationsPlayer>();
@@ -134,6 +136,12 @@ public class Player : MonoBehaviour
         counter++;
         yield return new WaitForSeconds(5);
         counter = 0;
+    }
+    IEnumerator DiseableMovement()
+    {
+        moveSpeed = 0;
+        yield return new WaitForSeconds(12f);
+        moveSpeed = 5;
     }
 
 
