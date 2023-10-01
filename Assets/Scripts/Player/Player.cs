@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+using UnityEngine.SceneManagement;
+
 
 public class Player : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class Player : MonoBehaviour
     public Timer timer;
     private float timer1 = 0f;
     int counter;
+
+    public GameObject indicator;
     // Reference to the Timer script
 
 
@@ -28,6 +32,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        CheckForCollisionsWithTargetTag();
         Vector3 gravityVector = Vector3.down * gravity;
         characterController.Move(gravityVector * Time.deltaTime);
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -94,6 +99,11 @@ public class Player : MonoBehaviour
                 fillAmount -= 0.1f;
                 EnergyDisplay();  // Update the energy display
             }
+            if (indicator != null && indicator.activeSelf)
+            {
+                SceneManager.LoadScene("House");
+                gameObject.transform.position = new Vector3(0,0,0);
+            }
         }
 
     }
@@ -124,7 +134,7 @@ public class Player : MonoBehaviour
 
         yield return new WaitForSeconds(2.5f);
 
-        
+
         timer.hours = 8;
         fillAmount = 0.75f;
         if (counter < 1)
@@ -140,6 +150,28 @@ public class Player : MonoBehaviour
         moveSpeed = 0;
         yield return new WaitForSeconds(num);
         moveSpeed = 5;
+    }
+    private void CheckForCollisionsWithTargetTag()
+    {
+        // Get all colliders the character is currently colliding with
+        Collider[] colliders = Physics.OverlapSphere(transform.position, GetComponent<CharacterController>().radius);
+
+        bool doorColliderDetected = false;
+
+        foreach (Collider collider in colliders)
+        {
+            if (collider.CompareTag("Door"))
+            {
+                doorColliderDetected = true;
+                // If we detect a door collider, we can exit the loop since we only need to know if a door is detected
+                break;
+            }
+        }
+        if (indicator != null)
+        {
+            indicator.SetActive(doorColliderDetected);
+        }
+        
     }
 
 

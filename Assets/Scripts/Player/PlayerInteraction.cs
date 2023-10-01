@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -68,6 +71,7 @@ public class PlayerInteraction : MonoBehaviour
             if (selectedTool.name == "Hoe")
             {
                 player.HoeUsageAnimations();
+                StartCoroutine(StopMovement());
             }
             
            return;
@@ -77,5 +81,11 @@ public class PlayerInteraction : MonoBehaviour
         {
             Debug.Log("No land selected or no tool selected.");
         }
+    }
+    IEnumerator StopMovement()
+    {
+        player1.moveSpeed = 0;
+        yield return new WaitForSeconds(1.5f);
+        player1.moveSpeed = 5;
     }
 }

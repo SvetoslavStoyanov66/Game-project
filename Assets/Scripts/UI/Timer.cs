@@ -130,9 +130,13 @@ public class Timer : MonoBehaviour
     }
     public void SunMovement()
     {
-        MinutesInDay = (hours * 60) + minutes;
-        angle = .25f * MinutesInDay - 90;
-        SunTransform.eulerAngles = new Vector3(angle, 0,0);
+        if (SunTransform != null)
+        {
+            MinutesInDay = (hours * 60) + minutes;
+            angle = .25f * MinutesInDay - 90;
+            SunTransform.eulerAngles = new Vector3(angle, 0, 0);
+        }
+        
     }
 
          
