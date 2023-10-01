@@ -6,7 +6,6 @@ public class AnimaationsPlayer : MonoBehaviour
     private Animator animator;
     private Player player;
     Timer timer;
-
     void Start()
     {
         // Get the Animator component from the same game object
@@ -34,7 +33,6 @@ public class AnimaationsPlayer : MonoBehaviour
     {
         if (player.fillAmount <= 0)
         {
-            // Start the "IsForceSleeping" animation
             animator.SetBool("IsForceSleeping", true);
             animator.SetBool("IsStandingUp", false);
         }

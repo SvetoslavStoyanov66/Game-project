@@ -10,7 +10,6 @@ public class Land : MonoBehaviour
         Soil,Farmland,Watared
     }
 
-    
 
     public Material soilMat, farmlandMat, wataredMat;
     new Renderer renderer;
@@ -22,7 +21,7 @@ public class Land : MonoBehaviour
         renderer = GetComponent<Renderer>();
         SwitchLandStatus(LandStatus.Soil);
     }
-   
+    
 
     public void SwitchLandStatus(LandStatus statusToSwich)
     {

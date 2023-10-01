@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
     public float fillAmount = 1.0f;  // Corrected typo in variable name
     public Image energyFill;
     public Text energyAmountText;
-    private float rotationSpeed = 1f;
     public float gravity = 9.81f;
     public Timer timer;
     private float timer1 = 0f;
@@ -72,7 +71,7 @@ public class Player : MonoBehaviour
         if (timer1 >= 30f)
         {
             // Decrease fillAmount by 1
-            fillAmount -= 0.01f;
+            fillAmount -= 0.04f;
 
             // Ensure fillAmount doesn't go below 0
             fillAmount = Mathf.Max(0, fillAmount);

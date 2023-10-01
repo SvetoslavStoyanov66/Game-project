@@ -24,7 +24,7 @@ public class Timer : MonoBehaviour
     private int minutes = 0;
     private float elapsedTime;
     public int year;
-    public int day;
+    public int day = 1;
     public int seasonNum;
 
     public int MinutesInDay;
@@ -54,7 +54,6 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         timerText.fontSize = fontSize;
-        landObjects = new List<Land>(GameObject.FindObjectsOfType<Land>());
     }
 
     private void Update()
