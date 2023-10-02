@@ -15,6 +15,7 @@ public class UImanager : MonoBehaviour
     public Text itemDescriptionText;
     public int selectedSlotIndex = 0;
     public GameObject hoe;
+    public Player player;
     
    
     Land selectedLand;
@@ -167,6 +168,14 @@ public class UImanager : MonoBehaviour
                 {
                     hoe.SetActive(false);
                 }
+                if (selectedItem.name == "Carrot")
+                {
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        player.fillAmount += .1f;
+                        
+                    }
+                }
                 // Pass the selected item name to the land's Interact method
                 if (selectedLand != null)
                 {
@@ -193,6 +202,7 @@ public class UImanager : MonoBehaviour
     {
         // Update the color of the selected slot (if needed)
     }
+
 
     
 }

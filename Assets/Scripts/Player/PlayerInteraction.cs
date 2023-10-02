@@ -71,7 +71,12 @@ public class PlayerInteraction : MonoBehaviour
             if (selectedTool.name == "Hoe")
             {
                 player.HoeUsageAnimations();
-                StartCoroutine(StopMovement());
+                StartCoroutine(StopMovement(1.5f));
+            }
+            if (selectedTool.name == "Wateringcan")
+            {
+                player.Watering();
+                StartCoroutine(StopMovement(2.5f));
             }
             
            return;
@@ -82,10 +87,10 @@ public class PlayerInteraction : MonoBehaviour
             Debug.Log("No land selected or no tool selected.");
         }
     }
-    IEnumerator StopMovement()
+    IEnumerator StopMovement(float num)
     {
         player1.moveSpeed = 0;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(num);
         player1.moveSpeed = 5;
     }
 }

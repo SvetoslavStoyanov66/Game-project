@@ -51,6 +51,7 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
+
     }
 
     public void HotBarToInventory(int hotbarIndex)

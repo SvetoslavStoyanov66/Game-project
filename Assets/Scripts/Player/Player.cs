@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class Player : MonoBehaviour
@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     int counter;
 
     public GameObject indicator;
+    public GameObject indicator2;
     // Reference to the Timer script
 
 
@@ -102,7 +103,6 @@ public class Player : MonoBehaviour
             if (indicator != null && indicator.activeSelf)
             {
                 SceneManager.LoadScene("House");
-                gameObject.transform.position = new Vector3(0,0,0);
             }
         }
 
@@ -157,6 +157,7 @@ public class Player : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(transform.position, GetComponent<CharacterController>().radius);
 
         bool doorColliderDetected = false;
+        bool ExitDoor = false;
 
         foreach (Collider collider in colliders)
         {
@@ -166,12 +167,17 @@ public class Player : MonoBehaviour
                 // If we detect a door collider, we can exit the loop since we only need to know if a door is detected
                 break;
             }
+            if (collider.CompareTag("HouseExit"))
+            {
+                ExitDoor = true;
+                // If we detect a door collider, we can exit the loop since we only need to know if a door is detected
+                break;
+            }
         }
         if (indicator != null)
         {
             indicator.SetActive(doorColliderDetected);
         }
-        
     }
 
 

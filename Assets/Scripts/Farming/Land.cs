@@ -66,6 +66,14 @@ public class Land : MonoBehaviour
             Debug.Log("Selected item is not a hoe. Land state remains unchanged.");
         }
     }
-   
+    public void ResetToSoil()
+    {
+        SwitchLandStatus(LandStatus.Soil);
+    }
+    public void ResetToWatared()
+    {
+        SwitchLandStatus(LandStatus.Watared);
+    }
+
 }
 

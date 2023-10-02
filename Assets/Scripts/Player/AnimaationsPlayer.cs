@@ -57,10 +57,19 @@ public class AnimaationsPlayer : MonoBehaviour
         animator.SetBool("IsUsingHoe", true);
         StartCoroutine(ResetHoe(1.5f));
     }
+    public void Watering()
+    {
+        animator.SetBool("IsWatering", true);
+        StartCoroutine(ResetWatering(2.5f));
+    }
     private IEnumerator ResetHoe(float delay)
     {
         yield return new WaitForSeconds(delay);
         animator.SetBool("IsUsingHoe", false);
     }
-
+    private IEnumerator ResetWatering(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        animator.SetBool("IsWatering", false);
+    }
 }
