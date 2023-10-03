@@ -164,7 +164,7 @@ public class UImanager : MonoBehaviour
                 {
                     hoe.SetActive(true);
                 }
-                else
+                if (selectedItem.name != "Hoe")
                 {
                     hoe.SetActive(false);
                 }
@@ -185,7 +185,7 @@ public class UImanager : MonoBehaviour
             }
             else
             {
-                
+                hoe.SetActive(false);
             }
 
             // Update the position of the selection marker to the selected slot
