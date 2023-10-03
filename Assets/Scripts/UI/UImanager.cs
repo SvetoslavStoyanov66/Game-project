@@ -15,6 +15,8 @@ public class UImanager : MonoBehaviour
     public Text itemDescriptionText;
     public int selectedSlotIndex = 0;
     public GameObject hoe;
+    public GameObject axe;
+    public GameObject pickaxe;
     public Player player;
     
    
@@ -168,12 +170,27 @@ public class UImanager : MonoBehaviour
                 {
                     hoe.SetActive(false);
                 }
+                if (selectedItem.name == "Axe")
+                {
+                    axe.SetActive(true);
+                }
+                if (selectedItem.name != "Axe")
+                {
+                    axe.SetActive(false);
+                }
+                if (selectedItem.name == "Pickaxe")
+                {
+                    pickaxe.SetActive(true);
+                }
+                if (selectedItem.name != "Pickaxe")
+                {
+                    pickaxe.SetActive(false);
+                }
                 if (selectedItem.name == "Carrot")
                 {
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         player.fillAmount += .1f;
-                        
                     }
                 }
                 // Pass the selected item name to the land's Interact method
@@ -186,6 +203,8 @@ public class UImanager : MonoBehaviour
             else
             {
                 hoe.SetActive(false);
+                axe.SetActive(false);
+                pickaxe.SetActive(false);
             }
 
             // Update the position of the selection marker to the selected slot

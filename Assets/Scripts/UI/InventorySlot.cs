@@ -63,4 +63,5 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         // You might want to manage this through your Inventory class
         return Inventory.Instance.hotbarItems[slotIndex];
     }
+
 }
