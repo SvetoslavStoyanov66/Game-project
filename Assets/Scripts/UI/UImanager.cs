@@ -197,6 +197,13 @@ public class UImanager : MonoBehaviour
                 if (selectedLand != null)
                 {
                     selectedLand.Interact(selectedItem.name);
+                    if (selectedItem is SeedsData)
+                    {
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {
+                            playerInteraction.InteractWithLand();  // Call the InteractWithLand method when pressing E
+                        }
+                    }
                 }
                 
             }
@@ -223,5 +230,4 @@ public class UImanager : MonoBehaviour
     }
 
 
-    
 }

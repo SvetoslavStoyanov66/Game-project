@@ -78,8 +78,11 @@ public class PlayerInteraction : MonoBehaviour
                 player.Watering();
                 StartCoroutine(StopMovement(2.5f));
             }
-            
-           return;
+            if (selectedTool is SeedsData)
+            {
+                InstantiateSeed(selectedTool as SeedsData);
+            }
+            return;
         }
 
         else
@@ -93,4 +96,26 @@ public class PlayerInteraction : MonoBehaviour
         yield return new WaitForSeconds(num);
         player1.moveSpeed = 5;
     }
+    private void InstantiateSeed(SeedsData seedData)
+    {
+        if (selectedLand.landStatus == Land.LandStatus.Farmland)
+        {
+            Vector3 landPosition = selectedLand.transform.position;
+
+            // Set the desired Y-coordinate
+            landPosition.y = 0f;
+            landPosition.z += -.2f;
+
+            // Set the desired rotation (X: -90 degrees)
+            Quaternion desiredRotation = Quaternion.Euler(-90f, 0f, 0f);
+
+            // Instantiate the seed prefab with the modified position and rotation
+            GameObject seedInstance = Instantiate(seedData.gameModel, landPosition, desiredRotation);
+
+        }
+    
+    }
+
+    // Existing code...
 }
+
