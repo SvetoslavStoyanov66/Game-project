@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public Timer timer;
     private float timer1 = 0f;
     int counter;
+    bool TakeEnergy = true;
 
     public GameObject indicator;
     public GameObject indicator2;
@@ -95,9 +96,9 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             playerInteraction.InteractWithLand();
-            if (playerInteraction.selectedTool != null && playerInteraction.selectedTool.name.Equals("Hoe") && playerInteraction.selectedLand != null)
+            if (playerInteraction.selectedTool != null && playerInteraction.selectedTool.name.Equals("Hoe") && playerInteraction.selectedLand != null && TakeEnergy ==  true)
             {
-                fillAmount -= 0.1f;
+                StartCoroutine (EnergyTaking());
                 EnergyDisplay();  // Update the energy display
             }
             if (indicator != null && indicator.activeSelf)
@@ -179,7 +180,13 @@ public class Player : MonoBehaviour
             indicator.SetActive(doorColliderDetected);
         }
     }
-
+    IEnumerator EnergyTaking()
+    {
+        TakeEnergy = false;
+        fillAmount -= 0.1f;
+        yield return new WaitForSeconds(1.5f);
+        TakeEnergy = true;
+    }
 
 
 }

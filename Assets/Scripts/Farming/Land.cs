@@ -15,6 +15,7 @@ public class Land : MonoBehaviour
     new Renderer renderer;
     public GameObject select;
     public bool wasWateredYesterday = false;
+    private bool hasSeedPlanted = false;
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +64,7 @@ public class Land : MonoBehaviour
             Debug.Log("Land has been changed to watared.");
           
         }
+
         else
         {
             Debug.Log("Selected item is not a hoe. Land state remains unchanged.");
@@ -75,6 +77,14 @@ public class Land : MonoBehaviour
     public void ResetToWatared()
     {
         SwitchLandStatus(LandStatus.Watared);
+    }
+    public bool HasSeedPlanted()
+    {
+        return hasSeedPlanted;
+    }
+    public void PlantSeed()
+    {
+        hasSeedPlanted = true;
     }
 
 }

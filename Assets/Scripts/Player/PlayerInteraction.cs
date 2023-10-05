@@ -12,7 +12,6 @@ public class PlayerInteraction : MonoBehaviour
     public ItemData selectedTool;
     public AnimaationsPlayer player;
     public Player player1;
-
     
     UImanager manager;
     // Start is called before the first frame update
@@ -102,28 +101,28 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (selectedLand.landStatus == Land.LandStatus.Farmland)
         {
-            Vector3 landPosition = selectedLand.transform.position;
-
-            // Set the desired Y-coordinate
-            landPosition.y = 0f;
-            if (selectedTool.name == "Potato Seed")
+            if (!selectedLand.HasSeedPlanted())  // Check if a seed is already planted
             {
-                landPosition.z += -.2f;
+                Vector3 landPosition = selectedLand.transform.position;
+
+                // Set the desired Y-coordinate
+                landPosition.y = 0f;
+                if (selectedTool.name == "Potato Seed")
+                {
+                    landPosition.z += -.2f;
+                }
+
+
+                // Set the desired rotation (X: -90 degrees)
+                Quaternion desiredRotation = Quaternion.Euler(-90f, 0f, 0f);
+
+                // Instantiate the seed prefab with the modified position and rotation
+                GameObject seedInstance = Instantiate(seedData.gameModel, landPosition, desiredRotation);
+                selectedLand.PlantSeed();
             }
-           
-
-            // Set the desired rotation (X: -90 degrees)
-            Quaternion desiredRotation = Quaternion.Euler(-90f, 0f, 0f);
-
-            // Instantiate the seed prefab with the modified position and rotation
-            GameObject seedInstance = Instantiate(seedData.gameModel, landPosition, desiredRotation);
-
+               
         }
     
-    }
-    private void Grow()
-    {
-
     }
 
     // Existing code...
