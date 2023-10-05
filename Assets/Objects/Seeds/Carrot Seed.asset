@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Carrot Seed
   m_EditorClassIdentifier: 
   description: 
-  thumbnail: {fileID: 0}
-  gameModel: {fileID: 0}
+  thumbnail: {fileID: 21300000, guid: c2de143239be90a49ac49276a7180df5, type: 3}
+  gameModel: {fileID: 8502968951890609132, guid: ab0558707a325b2469cb560fc33b82cc,
+    type: 3}
   stackCount: 0
+  seedling1: {fileID: 0}
+  seedling2: {fileID: 0}
   daysToGrow: 0
   cropToYield: {fileID: 0}

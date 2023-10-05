@@ -4,6 +4,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Items/Seed")]
 public class SeedsData : ItemData
 {
+    public GameObject seedling1;
+    public GameObject seedling2;
     public int daysToGrow;
     public ItemData cropToYield;
 }

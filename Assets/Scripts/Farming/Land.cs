@@ -14,6 +14,7 @@ public class Land : MonoBehaviour
     public Material soilMat, farmlandMat, wataredMat;
     new Renderer renderer;
     public GameObject select;
+    public bool wasWateredYesterday = false;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +61,7 @@ public class Land : MonoBehaviour
         {
             SwitchLandStatus(LandStatus.Watared);
             Debug.Log("Land has been changed to watared.");
+          
         }
         else
         {

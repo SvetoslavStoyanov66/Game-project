@@ -12,6 +12,7 @@ public class PlayerInteraction : MonoBehaviour
     public ItemData selectedTool;
     public AnimaationsPlayer player;
     public Player player1;
+
     
     UImanager manager;
     // Start is called before the first frame update
@@ -77,6 +78,7 @@ public class PlayerInteraction : MonoBehaviour
             {
                 player.Watering();
                 StartCoroutine(StopMovement(2.5f));
+                selectedLand.wasWateredYesterday = true;
             }
             if (selectedTool is SeedsData)
             {
@@ -104,7 +106,11 @@ public class PlayerInteraction : MonoBehaviour
 
             // Set the desired Y-coordinate
             landPosition.y = 0f;
-            landPosition.z += -.2f;
+            if (selectedTool.name == "Potato Seed")
+            {
+                landPosition.z += -.2f;
+            }
+           
 
             // Set the desired rotation (X: -90 degrees)
             Quaternion desiredRotation = Quaternion.Euler(-90f, 0f, 0f);
@@ -114,6 +120,10 @@ public class PlayerInteraction : MonoBehaviour
 
         }
     
+    }
+    private void Grow()
+    {
+
     }
 
     // Existing code...

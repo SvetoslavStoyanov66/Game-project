@@ -1,6 +1,7 @@
 ﻿using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Xsl;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR;
@@ -28,6 +29,7 @@ public class Timer : MonoBehaviour
     public int day = 1;
     public int seasonNum;
     private int lastDay;
+    
 
     public int MinutesInDay;
     public enum Season
