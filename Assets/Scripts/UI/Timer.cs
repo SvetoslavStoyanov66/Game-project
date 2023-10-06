@@ -53,7 +53,7 @@ public class Timer : MonoBehaviour
     public Season season;
 
     public Week week;
-   
+
 
     private void Start()
     {
@@ -70,7 +70,7 @@ public class Timer : MonoBehaviour
 
     private void UpdateGameTime()
     {
-        
+
         elapsedTime += Time.deltaTime;
 
         if (elapsedTime >= secondsPerGameMinute)
@@ -88,7 +88,7 @@ public class Timer : MonoBehaviour
         {
             hours = 0;
             day++;
-            
+
         }
 
         if (day >= 30)
@@ -117,7 +117,7 @@ public class Timer : MonoBehaviour
     {
         return years * 4 * 30;
     }
- 
+
 
     public static int SeasonToDays(int season)
     {
@@ -140,7 +140,7 @@ public class Timer : MonoBehaviour
             angle = .25f * MinutesInDay - 90;
             SunTransform.eulerAngles = new Vector3(angle, 0, 0);
         }
-        
+
     }
     private void ResetLandStatusToSoil()
     {
@@ -190,10 +190,9 @@ public class Timer : MonoBehaviour
                 ResetLandStatusToSoil();
                 DeactivateParticleSystem();
             }
-
+           
 
         }
     }
-
 
 }
