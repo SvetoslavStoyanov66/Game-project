@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 
@@ -12,11 +13,12 @@ public class PlayerInteraction : MonoBehaviour
     public ItemData selectedTool;
     public AnimaationsPlayer player;
     public Player player1;
-    
     UImanager manager;
+   
     // Start is called before the first frame update
     void Start()
     {
+       
         playerController = transform.parent.GetComponent<Player>();
         manager = UImanager.Instance;
     }
@@ -27,6 +29,7 @@ public class PlayerInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, 1))
         {
@@ -79,6 +82,11 @@ public class PlayerInteraction : MonoBehaviour
                 StartCoroutine(StopMovement(2.5f));
                 selectedLand.wasWateredYesterday = true;
             }
+            if (selectedTool.name == "Axe")
+            {
+                
+                    
+            }
             if (selectedTool is SeedsData)
             {
                 InstantiateSeed(selectedTool as SeedsData);
@@ -101,6 +109,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (selectedLand.landStatus == Land.LandStatus.Farmland)
         {
+            GameObject seedInstance;
             if (!selectedLand.HasSeedPlanted())  // Check if a seed is already planted
             {
                 Vector3 landPosition = selectedLand.transform.position;
@@ -117,14 +126,15 @@ public class PlayerInteraction : MonoBehaviour
                 Quaternion desiredRotation = Quaternion.Euler(-90f, 0f, 0f);
 
                 // Instantiate the seed prefab with the modified position and rotation
-                GameObject seedInstance = Instantiate(seedData.gameModel, landPosition, desiredRotation);
+                seedInstance = Instantiate(seedData.gameModel, landPosition, desiredRotation);
                 selectedLand.PlantSeed();
             }
                
         }
+        
     
     }
+    
 
-    // Existing code...
 }
 
