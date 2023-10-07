@@ -147,6 +147,7 @@ public class Timer : MonoBehaviour
         foreach (Land land in landObjects)
         {
             land.ResetToSoil();
+            
         }
     }
     private void ResetLandStatusToWatared()
@@ -190,7 +191,7 @@ public class Timer : MonoBehaviour
                 ResetLandStatusToSoil();
                 DeactivateParticleSystem();
             }
-           
+            
 
         }
     }

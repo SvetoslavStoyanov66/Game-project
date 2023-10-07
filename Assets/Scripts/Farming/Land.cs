@@ -15,20 +15,42 @@ public class Land : MonoBehaviour
     new Renderer renderer;
     public GameObject select;
     public bool wasWateredYesterday = false;
+    public bool isWatered = false;
     private bool hasSeedPlanted = false;
-
+    public GameObject seed;
+    public GameObject seed1;
+    public GameObject seed2;
     // Start is called before the first frame update
     void Start()
     {
         renderer = GetComponent<Renderer>();
         SwitchLandStatus(LandStatus.Soil);
     }
-    
 
+   
+    
     public void SwitchLandStatus(LandStatus statusToSwich)
     {
 
         landStatus = statusToSwich;
+        if (landStatus == LandStatus.Soil && isWatered == true)
+        {
+            wasWateredYesterday = true;
+           
+            Vector3 position = this.gameObject.transform.position;
+            position.y = 0;
+            if (seed1 != null && seed != null)
+            {
+                Instantiate(seed1, position, Quaternion.identity);
+                Destroy(seed);
+            }
+            else if (seed1 != null && seed2 != null)
+            {
+                Instantiate(seed2, position, Quaternion.identity);
+                Destroy(seed1);
+            }
+        }
+
         Material materialTpSwich = soilMat;
         switch (statusToSwich)
         {
@@ -61,6 +83,7 @@ public class Land : MonoBehaviour
         else if (selectedItemName.Equals("Wateringcan"))
         {
             SwitchLandStatus(LandStatus.Watared);
+            isWatered = true;
             Debug.Log("Land has been changed to watared.");
           
         }
@@ -85,7 +108,6 @@ public class Land : MonoBehaviour
     public void PlantSeed()
     {
         hasSeedPlanted = true;
-    }
-
+    }   
 }
 

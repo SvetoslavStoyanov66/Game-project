@@ -191,3 +191,6 @@ MonoBehaviour:
   farmlandMat: {fileID: 2100000, guid: 8ed4b7fcadaadeb46a2ff73997a561f9, type: 2}
   wataredMat: {fileID: 2100000, guid: bc87bfb1f90ad4d48b9edf0d3d3a4a77, type: 2}
   select: {fileID: 4699365054835852297}
+  wasWateredYesterday: 0
+  isWatered: 0
+  seed: {fileID: 0}

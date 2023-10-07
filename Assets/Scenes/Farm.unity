@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44970918, g: 0.49977744, b: 0.575634, a: 1}
+  m_IndirectSpecularColor: {r: 0.44970924, g: 0.4997775, b: 0.57563436, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9219,6 +9219,152 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51343445ef888fc4fa5698c7c102b055, type: 3}
+--- !u!1 &1070438717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1070438719}
+  - component: {fileID: 1070438718}
+  m_Layer: 0
+  m_Name: CropManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1070438718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070438717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb00d25a500def443a5538fc8b6a5ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lands:
+  - {fileID: 242016063}
+  - {fileID: 752216832}
+  - {fileID: 1107012065}
+  - {fileID: 1021840548}
+  - {fileID: 2133044276}
+  - {fileID: 89009555}
+  - {fileID: 2004318061}
+  - {fileID: 1141287721}
+  - {fileID: 1467229453}
+  - {fileID: 638699280}
+  - {fileID: 229950710}
+  - {fileID: 1895030675}
+  - {fileID: 1972265762}
+  - {fileID: 1396060678}
+  - {fileID: 492621515}
+  - {fileID: 468239288}
+  - {fileID: 199646278}
+  - {fileID: 469181329}
+  - {fileID: 401072317}
+  - {fileID: 1893169686}
+  - {fileID: 137939777}
+  - {fileID: 1525213630}
+  - {fileID: 1787799923}
+  - {fileID: 1399882355}
+  - {fileID: 388212112}
+  - {fileID: 1473326642}
+  - {fileID: 781276184}
+  - {fileID: 1200976710}
+  - {fileID: 1658767105}
+  - {fileID: 1645321701}
+  - {fileID: 225826165}
+  - {fileID: 91106406}
+  - {fileID: 52185137}
+  - {fileID: 1199509845}
+  - {fileID: 2122488312}
+  - {fileID: 1536550384}
+  - {fileID: 1730106879}
+  - {fileID: 546400311}
+  - {fileID: 669749559}
+  - {fileID: 854363544}
+  - {fileID: 1847667112}
+  - {fileID: 59810441}
+  - {fileID: 276737548}
+  - {fileID: 1661490970}
+  - {fileID: 1767841495}
+  - {fileID: 1631160372}
+  - {fileID: 234288911}
+  - {fileID: 501795660}
+  - {fileID: 399671575}
+  - {fileID: 858314224}
+  - {fileID: 1438204443}
+  - {fileID: 1277734384}
+  - {fileID: 1580823237}
+  - {fileID: 641190757}
+  - {fileID: 1206513764}
+  - {fileID: 1494287357}
+  - {fileID: 1259822233}
+  - {fileID: 282807006}
+  - {fileID: 287898391}
+  - {fileID: 141202420}
+  - {fileID: 1124215651}
+  - {fileID: 2075075218}
+  - {fileID: 85161474}
+  - {fileID: 449857664}
+  - {fileID: 1712155719}
+  - {fileID: 1284619506}
+  - {fileID: 1782188851}
+  - {fileID: 821168422}
+  - {fileID: 1183181082}
+  - {fileID: 406272288}
+  - {fileID: 129670819}
+  - {fileID: 1309228042}
+  - {fileID: 994968642}
+  - {fileID: 829176522}
+  - {fileID: 647560539}
+  - {fileID: 88046206}
+  - {fileID: 1919367098}
+  - {fileID: 1191668793}
+  - {fileID: 859506942}
+  - {fileID: 10964721}
+  - {fileID: 229309580}
+  - {fileID: 1468191246}
+  - {fileID: 2127762440}
+  - {fileID: 1135782398}
+  - {fileID: 19331672}
+  - {fileID: 1861628979}
+  - {fileID: 2128270303}
+  - {fileID: 1672127085}
+  - {fileID: 1598193862}
+  - {fileID: 1629167879}
+  - {fileID: 2132299776}
+  - {fileID: 818139285}
+  - {fileID: 1553230198}
+  - {fileID: 646682095}
+  - {fileID: 987664352}
+  - {fileID: 393376456}
+  - {fileID: 1728549959}
+  - {fileID: 508721468}
+  - {fileID: 872596833}
+  - {fileID: 1831771598}
+  - {fileID: 1717074725}
+  - {fileID: 106144042}
+--- !u!4 &1070438719
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070438717}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.85193294, y: 0.87902224, z: 0.15829353}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1070537139 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 868f27946bcdf2f46a5399cb12b79c6b,

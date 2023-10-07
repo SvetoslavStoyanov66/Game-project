@@ -14,7 +14,6 @@ public class PlayerInteraction : MonoBehaviour
     public AnimaationsPlayer player;
     public Player player1;
     UImanager manager;
-   
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +35,7 @@ public class PlayerInteraction : MonoBehaviour
             OnInteractableHit(hit);
         }
         UpdateSelectedTool();
+       
 
     }
 
@@ -109,7 +109,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (selectedLand.landStatus == Land.LandStatus.Farmland)
         {
-            GameObject seedInstance;
+            
             if (!selectedLand.HasSeedPlanted())  // Check if a seed is already planted
             {
                 Vector3 landPosition = selectedLand.transform.position;
@@ -126,14 +126,18 @@ public class PlayerInteraction : MonoBehaviour
                 Quaternion desiredRotation = Quaternion.Euler(-90f, 0f, 0f);
 
                 // Instantiate the seed prefab with the modified position and rotation
-                seedInstance = Instantiate(seedData.gameModel, landPosition, desiredRotation);
+                selectedLand.seed = Instantiate(seedData.gameModel, landPosition, desiredRotation);
+                selectedLand.seed1 = seedData.seedling1;
+                selectedLand.seed2 = seedData.seedling2;
                 selectedLand.PlantSeed();
+                Debug.LogError(selectedLand.seed);
             }
                
         }
         
     
     }
+    
     
 
 }
