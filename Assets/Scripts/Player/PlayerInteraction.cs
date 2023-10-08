@@ -129,8 +129,9 @@ public class PlayerInteraction : MonoBehaviour
                 selectedLand.seed = Instantiate(seedData.gameModel, landPosition, desiredRotation);
                 selectedLand.seed1 = seedData.seedling1;
                 selectedLand.seed2 = seedData.seedling2;
+                selectedLand.GrownCrop = seedData.cropToYield.gameModel;
                 selectedLand.PlantSeed();
-                Debug.LogError(selectedLand.seed);
+                Debug.LogError(selectedLand.GrownCrop);
             }
                
         }

@@ -3542,7 +3542,7 @@ Transform:
   - {fileID: 213928577}
   - {fileID: 655018627}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &415920365
 BoxCollider:
@@ -8685,14 +8685,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.3420201, y: -0, z: -0, w: 0.9396927}
-  m_LocalPosition: {x: 0, y: 8.4, z: -8.8}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 7.41, z: -5.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6365438195239496270}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 40, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8706,7 +8706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 963194228}
-  offSetZ: 9
+  offSetZ: 7
   smoothing: 2
 --- !u!4 &967738178 stripped
 Transform:
@@ -9363,7 +9363,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1070537139 stripped
 Transform:
@@ -17938,75 +17938,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1001 &5500427501896713621
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8502968951890609132, guid: ab0558707a325b2469cb560fc33b82cc,
-        type: 3}
-      propertyPath: m_Name
-      value: Carrot1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9028395204283849046, guid: ab0558707a325b2469cb560fc33b82cc,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 9028395204283849046, guid: ab0558707a325b2469cb560fc33b82cc,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.2649407
-      objectReference: {fileID: 0}
-    - target: {fileID: 9028395204283849046, guid: ab0558707a325b2469cb560fc33b82cc,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9028395204283849046, guid: ab0558707a325b2469cb560fc33b82cc,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 13.361147
-      objectReference: {fileID: 0}
-    - target: {fileID: 9028395204283849046, guid: ab0558707a325b2469cb560fc33b82cc,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: 9028395204283849046, guid: ab0558707a325b2469cb560fc33b82cc,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 9028395204283849046, guid: ab0558707a325b2469cb560fc33b82cc,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9028395204283849046, guid: ab0558707a325b2469cb560fc33b82cc,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9028395204283849046, guid: ab0558707a325b2469cb560fc33b82cc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9028395204283849046, guid: ab0558707a325b2469cb560fc33b82cc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9028395204283849046, guid: ab0558707a325b2469cb560fc33b82cc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ab0558707a325b2469cb560fc33b82cc, type: 3}
 --- !u!199 &5578061006215913309
 ParticleSystemRenderer:
   serializedVersion: 6
