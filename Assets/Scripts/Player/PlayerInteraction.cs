@@ -14,6 +14,8 @@ public class PlayerInteraction : MonoBehaviour
     public AnimaationsPlayer player;
     public Player player1;
     UImanager manager;
+    [SerializeField]
+    Inventory inventory;
     // Start is called before the first frame update
     void Start()
     {
@@ -68,30 +70,41 @@ public class PlayerInteraction : MonoBehaviour
 
     public void InteractWithLand()
     {
-        if (selectedLand != null && selectedTool != null)
+        if (selectedLand != null)
         {
-            selectedLand.Interact(selectedTool.name);
-            if (selectedTool.name == "Hoe")
+            if (selectedLand.isCropInstantianted == true && selectedTool == null)
             {
-                player.HoeUsageAnimations();
-                StartCoroutine(StopMovement(1.5f));
+                Destroy(selectedLand.GrownCrop);
+                ItemData crop = selectedLand.crop;
+                inventory.HarvestCrops(crop);
+                selectedLand.isCropInstantianted = false;
             }
-            if (selectedTool.name == "Wateringcan")
+            if (selectedTool != null)
             {
-                player.Watering();
-                StartCoroutine(StopMovement(2.5f));
-                selectedLand.wasWateredYesterday = true;
+                selectedLand.Interact(selectedTool.name);
+                if (selectedTool.name == "Hoe")
+                {
+                    player.HoeUsageAnimations();
+                    StartCoroutine(StopMovement(1.5f));
+                }
+                if (selectedTool.name == "Wateringcan")
+                {
+                    player.Watering();
+                    StartCoroutine(StopMovement(2.5f));
+                    selectedLand.wasWateredYesterday = true;
+                }
+                if (selectedTool.name == "Axe")
+                {
+
+
+                }
+
+                if (selectedTool is SeedsData)
+                {
+                    InstantiateSeed(selectedTool as SeedsData);
+                }
+                return;
             }
-            if (selectedTool.name == "Axe")
-            {
-                
-                    
-            }
-            if (selectedTool is SeedsData)
-            {
-                InstantiateSeed(selectedTool as SeedsData);
-            }
-            return;
         }
 
         else
@@ -130,6 +143,8 @@ public class PlayerInteraction : MonoBehaviour
                 selectedLand.seed1 = seedData.seedling1;
                 selectedLand.seed2 = seedData.seedling2;
                 selectedLand.GrownCrop = seedData.cropToYield.gameModel;
+                selectedLand.DaysToGrowPorgression = seedData.daysToGrow;
+                selectedLand.crop = seedData.cropToYield;
                 selectedLand.PlantSeed();
                 Debug.LogError(selectedLand.GrownCrop);
             }

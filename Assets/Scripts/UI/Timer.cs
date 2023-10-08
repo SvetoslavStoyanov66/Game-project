@@ -148,7 +148,6 @@ public class Timer : MonoBehaviour
         {
             land.ResetToSoil();
             land.grow = true;
-
         }
     }
     private void ResetLandStatusToWatared()
@@ -178,7 +177,14 @@ public class Timer : MonoBehaviour
         if (lastDay != day)
         {
             lastDay = day;
-            
+            foreach (Land land in landObjects)
+            {
+                if (land.isWatered == true)
+                {
+                    land.wasWateredYesterday = true;
+                    land.isWatered = false;
+                }
+            }
             // Generate a random number between 0 and 1
             float randomChance = Random.Range(0f, 1f);
 

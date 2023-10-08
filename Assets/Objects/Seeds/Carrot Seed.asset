@@ -17,8 +17,9 @@ MonoBehaviour:
   gameModel: {fileID: 8502968951890609132, guid: ab0558707a325b2469cb560fc33b82cc,
     type: 3}
   stackCount: 0
-  seedling1: {fileID: 919132149155446097, guid: 58dd1e54923b5c548a15060ebfa6b1cb,
+  seedling1: {fileID: 5372306499916422864, guid: 37682187adc5e44448209f0db35d1051,
     type: 3}
-  seedling2: {fileID: 0}
-  daysToGrow: 2
+  seedling2: {fileID: 1300710976381659829, guid: f9dff1d31090fd4439bf6c033da24120,
+    type: 3}
+  daysToGrow: 4
   cropToYield: {fileID: 11400000, guid: 0df461ed0de8d054ea6394abb747be7f, type: 2}

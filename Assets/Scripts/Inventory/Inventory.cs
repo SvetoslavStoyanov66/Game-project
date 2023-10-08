@@ -85,5 +85,17 @@ public class Inventory : MonoBehaviour
 
         
     }
-   
+    public void HarvestCrops(ItemData crop)
+    {
+        for (int i = 0; i < inventoryItems.Length; i++)
+        {
+            if (inventoryItems[i] == null)
+            {
+                inventoryItems[i] = crop;
+                UImanager.Instance.RenderInventory();
+                return;
+            }
+        }
+    }
+
 }

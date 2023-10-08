@@ -22,6 +22,10 @@ public class Land : MonoBehaviour
     public GameObject seed2;
     public GameObject GrownCrop;
     public bool grow = false;
+    public int DaysToGrowPorgression;
+    private int CurrentDayProgression = 0;
+    public ItemData crop;
+    public bool isCropInstantianted = false;
     
     // Start is called before the first frame update
     void Start()
@@ -36,28 +40,40 @@ public class Land : MonoBehaviour
     {
 
         landStatus = statusToSwich;
-        if (grow == true && isWatered == true)
+        if (grow == true && wasWateredYesterday == true)
         {
-            wasWateredYesterday = true;
+            Debug.LogError("curremt dat" + CurrentDayProgression);
+            CurrentDayProgression++;
+            if (DaysToGrowPorgression != null)
+            {
+                if (CurrentDayProgression >= DaysToGrowPorgression)
+                {
+                    Vector3 position = this.gameObject.transform.position;
+                    position.y = 0;
+                    if (seed1 != null && seed != null)
+                    {
+                        seed1 = Instantiate(seed1, position, Quaternion.identity);
+                        Destroy(seed);
+                    }
+                    else if (seed1 != null && seed2 != null)
+                    {
+                        seed2 = Instantiate(seed2, position, Quaternion.identity);
+                        Destroy(seed1);
+                    }
+                    else if (seed2 != null && GrownCrop != null)
+                    {
+                        GrownCrop = Instantiate(GrownCrop, position, Quaternion.identity);
+                        isCropInstantianted = true;
+                        Destroy(seed2);
+                    }
+                    grow = false;
+                    wasWateredYesterday = false;
+                    CurrentDayProgression = 0;
+                }
+            }
+            
            
-            Vector3 position = this.gameObject.transform.position;
-            position.y = 0;
-            if(seed1 != null && seed != null)
-            {
-                seed1 = Instantiate(seed1, position, Quaternion.identity);
-                Destroy(seed);
-            }
-            else if (seed1 != null && seed2 != null)
-            {
-                seed2 = Instantiate(seed2, position, Quaternion.identity);
-                Destroy(seed1);
-            }
-            else if (seed2 != null && GrownCrop != null)
-            {
-                GrownCrop = Instantiate(GrownCrop, position, Quaternion.identity);
-                Destroy(seed2);
-            }
-            grow = false;
+           
         }
 
         Material materialTpSwich = soilMat;
@@ -71,6 +87,7 @@ public class Land : MonoBehaviour
                 break;
             case LandStatus.Watared:
                 materialTpSwich = wataredMat;
+                isWatered = true;
                 break;
         }
         renderer.material = materialTpSwich;
@@ -86,14 +103,11 @@ public class Land : MonoBehaviour
         if (selectedItemName.Equals("Hoe"))
         {
             SwitchLandStatus(LandStatus.Farmland);
-            Debug.Log("Land has been changed to farmland.");
             
         }
         else if (selectedItemName.Equals("Wateringcan"))
         {
             SwitchLandStatus(LandStatus.Watared);
-            isWatered = true;
-            Debug.Log("Land has been changed to watared.");
           
         }
 
