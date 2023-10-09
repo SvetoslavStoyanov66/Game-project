@@ -41,40 +41,7 @@ public class Land : MonoBehaviour
     {
 
         landStatus = statusToSwich;
-        if (grow == true && wasWateredYesterday == true)
-        {
-            CurrentDayProgression++;
-            if (DaysToGrowPorgression != null)
-            {
-                if (CurrentDayProgression >= DaysToGrowPorgression)
-                {
-                    Vector3 position = this.gameObject.transform.position;
-                    position.y = 0;
-                    if (seed1 != null && seed != null)
-                    {
-                        seed1 = Instantiate(seed1, position, Quaternion.identity);
-                        Destroy(seed);
-                    }
-                    else if (seed1 != null && seed2 != null)
-                    {
-                        seed2 = Instantiate(seed2, position, Quaternion.identity);
-                        Destroy(seed1);
-                    }
-                    else if (seed2 != null && GrownCrop != null)
-                    {
-                        GrownCrop = Instantiate(GrownCrop, position, Quaternion.identity);
-                        isCropInstantianted = true;
-                        Destroy(seed2);
-                    }
-                    grow = false;
-                    wasWateredYesterday = false;
-                    CurrentDayProgression = 0;
-                }
-            }
-            
-           
-           
-        }
+       
 
         Material materialTpSwich = soilMat;
         switch (statusToSwich)
@@ -132,5 +99,42 @@ public class Land : MonoBehaviour
     {
         hasSeedPlanted = true;
     }   
+    public void Grow()
+    {
+        if (grow == true && wasWateredYesterday == true)
+        {
+            CurrentDayProgression++;
+            if (DaysToGrowPorgression != null)
+            {
+                if (CurrentDayProgression >= DaysToGrowPorgression)
+                {
+                    Vector3 position = this.gameObject.transform.position;
+                    position.y = 0;
+                    if (seed1 != null && seed != null)
+                    {
+                        seed1 = Instantiate(seed1, position, Quaternion.identity);
+                        Destroy(seed);
+                    }
+                    else if (seed1 != null && seed2 != null)
+                    {
+                        seed2 = Instantiate(seed2, position, Quaternion.identity);
+                        Destroy(seed1);
+                    }
+                    else if (seed2 != null && GrownCrop != null)
+                    {
+                        GrownCrop = Instantiate(GrownCrop, position, Quaternion.identity);
+                        isCropInstantianted = true;
+                        Destroy(seed2);
+                    }
+                    grow = false;
+                    wasWateredYesterday = false;
+                    CurrentDayProgression = 0;
+                }
+            }
+
+
+
+        }
+    }
 }
 

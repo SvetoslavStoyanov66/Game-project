@@ -61,7 +61,6 @@ public class Inventory : MonoBehaviour
             {
                 if (hotbarItems[i] == null)
                 {
-                    Debug.Log("Checking hotbar slot: " + i);
                     hotbarItems[i] = itemToMove;
                     UImanager.Instance.DisplayHotbarItem(itemToMove, i);  // Display the item in the hotbar slot
                     return;

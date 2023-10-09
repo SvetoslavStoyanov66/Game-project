@@ -148,6 +148,7 @@ public class Timer : MonoBehaviour
         {
             land.ResetToSoil();
             land.grow = true;
+            land.Grow();
         }
     }
     private void ResetLandStatusToWatared()
