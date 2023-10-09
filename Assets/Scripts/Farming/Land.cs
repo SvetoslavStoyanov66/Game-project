@@ -23,9 +23,10 @@ public class Land : MonoBehaviour
     public GameObject GrownCrop;
     public bool grow = false;
     public int DaysToGrowPorgression;
-    private int CurrentDayProgression = 0;
+    public int CurrentDayProgression = 0;
     public ItemData crop;
     public bool isCropInstantianted = false;
+
     
     // Start is called before the first frame update
     void Start()
@@ -42,7 +43,6 @@ public class Land : MonoBehaviour
         landStatus = statusToSwich;
         if (grow == true && wasWateredYesterday == true)
         {
-            Debug.LogError("curremt dat" + CurrentDayProgression);
             CurrentDayProgression++;
             if (DaysToGrowPorgression != null)
             {

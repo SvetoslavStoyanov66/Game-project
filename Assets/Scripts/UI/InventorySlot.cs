@@ -1,16 +1,19 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
+using TMPro;
 public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     protected ItemData itemToDisplay;
     public Image ItemDisplayImage;
     public int slotIndex;
-
+    public TextMeshProUGUI quantityTMP;
     private void Start()
     {
-        UpdateDisplay();  // Call UpdateDisplay in Start to update the display when the game starts
+        quantityTMP = GetComponentInChildren<TextMeshProUGUI>();
+        UpdateDisplay();
+        // Call UpdateDisplay in Start to update the display when the game starts
     }
     public void Display(ItemData itemToDisplay)
     {
@@ -29,6 +32,15 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         {
             
                 ItemDisplayImage.enabled = false;  // Disable the image component
+        }
+        if (itemToDisplay == null || itemToDisplay.quantity <= 1)
+        {
+            quantityTMP.text = string.Empty;
+        }
+        else
+        {
+            
+            quantityTMP.text = Convert.ToString(itemToDisplay.quantity);
         }
     }
 

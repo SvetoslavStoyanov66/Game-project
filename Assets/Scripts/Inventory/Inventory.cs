@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
+using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
@@ -20,6 +22,20 @@ public class Inventory : MonoBehaviour
         {
             Instance = this;
         }
+    }
+    private void Start()
+    {
+        for (int i = 0; i < inventoryItems.Length; i++)
+        {
+            if (inventoryItems[i] != null)
+            {
+                inventoryItems[i].quantity = 1;
+            }
+        }
+    }
+    private void Update()
+    {
+        Stacks();
     }
 
     public void InventoryToHotBar(int inventoryIndex)
@@ -45,6 +61,7 @@ public class Inventory : MonoBehaviour
             {
                 if (hotbarItems[i] == null)
                 {
+                    Debug.Log("Checking hotbar slot: " + i);
                     hotbarItems[i] = itemToMove;
                     UImanager.Instance.DisplayHotbarItem(itemToMove, i);  // Display the item in the hotbar slot
                     return;
@@ -83,7 +100,7 @@ public class Inventory : MonoBehaviour
         }
 
 
-        
+
     }
     public void HarvestCrops(ItemData crop)
     {
@@ -97,5 +114,31 @@ public class Inventory : MonoBehaviour
             }
         }
     }
+    private void Stacks()
+    {
+        HashSet<string> encounteredItemNames = new HashSet<string>();
+        List<int> itemsToRemoveIndices = new List<int>();
 
+        for (int i = 0; i < inventoryItems.Length; i++)
+        {
+            if (inventoryItems[i] != null && !encounteredItemNames.Contains(inventoryItems[i].name))
+            {
+                encounteredItemNames.Add(inventoryItems[i].name);
+
+            }
+            else if (inventoryItems[i] != null)
+            {
+                inventoryItems[i].quantity += 1;
+                itemsToRemoveIndices.Add(i);
+            }
+        }
+
+        // Remove duplicates, leaving one instance of each item
+        foreach (var index in itemsToRemoveIndices)
+        {
+            inventoryItems[index] = null;
+        }
+
+        UImanager.Instance.RenderInventory();
+    }
 }

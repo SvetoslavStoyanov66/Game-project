@@ -29,7 +29,7 @@ public class Timer : MonoBehaviour
     public int day = 1;
     public int seasonNum;
     private int lastDay;
-    
+
 
     public int MinutesInDay;
     public enum Season
@@ -199,9 +199,8 @@ public class Timer : MonoBehaviour
                 ResetLandStatusToSoil();
                 DeactivateParticleSystem();
             }
-            
+
 
         }
     }
-
 }
