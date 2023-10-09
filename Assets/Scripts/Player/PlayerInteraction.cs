@@ -103,6 +103,10 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     InstantiateSeed(selectedTool as SeedsData);
                 }
+                if (selectedTool is FoodData)
+                {
+                    player1.fillAmount += (float)(selectedTool as FoodData).energyFillAmount / 100;
+                }
                 return;
             }
         }

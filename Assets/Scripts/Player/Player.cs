@@ -86,7 +86,10 @@ public class Player : MonoBehaviour
             // Reset the timer
             timer1 = 0f;
         }
-
+        if (fillAmount >= 1)
+        {
+            fillAmount = 1;
+        }
 
 
     }
