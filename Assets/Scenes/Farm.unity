@@ -3576,13 +3576,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 36be0c8a1d5cac64083b9375af58701e, type: 2}
   - {fileID: 11400000, guid: 93f3b2ee057ea3a4499f9777ccfc8274, type: 2}
   - {fileID: 11400000, guid: 6272edf7005dc51498ddd84f7a3cba5f, type: 2}
-  - {fileID: 11400000, guid: 6272edf7005dc51498ddd84f7a3cba5f, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 11400000, guid: 1446ef1a30908554e8586c7e4a13f959, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &299953403
 MonoBehaviour:
   m_ObjectHideFlags: 0

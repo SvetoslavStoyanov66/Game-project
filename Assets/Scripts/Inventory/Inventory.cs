@@ -27,9 +27,9 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < inventoryItems.Length; i++)
         {
-            if (inventoryItems[i] != null)
+            if (inventoryItems[i] != null && (inventoryItems[i].name == "Potato Seed" || inventoryItems[i].name == "Carrot Seed"))
             {
-                inventoryItems[i].quantity = 1;
+                inventoryItems[i].quantity = 6;
             }
         }
     }
