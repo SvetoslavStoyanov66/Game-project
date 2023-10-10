@@ -101,6 +101,25 @@ public class PlayerInteraction : MonoBehaviour
 
                 if (selectedTool is SeedsData)
                 {
+                   
+                    if (selectedLand.landStatus == Land.LandStatus.Farmland && !selectedLand.HasSeedPlanted())
+                    {
+                        (selectedTool as ItemData).quantity--;
+                        if ((selectedTool as ItemData).quantity <= 0)
+                        {
+                            for (int i = 0; i < Inventory.Instance.hotbarItems.Length; i++)
+                            {
+                                if (Inventory.Instance.hotbarItems[i] != null && Inventory.Instance.hotbarItems[i].name == selectedTool.name)
+                                {
+                                    Inventory.Instance.hotbarItems[i].quantity = 1;
+                                    Inventory.Instance.hotbarItems[i] = null;
+                                }
+                            }
+                        }
+                        
+                    }
+                    
+                    UImanager.Instance.RenderHotbar();
                     InstantiateSeed(selectedTool as SeedsData);
                 }
                 
@@ -115,7 +134,7 @@ public class PlayerInteraction : MonoBehaviour
     }
     public void InteractWithFood()
     {
-        if (selectedTool is FoodData || selectedTool != null)
+        if (selectedTool != null && selectedTool is FoodData)
         {
             player1.fillAmount += (float)(selectedTool as FoodData).energyFillAmount / 100;
             (selectedTool as ItemData).quantity--;
@@ -167,7 +186,6 @@ public class PlayerInteraction : MonoBehaviour
                 selectedLand.DaysToGrowPorgression = seedData.daysToGrow;
                 selectedLand.crop = seedData.cropToYield;
                 selectedLand.PlantSeed();
-                Debug.LogError(selectedLand.GrownCrop);
             }
                
         }
