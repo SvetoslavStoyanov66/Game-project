@@ -19,7 +19,7 @@ public class PlayerInteraction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+
         playerController = transform.parent.GetComponent<Player>();
         manager = UImanager.Instance;
     }
@@ -30,14 +30,14 @@ public class PlayerInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, 1))
         {
             OnInteractableHit(hit);
         }
         UpdateSelectedTool();
-       
+
 
     }
 
@@ -103,12 +103,7 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     InstantiateSeed(selectedTool as SeedsData);
                 }
-                if (selectedTool is FoodData)
-                {
-                    player1.fillAmount += (float)(selectedTool as FoodData).energyFillAmount / 100;
-                    (selectedTool as ItemData).quantity--;
-                    UImanager.Instance.RenderHotbar();
-                }
+                
                 return;
             }
         }
@@ -116,6 +111,26 @@ public class PlayerInteraction : MonoBehaviour
         else
         {
             Debug.Log("No land selected or no tool selected.");
+        }
+    }
+    public void InteractWithFood()
+    {
+        if (selectedTool is FoodData || selectedTool != null)
+        {
+            player1.fillAmount += (float)(selectedTool as FoodData).energyFillAmount / 100;
+            (selectedTool as ItemData).quantity--;
+            if ((selectedTool as ItemData).quantity <= 0)
+            {
+                for (int i = 0; i < Inventory.Instance.hotbarItems.Length; i++)
+                {
+                    if (Inventory.Instance.hotbarItems[i] != null && Inventory.Instance.hotbarItems[i].name == selectedTool.name)
+                    {
+                        Inventory.Instance.hotbarItems[i].quantity = 1;
+                        Inventory.Instance.hotbarItems[i] = null;
+                    }
+                }
+            }
+            UImanager.Instance.RenderHotbar();
         }
     }
     IEnumerator StopMovement(float num)

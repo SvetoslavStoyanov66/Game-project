@@ -99,6 +99,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             playerInteraction.InteractWithLand();
+            playerInteraction.InteractWithFood();
             if (playerInteraction.selectedTool != null && playerInteraction.selectedTool.name.Equals("Hoe") && playerInteraction.selectedLand != null && TakeEnergy ==  true)
             {
                 StartCoroutine (EnergyTaking());
