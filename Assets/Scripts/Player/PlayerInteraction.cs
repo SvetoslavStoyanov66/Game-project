@@ -106,6 +106,8 @@ public class PlayerInteraction : MonoBehaviour
                 if (selectedTool is FoodData)
                 {
                     player1.fillAmount += (float)(selectedTool as FoodData).energyFillAmount / 100;
+                    (selectedTool as ItemData).quantity--;
+                    UImanager.Instance.RenderHotbar();
                 }
                 return;
             }

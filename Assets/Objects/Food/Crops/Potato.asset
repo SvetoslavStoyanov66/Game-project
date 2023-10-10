@@ -16,5 +16,5 @@ MonoBehaviour:
   thumbnail: {fileID: 21300000, guid: 02eca5491fe180f43bc93c24a9a99c4c, type: 3}
   gameModel: {fileID: 8733661494922999809, guid: a0f16181ffc6d3f43b193d7a51842fe5,
     type: 3}
-  stackCount: 0
-  energyFillAmount: 0
+  quantity: 1
+  energyFillAmount: 15

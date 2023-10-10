@@ -48,7 +48,12 @@ public class UImanager : MonoBehaviour
         ItemData[] inventorySlots = Inventory.Instance.inventoryItems;
         RenderInventoryPanel(inventorySlots, combinedSlots);
     }
-   
+    public void RenderHotbar()
+    {
+        ItemData[] hotBarSlots = Inventory.Instance.hotbarItems;
+        RenderHotBarPanel(hotBarSlots, hotbarSlots);
+    }
+    
     public void DisplayHotbarItem(ItemData item, int hotbarIndex)
     {
         if (hotbarIndex >= 0 && hotbarIndex < hotbarSlots.Length)
@@ -71,12 +76,24 @@ public class UImanager : MonoBehaviour
             }
         }
     }
-
+    void RenderHotBarPanel(ItemData[] slots, InventorySlot[] uiSlots)
+    {
+        for (int i = 0; i < uiSlots.Length; i++)
+        {
+            if (i < slots.Length && slots[i] != null)
+            {
+                uiSlots[i].Display(slots[i]);
+            }
+            else
+            {
+                uiSlots[i].Display(null);
+            }
+        }
+    }
     private void Update()
     {
         HandleInput();
         UpdateSlotUI();
-
     }
 
     public void AssignSlotIndexes()

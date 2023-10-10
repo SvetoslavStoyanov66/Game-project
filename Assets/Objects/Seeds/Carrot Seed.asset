@@ -16,9 +16,10 @@ MonoBehaviour:
   thumbnail: {fileID: 21300000, guid: c2de143239be90a49ac49276a7180df5, type: 3}
   gameModel: {fileID: 8502968951890609132, guid: ab0558707a325b2469cb560fc33b82cc,
     type: 3}
+  quantity: 2
   seedling1: {fileID: 5372306499916422864, guid: 37682187adc5e44448209f0db35d1051,
     type: 3}
   seedling2: {fileID: 1300710976381659829, guid: f9dff1d31090fd4439bf6c033da24120,
     type: 3}
-  daysToGrow: 2
+  daysToGrow: 1
   cropToYield: {fileID: 11400000, guid: 0df461ed0de8d054ea6394abb747be7f, type: 2}
