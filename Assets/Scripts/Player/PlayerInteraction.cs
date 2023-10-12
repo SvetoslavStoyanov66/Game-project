@@ -96,7 +96,6 @@ public class PlayerInteraction : MonoBehaviour
                 if (selectedTool.name == "Axe")
                 {
 
-
                 }
 
                 if (selectedTool is SeedsData)
