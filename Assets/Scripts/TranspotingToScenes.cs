@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class TranspotingToScenes : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private static TranspotingToScenes instance;
+
+    // This will make sure there's only one instance of TransportingToScenes
+    private void Awake()
     {
-        GameObject.DontDestroyOnLoad(this.gameObject);
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
-}
     // Update is called once per frame
+}

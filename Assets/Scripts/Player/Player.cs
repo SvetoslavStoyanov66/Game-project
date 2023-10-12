@@ -15,6 +15,10 @@ public class Player : MonoBehaviour
     private float timer1 = 0f;
     int counter;
     bool TakeEnergy = true;
+    public float minX = -18.0f;
+    public float maxX = 35.0f;
+    public float minZ = -35.0f;
+    public float maxZ = 21.0f;
 
     public GameObject indicator;
     public GameObject indicator2;
@@ -34,7 +38,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        CheckForCollisionsWithTargetTag();
+       
         Vector3 gravityVector = Vector3.down * gravity;
         characterController.Move(gravityVector * Time.deltaTime);
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -42,6 +46,7 @@ public class Player : MonoBehaviour
 
         // Calculate movement direction
         Vector3 movementDirection = new Vector3(horizontalInput, 0.0f, verticalInput).normalized;
+        MovementLimitaitons();
 
         // Move the character
         if (movementDirection.magnitude > 0.1f)
@@ -105,10 +110,7 @@ public class Player : MonoBehaviour
                 StartCoroutine (EnergyTaking());
                 EnergyDisplay();  // Update the energy display
             }
-            if (indicator != null && indicator.activeSelf)
-            {
-                SceneManager.LoadScene("House");
-            }
+           
         }
 
     }
@@ -156,34 +158,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(num);
         moveSpeed = 5;
     }
-    private void CheckForCollisionsWithTargetTag()
-    {
-        // Get all colliders the character is currently colliding with
-        Collider[] colliders = Physics.OverlapSphere(transform.position, GetComponent<CharacterController>().radius);
-
-        bool doorColliderDetected = false;
-        bool ExitDoor = false;
-
-        foreach (Collider collider in colliders)
-        {
-            if (collider.CompareTag("Door"))
-            {
-                doorColliderDetected = true;
-                // If we detect a door collider, we can exit the loop since we only need to know if a door is detected
-                break;
-            }
-            if (collider.CompareTag("HouseExit"))
-            {
-                ExitDoor = true;
-                // If we detect a door collider, we can exit the loop since we only need to know if a door is detected
-                break;
-            }
-        }
-        if (indicator != null)
-        {
-            indicator.SetActive(doorColliderDetected);
-        }
-    }
+    
     IEnumerator EnergyTaking()
     {
         TakeEnergy = false;
@@ -191,6 +166,28 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         TakeEnergy = true;
     }
-
-
+    private void MovementLimitaitons()
+    {
+        Vector3 newPosition = this.gameObject.transform.position;
+        if (this.gameObject.transform.position.x < minX)
+        {
+            newPosition.x = minX;
+            this.gameObject.transform.position = newPosition;
+        }
+        if (this.gameObject.transform.position.z < minZ)
+        {
+            newPosition.z = minZ;
+            this.gameObject.transform.position = newPosition;
+        }
+        if (this.gameObject.transform.position.x > maxX)
+        {
+            newPosition.x = maxX;
+            this.gameObject.transform.position = newPosition;
+        }
+        if (this.gameObject.transform.position.z > maxZ)
+        {
+            newPosition.z = maxZ;
+            this.gameObject.transform.position = newPosition;
+        }
+    }
 }
