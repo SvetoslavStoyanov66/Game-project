@@ -14,9 +14,14 @@ public class UImanager : MonoBehaviour
     public Text itemNameText;
     public Text itemDescriptionText;
     public int selectedSlotIndex = 0;
-    public GameObject hoe;
-    public GameObject axe;
-    public GameObject pickaxe;
+    [SerializeField]
+    private GameObject hoe;
+    [SerializeField]
+    private GameObject axe;
+    [SerializeField]
+    private GameObject pickaxe;
+    [SerializeField]
+    private GameObject wateringCan;
     public Player player;
     
    
@@ -202,6 +207,14 @@ public class UImanager : MonoBehaviour
                 if (selectedItem.name != "Pickaxe")
                 {
                     pickaxe.SetActive(false);
+                }
+                if (selectedItem.name == "Wateringcan")
+                {
+                    wateringCan.SetActive(true);
+                }
+                if (selectedItem.name != "Wateringcan")
+                {
+                    wateringCan.SetActive(false);
                 }
                 if (selectedItem.name == "Carrot")
                 {
