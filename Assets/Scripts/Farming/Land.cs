@@ -59,10 +59,33 @@ public class Land : MonoBehaviour
                 break;
         }
         renderer.material = materialTpSwich;
+        LandManager.Instance.OnLandChange(id,landStatus,isWatered);
     }
     public void Selected(bool toggle)
     {
         select.SetActive(toggle);
+    }
+
+    public void LoadLandData(LandStatus statusToSwich, bool wasWatared)
+    {
+        landStatus = statusToSwich;
+        isWatered = wasWatared;
+
+        Material materialTpSwich = soilMat;
+        switch (statusToSwich)
+        {
+            case LandStatus.Soil:
+                materialTpSwich = soilMat;
+                break;
+            case LandStatus.Farmland:
+                materialTpSwich = farmlandMat;
+                break;
+            case LandStatus.Watared:
+                materialTpSwich = wataredMat;
+                isWatered = true;
+                break;
+        }
+        renderer.material = materialTpSwich;
     }
 
     public void Interact(string selectedItemName)

@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CropSaveState : MonoBehaviour
+[System.Serializable]
+public struct CropSaveState
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int LandId;
+    public GameObject seed;
+    public GameObject seed1;
+    public GameObject seed2;
+    public GameObject grownCrop;
 
-    // Update is called once per frame
-    void Update()
+    public CropSaveState(int LandId, GameObject seed,GameObject seed1 , GameObject seed2, GameObject grownCrop)
     {
-        
+        this.LandId = LandId;
+        this.seed = seed;
+        this.seed1 = seed1;
+        this.seed2 = seed2;
+        this.grownCrop = grownCrop;
     }
 }
