@@ -87,7 +87,39 @@ public class Land : MonoBehaviour
         }
         renderer.material = materialTpSwich;
     }
+    public void LoadCropData(int id,GameObject seed,GameObject seed1,GameObject seed2,GameObject grownCrop)
+    {
+        this.id = id;
+        this.seed = seed;
+        this.seed1 = seed1;
+        this.seed2 = seed2;
+        this.GrownCrop = grownCrop;
 
+        Vector3 position = this.gameObject.transform.position;
+        position.y = 0;
+        if (seed != null)
+        {
+            if (seed.tag == "Potato")
+            {
+                position.z += -.2f;
+            }
+            Quaternion desiredRotation = Quaternion.Euler(-90f, 0f, 0f);
+            seed = Instantiate(seed, position, desiredRotation);           
+        }
+        else if (seed1 != null)
+        {
+            seed1 = Instantiate(seed1, position, Quaternion.identity);          
+        }
+        else if (seed2 != null)
+        {
+            seed2 = Instantiate(seed2, position, Quaternion.identity);
+        }
+        else if (grownCrop != null)
+        {
+            grownCrop = Instantiate(grownCrop, position, Quaternion.identity);
+        }
+
+    }
     public void Interact(string selectedItemName)
     {
         // Change the land state to farmland only if the selected item is a "hoe"

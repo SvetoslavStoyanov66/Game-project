@@ -12,8 +12,10 @@ public class LandManager : MonoBehaviour
 
     [SerializeField]
     List<Land> LandList = new List<Land>();
+    [SerializeField]
     List<LandSaveState>  landSaveState = new List<LandSaveState>();
-    List<CropSaveState> cropSaveState = new List<CropSaveState>();
+    [SerializeField]
+    public List<CropSaveState> cropSaveState = new List<CropSaveState>();
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -55,12 +57,8 @@ public class LandManager : MonoBehaviour
                 LandList.Add(land);
 
                 landSaveState.Add(new LandSaveState());
-
+                cropSaveState.Add(new CropSaveState());
                 land.id = LandList.Count - 1;
-                if (land.seed != null || land.seed2 != null || land.seed2 != null || land.GrownCrop != null)
-                {
-                    cropSaveState.Add(new CropSaveState());
-                }
             }
         }
     }
@@ -69,6 +67,7 @@ public class LandManager : MonoBehaviour
     {
         for (int i = 0; i < landDataSetToLoad.Count; i++)
         {
+            
             LandSaveState landDataToLoad = landDataSetToLoad[i];
             LandList[i].LoadLandData(landDataToLoad.landStatus, landDataToLoad.lastWatered);
         }
@@ -76,6 +75,12 @@ public class LandManager : MonoBehaviour
     }
     public void ImportCropData(List<CropSaveState> cropDataSetToLoad)
     {
+        for (int i = 0; i < cropDataSetToLoad.Count; i++)
+        {
+
+            CropSaveState cropDataToLoad = cropDataSetToLoad[i];
+            LandList[i].LoadCropData(cropDataToLoad.LandId, cropDataToLoad.seed, cropDataToLoad.seed1,cropDataToLoad.seed2, cropDataToLoad.grownCrop);
+        }
         cropSaveState = cropDataSetToLoad;
     }
     public void OnLandChange(int id, Land.LandStatus landStatus, bool lastWatared)

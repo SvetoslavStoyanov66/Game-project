@@ -22,7 +22,7 @@ public class UImanager : MonoBehaviour
     private GameObject pickaxe;
     [SerializeField]
     private GameObject wateringCan;
-    public Player player;
+    public Player player;  
     
    
     Land selectedLand;

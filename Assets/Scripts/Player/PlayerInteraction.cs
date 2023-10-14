@@ -188,6 +188,11 @@ public class PlayerInteraction : MonoBehaviour
                 selectedLand.DaysToGrowPorgression = seedData.daysToGrow;
                 selectedLand.crop = seedData.cropToYield;
                 selectedLand.PlantSeed();
+               if (selectedLand.id >= 0 && selectedLand.id < LandManager.Instance.cropSaveState.Count)
+            {
+                // Call OnCropChange with a valid index
+                LandManager.Instance.OnCropChange(selectedLand.id, seedData.gameModel,null, null, null);
+            }
             }
                
         }
