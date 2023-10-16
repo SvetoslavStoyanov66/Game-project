@@ -8,6 +8,7 @@ TagManager:
   - Door
   - HouseExit
   - Tree
+  - Potato
   layers:
   - Default
   - TransparentFX

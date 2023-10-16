@@ -191,7 +191,7 @@ public class PlayerInteraction : MonoBehaviour
                if (selectedLand.id >= 0 && selectedLand.id < LandManager.Instance.cropSaveState.Count)
             {
                 // Call OnCropChange with a valid index
-                LandManager.Instance.OnCropChange(selectedLand.id, seedData.gameModel,null, null, null);
+                LandManager.Instance.OnCropChange(selectedLand.id, seedData.gameModel, selectedLand.seed1, selectedLand.seed2, selectedLand.GrownCrop);
             }
             }
                
