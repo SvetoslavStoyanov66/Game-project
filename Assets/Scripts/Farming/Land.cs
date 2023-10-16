@@ -169,19 +169,16 @@ public class Land : MonoBehaviour
                     if (seed1 != null && seed != null)
                     {
                         seed1 = Instantiate(seed1, position, Quaternion.identity);
-                        LandManager.Instance.OnCropChange(id, null , seed1, seed2, GrownCrop);
                         Destroy(seed);
                     }
                     else if (seed1 != null && seed2 != null)
                     {
                         seed2 = Instantiate(seed2, position, Quaternion.identity);
-                        LandManager.Instance.OnCropChange(id, null, null, seed2, GrownCrop);
                         Destroy(seed1);
                     }
                     else if (seed2 != null && GrownCrop != null)
                     {
                         GrownCrop = Instantiate(GrownCrop, position, Quaternion.identity);
-                        LandManager.Instance.OnCropChange(id, null, null, null, GrownCrop);
                         isCropInstantianted = true;
                         Destroy(seed2);
                     }

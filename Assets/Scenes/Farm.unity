@@ -13763,8 +13763,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LandList: []
-  landSaveState: []
-  cropSaveState: []
 --- !u!1001 &1376643856
 PrefabInstance:
   m_ObjectHideFlags: 0
