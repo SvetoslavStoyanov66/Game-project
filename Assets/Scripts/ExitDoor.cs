@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EnterDoor : MonoBehaviour
+public class ExitDoor : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
@@ -23,15 +23,15 @@ public class EnterDoor : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && selection.activeSelf && house.activeSelf && !inHouse.activeSelf)
+        if (Input.GetKeyDown(KeyCode.E) && selection.activeSelf && !house.activeSelf && inHouse.activeSelf)
         {
             selection.SetActive(false);
-            house.SetActive(false);
-            inHouse.SetActive(true);
-            inHouseCamera.enabled = true;
-            outOfTheHouse.SetActive(true);
-            homeLight.enabled = true;
-            sun.enabled = false;
+            house.SetActive(true);
+            inHouse.SetActive(false);
+            inHouseCamera.enabled = false;
+            outOfTheHouse.SetActive(false);
+            homeLight.enabled = false;
+            sun.enabled = true;
 
             CharacterController playerController = FindObjectOfType<Player>().GetComponent<CharacterController>();
 
@@ -39,11 +39,12 @@ public class EnterDoor : MonoBehaviour
             {
                 playerController.enabled = false; // Disable the CharacterController temporarily
                 Vector3 newPosition = playerController.transform.position;
-                newPosition.z += 0.8f;
+                newPosition.z -= 1.5f;
                 playerController.transform.position = newPosition; // Set the new position
                 playerController.enabled = true;
+                
             }
-        }      
+        }
     }
     private void OnTriggerEnter(Collider other)
     {

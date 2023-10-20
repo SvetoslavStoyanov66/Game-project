@@ -18,9 +18,13 @@ public class Land : MonoBehaviour
     public bool wasWateredYesterday = false;
     public bool isWatered = false;
     private bool hasSeedPlanted = false;
+    [SerializeField]
     public GameObject seed;
+    [SerializeField]
     public GameObject seed1;
+    [SerializeField]
     public GameObject seed2;
+    [SerializeField]
     public GameObject GrownCrop;
     public bool grow = false;
     public int DaysToGrowPorgression;

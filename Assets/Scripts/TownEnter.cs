@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ExitDoor : MonoBehaviour
+public class TownEnter : MonoBehaviour
 {
-
+    // Start is called before the first frame update
     [SerializeField]
     GameObject selection;
 
@@ -14,9 +14,9 @@ public class ExitDoor : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && selection.activeSelf)
         {
-            SceneManager.LoadScene("Farm");
+            SceneManager.LoadScene("Town");
         }
-    
+
     }
     private void OnTriggerEnter(Collider other)
     {
