@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     public float maxX = 35.0f;
     public float minZ = -35.0f;
     public float maxZ = 21.0f;
-
+    private bool eneableRotation = true;
     public GameObject indicator;
     public GameObject indicator2;
     // Reference to the Timer script
@@ -53,9 +53,12 @@ public class Player : MonoBehaviour
         {
             transform.Translate(movementDirection * moveSpeed * Time.deltaTime, Space.World);
 
-            // Rotate the character to face the movement direction
-            Quaternion targetRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.1f);
+            if (eneableRotation == true)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.1f);
+            }
+           
         }
 
         Interact();
@@ -155,8 +158,10 @@ public class Player : MonoBehaviour
     public IEnumerator DiseableMovement(float num)
     {
         moveSpeed = 0;
+        eneableRotation = false;
         yield return new WaitForSeconds(num);
         moveSpeed = 5;
+        eneableRotation = true;
     }
     
     IEnumerator EnergyTaking()

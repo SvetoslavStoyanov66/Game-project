@@ -4,7 +4,8 @@ using UnityEngine;
 public class Darking : MonoBehaviour
 {
     public Animator animator;
-    public Player player;// Reference to the Animator controlling the darkening animation
+    public Player player;
+    // Reference to the Animator controlling the darkening animation
 
     void Update()
     {

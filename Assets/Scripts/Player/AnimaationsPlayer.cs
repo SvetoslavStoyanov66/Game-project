@@ -47,6 +47,11 @@ public class AnimaationsPlayer : MonoBehaviour
             }
         }
     }
+    public void BedSleeping()
+    {
+        animator.SetBool("IsSleeping", true);
+        StartCoroutine(Sleeping(3));
+    }
     private IEnumerator ResetStandingUpAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -71,5 +76,10 @@ public class AnimaationsPlayer : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         animator.SetBool("IsWatering", false);
+    }
+    private IEnumerator Sleeping(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        animator.SetBool("IsSleeping", false);
     }
 }
