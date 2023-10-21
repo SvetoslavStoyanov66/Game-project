@@ -42,7 +42,7 @@ public class Land : MonoBehaviour
     }
     private void Update()
     {
-        if (isRaining)
+        if (isRaining && landStatus == LandStatus.Farmland)
         {
             counter += Time.deltaTime;
             if (counter >= 10)
