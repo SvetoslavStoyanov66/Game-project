@@ -23,11 +23,10 @@ public class Bed : MonoBehaviour
                
         if (time != null && player != null)
         {
-            if (Input.GetKeyDown(KeyCode.E) && selection.activeSelf && ((time.hours > 14 || (time.hours < 6 && time.hours > 0)) || player.fillAmount < 0.3f))
+            if (Input.GetKeyDown(KeyCode.E) && selection.activeSelf /*&& ((time.hours > 14 || (time.hours < 6 && time.hours > 0)) || player.fillAmount < 0.3f)*/)
             {
-                time.day += 1;
-                time.hours = 8;
-                player.fillAmount = 1;
+
+                player.SleepingOnBed();
                 darkingAnimator.StartDarkenAnimation();
                 CharacterController playerController = FindObjectOfType<Player>().GetComponent<CharacterController>();
 

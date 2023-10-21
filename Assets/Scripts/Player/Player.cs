@@ -195,4 +195,8 @@ public class Player : MonoBehaviour
             this.gameObject.transform.position = newPosition;
         }
     }
+    public void SleepingOnBed()
+    {
+        StartCoroutine(SecondsBeforeChangingData());
+    }
 }
