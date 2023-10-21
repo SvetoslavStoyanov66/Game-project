@@ -31,7 +31,8 @@ public class Land : MonoBehaviour
     public int CurrentDayProgression = 0;
     public ItemData crop;
     public bool isCropInstantianted = false;
-
+    public bool isRaining;
+    private float counter;
     
     // Start is called before the first frame update
     void Start()
@@ -39,9 +40,20 @@ public class Land : MonoBehaviour
         renderer = GetComponent<Renderer>();
         SwitchLandStatus(LandStatus.Soil);
     }
+    private void Update()
+    {
+        if (isRaining)
+        {
+            counter += Time.deltaTime;
+            if (counter >= 10)
+            {
+                SwitchLandStatus(LandStatus.Watared);
+                counter = 0;
+            }
+        }
+    }
 
-   
-    
+
     public void SwitchLandStatus(LandStatus statusToSwich)
     {
 
@@ -63,7 +75,6 @@ public class Land : MonoBehaviour
                 break;
         }
         renderer.material = materialTpSwich;
-        LandManager.Instance.OnLandChange(id,landStatus,isWatered);
     }
     public void Selected(bool toggle)
     {

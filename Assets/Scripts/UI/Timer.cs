@@ -194,11 +194,19 @@ public class Timer : MonoBehaviour
             {
                 ResetLandStatusToWatared();
                 ActivateParticleSystem();
+                foreach (Land land in landObjects)
+                {
+                    land.isRaining = true;
+                }
             }
             else
             {
                 ResetLandStatusToSoil();
                 DeactivateParticleSystem();
+                foreach (Land land in landObjects)
+                {
+                    land.isRaining = false;
+                }
             }
 
 
