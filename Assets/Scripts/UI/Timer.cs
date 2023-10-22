@@ -30,7 +30,6 @@ public class Timer : MonoBehaviour
     public int seasonNum;
     private int lastDay;
 
-
     public int MinutesInDay;
     public enum Season
     {

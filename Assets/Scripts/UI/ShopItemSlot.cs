@@ -12,6 +12,12 @@ public class ShopItemSlot : MonoBehaviour
     Image itemImage;
     [SerializeField]
     List<ShopItemSlot> shopItemSlots = new List<ShopItemSlot>();
+    [SerializeField]
+    Text itemNameText;
+    [SerializeField]
+    Text itemDiscriptionText;
+    [SerializeField]
+    Text itemPrieceText;
 
     private void Start()
     {
@@ -31,7 +37,6 @@ public class ShopItemSlot : MonoBehaviour
     {
         if (seedDatas.Count > 0)
         {
-            // Generate a list of available seed indexes (not used in other slots)
             List<int> availableIndexes = new List<int>();
             for (int i = 0; i < seedDatas.Count; i++)
             {
@@ -49,8 +54,6 @@ public class ShopItemSlot : MonoBehaviour
                     availableIndexes.Add(i);
                 }
             }
-
-            // If there are available indexes, pick one randomly
             if (availableIndexes.Count > 0)
             {
                 seedIndex = availableIndexes[Random.Range(0, availableIndexes.Count)];
@@ -61,5 +64,18 @@ public class ShopItemSlot : MonoBehaviour
     private void UpdateItemSprite()
     {
         itemImage.sprite = seedDatas[seedIndex].thumbnail;
+    }
+    public void ShowItemDetails()
+    {
+        itemNameText.text = seedDatas[seedIndex].name;
+        itemDiscriptionText.text = seedDatas[seedIndex].description;
+        itemPrieceText.text = "Priece: " + seedDatas[seedIndex].priece + "G";
+    }
+
+    public void HideItemDetails()
+    {
+        itemNameText.text = "";
+        itemDiscriptionText.text = "";
+        itemPrieceText.text = "";
     }
 }
