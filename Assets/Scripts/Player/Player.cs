@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
         if (fillAmount <= 0)
         {
             StartCoroutine(DiseableMovement(12));
-            StartCoroutine(SecondsBeforeChangingData());
+            StartCoroutine(SecondsBeforeChangingData(0.75f));
         }
         var animationsPlayer = FindObjectOfType<AnimaationsPlayer>();
         if (animationsPlayer != null)
@@ -139,14 +139,14 @@ public class Player : MonoBehaviour
     {
         return Input.GetAxis("Vertical");
     }
-    public IEnumerator SecondsBeforeChangingData()
+    public IEnumerator SecondsBeforeChangingData(float fill)
     {
 
         yield return new WaitForSeconds(2.5f);
 
 
         timer.hours = 8;
-        fillAmount = 0.75f;
+        fillAmount = fill;
         if (counter < 1)
         {
             timer.day++;
@@ -197,6 +197,6 @@ public class Player : MonoBehaviour
     }
     public void SleepingOnBed()
     {
-        StartCoroutine(SecondsBeforeChangingData());
+        StartCoroutine(SecondsBeforeChangingData(1));
     }
 }

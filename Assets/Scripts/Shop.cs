@@ -10,21 +10,25 @@ public class Shop : MonoBehaviour
     [SerializeField]
     GameObject selection;
     [SerializeField]
-    GameObject shopUI;
-
+    Canvas shopUI;
+    private bool isShopOpen = false;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && selection.activeSelf)
         {
-            shopUI.SetActive(true);
+            ToggleShopUI();
         }
-        if (Input.GetKeyDown(KeyCode.E) && shopUI.activeSelf)
+        else if (Input.GetKeyDown(KeyCode.E))
         {
-            shopUI.SetActive(false);
+            shopUI.enabled = false;
         }
+    }
 
-
+    private void ToggleShopUI()
+    {
+        isShopOpen = !isShopOpen;
+        shopUI.enabled = isShopOpen;
     }
     private void OnTriggerEnter(Collider other)
     {

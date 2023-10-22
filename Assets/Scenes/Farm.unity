@@ -675,22 +675,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a3647be0e8360df40aadc44be38ad074,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7178154
+      value: 0.7696537
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3647be0e8360df40aadc44be38ad074,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.19947737
+      value: -0.34251523
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3647be0e8360df40aadc44be38ad074,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.59660715
+      value: 0.5276501
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3647be0e8360df40aadc44be38ad074,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.29834506
+      value: 0.10909621
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3647be0e8360df40aadc44be38ad074,
         type: 3}
@@ -705,7 +705,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a3647be0e8360df40aadc44be38ad074,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 194.377
+      value: 165.374
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3647be0e8360df40aadc44be38ad074,
         type: 3}
@@ -14565,9 +14565,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73328dbedbbc5b14e8398a26f1aac99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LandList: []
-  landSaveState: []
-  cropSaveState: []
 --- !u!1001 &1376643856
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23194,6 +23191,7 @@ GameObject:
   - component: {fileID: 6365438195239496270}
   - component: {fileID: 8154163762502199871}
   - component: {fileID: 5578061006215913309}
+  - component: {fileID: 2536438551091721689}
   m_Layer: 0
   m_Name: RainParticleSystem
   m_TagString: Untagged
@@ -23201,6 +23199,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &2536438551091721689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2536438551091721688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a38a0eaa7e98e5a43aa03f8235917239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lands: []
 --- !u!114 &2983959966204850263
 MonoBehaviour:
   m_ObjectHideFlags: 0
