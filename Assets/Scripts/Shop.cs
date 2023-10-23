@@ -6,13 +6,23 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public static Shop Instance { get; private set; }
     [SerializeField]
     GameObject selection;
     [SerializeField]
     Canvas shopUI;
-    private bool isShopOpen = false;
-
+    public bool isShopOpen = false;
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && selection.activeSelf)

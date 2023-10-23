@@ -5,4 +5,5 @@ using UnityEngine;
 public class FoodData : ItemData
 {
     public int energyFillAmount;
+    public int sellPrice;
 }

@@ -8,5 +8,5 @@ public class SeedsData : ItemData
     public GameObject seedling2;
     public int daysToGrow;
     public ItemData cropToYield;
-    public int priece;
+    public int price;
 }
