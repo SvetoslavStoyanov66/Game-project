@@ -2941,6 +2941,21 @@ PrefabInstance:
       propertyPath: slotIndex
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: shopTextName
+      value: 
+      objectReference: {fileID: 763845682}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: itemPriceText
+      value: 
+      objectReference: {fileID: 804943265}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: shopTextDescription
+      value: 
+      objectReference: {fileID: 985283732}
     - target: {fileID: 7709359184037265098, guid: 652aeee830eaacf4a89af133d5aad810,
         type: 3}
       propertyPath: m_Sprite
@@ -3866,6 +3881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selection: {fileID: 1218999308}
   shopUI: {fileID: 572048870}
+  isShopOpen: 0
 --- !u!65 &269855918
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4685,6 +4701,21 @@ PrefabInstance:
       propertyPath: slotIndex
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: shopTextName
+      value: 
+      objectReference: {fileID: 763845682}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: itemPriceText
+      value: 
+      objectReference: {fileID: 804943265}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: shopTextDescription
+      value: 
+      objectReference: {fileID: 985283732}
     - target: {fileID: 7709359184037265098, guid: 652aeee830eaacf4a89af133d5aad810,
         type: 3}
       propertyPath: m_Sprite
@@ -6857,6 +6888,7 @@ RectTransform:
   - {fileID: 763845681}
   - {fileID: 985283731}
   - {fileID: 804943264}
+  - {fileID: 2034530927}
   m_Father: {fileID: 269855921}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7247,6 +7279,7 @@ MonoBehaviour:
   itemNameText: {fileID: 763845682}
   itemDiscriptionText: {fileID: 985283732}
   itemPrieceText: {fileID: 804943265}
+  notEnoughMoneyNot: {fileID: 2034530928}
 --- !u!114 &626621385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7281,6 +7314,21 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 626621384}
           m_MethodName: HideItemDetails
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 626621384}
+          m_MethodName: PurchaseItem
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -8375,6 +8423,21 @@ PrefabInstance:
       propertyPath: slotIndex
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: shopTextName
+      value: 
+      objectReference: {fileID: 763845682}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: itemPriceText
+      value: 
+      objectReference: {fileID: 804943265}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: shopTextDescription
+      value: 
+      objectReference: {fileID: 985283732}
     - target: {fileID: 7709359184037265098, guid: 652aeee830eaacf4a89af133d5aad810,
         type: 3}
       propertyPath: m_Sprite
@@ -8921,6 +8984,7 @@ MonoBehaviour:
   itemNameText: {fileID: 763845682}
   itemDiscriptionText: {fileID: 985283732}
   itemPrieceText: {fileID: 804943265}
+  notEnoughMoneyNot: {fileID: 2034530928}
 --- !u!114 &765941965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8955,6 +9019,21 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 765941964}
           m_MethodName: HideItemDetails
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 765941964}
+          m_MethodName: PurchaseItem
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -9421,6 +9500,21 @@ PrefabInstance:
       propertyPath: slotIndex
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: shopTextName
+      value: 
+      objectReference: {fileID: 763845682}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: itemPriceText
+      value: 
+      objectReference: {fileID: 804943265}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: shopTextDescription
+      value: 
+      objectReference: {fileID: 985283732}
     - target: {fileID: 7709359184037265098, guid: 652aeee830eaacf4a89af133d5aad810,
         type: 3}
       propertyPath: m_Sprite
@@ -10820,6 +10914,21 @@ PrefabInstance:
       propertyPath: slotIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: shopTextName
+      value: 
+      objectReference: {fileID: 763845682}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: itemPriceText
+      value: 
+      objectReference: {fileID: 804943265}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: shopTextDescription
+      value: 
+      objectReference: {fileID: 985283732}
     - target: {fileID: 7709359184037265098, guid: 652aeee830eaacf4a89af133d5aad810,
         type: 3}
       propertyPath: m_Sprite
@@ -12189,6 +12298,9 @@ MonoBehaviour:
   ItemDisplayImage: {fileID: 2983959967402708325}
   slotIndex: 3
   quantityTMP: {fileID: 0}
+  shopTextName: {fileID: 0}
+  shopTextDescription: {fileID: 0}
+  itemPriceText: {fileID: 0}
 --- !u!1 &1035866100
 GameObject:
   m_ObjectHideFlags: 0
@@ -12401,6 +12513,21 @@ PrefabInstance:
       propertyPath: slotIndex
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: shopTextName
+      value: 
+      objectReference: {fileID: 763845682}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: itemPriceText
+      value: 
+      objectReference: {fileID: 804943265}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: shopTextDescription
+      value: 
+      objectReference: {fileID: 985283732}
     - target: {fileID: 7709359184037265098, guid: 652aeee830eaacf4a89af133d5aad810,
         type: 3}
       propertyPath: m_Sprite
@@ -12552,6 +12679,21 @@ PrefabInstance:
       propertyPath: slotIndex
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: shopTextName
+      value: 
+      objectReference: {fileID: 763845682}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: itemPriceText
+      value: 
+      objectReference: {fileID: 804943265}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: shopTextDescription
+      value: 
+      objectReference: {fileID: 985283732}
     - target: {fileID: 7709359184037265098, guid: 652aeee830eaacf4a89af133d5aad810,
         type: 3}
       propertyPath: m_Sprite
@@ -13545,6 +13687,9 @@ MonoBehaviour:
   ItemDisplayImage: {fileID: 2983959966583041519}
   slotIndex: 0
   quantityTMP: {fileID: 0}
+  shopTextName: {fileID: 0}
+  shopTextDescription: {fileID: 0}
+  itemPriceText: {fileID: 0}
 --- !u!114 &1141287721 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7133296466578820155, guid: 51343445ef888fc4fa5698c7c102b055,
@@ -15405,6 +15550,21 @@ PrefabInstance:
       propertyPath: slotIndex
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: shopTextName
+      value: 
+      objectReference: {fileID: 763845682}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: itemPriceText
+      value: 
+      objectReference: {fileID: 804943265}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: shopTextDescription
+      value: 
+      objectReference: {fileID: 985283732}
     - target: {fileID: 7709359184037265098, guid: 652aeee830eaacf4a89af133d5aad810,
         type: 3}
       propertyPath: m_Sprite
@@ -16428,6 +16588,21 @@ PrefabInstance:
       propertyPath: slotIndex
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: shopTextName
+      value: 
+      objectReference: {fileID: 763845682}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: itemPriceText
+      value: 
+      objectReference: {fileID: 804943265}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: shopTextDescription
+      value: 
+      objectReference: {fileID: 985283732}
     - target: {fileID: 7709359184037265098, guid: 652aeee830eaacf4a89af133d5aad810,
         type: 3}
       propertyPath: m_Sprite
@@ -17501,6 +17676,7 @@ MonoBehaviour:
   itemNameText: {fileID: 763845682}
   itemDiscriptionText: {fileID: 985283732}
   itemPrieceText: {fileID: 804943265}
+  notEnoughMoneyNot: {fileID: 2034530928}
 --- !u!114 &1542543524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17535,6 +17711,21 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1542543523}
           m_MethodName: HideItemDetails
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1542543523}
+          m_MethodName: PurchaseItem
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -19068,6 +19259,9 @@ MonoBehaviour:
   ItemDisplayImage: {fileID: 2983959966204850263}
   slotIndex: 5
   quantityTMP: {fileID: 0}
+  shopTextName: {fileID: 0}
+  shopTextDescription: {fileID: 0}
+  itemPriceText: {fileID: 0}
 --- !u!114 &1661490970 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7133296466578820155, guid: 51343445ef888fc4fa5698c7c102b055,
@@ -19785,6 +19979,9 @@ MonoBehaviour:
   ItemDisplayImage: {fileID: 2983959966833576563}
   slotIndex: 2
   quantityTMP: {fileID: 0}
+  shopTextName: {fileID: 0}
+  shopTextDescription: {fileID: 0}
+  itemPriceText: {fileID: 0}
 --- !u!114 &1730106879 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7133296466578820155, guid: 51343445ef888fc4fa5698c7c102b055,
@@ -20249,6 +20446,21 @@ PrefabInstance:
       propertyPath: slotIndex
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: shopTextName
+      value: 
+      objectReference: {fileID: 763845682}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: itemPriceText
+      value: 
+      objectReference: {fileID: 804943265}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: shopTextDescription
+      value: 
+      objectReference: {fileID: 985283732}
     - target: {fileID: 7709359184037265098, guid: 652aeee830eaacf4a89af133d5aad810,
         type: 3}
       propertyPath: m_Sprite
@@ -22170,6 +22382,9 @@ MonoBehaviour:
   ItemDisplayImage: {fileID: 2983959966942367967}
   slotIndex: 1
   quantityTMP: {fileID: 0}
+  shopTextName: {fileID: 0}
+  shopTextDescription: {fileID: 0}
+  itemPriceText: {fileID: 0}
 --- !u!1001 &1944102246
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22512,6 +22727,21 @@ PrefabInstance:
       propertyPath: slotIndex
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: shopTextName
+      value: 
+      objectReference: {fileID: 763845682}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: itemPriceText
+      value: 
+      objectReference: {fileID: 804943265}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: shopTextDescription
+      value: 
+      objectReference: {fileID: 985283732}
     - target: {fileID: 7709359184037265098, guid: 652aeee830eaacf4a89af133d5aad810,
         type: 3}
       propertyPath: m_Sprite
@@ -22846,6 +23076,84 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 813102486}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2034530926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2034530927}
+  - component: {fileID: 2034530929}
+  - component: {fileID: 2034530928}
+  m_Layer: 5
+  m_Name: NotEnoughMoneyNotifier
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2034530927
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034530926}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 572048867}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1, y: 192}
+  m_SizeDelta: {x: 940, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2034530928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034530926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: f5b0941523d740b408015d8e1900c29d, type: 3}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &2034530929
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034530926}
+  m_CullTransparentMesh: 0
 --- !u!1001 &2039640934
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23961,6 +24269,9 @@ MonoBehaviour:
   ItemDisplayImage: {fileID: 2983959967509243737}
   slotIndex: 4
   quantityTMP: {fileID: 0}
+  shopTextName: {fileID: 0}
+  shopTextDescription: {fileID: 0}
+  itemPriceText: {fileID: 0}
 --- !u!1001 &2138053918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25086,6 +25397,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: shopTextName
+      value: 
+      objectReference: {fileID: 763845682}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: itemPriceText
+      value: 
+      objectReference: {fileID: 804943265}
+    - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
+        type: 3}
+      propertyPath: shopTextDescription
+      value: 
+      objectReference: {fileID: 985283732}
     - target: {fileID: 7709359184037265098, guid: 652aeee830eaacf4a89af133d5aad810,
         type: 3}
       propertyPath: m_Sprite

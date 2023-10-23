@@ -18,6 +18,8 @@ public class ShopItemSlot : MonoBehaviour
     Text itemDiscriptionText;
     [SerializeField]
     Text itemPrieceText;
+    [SerializeField]
+    Text notEnoughMoneyNot;
 
     private void Start()
     {
@@ -69,7 +71,7 @@ public class ShopItemSlot : MonoBehaviour
     {
         itemNameText.text = seedDatas[seedIndex].name;
         itemDiscriptionText.text = seedDatas[seedIndex].description;
-        itemPrieceText.text = "Priece: " + seedDatas[seedIndex].priece + "G";
+        itemPrieceText.text = "Buy price: " + seedDatas[seedIndex].price + "G";
     }
 
     public void HideItemDetails()
@@ -77,5 +79,24 @@ public class ShopItemSlot : MonoBehaviour
         itemNameText.text = "";
         itemDiscriptionText.text = "";
         itemPrieceText.text = "";
+    }
+    public void PurchaseItem()
+    {
+        if (Money.Instance.moneyAmount > 0 && Money.Instance.moneyAmount - seedDatas[seedIndex].price > 0)
+        {
+            Inventory.Instance.HarvestCrops(seedDatas[seedIndex]);
+            Money.Instance.BuingItems(seedDatas[seedIndex].price);
+            notEnoughMoneyNot.text = "";
+        }
+        else 
+        {
+            StartCoroutine(TextDuration(4));
+        }
+    }
+    IEnumerator TextDuration(int num)
+    {
+        notEnoughMoneyNot.text = "Not enough money";
+        yield return new WaitForSeconds(num);
+        notEnoughMoneyNot.text = "";
     }
 }
