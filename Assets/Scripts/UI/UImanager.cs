@@ -114,10 +114,12 @@ public class UImanager : MonoBehaviour
         }
     }
 
-    public void ToggleInventoryPanel()
-    {
+    public void ToggleInventoryPanel(int y)
+    {   RectTransform desiredPosition = inventoryPanel.GetComponent<RectTransform>();
+        desiredPosition.anchoredPosition = new Vector2(0,y);
         inventoryPanel.SetActive(!inventoryPanel.activeSelf);
         RenderInventory();
+
     }
 
     public void DisplayItemInfo(ItemData data)

@@ -21,6 +21,11 @@ public class Shop : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
+           
+            if (shopUI.enabled)
+            {
+                UImanager.Instance.ToggleInventoryPanel(69);
+            }
             shopUI.enabled = false;
         }
     }
@@ -29,6 +34,7 @@ public class Shop : MonoBehaviour
     {
         isShopOpen = !isShopOpen;
         shopUI.enabled = isShopOpen;
+        UImanager.Instance.ToggleInventoryPanel(-189);
     }
     private void OnTriggerEnter(Collider other)
     {
