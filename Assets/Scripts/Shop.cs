@@ -20,8 +20,7 @@ public class Shop : MonoBehaviour
             ToggleShopUI();
         }
         else if (Input.GetKeyDown(KeyCode.E))
-        {
-           
+        {          
             if (shopUI.enabled)
             {
                 UImanager.Instance.ToggleInventoryPanel(69);
