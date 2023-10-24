@@ -43,7 +43,7 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
         if (itemToDisplay == null || itemToDisplay.quantity <= 1)
         {
-            quantityTMP.text = string.Empty;
+            quantityTMP.text = "";
         }
         else
         {

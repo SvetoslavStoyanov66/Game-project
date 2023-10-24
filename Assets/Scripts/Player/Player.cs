@@ -15,10 +15,6 @@ public class Player : MonoBehaviour
     private float timer1 = 0f;
     int counter;
     bool TakeEnergy = true;
-    public float minX = -18.0f;
-    public float maxX = 35.0f;
-    public float minZ = -35.0f;
-    public float maxZ = 21.0f;
     private bool eneableRotation = true;
     public GameObject indicator;
     public GameObject indicator2;
@@ -46,7 +42,6 @@ public class Player : MonoBehaviour
 
         // Calculate movement direction
         Vector3 movementDirection = new Vector3(horizontalInput, 0.0f, verticalInput).normalized;
-        MovementLimitaitons();
 
         // Move the character
         if (movementDirection.magnitude > 0.1f)
@@ -170,30 +165,6 @@ public class Player : MonoBehaviour
         fillAmount -= 0.1f;
         yield return new WaitForSeconds(1.5f);
         TakeEnergy = true;
-    }
-    private void MovementLimitaitons()
-    {
-        Vector3 newPosition = this.gameObject.transform.position;
-        if (this.gameObject.transform.position.x < minX)
-        {
-            newPosition.x = minX;
-            this.gameObject.transform.position = newPosition;
-        }
-        if (this.gameObject.transform.position.z < minZ)
-        {
-            newPosition.z = minZ;
-            this.gameObject.transform.position = newPosition;
-        }
-        if (this.gameObject.transform.position.x > maxX)
-        {
-            newPosition.x = maxX;
-            this.gameObject.transform.position = newPosition;
-        }
-        if (this.gameObject.transform.position.z > maxZ)
-        {
-            newPosition.z = maxZ;
-            this.gameObject.transform.position = newPosition;
-        }
     }
     public void SleepingOnBed()
     {
