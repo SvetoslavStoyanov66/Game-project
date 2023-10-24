@@ -121,6 +121,13 @@ public class UImanager : MonoBehaviour
         RenderInventory();
 
     }
+    public void ChangeInventoryPosition(int y)
+    {
+        RectTransform desiredPosition = inventoryPanel.GetComponent<RectTransform>();
+        desiredPosition.anchoredPosition = new Vector2(0, y);
+        RenderInventory();
+    }
+
 
     public void DisplayItemInfo(ItemData data)
     {

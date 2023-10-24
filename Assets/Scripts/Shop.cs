@@ -27,23 +27,39 @@ public class Shop : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && selection.activeSelf)
         {
-            ToggleShopUI();
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
-        {          
             if (shopUI.enabled)
             {
-                UImanager.Instance.ToggleInventoryPanel(69);
+                UImanager.Instance.inventoryPanel.SetActive(false);
+                shopUI.enabled = false;
+            }
+            else
+            {
+                ToggleShopUI();
+            }         
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (shopUI.enabled)
+            {
+                UImanager.Instance.inventoryPanel.SetActive(false);
             }
             shopUI.enabled = false;
         }
+        isShopOpen = shopUI.enabled;
     }
 
     private void ToggleShopUI()
     {
-        isShopOpen = !isShopOpen;
-        shopUI.enabled = isShopOpen;
-        UImanager.Instance.ToggleInventoryPanel(-189);
+        shopUI.enabled = true;
+        if (!UImanager.Instance.IsInventoryPanelActive())
+        {
+            UImanager.Instance.ToggleInventoryPanel(-189);
+        }
+        else
+        {
+            UImanager.Instance.ChangeInventoryPosition(-189);
+        }
+       
     }
     private void OnTriggerEnter(Collider other)
     {
