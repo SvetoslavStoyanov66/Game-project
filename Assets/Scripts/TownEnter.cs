@@ -14,6 +14,8 @@ public class TownEnter : MonoBehaviour
     GameObject farm;
     [SerializeField]
     GameObject town;
+    [SerializeField]
+    Camera camera;
     
     
     void Update()
@@ -32,6 +34,7 @@ public class TownEnter : MonoBehaviour
                 farm.SetActive(false);
                 town.SetActive(true);
                 this.gameObject.transform.position = newPosition;
+                camera.transform.position = newPosition;  
             }
         }
         else if (selection.activeSelf && Input.GetKeyDown(KeyCode.E) && !farm.activeSelf)
@@ -46,6 +49,7 @@ public class TownEnter : MonoBehaviour
             town.SetActive(false);
             farm.SetActive (true);
             this.gameObject.transform.position = newPosition;
+            camera.transform.position = newPosition;
         }
     }
     private void OnTriggerEnter(Collider other)

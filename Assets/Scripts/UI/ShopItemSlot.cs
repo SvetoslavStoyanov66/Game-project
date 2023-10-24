@@ -82,7 +82,7 @@ public class ShopItemSlot : MonoBehaviour
     }
     public void PurchaseItem()
     {
-        if (Money.Instance.moneyAmount > 0 && Money.Instance.moneyAmount - seedDatas[seedIndex].price > 0)
+        if (Money.Instance.moneyAmount > 0 && Money.Instance.moneyAmount - seedDatas[seedIndex].price >= 0)
         {
             Inventory.Instance.HarvestCrops(seedDatas[seedIndex]);
             Money.Instance.BuingItems(seedDatas[seedIndex].price);

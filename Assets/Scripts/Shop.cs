@@ -12,6 +12,8 @@ public class Shop : MonoBehaviour
     [SerializeField]
     Canvas shopUI;
     public bool isShopOpen = false;
+    [SerializeField]
+    Button invButton;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -31,10 +33,12 @@ public class Shop : MonoBehaviour
             {
                 UImanager.Instance.inventoryPanel.SetActive(false);
                 shopUI.enabled = false;
+                invButton.gameObject.SetActive(true);
             }
             else
             {
                 ToggleShopUI();
+                invButton.gameObject.SetActive(false);
             }         
         }
         else if (Input.GetKeyDown(KeyCode.E))
@@ -44,13 +48,14 @@ public class Shop : MonoBehaviour
                 UImanager.Instance.inventoryPanel.SetActive(false);
             }
             shopUI.enabled = false;
+            invButton.gameObject.SetActive(true);
         }
         isShopOpen = shopUI.enabled;
     }
 
     private void ToggleShopUI()
     {
-        shopUI.enabled = true;
+       
         if (!UImanager.Instance.IsInventoryPanelActive())
         {
             UImanager.Instance.ToggleInventoryPanel(-189);
@@ -59,7 +64,7 @@ public class Shop : MonoBehaviour
         {
             UImanager.Instance.ChangeInventoryPosition(-189);
         }
-       
+        shopUI.enabled = true;
     }
     private void OnTriggerEnter(Collider other)
     {
