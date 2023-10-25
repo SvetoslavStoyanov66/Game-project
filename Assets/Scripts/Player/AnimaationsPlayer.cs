@@ -6,6 +6,9 @@ public class AnimaationsPlayer : MonoBehaviour
     private Animator animator;
     private Player player;
     Timer timer;
+    [SerializeField]
+    WateringAnim wateringAnim;
+
     void Start()
     {
         // Get the Animator component from the same game object
@@ -64,6 +67,10 @@ public class AnimaationsPlayer : MonoBehaviour
     }
     public void Watering()
     {
+        if (wateringAnim != null)
+        {
+            wateringAnim.WateringCanAnim(true);
+        }
         animator.SetBool("IsWatering", true);
         StartCoroutine(ResetWatering(2.5f));
     }
@@ -76,6 +83,10 @@ public class AnimaationsPlayer : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         animator.SetBool("IsWatering", false);
+        if (wateringAnim != null)
+        {
+            wateringAnim.WateringCanAnim(false);
+        }
     }
     private IEnumerator Sleeping(float delay)
     {

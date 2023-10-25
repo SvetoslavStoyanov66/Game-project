@@ -14,6 +14,8 @@ public class Shop : MonoBehaviour
     public bool isShopOpen = false;
     [SerializeField]
     Button invButton;
+    bool isInventoryActive;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -38,7 +40,8 @@ public class Shop : MonoBehaviour
             else
             {
                 ToggleShopUI();
-                invButton.gameObject.SetActive(false);
+                shopUI.enabled = true;
+                invButton.gameObject.SetActive(false);           
             }         
         }
         else if (Input.GetKeyDown(KeyCode.E))
@@ -51,6 +54,7 @@ public class Shop : MonoBehaviour
             invButton.gameObject.SetActive(true);
         }
         isShopOpen = shopUI.enabled;
+        
     }
 
     private void ToggleShopUI()
@@ -64,7 +68,6 @@ public class Shop : MonoBehaviour
         {
             UImanager.Instance.ChangeInventoryPosition(-189);
         }
-        shopUI.enabled = true;
     }
     private void OnTriggerEnter(Collider other)
     {

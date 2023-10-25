@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-
-
+using UnityEngine.UIElements;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -18,6 +17,8 @@ public class PlayerInteraction : MonoBehaviour
     Inventory inventory;
     [SerializeField]
     private GameObject wateringCan;
+    [SerializeField]
+    WateringAnim wateringAnim;
     // Start is called before the first frame update
     void Start()
     {
@@ -91,7 +92,6 @@ public class PlayerInteraction : MonoBehaviour
                 }
                 if (selectedTool.name == "Wateringcan")
                 {
-                    StartCoroutine(WateringCanRotation());
                     player.Watering();
                     StartCoroutine(StopMovement(2.5f));
                     selectedLand.wasWateredYesterday = true;
@@ -194,34 +194,6 @@ public class PlayerInteraction : MonoBehaviour
         }
         
     
-    }
-    IEnumerator WateringCanRotation()
-    {
-        // Initial rotation and position
-        Quaternion initialRotation = Quaternion.Euler(10, 90, 110);
-
-        // Target rotation and position
-        Quaternion targetRotation = Quaternion.Euler(90, 90, 110);
-
-        // Set initial rotation and position
-        wateringCan.transform.rotation = initialRotation;
-
-        float elapsedTime = 0f;
-        float duration = 1.5f;
-
-        while (elapsedTime < duration)
-        {
-            elapsedTime += Time.deltaTime;
-
-            // Interpolate rotation and position
-            float t = Mathf.Clamp01(elapsedTime / duration);
-            wateringCan.transform.rotation = Quaternion.Lerp(initialRotation, targetRotation, t);
-
-            yield return null; // Wait for the next frame
-        }
-
-        // Ensure the final position and rotation are exact
-        wateringCan.transform.rotation = targetRotation;
     }
 
 
