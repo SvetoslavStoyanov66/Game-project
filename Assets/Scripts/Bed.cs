@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Bed : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class Bed : MonoBehaviour
     Player player;
     Darking darkingAnimator;
     AnimaationsPlayer animator;
+    [SerializeField]
+    GameObject notifier;
+    Text notifierText;
+
     private void Start()
     {
         time = FindObjectOfType<Timer>();   
@@ -54,6 +59,9 @@ public class Bed : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             selection.SetActive(true);
+            notifier.SetActive(true);
+            notifierText = notifier.GetComponentInChildren<Text>();
+            notifierText.text = "Press E to go to bed";
         }
     }
     private void OnTriggerExit(Collider other)
@@ -61,6 +69,7 @@ public class Bed : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             selection.SetActive(false);
+            notifier.SetActive(false);
         }
     }
 }

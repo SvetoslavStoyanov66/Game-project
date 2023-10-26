@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EnterDoor : MonoBehaviour
 {
@@ -20,12 +21,16 @@ public class EnterDoor : MonoBehaviour
     Light homeLight;
     [SerializeField]
     Light sun;
+    [SerializeField]
+    GameObject notifier;
+    Text notifiText;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && selection.activeSelf && house.activeSelf && !inHouse.activeSelf)
         {
             selection.SetActive(false);
+            notifier.SetActive(false);
             house.SetActive(false);
             inHouse.SetActive(true);
             inHouseCamera.enabled = true;
@@ -52,6 +57,9 @@ public class EnterDoor : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             selection.SetActive(true);
+            notifier.SetActive(true);
+            notifiText = notifier.GetComponentInChildren<Text>();
+            notifiText.text = "Press E to enter the house";
         }
     }
     private void OnTriggerExit(Collider other)
@@ -59,6 +67,7 @@ public class EnterDoor : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             selection.SetActive(false);
+            notifier.SetActive(false);
         }
     }
 }

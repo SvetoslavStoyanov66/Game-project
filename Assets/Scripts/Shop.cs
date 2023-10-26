@@ -39,8 +39,8 @@ public class Shop : MonoBehaviour
             }
             else
             {
-                ToggleShopUI();
                 shopUI.enabled = true;
+                ToggleShopUI();
                 invButton.gameObject.SetActive(false);           
             }         
         }

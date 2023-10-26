@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ExitDoor : MonoBehaviour
 {
@@ -20,12 +21,16 @@ public class ExitDoor : MonoBehaviour
     Light homeLight;
     [SerializeField]
     Light sun;
+    [SerializeField]
+    GameObject notifier;
+    Text notifiText;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && selection.activeSelf && !house.activeSelf && inHouse.activeSelf)
         {
             selection.SetActive(false);
+            notifier.SetActive(false);
             house.SetActive(true);
             inHouse.SetActive(false);
             inHouseCamera.enabled = false;
@@ -51,6 +56,9 @@ public class ExitDoor : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             selection.SetActive(true);
+            notifier.SetActive(true);
+            Text notifiText = notifier.GetComponentInChildren<Text>();
+            notifiText.text = "Press E to leave the house";
         }
     }
     private void OnTriggerExit(Collider other)
@@ -58,6 +66,7 @@ public class ExitDoor : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             selection.SetActive(false);
+            notifier.SetActive(false);
         }
     }
 }
