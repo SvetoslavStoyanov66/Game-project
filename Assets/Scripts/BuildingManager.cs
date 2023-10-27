@@ -11,7 +11,14 @@ public class BuildingManager : MonoBehaviour
     GameObject actulaStructure;
     [SerializeField]
     Camera cameraForBuilding;
+    [SerializeField]
+    Canvas inventoryCanvas;
+    [SerializeField]
+    Canvas timerCanvas;
+    [SerializeField]
+    Canvas buildingModeCanvas;
     float moveSpeed = 5.0f;
+    private bool canInstantiate = true;
 
     public static BuildingManager Instance { get;set; }
     private void Awake()
@@ -36,12 +43,12 @@ public class BuildingManager : MonoBehaviour
             Vector3 mousePosition = cameraForBuilding.ScreenToWorldPoint(position);
             structure.transform.position = new Vector3(mousePosition.x, structure.transform.position.y, mousePosition.z);
             Debug.Log(actulaStructure);
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0) && canInstantiate)
             {
                 Vector3 positionForInstantiation = structure.transform.position;
                 Destroy (structure);
                 actulaStructure.transform.position = positionForInstantiation;
-                Instantiate(actulaStructure);
+                actulaStructure = Instantiate(actulaStructure);
             }
 
         }
@@ -54,5 +61,34 @@ public class BuildingManager : MonoBehaviour
         structure.transform.position = vector3;
         structure = Instantiate(building);
         cameraForBuilding.enabled = true;
+        inventoryCanvas.enabled = false;
+        timerCanvas.enabled = false;
+        buildingModeCanvas.enabled = true;
+    }
+    public void SaveChangesButton()
+    {
+        cameraForBuilding.enabled = false;
+        inventoryCanvas.enabled = true;
+        timerCanvas.enabled = true;
+        buildingModeCanvas.enabled = false;
+    }
+    public void LeaveButton()
+    {
+        if (structure != null)
+        {
+            Destroy(structure);
+        }
+        else if (actulaStructure != null)
+        {
+            Destroy(actulaStructure);
+        }
+        cameraForBuilding.enabled = false;
+        inventoryCanvas.enabled = true;
+        timerCanvas.enabled = true;
+        buildingModeCanvas.enabled = false;
+    }
+     public void CanInstantiante(bool can)
+    {
+        canInstantiate = can;
     }
 }
