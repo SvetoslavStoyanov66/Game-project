@@ -22,7 +22,25 @@ public class ShopBuildingUI : MonoBehaviour
     Text woodText;
     [SerializeField]
     Text stoneText;
+    [SerializeField]
+    GameObject chikenBuilding;
+    [SerializeField]
+    GameObject cowBuilding;
+    [SerializeField]
+    GameObject actualchikenBuilding;
+    [SerializeField]
+    GameObject actualcowBuilding;
+    GameObject actualBuildingToInstatntiante;
+    GameObject buildingToInstantiate;
+    [SerializeField]
+    Canvas shopUiCanvas;
+    [SerializeField]
+    GameObject selection;
     private BuildingPageUI currentPage = BuildingPageUI.ChikenBuilding;
+    private void Start()
+    {
+        ChangingUiPages(BuildingPageUI.ChikenBuilding);
+    }
     private void ChangingUiPages(BuildingPageUI buildingPageUI)
     {
         switch (buildingPageUI)
@@ -34,6 +52,8 @@ public class ShopBuildingUI : MonoBehaviour
                 moneyText.text = "800";
                 woodText.text = "300";
                 stoneText.text = "100";
+                buildingToInstantiate = chikenBuilding;
+                actualBuildingToInstatntiante = actualchikenBuilding;
                 break;
             case BuildingPageUI.CowBuilding:
                 buildingImage = null;
@@ -42,7 +62,27 @@ public class ShopBuildingUI : MonoBehaviour
                 moneyText.text = "1200";
                 woodText.text = "400";
                 stoneText.text = "200";
+                buildingToInstantiate = cowBuilding;
+                actualBuildingToInstatntiante = actualcowBuilding;
                 break;
+        }
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && selection.activeSelf)
+        {
+            if (shopUiCanvas.enabled)
+            {
+                shopUiCanvas.enabled = false;
+            }
+            else
+            {
+                shopUiCanvas.enabled = true;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            shopUiCanvas.enabled = false;
         }
     }
     public void LeftButtonFunction()
@@ -58,5 +98,24 @@ public class ShopBuildingUI : MonoBehaviour
         currentIndex = (currentIndex - 1 + Enum.GetValues(typeof(BuildingPageUI)).Length) % Enum.GetValues(typeof(BuildingPageUI)).Length;
         currentPage = (BuildingPageUI)currentIndex;
         ChangingUiPages(currentPage);
+    }
+    public void ButtonBuyFunction()
+    {
+        BuildingManager.Instance.BuildingAssigning(buildingToInstantiate,actualBuildingToInstatntiante);
+        shopUiCanvas.enabled = false;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            selection.SetActive(true);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            selection.SetActive(false);
+        }
     }
 }
