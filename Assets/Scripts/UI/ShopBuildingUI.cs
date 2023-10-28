@@ -137,7 +137,7 @@ public class ShopBuildingUI : MonoBehaviour
     IEnumerator waitForDialog()
     {
         yield return new WaitForEndOfFrame();
-        Dialogs.Instance.StartDialog(builderFarmingStructuresDialog);
+        Dialogs.Instance.StartDialog(builderFarmingStructuresDialog, "BuildingShop");
     }
     public void LeaveButtonFunction()
     {

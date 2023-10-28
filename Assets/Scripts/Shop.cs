@@ -15,6 +15,13 @@ public class Shop : MonoBehaviour
     [SerializeField]
     Button invButton;
     bool isInventoryActive;
+    string[] shopFarmingNPCDialog = {
+    "Welcome to my farm supply store! We have a wide variety of seeds and tools to help you grow a bountiful harvest.",
+    "Don't forget to check out our special offers on fertilizer this week. It'll make your crops thrive!",
+    "What will you do?"
+};
+    [SerializeField]
+    GameObject dialogUI;
 
     private void Awake()
     {
@@ -39,9 +46,15 @@ public class Shop : MonoBehaviour
             }
             else
             {
-                shopUI.enabled = true;
-                ToggleShopUI();
-                invButton.gameObject.SetActive(false);           
+                if (!dialogUI.activeSelf)
+                {
+                    dialogUI.SetActive(true);
+                    StartCoroutine(waitForDialog());
+                }
+                else
+                {
+                    Dialogs.Instance.nextPage();
+                }
             }         
         }
         else if (Input.GetKeyDown(KeyCode.E))
@@ -82,5 +95,23 @@ public class Shop : MonoBehaviour
         {
             selection.SetActive(false);
         }
+    }
+    IEnumerator waitForDialog()
+    {
+        yield return new WaitForEndOfFrame();
+        Dialogs.Instance.StartDialog(shopFarmingNPCDialog, "SeedShop");
+    }
+    public void BrowseSeedsButtomFunction()
+    {
+        dialogUI.SetActive(false);
+        Dialogs.Instance.ResetText();
+        shopUI.enabled = true;
+        ToggleShopUI();
+        invButton.gameObject.SetActive(false);
+    }
+    public void LeaveButtonFunction()
+    {
+        dialogUI.SetActive(false);
+        Dialogs.Instance.ResetText();
     }
 }

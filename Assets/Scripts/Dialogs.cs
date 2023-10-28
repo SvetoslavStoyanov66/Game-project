@@ -11,10 +11,16 @@ public class Dialogs : MonoBehaviour
     float textSpeed = 0.05f;
     int index = 0;
     bool needToBreak = false;
-    [SerializeField]
     Button browse;
-    [SerializeField]
     Button leave;
+    [SerializeField]
+    Button browseSeeds;
+    [SerializeField]
+    Button LeaveSeeds;
+    [SerializeField]
+    Button browseBuildings;
+    [SerializeField]
+    Button leaveBuildings;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -35,8 +41,18 @@ public class Dialogs : MonoBehaviour
     {
 
     }
-    public void StartDialog(string[] dialogArray)
+    public void StartDialog(string[] dialogArray,string name)
     {
+        if (name == "SeedShop")
+        {
+            browse = browseSeeds;
+            leave = LeaveSeeds;
+        }
+        else if (name == "BuildingShop")
+        {
+            browse = browseBuildings;
+            leave = leaveBuildings;
+        }
         lines = dialogArray;
         index = 0;
         StartCoroutine(TypeLine());
