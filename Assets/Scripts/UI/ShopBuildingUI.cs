@@ -94,7 +94,6 @@ public class ShopBuildingUI : MonoBehaviour
                 {
                     Dialogs.Instance.nextPage();
                 }
-                // shopUiCanvas.enabled = true;
             }
         }
         else if (Input.GetKeyDown(KeyCode.E))
@@ -139,5 +138,16 @@ public class ShopBuildingUI : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         Dialogs.Instance.StartDialog(builderFarmingStructuresDialog);
+    }
+    public void LeaveButtonFunction()
+    {
+        dialogUI.SetActive(false);
+        Dialogs.Instance.ResetText();
+    }
+    public void BrowseButtonFunction() 
+    {
+        dialogUI.SetActive(false);
+        Dialogs.Instance.ResetText();
+        shopUiCanvas.enabled = true;
     }
 }

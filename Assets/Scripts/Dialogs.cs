@@ -40,7 +40,6 @@ public class Dialogs : MonoBehaviour
         lines = dialogArray;
         index = 0;
         StartCoroutine(TypeLine());
-        Debug.Log("complite");
     }
     IEnumerator TypeLine()
     {
@@ -53,6 +52,17 @@ public class Dialogs : MonoBehaviour
             }
             dialogText.text += c;
             yield return new WaitForSeconds(textSpeed);
+            if ((index == lines.Length - 1) && dialogText.text == lines[index])
+            {
+                index = 0;
+                browse.gameObject.SetActive(true);
+                leave.gameObject.SetActive(true);
+            }
+            else
+            {
+                browse.gameObject.SetActive(false);
+                leave.gameObject.SetActive(false);
+            }
 
         }
     }
@@ -71,21 +81,14 @@ public class Dialogs : MonoBehaviour
                 dialogText.text = string.Empty;
                 StartCoroutine(TypeLine());
             }
-            if (index == lines.Length - 1)
-            {
-                while (dialogText.text != lines[lines.Length - 1])
-                {
-                    browse.gameObject.SetActive(true);
-                    leave.gameObject.SetActive(true);
-                }
-            }
-            else
-            {
-                browse.gameObject.SetActive(false);
-                leave.gameObject.SetActive(false);
-            }
         }
     }
+    public void ResetText()
+    {
+        dialogText.text = string.Empty;
+        browse.gameObject.SetActive(false);
+        leave.gameObject.SetActive(false);
+    }
 
-   
+
 }
