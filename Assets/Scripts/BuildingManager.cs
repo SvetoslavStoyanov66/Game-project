@@ -50,6 +50,10 @@ public class BuildingManager : MonoBehaviour
                 actulaStructure.transform.position = positionForInstantiation;
                 actulaStructure = Instantiate(actulaStructure);
             }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                structure.transform.Rotate(0, 90, 0);
+            }
 
         }
     }

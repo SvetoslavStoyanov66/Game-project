@@ -36,6 +36,13 @@ public class ShopBuildingUI : MonoBehaviour
     Canvas shopUiCanvas;
     [SerializeField]
     GameObject selection;
+    string[] builderFarmingStructuresDialog = {
+    "Greetings! I specialize in constructing farm buildings such as coops and barns. With a new coop, you can raise chickens for fresh eggs, and a sturdy barn will provide shelter for your livestock.",
+    "If you're thinking about expanding your farm, I can help you design and build the perfect structure. Just let me know your requirements, and we'll get started on your project!"
+,"What will you do?"
+};
+    [SerializeField]
+    GameObject dialogUI;
     private BuildingPageUI currentPage = BuildingPageUI.ChikenBuilding;
     private void Start()
     {
@@ -77,7 +84,17 @@ public class ShopBuildingUI : MonoBehaviour
             }
             else
             {
-                shopUiCanvas.enabled = true;
+                if (!dialogUI.activeSelf)
+                {
+                    dialogUI.SetActive(true);
+                    StartCoroutine(waitForDialog());
+                    
+                }
+                else
+                {
+                    Dialogs.Instance.nextPage();
+                }
+                // shopUiCanvas.enabled = true;
             }
         }
         else if (Input.GetKeyDown(KeyCode.E))
@@ -117,5 +134,10 @@ public class ShopBuildingUI : MonoBehaviour
         {
             selection.SetActive(false);
         }
+    }
+    IEnumerator waitForDialog()
+    {
+        yield return new WaitForEndOfFrame();
+        Dialogs.Instance.StartDialog(builderFarmingStructuresDialog);
     }
 }
