@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +20,7 @@ public class Dialogs : MonoBehaviour
     Button browseBuildings;
     [SerializeField]
     Button leaveBuildings;
+    bool canChangePage = true;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -41,7 +41,7 @@ public class Dialogs : MonoBehaviour
     {
 
     }
-    public void StartDialog(string[] dialogArray,string name)
+    public void StartDialog(string[] dialogArray, string name)
     {
         if (name == "SeedShop")
         {
@@ -61,6 +61,19 @@ public class Dialogs : MonoBehaviour
     {
         foreach (char c in lines[index].ToCharArray())
         {
+            if ((index == lines.Length - 1) && dialogText.text == lines[index])
+            {
+                canChangePage = false;
+                index = 0;
+                browse.gameObject.SetActive(true);
+                leave.gameObject.SetActive(true);
+                
+            }
+            else
+            {
+                browse.gameObject.SetActive(false);
+                leave.gameObject.SetActive(false);
+            }
             if (needToBreak)
             {
                 needToBreak = false;
@@ -68,30 +81,18 @@ public class Dialogs : MonoBehaviour
             }
             dialogText.text += c;
             yield return new WaitForSeconds(textSpeed);
-            if ((index == lines.Length - 1) && dialogText.text == lines[index])
-            {
-                index = 0;
-                browse.gameObject.SetActive(true);
-                leave.gameObject.SetActive(true);
-            }
-            else
-            {
-                browse.gameObject.SetActive(false);
-                leave.gameObject.SetActive(false);
-            }
-
         }
     }
     public void nextPage()
     {
         if (index < lines.Length)
         {
-            if(dialogText.text != lines[index])
+            if (dialogText.text != lines[index] && canChangePage)
             {
                 needToBreak = true;
                 dialogText.text = lines[index];
             }
-            else
+            else if (canChangePage)
             {
                 index++;
                 dialogText.text = string.Empty;
@@ -104,6 +105,7 @@ public class Dialogs : MonoBehaviour
         dialogText.text = string.Empty;
         browse.gameObject.SetActive(false);
         leave.gameObject.SetActive(false);
+        canChangePage = true;
     }
 
 
