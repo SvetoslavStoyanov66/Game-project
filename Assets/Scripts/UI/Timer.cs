@@ -93,7 +93,7 @@ public class Timer : MonoBehaviour
         if (day >= 30)
         {
             day = 1;
-            seasonNum++;
+            season++;
             if (seasonNum >= 4)
             {
                 seasonNum = 0;
