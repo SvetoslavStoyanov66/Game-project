@@ -6,12 +6,10 @@ using UnityEngine.UI;
 public class ShopItemSlot : MonoBehaviour
 {
     [SerializeField]
-    List<SeedsData> seedDatas = new List<SeedsData>();
+    public SeedsData seedData;
     int seedIndex = 0;
     [SerializeField]
     Image itemImage;
-    [SerializeField]
-    List<ShopItemSlot> shopItemSlots = new List<ShopItemSlot>();
     [SerializeField]
     Text itemNameText;
     [SerializeField]
@@ -21,57 +19,26 @@ public class ShopItemSlot : MonoBehaviour
     [SerializeField]
     Text notEnoughMoneyNot;
 
-    private void Start()
-    {
-        if (seedDatas.Count > 0)
-        {
-            UpdateItemSprite();
-        }
-        ShopItem();
-    }
-
+   public void SeedAssigning(SeedsData seed)
+   {
+       seedData = seed;
+   }
     private void Update()
     {
         UpdateItemSprite();
     }
 
-    public void ShopItem()
-    {
-        if (seedDatas.Count > 0)
-        {
-            List<int> availableIndexes = new List<int>();
-            for (int i = 0; i < seedDatas.Count; i++)
-            {
-                bool isUsed = false;
-                foreach (var item in shopItemSlots)
-                {
-                    if (item.seedIndex == i)
-                    {
-                        isUsed = true;
-                        break;
-                    }
-                }
-                if (!isUsed)
-                {
-                    availableIndexes.Add(i);
-                }
-            }
-            if (availableIndexes.Count > 0)
-            {
-                seedIndex = availableIndexes[Random.Range(0, availableIndexes.Count)];
-            }
-        }
-    }
+   
 
     private void UpdateItemSprite()
     {
-        itemImage.sprite = seedDatas[seedIndex].thumbnail;
+        itemImage.sprite = seedData.thumbnail;
     }
     public void ShowItemDetails()
     {
-        itemNameText.text = seedDatas[seedIndex].name;
-        itemDiscriptionText.text = seedDatas[seedIndex].description;
-        itemPrieceText.text = "Buy price: " + seedDatas[seedIndex].price + "G";
+        itemNameText.text = seedData.name;
+        itemDiscriptionText.text = seedData.description;
+        itemPrieceText.text = "Buy price: " + seedData.price + "G";
     }
 
     public void HideItemDetails()
@@ -82,10 +49,10 @@ public class ShopItemSlot : MonoBehaviour
     }
     public void PurchaseItem()
     {
-        if (Money.Instance.moneyAmount > 0 && Money.Instance.moneyAmount - seedDatas[seedIndex].price >= 0)
+        if (Money.Instance.moneyAmount > 0 && Money.Instance.moneyAmount - seedData.price >= 0)
         {
-            Inventory.Instance.HarvestCrops(seedDatas[seedIndex]);
-            Money.Instance.BuingItems(seedDatas[seedIndex].price);
+            Inventory.Instance.HarvestCrops(seedData);
+            Money.Instance.BuingItems(seedData.price);
             notEnoughMoneyNot.text = "";
         }
         else 

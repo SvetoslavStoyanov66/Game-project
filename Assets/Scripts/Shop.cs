@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -22,6 +24,10 @@ public class Shop : MonoBehaviour
 };
     [SerializeField]
     GameObject dialogUI;
+    [SerializeField]
+    List<ShopItemSlot> shopItemSlots = new List<ShopItemSlot>();
+    [SerializeField]
+    List<SeedsData> seeds = new List<SeedsData>();
 
     private void Awake()
     {
@@ -33,6 +39,10 @@ public class Shop : MonoBehaviour
         {
             Instance = this;
         }
+    }
+    private void Start()
+    {
+        AssignSeedValue();
     }
     private void Update()
     {
@@ -69,7 +79,29 @@ public class Shop : MonoBehaviour
         isShopOpen = shopUI.enabled;
         
     }
+    public void AssignSeedValue()
+{
+    int num = seeds.Count;
 
+    List<int> uniqueIndices = new List<int>();
+    while (uniqueIndices.Count < 3)
+    {
+        int randomIndex = Random.Range(0, num);
+        if (!uniqueIndices.Contains(randomIndex))
+        {
+            uniqueIndices.Add(randomIndex);
+        }
+    }
+
+    int index1 = uniqueIndices[0];
+    int index2 = uniqueIndices[1];
+    int index3 = uniqueIndices[2];
+
+    shopItemSlots[0].SeedAssigning(seeds[index1]);
+    shopItemSlots[1].SeedAssigning(seeds[index2]);
+    shopItemSlots[2].SeedAssigning(seeds[index3]);
+
+}
     private void ToggleShopUI()
     {
        

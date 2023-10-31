@@ -177,6 +177,7 @@ public class Timer : MonoBehaviour
         if (lastDay != day)
         {
             lastDay = day;
+            Shop.Instance.AssignSeedValue();
             foreach (Land land in landObjects)
             {
                 if (land.isWatered == true)

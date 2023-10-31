@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44970918, g: 0.49977744, b: 0.575634, a: 1}
+  m_IndirectSpecularColor: {r: 0.44970965, g: 0.49977773, b: 0.5756354, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4215,6 +4215,14 @@ MonoBehaviour:
   isShopOpen: 0
   invButton: {fileID: 2090794320}
   dialogUI: {fileID: 1880570326}
+  shopItemSlots:
+  - {fileID: 765941964}
+  - {fileID: 626621384}
+  - {fileID: 1542543523}
+  seeds:
+  - {fileID: 11400000, guid: 5b576e8c20151844ebd24fccaec5d92f, type: 2}
+  - {fileID: 11400000, guid: 6272edf7005dc51498ddd84f7a3cba5f, type: 2}
+  - {fileID: 11400000, guid: 1446ef1a30908554e8586c7e4a13f959, type: 2}
 --- !u!65 &269855918
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7992,15 +8000,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb13cb4be5684d64798da1ee149765c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seedDatas:
-  - {fileID: 11400000, guid: 5b576e8c20151844ebd24fccaec5d92f, type: 2}
-  - {fileID: 11400000, guid: 6272edf7005dc51498ddd84f7a3cba5f, type: 2}
-  - {fileID: 11400000, guid: 1446ef1a30908554e8586c7e4a13f959, type: 2}
+  seedData: {fileID: 0}
   itemImage: {fileID: 769793819}
-  shopItemSlots:
-  - {fileID: 765941964}
-  - {fileID: 626621384}
-  - {fileID: 1542543523}
   itemNameText: {fileID: 763845682}
   itemDiscriptionText: {fileID: 985283732}
   itemPrieceText: {fileID: 804943265}
@@ -9870,15 +9871,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb13cb4be5684d64798da1ee149765c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seedDatas:
-  - {fileID: 11400000, guid: 5b576e8c20151844ebd24fccaec5d92f, type: 2}
-  - {fileID: 11400000, guid: 6272edf7005dc51498ddd84f7a3cba5f, type: 2}
-  - {fileID: 11400000, guid: 1446ef1a30908554e8586c7e4a13f959, type: 2}
+  seedData: {fileID: 0}
   itemImage: {fileID: 1872708302}
-  shopItemSlots:
-  - {fileID: 765941964}
-  - {fileID: 626621384}
-  - {fileID: 1542543523}
   itemNameText: {fileID: 763845682}
   itemDiscriptionText: {fileID: 985283732}
   itemPrieceText: {fileID: 804943265}
@@ -20894,15 +20888,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb13cb4be5684d64798da1ee149765c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seedDatas:
-  - {fileID: 11400000, guid: 5b576e8c20151844ebd24fccaec5d92f, type: 2}
-  - {fileID: 11400000, guid: 6272edf7005dc51498ddd84f7a3cba5f, type: 2}
-  - {fileID: 11400000, guid: 1446ef1a30908554e8586c7e4a13f959, type: 2}
+  seedData: {fileID: 0}
   itemImage: {fileID: 217577651}
-  shopItemSlots:
-  - {fileID: 765941964}
-  - {fileID: 626621384}
-  - {fileID: 1542543523}
   itemNameText: {fileID: 763845682}
   itemDiscriptionText: {fileID: 985283732}
   itemPrieceText: {fileID: 804943265}
