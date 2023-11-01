@@ -18,10 +18,16 @@ public class ShopItemSlot : MonoBehaviour
     Text itemPrieceText;
     [SerializeField]
     Text notEnoughMoneyNot;
+    [SerializeField]
+    Image HoverImage;
+    [SerializeField]
+    Image clickIamge;
 
    public void SeedAssigning(SeedsData seed)
    {
        seedData = seed;
+       itemNameText.text = seedData.name;
+       itemPrieceText.text = (seedData.price).ToString();
    }
     private void Update()
     {
@@ -34,21 +40,10 @@ public class ShopItemSlot : MonoBehaviour
     {
         itemImage.sprite = seedData.thumbnail;
     }
-    public void ShowItemDetails()
-    {
-        itemNameText.text = seedData.name;
-        itemDiscriptionText.text = seedData.description;
-        itemPrieceText.text = "Buy price: " + seedData.price + "G";
-    }
 
-    public void HideItemDetails()
-    {
-        itemNameText.text = "";
-        itemDiscriptionText.text = "";
-        itemPrieceText.text = "";
-    }
     public void PurchaseItem()
     {
+        StartCoroutine(clickAnimation());
         if (Money.Instance.moneyAmount > 0 && Money.Instance.moneyAmount - seedData.price >= 0)
         {
             Inventory.Instance.HarvestCrops(seedData);
@@ -65,5 +60,19 @@ public class ShopItemSlot : MonoBehaviour
         notEnoughMoneyNot.text = "Not enough money";
         yield return new WaitForSeconds(num);
         notEnoughMoneyNot.text = "";
+    }
+    public void OnPointerEnter()
+    {
+        HoverImage.enabled = true;
+    }
+    public void OnPointerExit()
+    {
+        HoverImage.enabled = false;
+    }
+    IEnumerator clickAnimation()
+    {
+        clickIamge.enabled = true;
+        yield return new WaitForSeconds(0.1f);
+        clickIamge.enabled = false;
     }
 }
