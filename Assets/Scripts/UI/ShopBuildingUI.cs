@@ -42,6 +42,8 @@ public class ShopBuildingUI : MonoBehaviour
 ,"What will you do?"
 };
     [SerializeField]
+    List<Image> hoverButtonImages = new List<Image>();
+    [SerializeField]
     GameObject dialogUI;
     private BuildingPageUI currentPage = BuildingPageUI.ChikenBuilding;
     private void Start()
@@ -76,6 +78,13 @@ public class ShopBuildingUI : MonoBehaviour
     }
     private void Update()
     {
+        if (!dialogUI.activeSelf)
+        {
+            foreach (Image item in hoverButtonImages)
+            {
+                item.enabled = false;
+            }
+        }
         if (Input.GetKeyDown(KeyCode.E) && selection.activeSelf)
         {
             if (shopUiCanvas.enabled)

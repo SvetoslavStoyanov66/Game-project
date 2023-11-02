@@ -36,6 +36,7 @@ public class Dialogs : MonoBehaviour
     {
         dialogText = GetComponentInChildren<Text>();
         dialogText.text = string.Empty;
+        index = 0;
     }
     void Update()
     {

@@ -28,6 +28,8 @@ public class Shop : MonoBehaviour
     List<ShopItemSlot> shopItemSlots = new List<ShopItemSlot>();
     [SerializeField]
     List<SeedsData> seeds = new List<SeedsData>();
+    [SerializeField]
+    List<Image> hoverButtonImages = new List<Image>();
 
     private void Awake()
     {
@@ -46,13 +48,22 @@ public class Shop : MonoBehaviour
     }
     private void Update()
     {
+        if (!dialogUI.activeSelf)
+        {
+            foreach (Image item in hoverButtonImages)
+            {
+                item.enabled = false;
+            }
+        }
         if (Input.GetKeyDown(KeyCode.E) && selection.activeSelf)
         {
             if (shopUI.enabled)
             {
                 UImanager.Instance.inventoryPanel.SetActive(false);
                 shopUI.enabled = false;
-                invButton.gameObject.SetActive(true);        
+                invButton.gameObject.SetActive(true);
+                Text notifiText = selection.GetComponentInChildren<Text>();
+                notifiText.text = "Press E to talk";
             }
             else
             {
@@ -60,6 +71,8 @@ public class Shop : MonoBehaviour
                 {
                     dialogUI.SetActive(true);
                     StartCoroutine(waitForDialog());
+                    Text notifiText = selection.GetComponentInChildren<Text>();
+                    notifiText.text = "Press E to close the shop";
                 }
                 else
                 {
@@ -71,7 +84,7 @@ public class Shop : MonoBehaviour
         {
             if (shopUI.enabled)
             {
-                UImanager.Instance.inventoryPanel.SetActive(false);
+                UImanager.Instance.inventoryPanel.SetActive(false);  
             }
             shopUI.enabled = false;
             invButton.gameObject.SetActive(true);
