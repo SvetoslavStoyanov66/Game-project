@@ -59,7 +59,7 @@ public class EnterDoor : MonoBehaviour
             selection.SetActive(true);
             notifier.SetActive(true);
             notifiText = notifier.GetComponentInChildren<Text>();
-            notifiText.text = "Press E to enter the house";
+            notifiText.text = "Press E to enter";
         }
     }
     private void OnTriggerExit(Collider other)

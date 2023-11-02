@@ -52,7 +52,7 @@ public class Shop : MonoBehaviour
             {
                 UImanager.Instance.inventoryPanel.SetActive(false);
                 shopUI.enabled = false;
-                invButton.gameObject.SetActive(true);
+                invButton.gameObject.SetActive(true);        
             }
             else
             {
@@ -75,6 +75,9 @@ public class Shop : MonoBehaviour
             }
             shopUI.enabled = false;
             invButton.gameObject.SetActive(true);
+            Dialogs.Instance.index = 0;
+            Dialogs.Instance.ResetText();
+            dialogUI.SetActive(false);
         }
         isShopOpen = shopUI.enabled;
         
@@ -119,6 +122,8 @@ public class Shop : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             selection.SetActive(true);
+            Text notifiText = selection.GetComponentInChildren<Text>();
+            notifiText.text = "Press E to talk";
         }
     }
     private void OnTriggerExit(Collider other)

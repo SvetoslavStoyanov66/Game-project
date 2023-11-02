@@ -23,7 +23,6 @@ public class ExitDoor : MonoBehaviour
     Light sun;
     [SerializeField]
     GameObject notifier;
-    Text notifiText;
 
     private void Update()
     {
@@ -58,7 +57,7 @@ public class ExitDoor : MonoBehaviour
             selection.SetActive(true);
             notifier.SetActive(true);
             Text notifiText = notifier.GetComponentInChildren<Text>();
-            notifiText.text = "Press E to leave the house";
+            notifiText.text = "Press E to leave";
         }
     }
     private void OnTriggerExit(Collider other)

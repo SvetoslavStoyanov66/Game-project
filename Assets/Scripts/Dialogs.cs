@@ -8,7 +8,7 @@ public class Dialogs : MonoBehaviour
     Text dialogText;
     string[] lines;
     float textSpeed = 0.05f;
-    int index = 0;
+    public int index = 0;
     bool needToBreak = false;
     Button browse;
     Button leave;
