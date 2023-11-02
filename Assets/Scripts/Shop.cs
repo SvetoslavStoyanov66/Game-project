@@ -88,9 +88,6 @@ public class Shop : MonoBehaviour
             }
             shopUI.enabled = false;
             invButton.gameObject.SetActive(true);
-            Dialogs.Instance.index = 0;
-            Dialogs.Instance.ResetText();
-            dialogUI.SetActive(false);
         }
         isShopOpen = shopUI.enabled;
         
