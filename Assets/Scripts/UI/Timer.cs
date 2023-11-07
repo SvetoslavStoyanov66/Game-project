@@ -156,6 +156,7 @@ public class Timer : MonoBehaviour
         {
             land.ResetToWatared();
             land.grow = true;
+            land.Grow();
         }
     }
     private void ActivateParticleSystem()
