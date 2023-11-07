@@ -169,7 +169,11 @@ public class Land : MonoBehaviour
     public void PlantSeed()
     {
         hasSeedPlanted = true;
-    }   
+    } 
+    public void HarvestSeed()
+    {
+        hasSeedPlanted = false;
+    }  
     public void Grow()
     {
         if (grow == true && wasWateredYesterday == true)

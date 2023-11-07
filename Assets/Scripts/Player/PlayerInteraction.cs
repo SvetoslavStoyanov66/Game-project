@@ -80,7 +80,7 @@ public class PlayerInteraction : MonoBehaviour
                 Destroy(selectedLand.GrownCrop);
                 ItemData crop = selectedLand.crop;
                 inventory.HarvestCrops(crop);
-                selectedLand.isCropInstantianted = false;
+                selectedLand.HarvestSeed();
             }
             if (selectedTool != null)
             {
