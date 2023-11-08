@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public static Inventory Instance { get; private set; }
+    public static Inventory Instance { get; set; }
 
     [Header("Hotbar")]
     public ItemData[] hotbarItems = new ItemData[8];
@@ -103,6 +103,7 @@ public class Inventory : MonoBehaviour
     }
     public void HarvestCrops(ItemData crop)
     {
+    
         for (int i = 0; i < inventoryItems.Length; i++)
         {
             if (inventoryItems[i] == null)

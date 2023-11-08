@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     private bool eneableRotation = true;
     public GameObject indicator;
     public GameObject indicator2;
+    [SerializeField]
+    GameObject dialog;
     // Reference to the Timer script
 
 
@@ -34,7 +36,13 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-       
+    if(dialog.activeSelf)
+       {
+        moveSpeed = 0;
+       }
+       else{
+        moveSpeed = 5;
+       }
         Vector3 gravityVector = Vector3.down * gravity;
         characterController.Move(gravityVector * Time.deltaTime);
         float horizontalInput = Input.GetAxis("Horizontal");
