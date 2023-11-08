@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5517654892163254317
+--- !u!114 &-2943501378237807288
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,9 +20,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Interior
+  m_Name: Pickup Truck
   m_Shader: {fileID: 4800000, guid: 0e9d5a909a1f7e84882a534d0d11e49f, type: 3}
-  m_ShaderKeywords: _GLOSSYREFLECTIONS_OFF _NORMALMAP _PARALLAXMAP _SPECGLOSSMAP
+  m_ShaderKeywords: _GLOSSYREFLECTIONS_OFF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -33,11 +33,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: c473db22c6603bd44b9a262614c6993a, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 21ddab83243f4494998c6d5bb327cbe2, type: 3}
+        m_Texture: {fileID: 2800000, guid: 19b1df03104a0284dbe4dace194c876a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -57,11 +57,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: c473db22c6603bd44b9a262614c6993a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8100a95ee458a0b4786b05477e138490, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 8ae3ddfbdd07efd47a2f7e5dd334c8d3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -69,11 +69,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: 94d844990b0eed44c8a2a7f52923f54d, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
-        m_Texture: {fileID: 2800000, guid: 4af6fb915e98a6f4a97b319e36631e8d, type: 3}
+        m_Texture: {fileID: 2800000, guid: dc2aa19050dffd9429a89d90ecb2c072, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -103,7 +103,7 @@ Material:
     - _UseAoMap: 0
     - _UseColorMap: 1
     - _UseEmissiveMap: 0
-    - _UseMetallicMap: 0
+    - _UseMetallicMap: 1
     - _UseNormalMap: 1
     - _UseRoughnessMap: 1
     - _WorkflowMode: 1
