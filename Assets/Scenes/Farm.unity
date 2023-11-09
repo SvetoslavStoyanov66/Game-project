@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44970924, g: 0.4997775, b: 0.57563436, a: 1}
+  m_IndirectSpecularColor: {r: 0.44970965, g: 0.49977773, b: 0.5756354, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13906,7 +13906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 963194228}
-  car: {fileID: 0}
+  car: {fileID: 1144796897}
   offSetZ: 7
   smoothing: 2
 --- !u!114 &963194230
@@ -16722,6 +16722,12 @@ MonoBehaviour:
 --- !u!1 &1144796896 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f73383648d9db5a418910b47a838c94a,
+    type: 3}
+  m_PrefabInstance: {fileID: 620058575}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1144796897 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f73383648d9db5a418910b47a838c94a,
     type: 3}
   m_PrefabInstance: {fileID: 620058575}
   m_PrefabAsset: {fileID: 0}
