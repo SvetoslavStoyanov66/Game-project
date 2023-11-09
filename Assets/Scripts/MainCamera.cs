@@ -29,7 +29,6 @@ public class MainCamera : MonoBehaviour
         {
             FollowPlayer();
         }
-        FollowPlayer();
     }
     void FollowPlayer()
     {

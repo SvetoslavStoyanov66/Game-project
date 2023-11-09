@@ -32,8 +32,7 @@ public class TownEnter : MonoBehaviour
                 playerController.enabled = true;
                 StartCoroutine(TurnOffObject(farm));
                 town.SetActive(true);
-                this.gameObject.transform.position = newPosition;
-                //camera.transform.position = newPosition;  
+                this.gameObject.transform.position = newPosition;  
             }
         }
         else if (!farm.activeSelf)
@@ -52,7 +51,12 @@ public class TownEnter : MonoBehaviour
    }
    IEnumerator TurnOffObject(GameObject objectToTurnOff)
    {
+     CharacterController playerController = FindObjectOfType<Player>().GetComponent<CharacterController>();
       yield return new WaitForSeconds(3);
       objectToTurnOff.SetActive(false);
+      Vector3 desiredPosition = playerController.transform.position;
+      desiredPosition.y += 6;
+      desiredPosition.z -= 9;
+      camera.transform.position = desiredPosition;
    }
 }
