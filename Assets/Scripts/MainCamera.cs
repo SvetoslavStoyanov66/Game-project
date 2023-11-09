@@ -7,7 +7,10 @@ using UnityEngine;
 
 public class MainCamera : MonoBehaviour
 {
+    bool followCar = false;
     public Transform player;
+    [SerializeField]
+    Transform car;
     public float offSetZ = 9f;
     public float smoothing = 2;
     Player player1;
@@ -18,6 +21,14 @@ public class MainCamera : MonoBehaviour
     }
     void Update()
     {
+        if(followCar)
+        {
+            FollowCar();
+        }
+        else
+        {
+            FollowPlayer();
+        }
         FollowPlayer();
     }
     void FollowPlayer()
@@ -25,5 +36,21 @@ public class MainCamera : MonoBehaviour
         Vector3 targetPosition = new Vector3(player.position.x,player.position.y + 6,player.position.z - offSetZ);
         transform.position = Vector3.Lerp(transform.position, targetPosition, smoothing * Time.deltaTime);
     }
+    void FollowCar() 
+    {
+        Vector3 targetPosition = new Vector3(car.position.x,car.position.y + 6,car.position.z - offSetZ);
+        transform.position = Vector3.Lerp(transform.position, targetPosition, smoothing * Time.deltaTime);
+    }
+     IEnumerator CarFollowTime(float time)
+    {
+        followCar = true;
+        yield return new WaitForSeconds(time);
+        followCar = false;
+    }
+    public void CameraFollowingCar()
+    {
+        StartCoroutine(CarFollowTime(3f));
+    }
+    
    
 }

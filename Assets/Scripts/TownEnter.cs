@@ -18,9 +18,9 @@ public class TownEnter : MonoBehaviour
     Camera camera;
     
     
-    void Update()
-    {
-        if (selection.activeSelf && Input.GetKeyDown(KeyCode.E) && farm.activeSelf)
+   public void Transporting()
+   {
+    if (farm.activeSelf)
         {
             CharacterController playerController = FindObjectOfType<Player>().GetComponent<CharacterController>();
 
@@ -30,14 +30,13 @@ public class TownEnter : MonoBehaviour
                 Vector3 newPosition = townEnter.transform.position;
                 playerController.transform.position = newPosition;
                 playerController.enabled = true;
-                selection.SetActive(false);
-                farm.SetActive(false);
+                StartCoroutine(TurnOffObject(farm));
                 town.SetActive(true);
                 this.gameObject.transform.position = newPosition;
-                camera.transform.position = newPosition;  
+                //camera.transform.position = newPosition;  
             }
         }
-        else if (selection.activeSelf && Input.GetKeyDown(KeyCode.E) && !farm.activeSelf)
+        else if (!farm.activeSelf)
         {
             CharacterController playerController = FindObjectOfType<Player>().GetComponent<CharacterController>();
 
@@ -45,19 +44,15 @@ public class TownEnter : MonoBehaviour
             Vector3 newPosition = farmEnter.transform.position;
             playerController.transform.position = newPosition;
             playerController.enabled = true;
-            selection.SetActive(false);
-            town.SetActive(false);
+            StartCoroutine(TurnOffObject(town));
             farm.SetActive (true);
             this.gameObject.transform.position = newPosition;
-            camera.transform.position = newPosition;
+            //camera.transform.position = newPosition;
         }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        selection.SetActive(true);
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        selection.SetActive(false);
-    }
+   }
+   IEnumerator TurnOffObject(GameObject objectToTurnOff)
+   {
+      yield return new WaitForSeconds(3);
+      objectToTurnOff.SetActive(false);
+   }
 }
