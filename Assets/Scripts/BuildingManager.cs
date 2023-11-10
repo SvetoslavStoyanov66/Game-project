@@ -52,7 +52,7 @@ public class BuildingManager : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.R))
             {
-                structure.transform.Rotate(0, 90, 0);
+                structure.transform.Rotate(0, 0, 90);
             }
 
         }

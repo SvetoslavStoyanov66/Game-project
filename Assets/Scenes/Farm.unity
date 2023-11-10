@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44970918, g: 0.49977744, b: 0.575634, a: 1}
+  m_IndirectSpecularColor: {r: 0.44970965, g: 0.49977773, b: 0.5756354, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -20410,7 +20410,7 @@ MonoBehaviour:
   moneyText: {fileID: 177949143}
   woodText: {fileID: 2086887519}
   stoneText: {fileID: 300096741}
-  chikenBuilding: {fileID: 2201096777886926117, guid: 66877440c9637eb47802a8b7d96a9e41,
+  chikenBuilding: {fileID: 2753407980266456357, guid: df6d7bfc66b67e24484d4b14ea0c9f76,
     type: 3}
   cowBuilding: {fileID: 2201096777886926117, guid: 66877440c9637eb47802a8b7d96a9e41,
     type: 3}
@@ -32599,7 +32599,7 @@ PrefabInstance:
     - target: {fileID: 354034015058204242, guid: 954182aa3e44e4749b5a15d68633d885,
         type: 3}
       propertyPath: moveSpeed
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 354034015058204242, guid: 954182aa3e44e4749b5a15d68633d885,
         type: 3}
