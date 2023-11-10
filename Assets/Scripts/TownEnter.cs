@@ -15,7 +15,7 @@ public class TownEnter : MonoBehaviour
     [SerializeField]
     GameObject town;
     [SerializeField]
-    Camera camera;
+    Camera maincamera;
     
     
    public void Transporting()
@@ -30,12 +30,12 @@ public class TownEnter : MonoBehaviour
                 Vector3 newPosition = townEnter.transform.position;
                 playerController.transform.position = newPosition;
                 playerController.enabled = true;
-                StartCoroutine(TurnOffObject(farm));
+                StartCoroutine(TurnOffObject(farm, 3));
                 town.SetActive(true);
                 this.gameObject.transform.position = newPosition;  
             }
         }
-        else if (!farm.activeSelf)
+    else if (!farm.activeSelf)
         {
             CharacterController playerController = FindObjectOfType<Player>().GetComponent<CharacterController>();
 
@@ -43,20 +43,19 @@ public class TownEnter : MonoBehaviour
             Vector3 newPosition = farmEnter.transform.position;
             playerController.transform.position = newPosition;
             playerController.enabled = true;
-            StartCoroutine(TurnOffObject(town));
+            StartCoroutine(TurnOffObject(town, 3f));
             farm.SetActive (true);
             this.gameObject.transform.position = newPosition;
-            //camera.transform.position = newPosition;
         }
    }
-   IEnumerator TurnOffObject(GameObject objectToTurnOff)
+   IEnumerator TurnOffObject(GameObject objectToTurnOff, float time)
    {
      CharacterController playerController = FindObjectOfType<Player>().GetComponent<CharacterController>();
-      yield return new WaitForSeconds(3);
+      yield return new WaitForSeconds(time);
       objectToTurnOff.SetActive(false);
       Vector3 desiredPosition = playerController.transform.position;
       desiredPosition.y += 6;
       desiredPosition.z -= 9;
-      camera.transform.position = desiredPosition;
+      maincamera.transform.position = desiredPosition;
    }
 }

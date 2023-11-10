@@ -50,14 +50,21 @@ public class Car : MonoBehaviour
    public void TriggerCarAnimations()
    {
       transporting.Transporting();
-      mainCamera.CameraFollowingCar();
+      if(gameObject.name == "Pickup truck")
+      {
+        mainCamera.CameraFollowingCar();
+      }
+      else
+      {
+        mainCamera.CameraFollowingCar2();
+      }
       travelMapUI.gameObject.SetActive(false);
       StartCoroutine(WaitForAnimations());
    }
    IEnumerator WaitForAnimations()
    {
       darking.animator.SetBool("IsDarken", true);
-      yield return new WaitForSeconds(0.7f);
+      yield return new WaitForSeconds(0.9f);
       animator.SetBool("isDriving", true);
       yield return new WaitForSeconds(5f);
       animator.SetBool("isDriving", false);
