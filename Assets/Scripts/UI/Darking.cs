@@ -28,7 +28,7 @@ public class Darking : MonoBehaviour
     public IEnumerator darking()
     {
         animator.SetBool("IsDarken", true);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
        animator.SetBool("IsDarken", false);
 
     }

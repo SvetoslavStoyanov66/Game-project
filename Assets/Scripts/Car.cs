@@ -66,8 +66,10 @@ public class Car : MonoBehaviour
       darking.animator.SetBool("IsDarken", true);
       yield return new WaitForSeconds(0.9f);
       animator.SetBool("isDriving", true);
-      yield return new WaitForSeconds(5f);
-      animator.SetBool("isDriving", false);
+      yield return new WaitForSeconds(3f);
       darking.animator.SetBool("IsDarken", false);
+      yield return new WaitForSeconds(1f);
+      animator.SetBool("isDriving", false);
+      
    }
 }
