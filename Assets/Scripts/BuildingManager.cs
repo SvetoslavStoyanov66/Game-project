@@ -18,6 +18,10 @@ public class BuildingManager : MonoBehaviour
     Canvas timerCanvas;
     [SerializeField]
     Canvas buildingModeCanvas;
+    
+    GameObject enterDoor;
+    
+    GameObject exitDoor;
     float moveSpeed = 5.0f;
     private bool canInstantiate = true;
 
@@ -55,8 +59,9 @@ public class BuildingManager : MonoBehaviour
                 positionForInstantiation.y += 0.25f;
                 interior.transform.position = positionForInstantiation;
                 interior = Instantiate(interior);
-                interior.SetActive(false);
                 actulaStructure = Instantiate(actulaStructure);
+                SetDoorsPOsitions();
+                interior.SetActive(false);               
             }
             if (Input.GetKeyDown(KeyCode.R))
             {
@@ -65,8 +70,10 @@ public class BuildingManager : MonoBehaviour
 
         }
     }
-    public void BuildingAssigning(GameObject building, GameObject actualBuilding, GameObject interiorToInstantiante)
+    public void BuildingAssigning(GameObject building, GameObject actualBuilding, GameObject interiorToInstantiante, GameObject doorEnter,GameObject doorExit)
     {
+        enterDoor = doorEnter;
+        exitDoor = doorExit;
         interior = interiorToInstantiante;
         actulaStructure = actualBuilding;
         structure = building;
@@ -103,5 +110,14 @@ public class BuildingManager : MonoBehaviour
      public void CanInstantiante(bool can)
     {
         canInstantiate = can;
+    }
+    private void SetDoorsPOsitions()
+    {
+        enterDoor.SetActive(true);
+        exitDoor.SetActive(true);
+        Transform transformStructure = actulaStructure.transform.GetChild(0);
+        enterDoor.transform.position = transformStructure.position;
+        Transform transformInterior = interior.transform.GetChild(0);
+        exitDoor.transform.position = transformInterior.position;
     }
 }

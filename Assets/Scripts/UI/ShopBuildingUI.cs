@@ -39,6 +39,14 @@ public class ShopBuildingUI : MonoBehaviour
     Canvas shopUiCanvas;
     [SerializeField]
     GameObject selection;
+    [SerializeField]
+    GameObject enterDoorChicken;
+    [SerializeField]
+    GameObject exitDoorChicken;
+    
+    GameObject enterDoor;
+    
+    GameObject exitDoor;
     string[] builderFarmingStructuresDialog = {
     "Greetings! I specialize in constructing farm buildings such as coops and barns. With a new coop, you can raise chickens for fresh eggs, and a sturdy barn will provide shelter for your livestock.",
     "If you're thinking about expanding your farm, I can help you design and build the perfect structure. Just let me know your requirements, and we'll get started on your project!"
@@ -67,6 +75,8 @@ public class ShopBuildingUI : MonoBehaviour
                 buildingToInstantiate = chikenBuilding;
                 actualBuildingToInstatntiante = actualchikenBuilding;
                 interiorToInstantiate = chikenInterior;
+                enterDoor = enterDoorChicken;
+                exitDoor = exitDoorChicken;
                 break;
             case BuildingPageUI.CowBuilding:
                 buildingImage = null;
@@ -78,6 +88,8 @@ public class ShopBuildingUI : MonoBehaviour
                 buildingToInstantiate = cowBuilding;
                 actualBuildingToInstatntiante = actualcowBuilding;
                 interiorToInstantiate = null;
+                enterDoor = null;
+                exitDoor = null;
                 break;
         }
     }
@@ -131,7 +143,7 @@ public class ShopBuildingUI : MonoBehaviour
     }
     public void ButtonBuyFunction()
     {
-        BuildingManager.Instance.BuildingAssigning(buildingToInstantiate,actualBuildingToInstatntiante,interiorToInstantiate);
+        BuildingManager.Instance.BuildingAssigning(buildingToInstantiate,actualBuildingToInstatntiante,interiorToInstantiate,enterDoor,exitDoor);
         shopUiCanvas.enabled = false;
     }
     private void OnTriggerEnter(Collider other)
