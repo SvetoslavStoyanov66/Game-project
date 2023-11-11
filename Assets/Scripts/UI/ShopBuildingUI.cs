@@ -29,9 +29,12 @@ public class ShopBuildingUI : MonoBehaviour
     [SerializeField]
     GameObject actualchikenBuilding;
     [SerializeField]
+    GameObject chikenInterior;
+    [SerializeField]
     GameObject actualcowBuilding;
     GameObject actualBuildingToInstatntiante;
     GameObject buildingToInstantiate;
+    GameObject interiorToInstantiate;
     [SerializeField]
     Canvas shopUiCanvas;
     [SerializeField]
@@ -63,6 +66,7 @@ public class ShopBuildingUI : MonoBehaviour
                 stoneText.text = "100";
                 buildingToInstantiate = chikenBuilding;
                 actualBuildingToInstatntiante = actualchikenBuilding;
+                interiorToInstantiate = chikenInterior;
                 break;
             case BuildingPageUI.CowBuilding:
                 buildingImage = null;
@@ -73,6 +77,7 @@ public class ShopBuildingUI : MonoBehaviour
                 stoneText.text = "200";
                 buildingToInstantiate = cowBuilding;
                 actualBuildingToInstatntiante = actualcowBuilding;
+                interiorToInstantiate = null;
                 break;
         }
     }
@@ -126,7 +131,7 @@ public class ShopBuildingUI : MonoBehaviour
     }
     public void ButtonBuyFunction()
     {
-        BuildingManager.Instance.BuildingAssigning(buildingToInstantiate,actualBuildingToInstatntiante);
+        BuildingManager.Instance.BuildingAssigning(buildingToInstantiate,actualBuildingToInstatntiante,interiorToInstantiate);
         shopUiCanvas.enabled = false;
     }
     private void OnTriggerEnter(Collider other)

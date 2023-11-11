@@ -8,6 +8,7 @@ public class BuildingManager : MonoBehaviour
     [SerializeField]
     GameObject startingPosition;
     GameObject structure;
+    GameObject interior;
     GameObject actulaStructure;
     [SerializeField]
     Camera cameraForBuilding;
@@ -46,8 +47,15 @@ public class BuildingManager : MonoBehaviour
             if (Input.GetMouseButton(0) && canInstantiate)
             {
                 Vector3 positionForInstantiation = structure.transform.position;
+                Quaternion rotationForInstantiation = structure.transform.rotation;
                 Destroy (structure);
+                actulaStructure.transform.rotation = rotationForInstantiation;
                 actulaStructure.transform.position = positionForInstantiation;
+                interior.transform.rotation = rotationForInstantiation;
+                positionForInstantiation.y += 0.25f;
+                interior.transform.position = positionForInstantiation;
+                interior = Instantiate(interior);
+                interior.SetActive(false);
                 actulaStructure = Instantiate(actulaStructure);
             }
             if (Input.GetKeyDown(KeyCode.R))
@@ -57,8 +65,9 @@ public class BuildingManager : MonoBehaviour
 
         }
     }
-    public void BuildingAssigning(GameObject building, GameObject actualBuilding)
+    public void BuildingAssigning(GameObject building, GameObject actualBuilding, GameObject interiorToInstantiante)
     {
+        interior = interiorToInstantiante;
         actulaStructure = actualBuilding;
         structure = building;
         Vector3 vector3 = startingPosition.transform.position;

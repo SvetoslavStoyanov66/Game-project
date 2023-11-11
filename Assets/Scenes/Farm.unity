@@ -3961,7 +3961,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 219838998}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 3.3, y: 11, z: 9.2}
+  m_LocalPosition: {x: 1.38, y: 11, z: 6.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7334,7 +7334,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 520030294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -45.5, y: 25.36, z: 9.3}
+  m_LocalPosition: {x: -45.5, y: 24.82, z: 9.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1625808236}
@@ -20414,7 +20414,9 @@ MonoBehaviour:
     type: 3}
   cowBuilding: {fileID: 2201096777886926117, guid: 66877440c9637eb47802a8b7d96a9e41,
     type: 3}
-  actualchikenBuilding: {fileID: 6307894597142354676, guid: f973f33e16d643c40aefaa33fa12d6b3,
+  actualchikenBuilding: {fileID: 7177773051996919424, guid: bf1ab3ae272719642a0368ddac979b84,
+    type: 3}
+  chikenInterior: {fileID: 1568229435868099704, guid: 259e130285e813b498cd61f7e6abf065,
     type: 3}
   actualcowBuilding: {fileID: 6307894597142354676, guid: f973f33e16d643c40aefaa33fa12d6b3,
     type: 3}
