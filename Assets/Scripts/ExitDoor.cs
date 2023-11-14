@@ -68,4 +68,9 @@ public class ExitDoor : MonoBehaviour
             notifier.SetActive(false);
         }
     }
+     public void StructureAssigment(GameObject outside, GameObject inside)
+    {
+        house = outside;
+        inHouse = inside;
+    }
 }

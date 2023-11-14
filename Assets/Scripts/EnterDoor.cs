@@ -10,11 +10,11 @@ public class EnterDoor : MonoBehaviour
     [SerializeField]
     GameObject selection;
     [SerializeField]
-    GameObject house;
+    public GameObject house;
     [SerializeField]
-    GameObject inHouse;
+    public GameObject inHouse;
     [SerializeField]
-    Camera inHouseCamera;
+    public Camera inHouseCamera;
     [SerializeField]
     GameObject outOfTheHouse;
     [SerializeField]
@@ -24,15 +24,17 @@ public class EnterDoor : MonoBehaviour
     [SerializeField]
     GameObject notifier;
     Text notifiText;
+    
+
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && selection.activeSelf && house.activeSelf && !inHouse.activeSelf)
         {
-            selection.SetActive(false);
-            notifier.SetActive(false);
             house.SetActive(false);
             inHouse.SetActive(true);
+            selection.SetActive(false);
+            notifier.SetActive(false);
             inHouseCamera.enabled = true;
             outOfTheHouse.SetActive(true);
             homeLight.enabled = true;
@@ -69,5 +71,10 @@ public class EnterDoor : MonoBehaviour
             selection.SetActive(false);
             notifier.SetActive(false);
         }
+    }
+    public void StructureAssigment(GameObject outside, GameObject inside)
+    {
+        house = outside;
+        inHouse = inside;
     }
 }

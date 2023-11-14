@@ -8,8 +8,8 @@ public class BuildingManager : MonoBehaviour
     [SerializeField]
     GameObject startingPosition;
     GameObject structure;
-    GameObject interior;
-    GameObject actulaStructure;
+    public GameObject interior;
+    public GameObject actulaStructure;
     [SerializeField]
     Camera cameraForBuilding;
     [SerializeField]
@@ -53,12 +53,18 @@ public class BuildingManager : MonoBehaviour
                 Vector3 positionForInstantiation = structure.transform.position;
                 Quaternion rotationForInstantiation = structure.transform.rotation;
                 Destroy (structure);
+
                 actulaStructure.transform.rotation = rotationForInstantiation;
                 actulaStructure.transform.position = positionForInstantiation;
-                interior.transform.rotation = rotationForInstantiation;
-                positionForInstantiation.y += 0.25f;
+
+                Vector3 desiredRotation = new Vector3(-90, 0, -90);
+                Quaternion desiredQuaternion = Quaternion.Euler(desiredRotation);
+
+                interior.transform.rotation = desiredQuaternion;
+                positionForInstantiation.y += 0.1f;
                 interior.transform.position = positionForInstantiation;
                 interior = Instantiate(interior);
+                interior.SetActive(false);
                 actulaStructure = Instantiate(actulaStructure);
                 SetDoorsPOsitions();
                 interior.SetActive(false);               
@@ -119,5 +125,12 @@ public class BuildingManager : MonoBehaviour
         enterDoor.transform.position = transformStructure.position;
         Transform transformInterior = interior.transform.GetChild(0);
         exitDoor.transform.position = transformInterior.position;
+        EnterDoor doorScript = enterDoor.GetComponentInChildren<EnterDoor>();
+        ExitDoor doorScript2 = exitDoor.GetComponentInChildren<ExitDoor>();
+        doorScript.StructureAssigment(actulaStructure, interior);
+        doorScript2.StructureAssigment(actulaStructure, interior);
+        Vector3 cameraPosition = new Vector3(doorScript2.gameObject.transform.position.x ,2.25f, doorScript2.gameObject.transform.position.z - 1.2f);
+        doorScript.inHouseCamera.transform.position = cameraPosition;
     }
+   
 }
