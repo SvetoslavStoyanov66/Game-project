@@ -112,26 +112,47 @@ public class Land : MonoBehaviour
 
         Vector3 position = this.gameObject.transform.position;
         position.y = 0;
+        Quaternion desiredRotation = Quaternion.Euler(-90f, 0f, 0f);
         if (seed != null)
         {
             if (seed.tag == "Potato")
             {
                 position.z += -.2f;
             }
-            Quaternion desiredRotation = Quaternion.Euler(-90f, 0f, 0f);
             seed = Instantiate(seed, position, desiredRotation);           
         }
         else if (seed1 != null)
         {
-            seed1 = Instantiate(seed1, position, Quaternion.identity);          
+            if(seed1.tag == "Cabbage")
+            {
+                seed1 = Instantiate(seed1, position, desiredRotation);
+            }
+            else
+            {
+                seed1 = Instantiate(seed1, position, Quaternion.identity);
+            }                 
         }
         else if (seed2 != null)
         {
-            seed2 = Instantiate(seed2, position, Quaternion.identity);
+            if(seed2.tag == "Cabbage")
+            {
+                seed2 = Instantiate(seed2, position, desiredRotation);
+            }
+            else
+            {
+                seed2 = Instantiate(seed2, position, Quaternion.identity);
+            }        
         }
         else if (grownCrop != null)
         {
-            grownCrop = Instantiate(grownCrop, position, Quaternion.identity);
+            if(gameObject.tag == "Cabbage")
+            {
+                grownCrop = Instantiate(grownCrop, position, desiredRotation);
+            }
+            else
+            {
+                grownCrop = Instantiate(grownCrop, position, Quaternion.identity);
+            }          
         }
 
     }
@@ -183,21 +204,27 @@ public class Land : MonoBehaviour
             {
                 if (CurrentDayProgression >= DaysToGrowPorgression)
                 {
+                    Quaternion desiredRotation = Quaternion.identity;
+                    if(GrownCrop != null && GrownCrop.tag == "Cabbage")
+                    {
+                        desiredRotation = Quaternion.Euler(-90f, 0f, 0f);
+                    }
+
                     Vector3 position = this.gameObject.transform.position;
                     position.y = 0;
                     if (seed1 != null && seed != null)
                     {
-                        seed1 = Instantiate(seed1, position, Quaternion.identity);
+                        seed1 = Instantiate(seed1, position, desiredRotation);
                         Destroy(seed);
                     }
                     else if (seed1 != null && seed2 != null)
                     {
-                        seed2 = Instantiate(seed2, position, Quaternion.identity);
+                        seed2 = Instantiate(seed2, position, desiredRotation);
                         Destroy(seed1);
                     }
                     else if (seed2 != null && GrownCrop != null)
                     {
-                        GrownCrop = Instantiate(GrownCrop, position, Quaternion.identity);
+                        GrownCrop = Instantiate(GrownCrop, position, desiredRotation);
                         isCropInstantianted = true;
                         Destroy(seed2);
                     }

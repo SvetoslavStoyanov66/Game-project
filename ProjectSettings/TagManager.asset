@@ -9,6 +9,7 @@ TagManager:
   - HouseExit
   - Tree
   - Potato
+  - Cabbage
   layers:
   - Default
   - TransparentFX
