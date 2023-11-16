@@ -143,7 +143,7 @@ public class ShopBuildingUI : MonoBehaviour
     }
     public void ButtonBuyFunction()
     {
-        BuildingManager.Instance.BuildingAssigning(buildingToInstantiate,actualBuildingToInstatntiante,interiorToInstantiate,enterDoor,exitDoor);
+        BuildingManager.Instance.BuildingAssigning(buildingToInstantiate,actualBuildingToInstatntiante);
         shopUiCanvas.enabled = false;
     }
     private void OnTriggerEnter(Collider other)

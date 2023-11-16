@@ -1,42 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class EnterDoor : MonoBehaviour
+public class EnterDoorForAnimalsBuildings : MonoBehaviour
 {
-    // Start is called before the first frame update
-    [SerializeField]
+     [SerializeField]
     GameObject selection;
-    [SerializeField]
-    public GameObject house;
-    [SerializeField]
-    public GameObject inHouse;
     [SerializeField]
     public Camera inHouseCamera;
     [SerializeField]
-    GameObject outOfTheHouse;
-    [SerializeField]
+
     Light homeLight;
     [SerializeField]
     Light sun;
     [SerializeField]
     GameObject notifier;
     Text notifiText;
+    [SerializeField]
+    GameObject door;
     
 
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && selection.activeSelf && house.activeSelf && !inHouse.activeSelf)
+        if (Input.GetKeyDown(KeyCode.E) && selection.activeSelf)
         {
-            house.SetActive(false);
-            inHouse.SetActive(true);
             selection.SetActive(false);
             notifier.SetActive(false);
             inHouseCamera.enabled = true;
-            outOfTheHouse.SetActive(true);
             homeLight.enabled = true;
             sun.enabled = false;
             
@@ -45,11 +37,9 @@ public class EnterDoor : MonoBehaviour
 
             if (playerController != null)
             {
-                playerController.enabled = false; // Disable the CharacterController temporarily
-                Vector3 newPosition = playerController.transform.position;
-                newPosition.z += 0.8f;
-                newPosition.z += 0.1f;
-                playerController.transform.position = newPosition; // Set the new position
+                playerController.enabled = false;  
+                Vector3 newPosition = door.transform.position;
+                playerController.transform.position = newPosition;
                 playerController.enabled = true;
             }
         }      
@@ -72,8 +62,14 @@ public class EnterDoor : MonoBehaviour
             notifier.SetActive(false);
         }
     }
-    public void StructureAssigment(GameObject outside, GameObject inside)
+    public void Assigment(GameObject selection,Camera inHouseCamera,Light homeLight,Light sun,GameObject notifier,Text notifiText,GameObject door)
     {
-        house = outside;
+        this.selection = selection;
+        this.inHouseCamera = inHouseCamera;
+        this.homeLight = homeLight;
+        this.sun = sun;
+        this.notifier = notifier;
+        this.notifiText = notifiText;
+
     }
 }

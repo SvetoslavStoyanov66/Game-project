@@ -57,17 +57,9 @@ public class BuildingManager : MonoBehaviour
                 actulaStructure.transform.rotation = rotationForInstantiation;
                 actulaStructure.transform.position = positionForInstantiation;
 
-                Vector3 desiredRotation = new Vector3(-90, 0, -90);
-                Quaternion desiredQuaternion = Quaternion.Euler(desiredRotation);
 
-                interior.transform.rotation = desiredQuaternion;
                 positionForInstantiation.y += 0.1f;
-                interior.transform.position = positionForInstantiation;
-                interior = Instantiate(interior);
-                interior.SetActive(false);
-                actulaStructure = Instantiate(actulaStructure);
-                SetDoorsPOsitions();
-                interior.SetActive(false);               
+                actulaStructure = Instantiate(actulaStructure);              
             }
             if (Input.GetKeyDown(KeyCode.R))
             {
@@ -76,11 +68,8 @@ public class BuildingManager : MonoBehaviour
 
         }
     }
-    public void BuildingAssigning(GameObject building, GameObject actualBuilding, GameObject interiorToInstantiante, GameObject doorEnter,GameObject doorExit)
+    public void BuildingAssigning(GameObject building, GameObject actualBuilding)
     {
-        enterDoor = doorEnter;
-        exitDoor = doorExit;
-        interior = interiorToInstantiante;
         actulaStructure = actualBuilding;
         structure = building;
         Vector3 vector3 = startingPosition.transform.position;
@@ -116,21 +105,6 @@ public class BuildingManager : MonoBehaviour
      public void CanInstantiante(bool can)
     {
         canInstantiate = can;
-    }
-    private void SetDoorsPOsitions()
-    {
-        enterDoor.SetActive(true);
-        exitDoor.SetActive(true);
-        Transform transformStructure = actulaStructure.transform.GetChild(0);
-        enterDoor.transform.position = transformStructure.position;
-        Transform transformInterior = interior.transform.GetChild(0);
-        exitDoor.transform.position = transformInterior.position;
-        EnterDoor doorScript = enterDoor.GetComponentInChildren<EnterDoor>();
-        ExitDoor doorScript2 = exitDoor.GetComponentInChildren<ExitDoor>();
-        doorScript.StructureAssigment(actulaStructure, interior);
-        doorScript2.StructureAssigment(actulaStructure, interior);
-        Vector3 cameraPosition = new Vector3(doorScript2.gameObject.transform.position.x ,2.25f, doorScript2.gameObject.transform.position.z - 1.2f);
-        doorScript.inHouseCamera.transform.position = cameraPosition;
     }
    
 }

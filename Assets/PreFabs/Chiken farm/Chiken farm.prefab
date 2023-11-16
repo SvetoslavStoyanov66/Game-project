@@ -1,35 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4196046336014853703
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4669418701879757465}
-  m_Layer: 0
-  m_Name: PositionForDoor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4669418701879757465
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4196046336014853703}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.01705, y: -0.00012, z: 0.00459}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7554579618701085754}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7177773051996919424
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,6 +14,8 @@ GameObject:
   - component: {fileID: 7486261917339914927}
   - component: {fileID: 4674291705916726210}
   - component: {fileID: 2673734137595419429}
+  - component: {fileID: -7354931498497010905}
+  - component: {fileID: 6661179878255064306}
   m_Layer: 0
   m_Name: Chiken farm
   m_TagString: Untagged
@@ -59,10 +31,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7177773051996919424}
   m_LocalRotation: {x: 0.50000006, y: 0.50000006, z: 0.49999997, w: -0.49999997}
-  m_LocalPosition: {x: 2.3207314, y: 0.0038337708, z: 5.807279}
+  m_LocalPosition: {x: 2.0641136, y: 0.0038337708, z: 3.9585004}
   m_LocalScale: {x: 100, y: 100, z: 100}
-  m_Children:
-  - {fileID: 4669418701879757465}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -152,3 +123,34 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0012281227, y: 0.006304115, z: 0.0011114917}
   m_Center: {x: -0.019421306, y: 0.00013469606, z: 0.00061522424}
+--- !u!114 &-7354931498497010905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7177773051996919424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c0d4673af6db3242a0d7f5635589042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selection: {fileID: 0}
+  inHouseCamera: {fileID: 0}
+  homeLight: {fileID: 0}
+  sun: {fileID: 0}
+  notifier: {fileID: 0}
+  door: {fileID: 0}
+--- !u!65 &6661179878255064306
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7177773051996919424}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.005162399, y: 0.0099989455, z: 0.011653135}
+  m_Center: {x: -0.018416138, y: -0.00015271395, z: 0.005375144}
