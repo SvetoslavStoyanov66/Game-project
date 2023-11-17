@@ -56,6 +56,8 @@ public class ShopBuildingUI : MonoBehaviour
     List<Image> hoverButtonImages = new List<Image>();
     [SerializeField]
     GameObject dialogUI;
+    [SerializeField]
+    Text notEnoughMoneyText;
     private BuildingPageUI currentPage = BuildingPageUI.ChikenBuilding;
     private void Start()
     {
@@ -143,8 +145,21 @@ public class ShopBuildingUI : MonoBehaviour
     }
     public void ButtonBuyFunction()
     {
-        BuildingManager.Instance.BuildingAssigning(buildingToInstantiate,actualBuildingToInstatntiante);
-        shopUiCanvas.enabled = false;
+        if(Money.Instance.moneyAmount >= Convert.ToInt32(moneyText.text) && !BuildingManager.Instance.isThereActiveCoop())
+        {
+            BuildingManager.Instance.BuildingAssigning(buildingToInstantiate,actualBuildingToInstatntiante);
+            shopUiCanvas.enabled = false;
+            Money.Instance.moneyAmount -= Convert.ToInt32(moneyText.text);
+        }
+        else if(BuildingManager.Instance.isThereActiveCoop())
+        {
+             StartCoroutine(TextDuration(4, "Cant build more than one of this building"));
+        }
+        else
+        {
+            StartCoroutine(TextDuration(4, "Not enough money"));
+        }
+        
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -175,5 +190,11 @@ public class ShopBuildingUI : MonoBehaviour
         dialogUI.SetActive(false);
         Dialogs.Instance.ResetText();
         shopUiCanvas.enabled = true;
+    }
+    IEnumerator TextDuration(int num,string text)
+    {
+        notEnoughMoneyText.text = text;
+        yield return new WaitForSeconds(num);
+        notEnoughMoneyText.text = "";
     }
 }

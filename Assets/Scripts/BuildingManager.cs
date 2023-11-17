@@ -34,6 +34,7 @@ public class BuildingManager : MonoBehaviour
    GameObject coopInteriorDoor;
    [SerializeField]
    ExitDoorForAnimalsBuildings coopExitDoor;
+   bool coopActive = false;
 
    
     float moveSpeed = 5.0f;
@@ -113,6 +114,7 @@ public class BuildingManager : MonoBehaviour
             coopExitDoor.DoorAssigment(childObject);
         }
     }
+    coopActive = true;
 }
 
         
@@ -142,6 +144,10 @@ public class BuildingManager : MonoBehaviour
      public void CanInstantiante(bool can)
     {
         canInstantiate = can;
+    }
+    public bool isThereActiveCoop()
+    {
+        return coopActive;
     }
    
 }
