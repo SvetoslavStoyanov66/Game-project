@@ -24,6 +24,8 @@ public class ExitDoorForAnimalsBuildings : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && selection.activeSelf)
         {
+            MainCamera mainCamera = FindObjectOfType<MainCamera>();
+            mainCamera.PlayerFollowing(true);
             CharacterController playerController = FindObjectOfType<Player>().GetComponent<CharacterController>();
 
             if (playerController != null)

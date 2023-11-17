@@ -22,6 +22,8 @@ public class EnterDoorForAnimalsBuildings : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && selection.activeSelf)
         {
+            MainCamera mainCamera = FindObjectOfType<MainCamera>();
+            mainCamera.PlayerFollowing(false);
             selection.SetActive(false);
             notifier.SetActive(false);
             inHouseCamera.enabled = true;

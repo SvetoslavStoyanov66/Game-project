@@ -16,6 +16,7 @@ public class MainCamera : MonoBehaviour
     public float offSetZ = 9f;
     public float smoothing = 2;
     Player player1;
+    bool followPlayer = true;
     bool followCar2 = false;
     void Start()
     {
@@ -32,7 +33,7 @@ public class MainCamera : MonoBehaviour
         {
             FollowCar2();
         }
-        else
+        else if(followPlayer)
         {
             FollowPlayer();
         }
@@ -71,6 +72,10 @@ public class MainCamera : MonoBehaviour
     public void CameraFollowingCar2()
     {
         StartCoroutine(CarFollowTime2(3f));
+    }
+    public void PlayerFollowing(bool can)
+    {
+        followPlayer = can;
     }
     
    
