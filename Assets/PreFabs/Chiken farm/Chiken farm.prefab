@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7177773051996919424}
   m_LocalRotation: {x: 0.50000006, y: 0.50000006, z: 0.49999997, w: -0.49999997}
-  m_LocalPosition: {x: 2.0641136, y: 0.0038337708, z: 3.9585004}
+  m_LocalPosition: {x: 1.690959, y: 0.0038337708, z: 5.740274}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
@@ -135,12 +135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c0d4673af6db3242a0d7f5635589042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selection: {fileID: 0}
-  inHouseCamera: {fileID: 0}
-  homeLight: {fileID: 0}
-  sun: {fileID: 0}
-  notifier: {fileID: 0}
-  door: {fileID: 0}
 --- !u!65 &6661179878255064306
 BoxCollider:
   m_ObjectHideFlags: 0

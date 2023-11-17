@@ -5656,6 +5656,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1429249830}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &373945206 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3443544262515589264, guid: 259e130285e813b498cd61f7e6abf065,
+    type: 3}
+  m_PrefabInstance: {fileID: 1396435751}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &381956695
 GameObject:
   m_ObjectHideFlags: 0
@@ -11417,6 +11423,12 @@ MonoBehaviour:
   inventoryCanvas: {fileID: 1098255964}
   timerCanvas: {fileID: 2061635778}
   buildingModeCanvas: {fileID: 1151245185}
+  coopSelection: {fileID: 1006983114}
+  coopCamera: {fileID: 1082882430}
+  coopLight: {fileID: 133327830}
+  sun: {fileID: 705507994}
+  notifier: {fileID: 187368639}
+  coopInteriorDoor: {fileID: 373945206}
 --- !u!4 &756283150
 Transform:
   m_ObjectHideFlags: 0

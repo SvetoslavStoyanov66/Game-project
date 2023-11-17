@@ -19,9 +19,21 @@ public class BuildingManager : MonoBehaviour
     [SerializeField]
     Canvas buildingModeCanvas;
     
-    GameObject enterDoor;
-    
-    GameObject exitDoor;
+   [SerializeField]
+   GameObject coopSelection;
+   [SerializeField]
+   Camera coopCamera;
+   [SerializeField]
+   Light coopLight;
+   [SerializeField]
+   Light sun;
+   [SerializeField]
+   GameObject notifier;
+
+   [SerializeField]
+   GameObject coopInteriorDoor;
+
+   
     float moveSpeed = 5.0f;
     private bool canInstantiate = true;
 
@@ -82,6 +94,9 @@ public class BuildingManager : MonoBehaviour
     }
     public void SaveChangesButton()
     {
+        EnterDoorForAnimalsBuildings door = actulaStructure.GetComponent<EnterDoorForAnimalsBuildings>();
+        door.Assigment(coopSelection, coopCamera, coopLight, sun, notifier, coopInteriorDoor);
+
         cameraForBuilding.enabled = false;
         inventoryCanvas.enabled = true;
         timerCanvas.enabled = true;

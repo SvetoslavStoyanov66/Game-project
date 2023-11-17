@@ -5,21 +5,17 @@ using UnityEngine.UI;
 
 public class EnterDoorForAnimalsBuildings : MonoBehaviour
 {
-     [SerializeField]
+    
     GameObject selection;
-    [SerializeField]
-    public Camera inHouseCamera;
-    [SerializeField]
+    
+    Camera inHouseCamera;
 
     Light homeLight;
-    [SerializeField]
     Light sun;
-    [SerializeField]
     GameObject notifier;
     Text notifiText;
-    [SerializeField]
-    GameObject door;
     
+    GameObject door;
 
 
     private void Update()
@@ -62,14 +58,13 @@ public class EnterDoorForAnimalsBuildings : MonoBehaviour
             notifier.SetActive(false);
         }
     }
-    public void Assigment(GameObject selection,Camera inHouseCamera,Light homeLight,Light sun,GameObject notifier,Text notifiText,GameObject door)
+    public void Assigment(GameObject selection,Camera inHouseCamera,Light homeLight,Light sun,GameObject notifier,GameObject door)
     {
         this.selection = selection;
         this.inHouseCamera = inHouseCamera;
         this.homeLight = homeLight;
         this.sun = sun;
         this.notifier = notifier;
-        this.notifiText = notifiText;
-
+        this.door = door;
     }
 }
