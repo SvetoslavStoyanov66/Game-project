@@ -32,6 +32,8 @@ public class BuildingManager : MonoBehaviour
 
    [SerializeField]
    GameObject coopInteriorDoor;
+   [SerializeField]
+   ExitDoorForAnimalsBuildings coopExitDoor;
 
    
     float moveSpeed = 5.0f;
@@ -94,8 +96,28 @@ public class BuildingManager : MonoBehaviour
     }
     public void SaveChangesButton()
     {
-        EnterDoorForAnimalsBuildings door = actulaStructure.GetComponent<EnterDoorForAnimalsBuildings>();
+        if (actulaStructure != null && coopExitDoor != null)
+{
+    EnterDoorForAnimalsBuildings door = actulaStructure.GetComponent<EnterDoorForAnimalsBuildings>();
+    if (door != null)
+    {
         door.Assigment(coopSelection, coopCamera, coopLight, sun, notifier, coopInteriorDoor);
+    }
+
+    Transform exitDoorTransform = actulaStructure.gameObject.transform;
+    if (exitDoorTransform.childCount > 0)
+    {
+        GameObject childObject = exitDoorTransform.GetChild(0).gameObject;
+        if (childObject != null)
+        {
+            coopExitDoor.DoorAssigment(childObject);
+        }
+    }
+}
+
+        
+      
+       
 
         cameraForBuilding.enabled = false;
         inventoryCanvas.enabled = true;
