@@ -251,6 +251,7 @@ public class UImanager : MonoBehaviour
                 hoe.SetActive(false);
                 axe.SetActive(false);
                 pickaxe.SetActive(false);
+                wateringCan.SetActive(false);
             }
 
             // Update the position of the selection marker to the selected slot
