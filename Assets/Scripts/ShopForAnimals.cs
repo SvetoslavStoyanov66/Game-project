@@ -28,6 +28,12 @@ public class ShopForAnimals : MonoBehaviour
     GameObject dialogUI;
     [SerializeField]
     GameObject selection;
+    [SerializeField]
+    GameObject animalSelectionUI;
+    [SerializeField]
+    GameObject defaultUI;
+    bool cantClose = false;
+    bool cantUseDialog = false;
 
 
 
@@ -63,11 +69,11 @@ public class ShopForAnimals : MonoBehaviour
         {
             if (selection.activeSelf)
         {
-            if (canvas.enabled)
+            if (canvas.enabled && !cantClose)
             {
                 canvas.enabled = false;
             }
-            else
+            else if(!cantUseDialog)
             {
                 if (!dialogUI.activeSelf)
                 {
@@ -83,6 +89,14 @@ public class ShopForAnimals : MonoBehaviour
             }
         }
            
+        }
+        if(animalSelectionUI.activeSelf)
+        {
+            cantUseDialog = true;
+        }
+        else
+        {
+            cantUseDialog = false;
         }
     }
     private void OnTriggerEnter()
@@ -115,11 +129,24 @@ public class ShopForAnimals : MonoBehaviour
         yield return new WaitForEndOfFrame();
         Dialogs.Instance.StartDialog(animalShopDialog, "AnimalsShop");
     }
-    public void BrowseBuildingsButton()
+    public void BrowseAnimalsutton()
     {
-        dialogUI.SetActive(false);
         Dialogs.Instance.ResetText();
+        dialogUI.SetActive(false);
         canvas.enabled = true;
+    }
+
+    public void BuyButtonFunction()
+    {
+        animalSelectionUI.SetActive(true);
+        defaultUI.SetActive(false);
+        cantClose = true;
+    }
+    public void LeaveButtonInAnimalBuyPanelFunction()
+    {
+        animalSelectionUI.SetActive(false);
+        defaultUI.SetActive(true);
+        cantClose = false;
     }
 
 }

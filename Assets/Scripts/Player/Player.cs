@@ -22,6 +22,16 @@ public class Player : MonoBehaviour
     // Reference to the Timer script
     [SerializeField]
     GameObject dilaogUI;
+    [SerializeField]
+    Canvas shopForBuildingsCanvas;
+    [SerializeField]
+    Canvas shopForSeedsCanvas;
+    [SerializeField]
+    Canvas shopForAnimalsCanvas;
+    [SerializeField]
+    Canvas buildingModeCanvas;
+
+
 
 
     PlayerInteraction playerInteraction;
@@ -98,7 +108,7 @@ public class Player : MonoBehaviour
         {
             fillAmount = 1;
         }
-         if(dilaogUI.activeSelf)
+         if(dilaogUI.activeSelf || shopForAnimalsCanvas.isActiveAndEnabled || shopForBuildingsCanvas.isActiveAndEnabled || buildingModeCanvas.isActiveAndEnabled || shopForSeedsCanvas.isActiveAndEnabled)
         {
            Animator animator = animationsPlayer.gameObject.GetComponent<Animator>();
            animator.enabled = false;
