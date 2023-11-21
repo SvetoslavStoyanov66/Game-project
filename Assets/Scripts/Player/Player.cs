@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
             if (eneableRotation == true)
             {
                 Quaternion targetRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
-                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.1f);
+                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.23f);
             }
            
         }
