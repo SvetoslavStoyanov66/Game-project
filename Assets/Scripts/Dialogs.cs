@@ -20,6 +20,11 @@ public class Dialogs : MonoBehaviour
     Button browseBuildings;
     [SerializeField]
     Button leaveBuildings;
+
+    [SerializeField]
+    Button browseAnimals;
+    [SerializeField]
+    Button leaveAnimals;
     bool canChangePage = true;
     private void Awake()
     {
@@ -38,10 +43,6 @@ public class Dialogs : MonoBehaviour
         dialogText.text = string.Empty;
         index = 0;
     }
-    void Update()
-    {
-
-    }
     public void StartDialog(string[] dialogArray, string name)
     {
         if (name == "SeedShop")
@@ -53,6 +54,11 @@ public class Dialogs : MonoBehaviour
         {
             browse = browseBuildings;
             leave = leaveBuildings;
+        }
+        else if(name == "AnimalsShop")
+        {
+            browse = browseAnimals;
+            leave = leaveAnimals;
         }
         lines = dialogArray;
         index = 0;

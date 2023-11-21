@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     public GameObject indicator2;
    
     // Reference to the Timer script
+    [SerializeField]
+    GameObject dilaogUI;
 
 
     PlayerInteraction playerInteraction;
@@ -35,6 +37,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+       
+
     
         Vector3 gravityVector = Vector3.down * gravity;
         characterController.Move(gravityVector * Time.deltaTime);
@@ -93,6 +97,21 @@ public class Player : MonoBehaviour
         if (fillAmount >= 1)
         {
             fillAmount = 1;
+        }
+         if(dilaogUI.activeSelf)
+        {
+           Animator animator = animationsPlayer.gameObject.GetComponent<Animator>();
+           animator.enabled = false;
+           this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+           moveSpeed = 0;
+           eneableRotation = false;
+        }
+        else
+        {
+            Animator animator = animationsPlayer.gameObject.GetComponent<Animator>();
+            animator.enabled = true;   
+            moveSpeed = 5;
+            eneableRotation = true;
         }
 
 
