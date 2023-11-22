@@ -107,7 +107,7 @@ public class ShopForAnimals : MonoBehaviour
      private void OnTriggerExit()
     {
         notifier.SetActive(false);
-        selection.SetActive(true);
+        selection.SetActive(false);
 
     }
     public void LeftButtonFunction()
