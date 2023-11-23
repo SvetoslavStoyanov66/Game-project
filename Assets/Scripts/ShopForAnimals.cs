@@ -34,8 +34,30 @@ public class ShopForAnimals : MonoBehaviour
     GameObject defaultUI;
     bool cantClose = false;
     bool cantUseDialog = false;
+    int chikensCount = 0;
 
+    int cowCount = 0;
 
+    [SerializeField]
+    Image smallChickenImage;
+
+    [SerializeField]
+    Image smallCowImage;
+
+    [SerializeField]
+
+    Text animalCountText;
+    [SerializeField]
+
+    Image smallAnimalImage;
+
+    [SerializeField]
+    Image noStructureImage;
+
+    [SerializeField]
+    Image noStructureImageChicken;
+    [SerializeField]
+    Image noStructureImageCow;
 
     enum animals
     {
@@ -55,11 +77,20 @@ public class ShopForAnimals : MonoBehaviour
            animalName.text = "Chiken";
            animalPicture = null;
            priece.text = "400";
+           smallAnimalImage = smallChickenImage;
+           animalCountText.text = chikensCount + "/5";
+           noStructureImage = noStructureImageChicken;
+
                 break;
+
             case animals.cow:
             animalName.text = "Cow";
             animalPicture = null;
-            priece.text = "600";           
+            priece.text = "600";    
+            smallAnimalImage = smallCowImage;
+            animalCountText.text = cowCount + "/5";
+            noStructureImage = noStructureImageCow;
+
                 break;
         }
     }
