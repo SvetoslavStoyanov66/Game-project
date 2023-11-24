@@ -8792,7 +8792,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 529947253}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1292299759}
+        m_MethodName: ConfirmButtonnInAnimalBuyPanelFunction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &529947253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22592,6 +22603,9 @@ MonoBehaviour:
   noStructureImage: {fileID: 0}
   noStructureImageChicken: {fileID: 0}
   noStructureImageCow: {fileID: 0}
+  coop: {fileID: 1396435762}
+  chicken1: {fileID: 919132149155446097, guid: 90677ae13e00f374384c83801c6d048b, type: 3}
+  chicken2: {fileID: 919132149155446097, guid: df24e34d59a941a4abd585184c8b3394, type: 3}
 --- !u!114 &1292466231 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
@@ -24320,6 +24334,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1396435751}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1396435762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396435752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e24476a93cf68f9418875c00b894897c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spownPoints:
+  - {fileID: 411123986}
+  - {fileID: 568394815}
+  - {fileID: 30765602}
+  - {fileID: 1087329460}
+  - {fileID: 441185332}
 --- !u!114 &1399882355 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7133296466578820155, guid: 51343445ef888fc4fa5698c7c102b055,

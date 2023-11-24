@@ -58,6 +58,13 @@ public class ShopForAnimals : MonoBehaviour
     Image noStructureImageChicken;
     [SerializeField]
     Image noStructureImageCow;
+    [SerializeField]
+    Coop coop;
+    [SerializeField]
+    GameObject chicken1;
+    [SerializeField]
+    GameObject chicken2;
+
 
     enum animals
     {
@@ -178,6 +185,20 @@ public class ShopForAnimals : MonoBehaviour
         animalSelectionUI.SetActive(false);
         defaultUI.SetActive(true);
         cantClose = false;
+    }
+    public void ConfirmButtonnInAnimalBuyPanelFunction()
+    {
+        chikensCount++;
+        
+        int chickenSckin = Mathf.RoundToInt(UnityEngine.Random.Range(1f, 3f));
+        GameObject chiken = chicken2;
+        if(chickenSckin == 1)
+        {
+            chiken = chicken1;
+        }
+        coop.SpownChicken(chikensCount, chiken);
+        
+        LeaveButtonInAnimalBuyPanelFunction();
     }
 
 }
