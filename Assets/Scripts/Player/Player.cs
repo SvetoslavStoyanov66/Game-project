@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
     Canvas shopForAnimalsCanvas;
     [SerializeField]
     Canvas buildingModeCanvas;
+    public bool eneableMovememt = true;
 
 
 
@@ -116,6 +117,11 @@ public class Player : MonoBehaviour
            moveSpeed = 0;
            eneableRotation = false;
         }
+        else if(!eneableMovememt)
+        {
+            moveSpeed = 0;
+            eneableRotation = false;
+        }
         else
         {
             Animator animator = animationsPlayer.gameObject.GetComponent<Animator>();
@@ -182,11 +188,11 @@ public class Player : MonoBehaviour
     }
     public IEnumerator DiseableMovement(float num)
     {
-        moveSpeed = 0;
+        eneableMovememt = false;
         eneableRotation = false;
         yield return new WaitForSeconds(num);
-        moveSpeed = 5;
         eneableRotation = true;
+        eneableMovememt = true;
     }
     
     IEnumerator EnergyTaking()

@@ -156,9 +156,9 @@ public class PlayerInteraction : MonoBehaviour
     }
     IEnumerator StopMovement(float num)
     {
-        player1.moveSpeed = 0;
+        player1.eneableMovememt = false;
         yield return new WaitForSeconds(num);
-        player1.moveSpeed = 5;
+        player1.eneableMovememt = true;
     }
     private void InstantiateSeed(SeedsData seedData)
     {
