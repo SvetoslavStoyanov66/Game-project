@@ -22606,6 +22606,7 @@ MonoBehaviour:
   coop: {fileID: 1396435762}
   chicken1: {fileID: 919132149155446097, guid: 90677ae13e00f374384c83801c6d048b, type: 3}
   chicken2: {fileID: 919132149155446097, guid: df24e34d59a941a4abd585184c8b3394, type: 3}
+  inputField: {fileID: 51500786}
 --- !u!114 &1292466231 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,

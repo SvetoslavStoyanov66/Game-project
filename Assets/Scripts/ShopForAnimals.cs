@@ -64,6 +64,8 @@ public class ShopForAnimals : MonoBehaviour
     GameObject chicken1;
     [SerializeField]
     GameObject chicken2;
+    [SerializeField]
+    InputField inputField;
 
 
     enum animals
@@ -196,9 +198,16 @@ public class ShopForAnimals : MonoBehaviour
         {
             chiken = chicken1;
         }
-        coop.SpownChicken(chikensCount, chiken);
+        string name = inputField.text;
+        if(name != "")
+        {
+            coop.SpownChicken(chikensCount, chiken, name);
+            LeaveButtonInAnimalBuyPanelFunction();
+            inputField.text = "";
+        }
         
-        LeaveButtonInAnimalBuyPanelFunction();
+        
+       
     }
 
 }
