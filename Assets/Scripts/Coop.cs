@@ -11,9 +11,10 @@ public class Coop : MonoBehaviour
     Transform[] spownPoints = new Transform[5];
     public void SpownChicken(int id,GameObject prefab,string name)
     {
-        new Chiken(id,prefab,name);
+        
         if(id <= 5)
         {
+            new Chiken(id,prefab,name);
             prefab = Instantiate(prefab, spownPoints[id - 1].position ,Quaternion.identity);
         }
     }

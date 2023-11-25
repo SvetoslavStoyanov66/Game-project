@@ -72,7 +72,7 @@ public class ShopForAnimals : MonoBehaviour
     {
         chiken,cow
     }
-    private void Start()
+     void Start()
     {
         ChangingUiPages(animals.chiken);
         Text text = notifier.GetComponentInChildren<Text>();
@@ -187,10 +187,11 @@ public class ShopForAnimals : MonoBehaviour
         animalSelectionUI.SetActive(false);
         defaultUI.SetActive(true);
         cantClose = false;
+        inputField.text = "";   
     }
     public void ConfirmButtonnInAnimalBuyPanelFunction()
     {
-        chikensCount++;
+        
         
         int chickenSckin = Mathf.RoundToInt(UnityEngine.Random.Range(1f, 3f));
         GameObject chiken = chicken2;
@@ -201,13 +202,15 @@ public class ShopForAnimals : MonoBehaviour
         string name = inputField.text;
         if(name != "")
         {
+            if(chikensCount < 5)
+            {
+                chikensCount++;  
+            }
+                
             coop.SpownChicken(chikensCount, chiken, name);
-            LeaveButtonInAnimalBuyPanelFunction();
-            inputField.text = "";
+            LeaveButtonInAnimalBuyPanelFunction();           
         }
-        
-        
-       
+        ChangingUiPages(animals.chiken);      
     }
 
 }
