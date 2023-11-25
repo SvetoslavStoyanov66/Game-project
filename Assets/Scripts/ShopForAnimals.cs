@@ -191,9 +191,7 @@ public class ShopForAnimals : MonoBehaviour
     }
     public void ConfirmButtonnInAnimalBuyPanelFunction()
     {
-        
-        
-        int chickenSckin = Mathf.RoundToInt(UnityEngine.Random.Range(1f, 3f));
+        int chickenSckin = Mathf.RoundToInt(UnityEngine.Random.Range(1f, 2f));
         GameObject chiken = chicken2;
         if(chickenSckin == 1)
         {
