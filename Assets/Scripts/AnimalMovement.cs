@@ -2,17 +2,18 @@
 
 public class AnimalMovement : MonoBehaviour
 {
-    public float detectionRange = 0.1f; // Range to detect obstacles
-    public float rotationSpeed = 5f; // Speed at which the animal turns
-    public float movementSpeed = 2f; // Speed at which the animal moves forward
-    public float rotationChangeInterval = 3f; // Time interval to change rotation
+    public float detectionRange = 0.1f;
+    public float rotationSpeed = 5f;
+    public float movementSpeed = 2f; 
 
-    private enum MovementState { Moving, Rotating };
+    private enum MovementState { Moving, Rotating,Staying };
     private MovementState currentState = MovementState.Moving;
 
-    private RaycastHit _hit; // Store the raycast hit information
+    private RaycastHit _hit;
     private Quaternion _targetRotation;
     private Vector3 _moveDirection;
+    float secondsStaying = 0;
+    float secondsMoving = 0;
 
     void Start()
     {
@@ -21,6 +22,7 @@ public class AnimalMovement : MonoBehaviour
 
     void Update()
     {
+        MovementStopping();
         switch (currentState)
         {
             case MovementState.Moving:
@@ -32,12 +34,30 @@ public class AnimalMovement : MonoBehaviour
                 break;
         }
     }
+    void MovementStopping()
+    {
+        secondsMoving += Time.deltaTime;
+        if(secondsMoving >= 3)
+        {
+            if(movementSpeed > 0)
+            {
+                movementSpeed -= Time.deltaTime * 0.8f;
+            }
+            
+            secondsStaying += Time.deltaTime;
+            if(secondsStaying >= 7)
+            {
+                movementSpeed = 2;
+                secondsMoving = 0;
+                secondsStaying = 0;
+            }
+        }
+    }
 
     void DetectObstacle()
     {
         Vector3 forward = transform.forward;
 
-        // Cast a ray forward to detect obstacles
         if (Physics.Raycast(transform.position, forward, out _hit, detectionRange))
         {
             currentState = MovementState.Rotating;
