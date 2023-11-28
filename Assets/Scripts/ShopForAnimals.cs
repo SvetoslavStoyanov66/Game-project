@@ -178,9 +178,12 @@ public class ShopForAnimals : MonoBehaviour
 
     public void BuyButtonFunction()
     {
-        animalSelectionUI.SetActive(true);
-        defaultUI.SetActive(false);
-        cantClose = true;
+        if(BuildingManager.Instance.isThereActiveCoop())
+        {
+            animalSelectionUI.SetActive(true);
+            defaultUI.SetActive(false);
+            cantClose = true;
+        }
     }
     public void LeaveButtonInAnimalBuyPanelFunction()
     {
