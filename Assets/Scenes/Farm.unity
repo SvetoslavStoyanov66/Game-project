@@ -24873,6 +24873,7 @@ MonoBehaviour:
   - {fileID: 441185332}
   animalStatsBox: {fileID: 1151115236}
   animalNotifierBox: {fileID: 1933347853}
+  heart: {fileID: 919132149155446097, guid: 9ad2e462575116140b34a657ddc53cc2, type: 3}
 --- !u!114 &1399882355 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7133296466578820155, guid: 51343445ef888fc4fa5698c7c102b055,

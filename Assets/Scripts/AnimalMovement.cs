@@ -19,7 +19,11 @@ public class AnimalMovement : MonoBehaviour
     GameObject statsBox;
     GameObject notifier;
 
+    GameObject  heartModel;
+
     string name;
+
+    bool isNotifierActive = false;
 
     void Start()
     {
@@ -28,6 +32,11 @@ public class AnimalMovement : MonoBehaviour
 
     void Update()
     {
+        if(isNotifierActive && Input.GetKeyDown(KeyCode.E))
+        {
+            heartModel = Instantiate(heartModel, this.gameObject.transform.position, Quaternion.identity);
+
+        }
         MovementStopping();
         switch (currentState)
         {
@@ -94,8 +103,9 @@ public class AnimalMovement : MonoBehaviour
             GenerateNewTargetRotation();
         }
     }
-    public void AssignUI(GameObject box,GameObject not, string AnimName)
+    public void AssignUI(GameObject box,GameObject not, string AnimName, GameObject heart)
     {
+        heartModel = heart;
         name = AnimName;
         statsBox = box;
         notifier = not;
@@ -114,6 +124,7 @@ public class AnimalMovement : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             notifier.SetActive(false);
+            isNotifierActive = true;
         }    
     }
 }

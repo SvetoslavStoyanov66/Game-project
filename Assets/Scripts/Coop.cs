@@ -13,6 +13,9 @@ public class Coop : MonoBehaviour
     GameObject animalStatsBox;
     [SerializeField]
     GameObject animalNotifierBox;
+
+    [SerializeField]
+    GameObject heart;
     public void SpownChicken(int id,GameObject prefab,string name)
     {
         
@@ -21,7 +24,7 @@ public class Coop : MonoBehaviour
             new Chiken(id,prefab,name);
             prefab = Instantiate(prefab, spownPoints[id - 1].position ,Quaternion.identity);
             AnimalMovement animal = prefab.GetComponent<AnimalMovement>();
-            animal.AssignUI(animalStatsBox, animalNotifierBox, name);
+            animal.AssignUI(animalStatsBox, animalNotifierBox, name, heart);
         }
 
     }
