@@ -9,6 +9,10 @@ public class Coop : MonoBehaviour
 {
     [SerializeField]
     Transform[] spownPoints = new Transform[5];
+    [SerializeField]
+    GameObject animalStatsBox;
+    [SerializeField]
+    GameObject animalNotifierBox;
     public void SpownChicken(int id,GameObject prefab,string name)
     {
         
@@ -16,7 +20,10 @@ public class Coop : MonoBehaviour
         {
             new Chiken(id,prefab,name);
             prefab = Instantiate(prefab, spownPoints[id - 1].position ,Quaternion.identity);
+            AnimalMovement animal = prefab.GetComponent<AnimalMovement>();
+            animal.AssignUI(animalStatsBox, animalNotifierBox, name);
         }
+
     }
 }
 class Chiken

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class AnimalMovement : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class AnimalMovement : MonoBehaviour
     private Vector3 _moveDirection;
     float secondsStaying = 0;
     float secondsMoving = 0;
+
+    GameObject statsBox;
+    GameObject notifier;
+
+    string name;
 
     void Start()
     {
@@ -87,5 +93,27 @@ public class AnimalMovement : MonoBehaviour
             currentState = MovementState.Moving;
             GenerateNewTargetRotation();
         }
+    }
+    public void AssignUI(GameObject box,GameObject not, string AnimName)
+    {
+        name = AnimName;
+        statsBox = box;
+        notifier = not;
+    }
+    private void OnTriggerEnter(Collider other) 
+    {
+        if(other.CompareTag("Player"))
+        {
+            Text text = notifier.GetComponentInChildren<Text>();
+            text.text = "Press E to make " + name + " happy";
+            notifier.SetActive(true);
+        }     
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            notifier.SetActive(false);
+        }    
     }
 }
