@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor.Animations;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class AnimalMovement : MonoBehaviour
@@ -19,7 +20,9 @@ public class AnimalMovement : MonoBehaviour
     GameObject statsBox;
     GameObject notifier;
 
-    GameObject  heartModel;
+    Animator animator;
+
+   
 
     string name;
 
@@ -32,10 +35,24 @@ public class AnimalMovement : MonoBehaviour
 
     void Update()
     {
-        if(isNotifierActive && Input.GetKeyDown(KeyCode.E))
+        if(movementSpeed > 0)
         {
-            heartModel = Instantiate(heartModel, this.gameObject.transform.position, Quaternion.identity);
-
+            animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
+        if(isNotifierActive && Input.GetKeyDown(KeyCode.E) && !statsBox.activeSelf)
+        {
+           AssignStatsBox();
+           statsBox.SetActive(true);
+           isNotifierActive = false;
+           notifier.SetActive(false);
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            statsBox.SetActive(false);
         }
         MovementStopping();
         switch (currentState)
@@ -56,11 +73,12 @@ public class AnimalMovement : MonoBehaviour
         {
             if(movementSpeed > 0)
             {
-                movementSpeed -= Time.deltaTime * 0.8f;
+                movementSpeed = 0;
+                
             }
             
             secondsStaying += Time.deltaTime;
-            if(secondsStaying >= 7)
+            if(secondsStaying >= 9)
             {
                 movementSpeed = 2;
                 secondsMoving = 0;
@@ -103,20 +121,26 @@ public class AnimalMovement : MonoBehaviour
             GenerateNewTargetRotation();
         }
     }
-    public void AssignUI(GameObject box,GameObject not, string AnimName, GameObject heart)
+    public void AssignUI(GameObject box,GameObject not, string AnimName)
     {
-        heartModel = heart;
         name = AnimName;
         statsBox = box;
         notifier = not;
+        animator = FindObjectOfType<Animator>();
+    }
+    private void AssignStatsBox()
+    {
+        Text nameText = statsBox.transform.GetChild(0).GetComponent<Text>();
+        nameText.text = name;
     }
     private void OnTriggerEnter(Collider other) 
     {
         if(other.CompareTag("Player"))
         {
             Text text = notifier.GetComponentInChildren<Text>();
-            text.text = "Press E to make " + name + " happy";
+            text.text = "Press E to see " + name + " stats";
             notifier.SetActive(true);
+            isNotifierActive = true;
         }     
     }
     private void OnTriggerExit(Collider other)
@@ -124,7 +148,7 @@ public class AnimalMovement : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             notifier.SetActive(false);
-            isNotifierActive = true;
+            isNotifierActive = false;
         }    
     }
 }

@@ -1806,6 +1806,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8967613341413886532}
   - component: {fileID: 3042801230477840510}
+  - component: {fileID: 6643860751502279951}
+  - component: {fileID: 6569605486163323369}
+  - component: {fileID: 8379734325265390582}
   m_Layer: 0
   m_Name: Chicken white
   m_TagString: Untagged
@@ -1844,6 +1847,51 @@ MonoBehaviour:
   detectionRange: 0.1
   rotationSpeed: 5
   movementSpeed: 2
+--- !u!65 &6643860751502279951
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8590770765370429694}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.9531946, y: 5.2004976, z: 7.7055073}
+  m_Center: {x: 0.11273439, y: 2.1002488, z: -0.2088744}
+--- !u!65 &6569605486163323369
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8590770765370429694}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.384323, y: 4.7032404, z: 4.3845124}
+  m_Center: {x: -0.043216348, y: 1.8516202, z: 0.017667735}
+--- !u!95 &8379734325265390582
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8590770765370429694}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d400575b22a8f8846a689c1d7ea425ea, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8977235665306569926
 GameObject:
   m_ObjectHideFlags: 0
