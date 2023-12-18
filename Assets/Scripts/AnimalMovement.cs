@@ -6,19 +6,15 @@ public class AnimalMovement : MonoBehaviour
 {
     public float detectionRange = 0.1f;
     public float rotationSpeed = 5f;
-    public float movementSpeed = 2f; 
+    public float movementSpeed = 1f; 
 
     private enum MovementState { Moving, Rotating,Staying };
     private MovementState currentState = MovementState.Moving;
 
     private RaycastHit _hit;
     private Quaternion _targetRotation;
-    private Vector3 _moveDirection;
     float secondsStaying = 0;
     float secondsMoving = 0;
-
-    GameObject statsBox;
-    GameObject notifier;
 
     Animator animator;
 
@@ -42,17 +38,6 @@ public class AnimalMovement : MonoBehaviour
         else
         {
             animator.SetBool("isWalking", false);
-        }
-        if(isNotifierActive && Input.GetKeyDown(KeyCode.E) && !statsBox.activeSelf)
-        {
-           AssignStatsBox();
-           statsBox.SetActive(true);
-           isNotifierActive = false;
-           notifier.SetActive(false);
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
-        {
-            statsBox.SetActive(false);
         }
         MovementStopping();
         switch (currentState)
@@ -80,7 +65,7 @@ public class AnimalMovement : MonoBehaviour
             secondsStaying += Time.deltaTime;
             if(secondsStaying >= 9)
             {
-                movementSpeed = 2;
+                movementSpeed = 1;
                 secondsMoving = 0;
                 secondsStaying = 0;
             }
@@ -121,34 +106,10 @@ public class AnimalMovement : MonoBehaviour
             GenerateNewTargetRotation();
         }
     }
-    public void AssignUI(GameObject box,GameObject not, string AnimName)
+    public void AssignUI( string AnimName)
     {
         name = AnimName;
-        statsBox = box;
-        notifier = not;
         animator = FindObjectOfType<Animator>();
     }
-    private void AssignStatsBox()
-    {
-        Text nameText = statsBox.transform.GetChild(0).GetComponent<Text>();
-        nameText.text = name;
-    }
-    private void OnTriggerEnter(Collider other) 
-    {
-        if(other.CompareTag("Player"))
-        {
-            Text text = notifier.GetComponentInChildren<Text>();
-            text.text = "Press E to see " + name + " stats";
-            notifier.SetActive(true);
-            isNotifierActive = true;
-        }     
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if(other.CompareTag("Player"))
-        {
-            notifier.SetActive(false);
-            isNotifierActive = false;
-        }    
-    }
+   
 }
