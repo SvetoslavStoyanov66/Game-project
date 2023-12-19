@@ -20,6 +20,10 @@ public class ExitDoorForAnimalsBuildings : MonoBehaviour
     GameObject notifier;
     GameObject door;
 
+    [SerializeField]
+   
+    Canvas animalCanvas;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && selection.activeSelf)
@@ -43,8 +47,7 @@ public class ExitDoorForAnimalsBuildings : MonoBehaviour
             inHouseCamera.enabled = false;
             homeLight.enabled = false;
             sun.enabled = true;
-
-            
+            animalCanvas.enabled = false;       
         }
     }
     private void OnTriggerEnter(Collider other)

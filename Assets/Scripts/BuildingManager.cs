@@ -35,6 +35,9 @@ public class BuildingManager : MonoBehaviour
    [SerializeField]
    ExitDoorForAnimalsBuildings coopExitDoor;
    bool coopActive = false;
+   [SerializeField]
+
+   Canvas animalCanvas;
 
    
     float moveSpeed = 5.0f;
@@ -102,7 +105,7 @@ public class BuildingManager : MonoBehaviour
     EnterDoorForAnimalsBuildings door = actulaStructure.GetComponent<EnterDoorForAnimalsBuildings>();
     if (door != null)
     {
-        door.Assigment(coopSelection, coopCamera, coopLight, sun, notifier, coopInteriorDoor);
+        door.Assigment(coopSelection, coopCamera, coopLight, sun, notifier, coopInteriorDoor,animalCanvas);
     }
 
     Transform exitDoorTransform = actulaStructure.gameObject.transform;

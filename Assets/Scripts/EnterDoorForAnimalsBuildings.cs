@@ -17,6 +17,10 @@ public class EnterDoorForAnimalsBuildings : MonoBehaviour
     
     GameObject door;
 
+    [SerializeField]
+
+    Canvas coopCanvas;
+
 
     private void Update()
     {
@@ -29,7 +33,7 @@ public class EnterDoorForAnimalsBuildings : MonoBehaviour
             inHouseCamera.enabled = true;
             homeLight.enabled = true;
             sun.enabled = false;
-            
+            coopCanvas.enabled = true;
 
             CharacterController playerController = FindObjectOfType<Player>().GetComponent<CharacterController>();
 
@@ -60,7 +64,7 @@ public class EnterDoorForAnimalsBuildings : MonoBehaviour
             notifier.SetActive(false);
         }
     }
-    public void Assigment(GameObject selection,Camera inHouseCamera,Light homeLight,Light sun,GameObject notifier,GameObject door)
+    public void Assigment(GameObject selection,Camera inHouseCamera,Light homeLight,Light sun,GameObject notifier,GameObject door,Canvas canvas)
     {
         this.selection = selection;
         this.inHouseCamera = inHouseCamera;
@@ -68,5 +72,6 @@ public class EnterDoorForAnimalsBuildings : MonoBehaviour
         this.sun = sun;
         this.notifier = notifier;
         this.door = door;
+        this.coopCanvas = canvas;
     }
 }

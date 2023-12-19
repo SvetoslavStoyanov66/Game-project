@@ -4,15 +4,14 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Coop : MonoBehaviour
 {
     [SerializeField]
     Transform[] spownPoints = new Transform[5];
     [SerializeField]
-    GameObject animalStatsBox;
-    [SerializeField]
-    GameObject animalNotifierBox;
+    GameObject[] chickenBorders = new GameObject[5];
 
    
     public void SpownChicken(int id,GameObject prefab,string name)
@@ -20,12 +19,19 @@ public class Coop : MonoBehaviour
         
         if(id <= 5)
         {
-            new Chiken(id,prefab,name);
+            Chiken chicken = new Chiken(id,prefab,name);
             prefab = Instantiate(prefab, spownPoints[id - 1].position ,Quaternion.identity);
+            chickenBorders[id - 1].SetActive(true);
+            AssignAnimalUI(chicken,chickenBorders[id - 1]);
             AnimalMovement animal = prefab.GetComponent<AnimalMovement>();
             animal.AssignUI(name);
         }
 
+    }
+    private void AssignAnimalUI(Chiken chiken,GameObject uiBox)
+    {
+        Text nameText = uiBox.transform.GetChild(1).GetComponent<Text>();
+        nameText.text = chiken.Name;
     }
 }
 class Chiken
