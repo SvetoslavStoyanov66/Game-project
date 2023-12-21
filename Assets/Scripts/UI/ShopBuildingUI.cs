@@ -47,6 +47,9 @@ public class ShopBuildingUI : MonoBehaviour
     GameObject enterDoor;
     
     GameObject exitDoor;
+    [SerializeField]
+
+    GameObject farm;
     string[] builderFarmingStructuresDialog = {
     "Greetings! I specialize in constructing farm buildings such as coops and barns. With a new coop, you can raise chickens for fresh eggs, and a sturdy barn will provide shelter for your livestock."
    ,"If you're thinking about expanding your farm, I can help you design and build the perfect structure. Just let me know your requirements, and we'll get started on your project!"
@@ -145,13 +148,23 @@ public class ShopBuildingUI : MonoBehaviour
     }
     public void ButtonBuyFunction()
     {
-        if(Money.Instance.moneyAmount >= Convert.ToInt32(moneyText.text) && !BuildingManager.Instance.isThereActiveCoop())
+        if(Money.Instance.moneyAmount >= Convert.ToInt32(moneyText.text) && ((currentPage == BuildingPageUI.CowBuilding && !BuildingManager.Instance.isThereActiveCowBuilding()) || (currentPage == BuildingPageUI.ChikenBuilding && !BuildingManager.Instance.isThereActiveCoop())))
         {
-            BuildingManager.Instance.BuildingAssigning(buildingToInstantiate,actualBuildingToInstatntiante);
+            
+            farm.SetActive(true);
+            if(currentPage == BuildingPageUI.ChikenBuilding)
+            {
+                BuildingManager.Instance.BuildingAssigning(buildingToInstantiate,actualBuildingToInstatntiante,"chicken");
+            }
+            else
+            {
+                BuildingManager.Instance.BuildingAssigning(buildingToInstantiate,actualBuildingToInstatntiante,"cow");
+            }
+            
             shopUiCanvas.enabled = false;
             Money.Instance.moneyAmount -= Convert.ToInt32(moneyText.text);
         }
-        else if(BuildingManager.Instance.isThereActiveCoop())
+        else if(BuildingManager.Instance.isThereActiveCoop() || BuildingManager.Instance.isThereActiveCowBuilding())
         {
              StartCoroutine(TextDuration(4, "Cant build more than one of this building"));
         }
@@ -197,4 +210,5 @@ public class ShopBuildingUI : MonoBehaviour
         yield return new WaitForSeconds(num);
         notEnoughMoneyText.text = "";
     }
+    
 }

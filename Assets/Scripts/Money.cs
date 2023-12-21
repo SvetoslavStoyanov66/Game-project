@@ -23,7 +23,7 @@ public class Money : MonoBehaviour
     void Start()
     {
         moneyText = GetComponent<Text>();
-        moneyAmount = 1200;
+        moneyAmount = 2000;
     }
 
     

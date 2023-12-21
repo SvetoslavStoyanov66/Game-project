@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -35,9 +36,14 @@ public class BuildingManager : MonoBehaviour
    [SerializeField]
    ExitDoorForAnimalsBuildings coopExitDoor;
    bool coopActive = false;
+    bool cowBuildingActive = false;
    [SerializeField]
 
    Canvas animalCanvas;
+   [SerializeField]
+   GameObject farm;
+
+   string structureType;
 
    
     float moveSpeed = 5.0f;
@@ -81,12 +87,20 @@ public class BuildingManager : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.R))
             {
-                structure.transform.Rotate(0, 0, 90);
+                if(structure.name == "Chiken farm 1(Clone)")
+                {
+                     structure.transform.Rotate(0, 0, 90);
+                }
+                else
+                {
+                    structure.transform.Rotate(0, 90, 0);
+                }
+               
             }
 
         }
     }
-    public void BuildingAssigning(GameObject building, GameObject actualBuilding)
+    public void BuildingAssigning(GameObject building, GameObject actualBuilding,string type)
     {
         actulaStructure = actualBuilding;
         structure = building;
@@ -97,6 +111,7 @@ public class BuildingManager : MonoBehaviour
         inventoryCanvas.enabled = false;
         timerCanvas.enabled = false;
         buildingModeCanvas.enabled = true;
+        structureType = type;
     }
     public void SaveChangesButton()
     {
@@ -117,7 +132,16 @@ public class BuildingManager : MonoBehaviour
             coopExitDoor.DoorAssigment(childObject);
         }
     }
-    coopActive = true;
+    if(structureType == "chicken")
+    {
+        coopActive = true;
+    }
+    else
+    {
+        cowBuildingActive = true;
+    }
+    
+    
 }
 
         
@@ -128,6 +152,7 @@ public class BuildingManager : MonoBehaviour
         inventoryCanvas.enabled = true;
         timerCanvas.enabled = true;
         buildingModeCanvas.enabled = false;
+        farm.SetActive(false);
     }
     public void LeaveButton()
     {
@@ -143,6 +168,7 @@ public class BuildingManager : MonoBehaviour
         inventoryCanvas.enabled = true;
         timerCanvas.enabled = true;
         buildingModeCanvas.enabled = false;
+        farm.SetActive(false);
     }
      public void CanInstantiante(bool can)
     {
@@ -151,6 +177,10 @@ public class BuildingManager : MonoBehaviour
     public bool isThereActiveCoop()
     {
         return coopActive;
+    }
+    public bool isThereActiveCowBuilding()
+    {
+        return cowBuildingActive;
     }
    
 }
