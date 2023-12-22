@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1037323666781215650}
   - component: {fileID: 1768763892656414701}
+  - component: {fileID: -4100647028158882904}
   m_Layer: 0
   m_Name: Cow Shed Exterior
   m_TagString: Untagged
@@ -46,6 +47,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.9338603, y: 0.96274996, z: 2.0968056}
   m_Center: {x: 0.0081243515, y: 0.53260326, z: -0.10620046}
+--- !u!114 &-4100647028158882904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373377439644631320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c0d4673af6db3242a0d7f5635589042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coopCanvas: {fileID: 0}
 --- !u!1 &5460294000096227322
 GameObject:
   m_ObjectHideFlags: 0
