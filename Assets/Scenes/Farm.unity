@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44970924, g: 0.4997775, b: 0.57563436, a: 1}
+  m_IndirectSpecularColor: {r: 0.44970965, g: 0.49977773, b: 0.5756354, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -25457,8 +25457,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 2.2072043}
-  m_Center: {x: 0, y: 0, z: -0.6036022}
+  m_Size: {x: 3.1063685, y: 1, z: 2.2072043}
+  m_Center: {x: 1.0531844, y: 0, z: -0.60360223}
 --- !u!23 &1292299756
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25466,7 +25466,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1292299754}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -25513,13 +25513,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1292299754}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.49, y: 0.56071764, z: 3.56}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: -0.0062, y: -0.004, z: 0.0028745902}
+  m_LocalScale: {x: 0.005649718, y: 0.005649718, z: 0.005649718}
   m_Children:
   - {fileID: 425143905}
-  m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_Father: {fileID: 432341085}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1292299759
 MonoBehaviour:
@@ -33828,8 +33828,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.003977054, y: 0.030076668, z: 0.010112657}
-  m_Center: {x: 0.0023547795, y: 0.0006046834, z: 0.0037295872}
+  m_Size: {x: 0.0038378267, y: 0.011051242, z: 0.010112657}
+  m_Center: {x: 0.002424393, y: 0.010117396, z: 0.0037295872}
 --- !u!4 &1708020067 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6805361980425697782, guid: 51343445ef888fc4fa5698c7c102b055,
@@ -35084,7 +35084,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1770733006
 PrefabInstance:
