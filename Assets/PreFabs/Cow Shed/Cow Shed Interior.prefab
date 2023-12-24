@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &373377439644631320
+--- !u!1 &3241531007157741038
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,105 +8,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1037323666781215650}
-  - component: {fileID: 1768763892656414701}
-  - component: {fileID: -4100647028158882904}
+  - component: {fileID: 3137815029627937890}
+  - component: {fileID: 5010759287411843245}
+  - component: {fileID: 4560901372068899884}
   m_Layer: 0
-  m_Name: Cow Shed Exterior
+  m_Name: Straw.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1037323666781215650
+--- !u!4 &3137815029627937890
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 373377439644631320}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: -0.7071068}
-  m_LocalPosition: {x: 2.8186057, y: 0.0038337708, z: 6.0325093}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_Children:
-  - {fileID: 7154089190112814778}
-  - {fileID: 6433745521939116506}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1768763892656414701
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 373377439644631320}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.9338603, y: 0.96274996, z: 2.0968056}
-  m_Center: {x: 0.0081243515, y: 0.53260326, z: -0.10620046}
---- !u!114 &-4100647028158882904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 373377439644631320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c0d4673af6db3242a0d7f5635589042, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coopCanvas: {fileID: 0}
---- !u!1 &5460294000096227322
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6433745521939116506}
-  - component: {fileID: 3608971490969109531}
-  - component: {fileID: 1687228752097608105}
-  m_Layer: 0
-  m_Name: Plane.004
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6433745521939116506
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5460294000096227322}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_GameObject: {fileID: 3241531007157741038}
+  m_LocalRotation: {x: -0.6876059, y: 0.16491875, z: 0.16491878, w: 0.6876058}
+  m_LocalPosition: {x: -0, y: 0, z: 0.000000014901161}
+  m_LocalScale: {x: 191.65782, y: 191.65782, z: 191.65782}
   m_Children: []
-  m_Father: {fileID: 1037323666781215650}
+  m_Father: {fileID: 5218997979649072325}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3608971490969109531
+--- !u!33 &5010759287411843245
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5460294000096227322}
-  m_Mesh: {fileID: 6894428203817054813, guid: 3d635051131ee2b4ca7b07d8af135d04, type: 3}
---- !u!23 &1687228752097608105
+  m_GameObject: {fileID: 3241531007157741038}
+  m_Mesh: {fileID: -7069599536130523092, guid: 176196dfec1dc924ab7af54bede1864e, type: 3}
+--- !u!23 &4560901372068899884
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5460294000096227322}
+  m_GameObject: {fileID: 3241531007157741038}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -118,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8c0654062f2f56140a6d52f10d9afab7, type: 2}
+  - {fileID: 2100000, guid: 382ea38f48d926a4d83be39343ee0245, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -139,7 +79,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!1 &6034646763644325708
+--- !u!1 &4838638061674202751
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,45 +87,77 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7154089190112814778}
-  - component: {fileID: 1072039121896529198}
-  - component: {fileID: 7797221047997280621}
+  - component: {fileID: 5218997979649072325}
   m_Layer: 0
-  m_Name: Plane.002
+  m_Name: Cow Shed Interior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7154089190112814778
+--- !u!4 &5218997979649072325
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6034646763644325708}
+  m_GameObject: {fileID: 4838638061674202751}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -58.63379, y: 2.2116232, z: 13.478365}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4057711353928696850}
+  - {fileID: 3137815029627937890}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5716038946333530112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4057711353928696850}
+  - component: {fileID: 8328435147179727219}
+  - component: {fileID: 5542496499415476471}
+  m_Layer: 0
+  m_Name: Plane.006
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4057711353928696850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5716038946333530112}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
-  m_Father: {fileID: 1037323666781215650}
+  m_Father: {fileID: 5218997979649072325}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1072039121896529198
+--- !u!33 &8328435147179727219
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6034646763644325708}
-  m_Mesh: {fileID: 6416302070336371891, guid: 3d635051131ee2b4ca7b07d8af135d04, type: 3}
---- !u!23 &7797221047997280621
+  m_GameObject: {fileID: 5716038946333530112}
+  m_Mesh: {fileID: -470067213634067786, guid: 176196dfec1dc924ab7af54bede1864e, type: 3}
+--- !u!23 &5542496499415476471
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6034646763644325708}
+  m_GameObject: {fileID: 5716038946333530112}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -197,7 +169,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cf57e6bf451393b4c8783525ea4aa40a, type: 2}
+  - {fileID: 2100000, guid: 53ac6b13bae2544439513f5faeae12d6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

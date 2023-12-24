@@ -50,6 +50,9 @@ public class ShopBuildingUI : MonoBehaviour
     [SerializeField]
 
     GameObject farm;
+
+    [SerializeField]
+    GameObject notifier;
     string[] builderFarmingStructuresDialog = {
     "Greetings! I specialize in constructing farm buildings such as coops and barns. With a new coop, you can raise chickens for fresh eggs, and a sturdy barn will provide shelter for your livestock."
    ,"If you're thinking about expanding your farm, I can help you design and build the perfect structure. Just let me know your requirements, and we'll get started on your project!"
@@ -109,6 +112,7 @@ public class ShopBuildingUI : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E) && selection.activeSelf)
         {
+            notifier.SetActive(false);
             if (shopUiCanvas.enabled)
             {
                 shopUiCanvas.enabled = false;
@@ -179,6 +183,7 @@ public class ShopBuildingUI : MonoBehaviour
         if (other.tag == "Player")
         {
             selection.SetActive(true);
+            notifier.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -186,6 +191,7 @@ public class ShopBuildingUI : MonoBehaviour
         if (other.tag == "Player")
         {
             selection.SetActive(false);
+            notifier.SetActive(false);
         }
     }
     IEnumerator waitForDialog()
