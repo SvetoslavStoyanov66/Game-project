@@ -125,12 +125,14 @@ public class BuildingManager : MonoBehaviour
 
     Transform exitDoorTransform = actulaStructure.gameObject.transform;
     if (exitDoorTransform.childCount > 0)
-    {
-        GameObject childObject = exitDoorTransform.GetChild(0).gameObject;
-        if (childObject != null)
-        {
-            coopExitDoor.DoorAssigment(childObject);
-        }
+    { 
+        
+             GameObject childObject = exitDoorTransform.GetChild(0).gameObject;
+              if (childObject != null)
+               {
+                   coopExitDoor.DoorAssigment(childObject);
+               }
+       
     }
     if(structureType == "chicken")
     {
