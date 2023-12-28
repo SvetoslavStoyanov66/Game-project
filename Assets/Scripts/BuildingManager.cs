@@ -35,6 +35,19 @@ public class BuildingManager : MonoBehaviour
    GameObject coopInteriorDoor;
    [SerializeField]
    ExitDoorForAnimalsBuildings coopExitDoor;
+   [SerializeField]
+   GameObject cowSelection;
+   [SerializeField]
+   Camera cowCamera;
+   [SerializeField]
+   Light cowLight;
+   [SerializeField]
+   GameObject cowNotifier;
+
+   [SerializeField]
+   GameObject cowInteriorDoor;
+   [SerializeField]
+   ExitDoorForAnimalsBuildings cowExitDoor;
    bool coopActive = false;
     bool cowBuildingActive = false;
    [SerializeField]
@@ -120,7 +133,15 @@ public class BuildingManager : MonoBehaviour
     EnterDoorForAnimalsBuildings door = actulaStructure.GetComponent<EnterDoorForAnimalsBuildings>();
     if (door != null)
     {
-        door.Assigment(coopSelection, coopCamera, coopLight, sun, notifier, coopInteriorDoor,animalCanvas);
+        if(actulaStructure.name == "Chiken farm(Clone)")
+        {
+            door.Assigment(coopSelection, coopCamera, coopLight, sun, notifier, coopInteriorDoor,animalCanvas);
+        }
+        else
+        {
+            door.Assigment(cowSelection, cowCamera, cowLight, sun ,cowNotifier, cowInteriorDoor,animalCanvas);
+        }
+        
     }
 
     Transform exitDoorTransform = actulaStructure.gameObject.transform;
@@ -130,7 +151,14 @@ public class BuildingManager : MonoBehaviour
              GameObject childObject = exitDoorTransform.GetChild(0).gameObject;
               if (childObject != null)
                {
-                   coopExitDoor.DoorAssigment(childObject);
+                   if(actulaStructure.name == "Chiken farm(Clone)")
+                    {
+                        coopExitDoor.DoorAssigment(childObject);
+                    }
+                    else
+                    {
+                        cowExitDoor.DoorAssigment(childObject);
+                    }
                }
        
     }
