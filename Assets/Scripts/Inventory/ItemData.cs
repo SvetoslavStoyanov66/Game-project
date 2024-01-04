@@ -1,4 +1,4 @@
-﻿    using System.Collections;
+    using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
     using UnityEngine.PlayerLoop;
@@ -10,6 +10,10 @@
         public Sprite thumbnail;
         public GameObject gameModel;
         public int quantity;
+
+        public bool achievementUnlock;
+
+        public string achievementDiscription;
     private void OnEnable()
     {
         quantity = 1;
