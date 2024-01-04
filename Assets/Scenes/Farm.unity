@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44970918, g: 0.49977744, b: 0.575634, a: 1}
+  m_IndirectSpecularColor: {r: 0.44970924, g: 0.4997775, b: 0.57563436, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -11986,6 +11986,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d60263f0ab3e5c04789c9a9502d57421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &648021694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 648021696}
+  - component: {fileID: 648021695}
+  m_Layer: 0
+  m_Name: AchievementManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &648021695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648021694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d13f983d8d5871b4bbdf6f480ce3b04c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 11400000, guid: 641d6a1bc3fa1d64086647fc32fafcac, type: 2}
+  - {fileID: 11400000, guid: 0df461ed0de8d054ea6394abb747be7f, type: 2}
+  - {fileID: 11400000, guid: 625efed0da5eb0d4e96953dc05003162, type: 2}
+  - {fileID: 11400000, guid: 5b576e8c20151844ebd24fccaec5d92f, type: 2}
+  - {fileID: 11400000, guid: 6272edf7005dc51498ddd84f7a3cba5f, type: 2}
+  - {fileID: 11400000, guid: 1446ef1a30908554e8586c7e4a13f959, type: 2}
+  - {fileID: 11400000, guid: e98046e6b20116945acc6364a108ff1a, type: 2}
+  - {fileID: 11400000, guid: b4320fec528968f4a84133ceb12f8b91, type: 2}
+  - {fileID: 11400000, guid: 36be0c8a1d5cac64083b9375af58701e, type: 2}
+  - {fileID: 11400000, guid: 93f3b2ee057ea3a4499f9777ccfc8274, type: 2}
+--- !u!4 &648021696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648021694}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.87884, y: -28.13153, z: 25.710518}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &650358767
 GameObject:
   m_ObjectHideFlags: 0
