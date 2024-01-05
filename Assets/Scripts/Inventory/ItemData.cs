@@ -14,6 +14,8 @@
         public bool achievementUnlock;
 
         public string achievementDiscription;
+
+        public Sprite UnUnlockedThubnail;
     private void OnEnable()
     {
         quantity = 1;
