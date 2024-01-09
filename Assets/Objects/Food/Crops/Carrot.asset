@@ -16,6 +16,9 @@ MonoBehaviour:
   thumbnail: {fileID: 21300000, guid: c2de143239be90a49ac49276a7180df5, type: 3}
   gameModel: {fileID: 1674138755072895574, guid: 0cd69bb02bc2a374b9ef1be6dd9872ca,
     type: 3}
-  quantity: 4
+  quantity: 1
+  achievementUnlock: 0
+  achievementDiscription: 
+  UnUnlockedThubnail: {fileID: 21300000, guid: 6b6afade9f40c344190b8a8cd521c7e6, type: 3}
   energyFillAmount: 10
   sellPrice: 100

@@ -10,16 +10,16 @@ public class AchievementSlot : MonoBehaviour
     Image picture;
     public void ItemAssigning(ItemData data)
     {
-        data = item;
+        item = data;
     }
     public void UpdateUI()
     {
         if(item != null)
         {
-            Transform transform1 = gameObject.transform.GetChild(0);
+            Transform transform1 = this.gameObject.transform.GetChild(1);
+            Transform transform2 = this.gameObject.transform.GetChild(0);
             nameText = transform1.GetComponent<Text>();
-            nameText.text = item.name;
-            picture = GetComponentInChildren<Image>();
+            picture = transform2.GetComponent<Image>();
             if(item.achievementUnlock == true)
             {
                 nameText.text = item.name;
