@@ -25,6 +25,14 @@ public class Dialogs : MonoBehaviour
     Button browseAnimals;
     [SerializeField]
     Button leaveAnimals;
+    [SerializeField]
+    Animator AnimalShopNPCAnim;
+    [SerializeField]
+    Animator BuildingShopNPCAnim;
+    [SerializeField]
+    Animator SeedShopNPCAnim;  
+
+    Animator npcAnimator;
     bool canChangePage = true;
     private void Awake()
     {
@@ -49,16 +57,19 @@ public class Dialogs : MonoBehaviour
         {
             browse = browseSeeds;
             leave = LeaveSeeds;
+            npcAnimator = SeedShopNPCAnim;
         }
         else if (name == "BuildingShop")
         {
             browse = browseBuildings;
             leave = leaveBuildings;
+            npcAnimator = BuildingShopNPCAnim;
         }
         else if(name == "AnimalsShop")
         {
             browse = browseAnimals;
             leave = leaveAnimals;
+            npcAnimator = AnimalShopNPCAnim;
         }
         lines = dialogArray;
         index = 0;
