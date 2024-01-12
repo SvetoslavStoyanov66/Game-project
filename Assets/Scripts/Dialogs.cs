@@ -116,8 +116,8 @@ public class Dialogs : MonoBehaviour
                 index++;
                 dialogText.text = string.Empty;
                 StartCoroutine(TypeLine());
+                npcAnimator.SetBool("isTalking", true);
             }
-            npcAnimator.SetBool("isTalking", true);
         }
     }
     public void ResetText()
