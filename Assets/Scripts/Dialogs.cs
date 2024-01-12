@@ -30,8 +30,7 @@ public class Dialogs : MonoBehaviour
     [SerializeField]
     Animator BuildingShopNPCAnim;
     [SerializeField]
-    Animator SeedShopNPCAnim;  
-
+    Animator SeedShopNPCAnim; 
     Animator npcAnimator;
     bool canChangePage = true;
     private void Awake()
@@ -74,6 +73,7 @@ public class Dialogs : MonoBehaviour
         lines = dialogArray;
         index = 0;
         StartCoroutine(TypeLine());
+        npcAnimator.SetBool("isTalking", true);
     }
     IEnumerator TypeLine()
     {
@@ -94,6 +94,7 @@ public class Dialogs : MonoBehaviour
             }
             if (needToBreak)
             {
+                npcAnimator.SetBool("isTalking", false);
                 needToBreak = false;
                 break;
             }
@@ -116,6 +117,7 @@ public class Dialogs : MonoBehaviour
                 dialogText.text = string.Empty;
                 StartCoroutine(TypeLine());
             }
+            npcAnimator.SetBool("isTalking", true);
         }
     }
     public void ResetText()
