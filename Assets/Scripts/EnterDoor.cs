@@ -23,6 +23,8 @@ public class EnterDoor : MonoBehaviour
     [SerializeField]
     GameObject notifier;
     Text notifiText;
+    [SerializeField]
+    Transform inHouseTransform;
     
 
 
@@ -44,11 +46,9 @@ public class EnterDoor : MonoBehaviour
 
             if (playerController != null)
             {
-                playerController.enabled = false; // Disable the CharacterController temporarily
-                Vector3 newPosition = playerController.transform.position;
-                newPosition.z += 0.8f;
-                newPosition.z += 0.1f;
-                playerController.transform.position = newPosition; // Set the new position
+                playerController.enabled = false; 
+                Vector3 newPosition = inHouseTransform.position;     
+                playerController.transform.position = newPosition; 
                 playerController.enabled = true;
             }
         }      
