@@ -23,6 +23,8 @@ public class ExitDoor : MonoBehaviour
     Light sun;
     [SerializeField]
     GameObject notifier;
+    [SerializeField]
+    Transform enterDoorTransform;
 
     private void Update()
     {
@@ -41,12 +43,10 @@ public class ExitDoor : MonoBehaviour
 
             if (playerController != null)
             {
-                playerController.enabled = false; // Disable the CharacterController temporarily
-                Vector3 newPosition = playerController.transform.position;
-                newPosition.z -= 1.5f;
-                playerController.transform.position = newPosition; // Set the new position
-                playerController.enabled = true;
-                
+                playerController.enabled = false;
+                Vector3 newPosition = enterDoorTransform.position;
+                playerController.transform.position = newPosition;
+                playerController.enabled = true;            
             }
         }
     }
