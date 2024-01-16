@@ -46,6 +46,7 @@ public class EnterDoor : MonoBehaviour
 
             if (playerController != null)
             {
+
                 playerController.enabled = false; 
                 Vector3 newPosition = inHouseTransform.position;     
                 playerController.transform.position = newPosition; 

@@ -25,6 +25,9 @@ public class ExitDoor : MonoBehaviour
     GameObject notifier;
     [SerializeField]
     Transform enterDoorTransform;
+    [SerializeField]
+    GameObject mainCamera;
+    
 
     private void Update()
     {
@@ -43,10 +46,16 @@ public class ExitDoor : MonoBehaviour
 
             if (playerController != null)
             {
+                
                 playerController.enabled = false;
                 Vector3 newPosition = enterDoorTransform.position;
-                playerController.transform.position = newPosition;
-                playerController.enabled = true;            
+                Vector3 newPosition2 = enterDoorTransform.position;
+                newPosition.y = 7;
+                newPosition.z -= 7;
+                if (mainCamera != null){mainCamera.transform.position = newPosition;} 
+                playerController.transform.position = newPosition2;
+                playerController.enabled = true;       
+                   
             }
         }
     }
