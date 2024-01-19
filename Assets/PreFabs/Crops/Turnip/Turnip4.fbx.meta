@@ -3,7 +3,12 @@ guid: 5ba24805839dc9f408741a387d0d76c0
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Beetroot
+    second: {fileID: 2100000, guid: 8613d535b766a674fa3fc65ea73d64ec, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

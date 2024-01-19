@@ -3,7 +3,12 @@ guid: ac1c1bc106e2b984eba4b1ef4391be7d
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Corn
+    second: {fileID: 2100000, guid: 59c8a22971fa7c84199e81b3a88be4ed, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
