@@ -48608,6 +48608,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5b576e8c20151844ebd24fccaec5d92f, type: 2}
   - {fileID: 11400000, guid: 6272edf7005dc51498ddd84f7a3cba5f, type: 2}
   - {fileID: 11400000, guid: 1446ef1a30908554e8586c7e4a13f959, type: 2}
+  - {fileID: 11400000, guid: c5a6bfa3c296f8941a846c6621ca45ac, type: 2}
+  - {fileID: 11400000, guid: f6a96dbf19ff82f4c952b749921957e8, type: 2}
   hoverButtonImages:
   - {fileID: 1702028582}
   - {fileID: 821272892}
