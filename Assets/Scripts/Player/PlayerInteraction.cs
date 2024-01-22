@@ -170,7 +170,7 @@ public class PlayerInteraction : MonoBehaviour
                 Vector3 landPosition = selectedLand.transform.position;
 
                 // Set the desired Y-coordinate
-                landPosition.y = 0f;
+                landPosition.y = 0.015f;
                 if (selectedTool.name == "Potato Seed")
                 {
                     landPosition.z += -.2f;

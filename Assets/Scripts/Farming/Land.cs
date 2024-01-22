@@ -123,7 +123,7 @@ public class Land : MonoBehaviour
         }
         else if (seed1 != null)
         {
-            if(seed1.tag == "Cabbage")
+            if(seed1.tag == "Cabbage" || seed1.tag == "Beetroot")
             {
                 seed1 = Instantiate(seed1, position, desiredRotation);
             }
@@ -134,7 +134,7 @@ public class Land : MonoBehaviour
         }
         else if (seed2 != null)
         {
-            if(seed2.tag == "Cabbage")
+            if(seed2.tag == "Cabbage" || seed2.tag == "Beetroot")
             {
                 seed2 = Instantiate(seed2, position, desiredRotation);
             }
@@ -145,7 +145,7 @@ public class Land : MonoBehaviour
         }
         else if (grownCrop != null)
         {
-            if(gameObject.tag == "Cabbage")
+            if(gameObject.tag == "Cabbage" || gameObject.tag == "Beetroot")
             {
                 grownCrop = Instantiate(grownCrop, position, desiredRotation);
             }
@@ -205,13 +205,13 @@ public class Land : MonoBehaviour
                 if (CurrentDayProgression >= DaysToGrowPorgression)
                 {
                     Quaternion desiredRotation = Quaternion.identity;
-                    if(GrownCrop != null && GrownCrop.tag == "Cabbage")
+                    if(GrownCrop != null && (GrownCrop.tag == "Cabbage" || GrownCrop.tag == "Beetroot" || GrownCrop.tag == "Broccoli"))
                     {
                         desiredRotation = Quaternion.Euler(-90f, 0f, 0f);
                     }
 
                     Vector3 position = this.gameObject.transform.position;
-                    position.y = 0;
+                    position.y = 0.015f;
                     if (seed1 != null && seed != null)
                     {
                         seed1 = Instantiate(seed1, position, desiredRotation);

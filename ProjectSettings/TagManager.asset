@@ -10,6 +10,8 @@ TagManager:
   - Tree
   - Potato
   - Cabbage
+  - Beetroot
+  - Broccoli
   layers:
   - Default
   - TransparentFX
