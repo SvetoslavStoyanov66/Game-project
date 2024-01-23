@@ -37,6 +37,9 @@ public class Land : MonoBehaviour
     public bool hasMultyCollectableSeed = false;
 
     public GameObject harvestedCrop;
+
+    int daysForCollectingMultyHarvestableCrops = 3;
+    bool InstantiatedHarvestedCrop = false;
     
     // Start is called before the first frame update
     void Start()
@@ -204,7 +207,15 @@ public class Land : MonoBehaviour
         Vector3 position = this.gameObject.transform.position;
         position.y = 0.015f;
         Quaternion rotation = Quaternion.Euler(-90, 0,0);
-        harvestedCrop = Instantiate(harvestedCrop,position,rotation);  
+        if(!InstantiatedHarvestedCrop)
+        {
+            harvestedCrop = Instantiate(harvestedCrop,position,rotation);
+        }
+        else
+        {
+            harvestedCrop.SetActive(true);
+        }
+          
     }  
     public void Grow()
     {
@@ -238,6 +249,12 @@ public class Land : MonoBehaviour
                         GrownCrop = Instantiate(GrownCrop, position, desiredRotation);
                         isCropInstantianted = true;
                         Destroy(seed2);
+                    }
+                    else if(harvestedCrop != null && harvestedCrop.activeSelf)
+                    {
+                        GrownCrop.SetActive(true);
+                        harvestedCrop.SetActive(false);
+                        daysForCollectingMultyHarvestableCrops--;
                     }
                     grow = false;
                     wasWateredYesterday = false;

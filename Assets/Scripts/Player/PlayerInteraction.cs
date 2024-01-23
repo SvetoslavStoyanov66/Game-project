@@ -77,14 +77,16 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (selectedLand.isCropInstantianted == true && selectedTool == null)
             {
-                Destroy(selectedLand.GrownCrop);
+                
                 ItemData crop = selectedLand.crop;
                 if (selectedLand.hasMultyCollectableSeed)
                 {
+                    selectedLand.GrownCrop.SetActive(false);
                     selectedLand.HarvestSeedMultypleColectableSeed();
                 }
                 else
                 {
+                    Destroy(selectedLand.GrownCrop);
                     inventory.HarvestCrops(crop);
                     selectedLand.HarvestSeed();
                 }
