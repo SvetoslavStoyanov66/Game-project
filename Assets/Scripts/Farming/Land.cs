@@ -33,6 +33,10 @@ public class Land : MonoBehaviour
     public bool isCropInstantianted = false;
     public bool isRaining;
     private float counter;
+
+    public bool hasMultyCollectableSeed = false;
+
+    public GameObject harvestedCrop;
     
     // Start is called before the first frame update
     void Start()
@@ -195,6 +199,13 @@ public class Land : MonoBehaviour
     {
         hasSeedPlanted = false;
     }  
+    public void HarvestSeedMultypleColectableSeed()
+    {
+        Vector3 position = this.gameObject.transform.position;
+        position.y = 0.015f;
+        Quaternion rotation = Quaternion.Euler(-90, 0,0);
+        harvestedCrop = Instantiate(harvestedCrop,position,rotation);  
+    }  
     public void Grow()
     {
         if (grow == true && wasWateredYesterday == true)
@@ -205,7 +216,7 @@ public class Land : MonoBehaviour
                 if (CurrentDayProgression >= DaysToGrowPorgression)
                 {
                     Quaternion desiredRotation = Quaternion.identity;
-                    if(GrownCrop != null && (GrownCrop.tag == "Cabbage" || GrownCrop.tag == "Beetroot" || GrownCrop.tag == "Broccoli"))
+                    if(GrownCrop != null && (GrownCrop.tag == "Cabbage" || GrownCrop.tag == "Beetroot" || GrownCrop.tag == "Broccoli" || GrownCrop.tag == "Corn"))
                     {
                         desiredRotation = Quaternion.Euler(-90f, 0f, 0f);
                     }

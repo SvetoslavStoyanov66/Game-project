@@ -79,8 +79,15 @@ public class PlayerInteraction : MonoBehaviour
             {
                 Destroy(selectedLand.GrownCrop);
                 ItemData crop = selectedLand.crop;
-                inventory.HarvestCrops(crop);
-                selectedLand.HarvestSeed();
+                if (selectedLand.hasMultyCollectableSeed)
+                {
+                    selectedLand.HarvestSeedMultypleColectableSeed();
+                }
+                else
+                {
+                    inventory.HarvestCrops(crop);
+                    selectedLand.HarvestSeed();
+                }
             }
             if (selectedTool != null)
             {
@@ -103,7 +110,7 @@ public class PlayerInteraction : MonoBehaviour
 
                 if (selectedTool is SeedsData)
                 {
-                   
+
                     if (selectedLand.landStatus == Land.LandStatus.Farmland && !selectedLand.HasSeedPlanted())
                     {
                         (selectedTool as ItemData).quantity--;
@@ -118,13 +125,13 @@ public class PlayerInteraction : MonoBehaviour
                                 }
                             }
                         }
-                        
+
                     }
-                    
+
                     UImanager.Instance.RenderHotbar();
                     InstantiateSeed(selectedTool as SeedsData);
                 }
-                
+
                 return;
             }
         }
@@ -164,7 +171,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (selectedLand.landStatus == Land.LandStatus.Farmland)
         {
-            
+
             if (!selectedLand.HasSeedPlanted())  // Check if a seed is already planted
             {
                 Vector3 landPosition = selectedLand.transform.position;
@@ -188,12 +195,22 @@ public class PlayerInteraction : MonoBehaviour
                 selectedLand.DaysToGrowPorgression = seedData.daysToGrow;
                 selectedLand.crop = seedData.cropToYield;
                 selectedLand.PlantSeed();
-            
+                if(seedData is CollectableSeedData)
+                {
+                    CollectableSeedData data = seedData as CollectableSeedData;
+                    selectedLand.hasMultyCollectableSeed = true;
+                    selectedLand.harvestedCrop = data.harvestedGrownCrop;
+                }
+                else
+                {
+                    selectedLand.hasMultyCollectableSeed = false;
+                }
+
             }
-               
+
         }
-        
-    
+
+
     }
 
 
