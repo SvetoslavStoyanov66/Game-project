@@ -13,6 +13,7 @@ TagManager:
   - Beetroot
   - Broccoli
   - Corn
+  - Cucumber
   layers:
   - Default
   - TransparentFX

@@ -214,6 +214,7 @@ public class Land : MonoBehaviour
                 position.y = 0.015f;
                 Quaternion rotation = Quaternion.Euler(-90, 0, 0);
                 harvestedCrop = Instantiate(harvestedCrop, position, rotation);
+                harvestedCrop.SetActive(true);
                 InstantiatedHarvestedCrop = true;
             }
             else
@@ -241,7 +242,7 @@ public class Land : MonoBehaviour
                 if (CurrentDayProgression >= DaysToGrowPorgression)
                 {
                     Quaternion desiredRotation = Quaternion.identity;
-                    if(GrownCrop != null && (GrownCrop.tag == "Cabbage" || GrownCrop.tag == "Beetroot" || GrownCrop.tag == "Broccoli" || GrownCrop.tag == "Corn"))
+                    if(GrownCrop != null && (GrownCrop.tag == "Cabbage" || GrownCrop.tag == "Beetroot" || GrownCrop.tag == "Broccoli" || GrownCrop.tag == "Corn" || GrownCrop.tag == "Cucumber"))
                     {
                         desiredRotation = Quaternion.Euler(-90f, 0f, 0f);
                     }

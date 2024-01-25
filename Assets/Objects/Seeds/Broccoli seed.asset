@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Broccoli seed
   m_EditorClassIdentifier: 
   description: 
-  thumbnail: {fileID: 21300000, guid: f78ff37fe11aefc4990f88811cfb250f, type: 3}
+  thumbnail: {fileID: 21300000, guid: 1ddc560ed1ef2d04e84c1f67725ccc70, type: 3}
   gameModel: {fileID: 8112912117486023708, guid: e49820bc5e74dc6458e7738a926d78e9,
     type: 3}
   quantity: 1

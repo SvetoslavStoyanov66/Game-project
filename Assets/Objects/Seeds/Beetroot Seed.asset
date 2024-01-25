@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Beetroot Seed
   m_EditorClassIdentifier: 
   description: 
-  thumbnail: {fileID: 21300000, guid: 74e78d51718d0f74a9d5a997c2796579, type: 3}
+  thumbnail: {fileID: 21300000, guid: f09cedbd908238743b68f3fbb9f1c5db, type: 3}
   gameModel: {fileID: 2898223409051777433, guid: 6c02526705c2f0c4a8f0381fffa8fe47,
     type: 3}
   quantity: 1
