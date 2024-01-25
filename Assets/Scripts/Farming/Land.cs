@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
 public class Land : MonoBehaviour
@@ -201,22 +202,35 @@ public class Land : MonoBehaviour
     public void HarvestSeed()
     {
         hasSeedPlanted = false;
-    }  
+    }
     public void HarvestSeedMultypleColectableSeed()
     {
-        Vector3 position = this.gameObject.transform.position;
-        position.y = 0.015f;
-        Quaternion rotation = Quaternion.Euler(-90, 0,0);
-        if(!InstantiatedHarvestedCrop)
+        if (daysForCollectingMultyHarvestableCrops > 0)
         {
-            harvestedCrop = Instantiate(harvestedCrop,position,rotation);
+             daysForCollectingMultyHarvestableCrops--;
+            if (!InstantiatedHarvestedCrop)
+            {
+                Vector3 position = this.gameObject.transform.position;
+                position.y = 0.015f;
+                Quaternion rotation = Quaternion.Euler(-90, 0, 0);
+                harvestedCrop = Instantiate(harvestedCrop, position, rotation);
+                InstantiatedHarvestedCrop = true;
+            }
+            else
+            {
+                harvestedCrop.SetActive(true);
+            }
+
         }
         else
         {
-            harvestedCrop.SetActive(true);
+            HarvestSeed();
+            Destroy(GrownCrop);
+            Destroy(harvestedCrop);
+            daysForCollectingMultyHarvestableCrops = 3;
+            InstantiatedHarvestedCrop = false;
         }
-          
-    }  
+    }
     public void Grow()
     {
         if (grow == true && wasWateredYesterday == true)
@@ -254,7 +268,6 @@ public class Land : MonoBehaviour
                     {
                         GrownCrop.SetActive(true);
                         harvestedCrop.SetActive(false);
-                        daysForCollectingMultyHarvestableCrops--;
                     }
                     grow = false;
                     wasWateredYesterday = false;

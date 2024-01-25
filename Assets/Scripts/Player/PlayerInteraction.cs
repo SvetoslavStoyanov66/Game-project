@@ -83,6 +83,7 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     selectedLand.GrownCrop.SetActive(false);
                     selectedLand.HarvestSeedMultypleColectableSeed();
+                    inventory.HarvestCrops(crop);
                 }
                 else
                 {
