@@ -242,7 +242,7 @@ public class Land : MonoBehaviour
                 if (CurrentDayProgression >= DaysToGrowPorgression)
                 {
                     Quaternion desiredRotation = Quaternion.identity;
-                    if(GrownCrop != null && (GrownCrop.tag == "Cabbage" || GrownCrop.tag == "Beetroot" || GrownCrop.tag == "Broccoli" || GrownCrop.tag == "Corn" || GrownCrop.tag == "Cucumber"))
+                    if(GrownCrop != null && GrownCrop.tag == "seed1")
                     {
                         desiredRotation = Quaternion.Euler(-90f, 0f, 0f);
                     }

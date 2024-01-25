@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4452293819319763161}
   m_Layer: 0
   m_Name: Beetroot4
-  m_TagString: Beetroot
+  m_TagString: seed1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

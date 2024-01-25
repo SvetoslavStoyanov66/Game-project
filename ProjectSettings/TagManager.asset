@@ -8,12 +8,7 @@ TagManager:
   - Door
   - HouseExit
   - Tree
-  - Potato
-  - Cabbage
-  - Beetroot
-  - Broccoli
-  - Corn
-  - Cucumber
+  - seed1
   layers:
   - Default
   - TransparentFX
