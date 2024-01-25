@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a07d1cc633a06d640ac292a40c943d9d, type: 3}
+  m_Name: Tomato
+  m_EditorClassIdentifier: 
+  description: 
+  thumbnail: {fileID: 21300000, guid: 79e67125b358a884db56e6dcc7a91bdb, type: 3}
+  gameModel: {fileID: 3782003179474635654, guid: b2549277f621787429eb633a3c190e06,
+    type: 3}
+  quantity: 1
+  achievementUnlock: 0
+  achievementDiscription: 
+  UnUnlockedThubnail: {fileID: 21300000, guid: 3f1f771773a33ca4b861803deb7339a4, type: 3}
+  energyFillAmount: 80
+  sellPrice: 0

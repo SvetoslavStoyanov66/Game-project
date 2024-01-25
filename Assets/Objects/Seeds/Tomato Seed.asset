@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b516b0e90494cd4fab9f3cc28279bfc, type: 3}
+  m_Name: Tomato Seed
+  m_EditorClassIdentifier: 
+  description: 
+  thumbnail: {fileID: 21300000, guid: 2c9af42aca5e36d4392a20099766cc17, type: 3}
+  gameModel: {fileID: 1829589897649070369, guid: 4dfed28b34ded8b4a941bf6f7fd98230,
+    type: 3}
+  quantity: 1
+  achievementUnlock: 0
+  achievementDiscription: 
+  UnUnlockedThubnail: {fileID: 0}
+  seedling1: {fileID: 3014325940287360878, guid: 0a1b7c85594834f44b2c22536914bbd9,
+    type: 3}
+  seedling2: {fileID: 5013217744267227570, guid: 3dcff7bb8599b5f4692e5d3a8b141b09,
+    type: 3}
+  daysToGrow: 1
+  cropToYield: {fileID: 11400000, guid: 579e1f2b4521d6c489d3096c27f2cbb2, type: 2}
+  price: 0
+  harvestedGrownCrop: {fileID: 5465248974592420829, guid: 3ab014b904eb0ea4ca19626ec34d3801,
+    type: 3}
