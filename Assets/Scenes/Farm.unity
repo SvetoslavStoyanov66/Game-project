@@ -14233,6 +14233,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 749808627}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &669541479 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3156909091133446657, guid: c369b0265d7b8fb409f0ebd0fd135f23,
+    type: 3}
+  m_PrefabInstance: {fileID: 3796634692569154591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &669749559 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7133296466578820155, guid: 51343445ef888fc4fa5698c7c102b055,
@@ -15766,6 +15772,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.015495076, y: 0.026738372, z: 0.014923275}
   m_Center: {x: -0.000049964125, y: -0.00008936489, z: 0.0074615325}
+--- !u!4 &737880640 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3796634692216254047, guid: c369b0265d7b8fb409f0ebd0fd135f23,
+    type: 3}
+  m_PrefabInstance: {fileID: 3796634692569154591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &739696301
 GameObject:
   m_ObjectHideFlags: 0
@@ -28891,9 +28903,11 @@ MonoBehaviour:
   noStructureImageChicken: {fileID: 0}
   noStructureImageCow: {fileID: 0}
   coop: {fileID: 1396435762}
+  cowShed: {fileID: 9124627919616694232}
   chicken1: {fileID: 390500454526703733, guid: 6079fec76b31fcc4c917ae3941d5e349, type: 3}
   chicken2: {fileID: 8590770765370429694, guid: 9252c300595476a468a45f8b5445bf7e,
     type: 3}
+  cow: {fileID: 8116043879502007626, guid: bd99ab74b7942ba4ab2c6a0c3a7b44a0, type: 3}
   inputField: {fileID: 51500786}
 --- !u!114 &1292466231 stripped
 MonoBehaviour:
@@ -30914,6 +30928,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 66730568}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1370664090 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4279319150407254695, guid: c369b0265d7b8fb409f0ebd0fd135f23,
+    type: 3}
+  m_PrefabInstance: {fileID: 3796634692569154591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1372638823
 GameObject:
   m_ObjectHideFlags: 0
@@ -32630,6 +32650,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453262970}
   m_CullTransparentMesh: 0
+--- !u!4 &1453279927 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5938796084823317468, guid: c369b0265d7b8fb409f0ebd0fd135f23,
+    type: 3}
+  m_PrefabInstance: {fileID: 3796634692569154591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1454629606
 GameObject:
   m_ObjectHideFlags: 0
@@ -48698,6 +48724,12 @@ MonoBehaviour:
   shopTextName: {fileID: 0}
   shopTextDescription: {fileID: 0}
   itemPriceText: {fileID: 0}
+--- !u!4 &2136251407 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6007928653183894476, guid: c369b0265d7b8fb409f0ebd0fd135f23,
+    type: 3}
+  m_PrefabInstance: {fileID: 3796634692569154591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2138053918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49717,6 +49749,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3156909091133446657, guid: c369b0265d7b8fb409f0ebd0fd135f23,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 3156909091133446657, guid: c369b0265d7b8fb409f0ebd0fd135f23,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279319150407254695, guid: c369b0265d7b8fb409f0ebd0fd135f23,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279319150407254695, guid: c369b0265d7b8fb409f0ebd0fd135f23,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.33
+      objectReference: {fileID: 0}
     - target: {fileID: 4709282175377164658, guid: c369b0265d7b8fb409f0ebd0fd135f23,
         type: 3}
       propertyPath: m_RootOrder
@@ -49802,10 +49854,60 @@ PrefabInstance:
       propertyPath: inHouseCamera
       value: 
       objectReference: {fileID: 2075158679}
+    - target: {fileID: 5337165353600357319, guid: c369b0265d7b8fb409f0ebd0fd135f23,
+        type: 3}
+      propertyPath: spownPoints.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337165353600357319, guid: c369b0265d7b8fb409f0ebd0fd135f23,
+        type: 3}
+      propertyPath: spownPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 737880640}
+    - target: {fileID: 5337165353600357319, guid: c369b0265d7b8fb409f0ebd0fd135f23,
+        type: 3}
+      propertyPath: spownPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1453279927}
+    - target: {fileID: 5337165353600357319, guid: c369b0265d7b8fb409f0ebd0fd135f23,
+        type: 3}
+      propertyPath: spownPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 2136251407}
+    - target: {fileID: 5337165353600357319, guid: c369b0265d7b8fb409f0ebd0fd135f23,
+        type: 3}
+      propertyPath: spownPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 669541479}
+    - target: {fileID: 5337165353600357319, guid: c369b0265d7b8fb409f0ebd0fd135f23,
+        type: 3}
+      propertyPath: spownPoints.Array.data[4]
+      value: 
+      objectReference: {fileID: 1370664090}
     - target: {fileID: 5337165353600357320, guid: c369b0265d7b8fb409f0ebd0fd135f23,
         type: 3}
       propertyPath: m_Name
       value: Cow Shed Interior 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5938796084823317468, guid: c369b0265d7b8fb409f0ebd0fd135f23,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 5938796084823317468, guid: c369b0265d7b8fb409f0ebd0fd135f23,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 6007928653183894476, guid: c369b0265d7b8fb409f0ebd0fd135f23,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6007928653183894476, guid: c369b0265d7b8fb409f0ebd0fd135f23,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.41
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c369b0265d7b8fb409f0ebd0fd135f23, type: 3}
@@ -55260,34 +55362,27 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!1 &9124627919616694231 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5337165353600357320, guid: c369b0265d7b8fb409f0ebd0fd135f23,
+--- !u!114 &9124627919616694232 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5337165353600357319, guid: c369b0265d7b8fb409f0ebd0fd135f23,
     type: 3}
   m_PrefabInstance: {fileID: 3796634692569154591}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34b30ce9accecaf4d9964da1a0c7cbf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &9124627919616694233 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5337165353600357318, guid: c369b0265d7b8fb409f0ebd0fd135f23,
     type: 3}
   m_PrefabInstance: {fileID: 3796634692569154591}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9124627919616694231}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f08823accf29d3049af40a4db860ba33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &9124627919616694234
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9124627919616694231}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.4796032, y: 1, z: 2.4048936}
-  m_Center: {x: -1.0383426, y: 0, z: -0.16211866}

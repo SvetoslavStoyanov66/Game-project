@@ -61,9 +61,13 @@ public class ShopForAnimals : MonoBehaviour
     [SerializeField]
     Coop coop;
     [SerializeField]
+    CowShed cowShed;
+    [SerializeField]
     GameObject chicken1;
     [SerializeField]
     GameObject chicken2;
+    [SerializeField]
+    GameObject cow;
     [SerializeField]
     InputField inputField;
 
@@ -178,7 +182,7 @@ public class ShopForAnimals : MonoBehaviour
 
     public void BuyButtonFunction()
     {
-            if(BuildingManager.Instance.isThereActiveCoop())
+        if((BuildingManager.Instance.isThereActiveCoop() && currentPage == animals.chiken) || (BuildingManager.Instance.isThereActiveCowBuilding() && currentPage == animals.cow))
         {
             animalSelectionUI.SetActive(true);
             defaultUI.SetActive(false);
@@ -217,7 +221,13 @@ public class ShopForAnimals : MonoBehaviour
         }
         else
         {
-            Debug.Log("cow");
+             if(cowCount < 5)
+            {
+                cowCount++;  
+            }
+           cowShed.SpownCow(cowCount,cow,name);
+           LeaveButtonInAnimalBuyPanelFunction();  
+           ChangingUiPages(animals.cow);  
         }
     }
 
