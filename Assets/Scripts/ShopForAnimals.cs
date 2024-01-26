@@ -178,7 +178,7 @@ public class ShopForAnimals : MonoBehaviour
 
     public void BuyButtonFunction()
     {
-        if(BuildingManager.Instance.isThereActiveCoop())
+            if(BuildingManager.Instance.isThereActiveCoop())
         {
             animalSelectionUI.SetActive(true);
             defaultUI.SetActive(false);
@@ -194,6 +194,8 @@ public class ShopForAnimals : MonoBehaviour
     }
     public void ConfirmButtonnInAnimalBuyPanelFunction()
     {
+         if(currentPage == animals.chiken)
+        {
         int chickenSckin = Mathf.RoundToInt(UnityEngine.Random.Range(1f, 2f));
         GameObject chiken = chicken2;
         if(chickenSckin == 1)
@@ -209,9 +211,14 @@ public class ShopForAnimals : MonoBehaviour
             }
                 
             coop.SpownChicken(chikensCount, chiken, name);
-            LeaveButtonInAnimalBuyPanelFunction();           
+            LeaveButtonInAnimalBuyPanelFunction();  
+            ChangingUiPages(animals.chiken);               
         }
-        ChangingUiPages(animals.chiken);      
+        }
+        else
+        {
+            Debug.Log("cow");
+        }
     }
 
 }
