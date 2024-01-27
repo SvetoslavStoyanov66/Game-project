@@ -13,8 +13,8 @@ public class CowShed : MonoBehaviour
         {
             Cow cow = new Cow(id,prefab,name);
             prefab = Instantiate(prefab, spownPoints[id - 1].position ,Quaternion.identity);
-            //AnimalMovement animal = prefab.GetComponent<AnimalMovement>();
-            //animal.AssignUI(name);
+            AnimalMovement animal = prefab.GetComponent<AnimalMovement>();
+            animal.AssignUI(name);
         }
 
     }

@@ -198,6 +198,7 @@ public class ShopForAnimals : MonoBehaviour
     }
     public void ConfirmButtonnInAnimalBuyPanelFunction()
     {
+        string name = inputField.text;
          if(currentPage == animals.chiken)
         {
         int chickenSckin = Mathf.RoundToInt(UnityEngine.Random.Range(1f, 2f));
@@ -206,7 +207,7 @@ public class ShopForAnimals : MonoBehaviour
         {
             chiken = chicken1;
         }
-        string name = inputField.text;
+        
         if(name != "")
         {
             if(chikensCount < 5)
