@@ -54,6 +54,9 @@ public class BuildingManager : MonoBehaviour
 
    Canvas animalCanvas;
    [SerializeField]
+
+   Canvas animalCanvas2;
+   [SerializeField]
    GameObject farm;
 
    string structureType;
@@ -139,7 +142,7 @@ public class BuildingManager : MonoBehaviour
         }
         else
         {
-            door.Assigment(cowSelection, cowCamera, cowLight, sun ,cowNotifier, cowInteriorDoor,animalCanvas);
+            door.Assigment(cowSelection, cowCamera, cowLight, sun ,cowNotifier, cowInteriorDoor,animalCanvas2);
         }
         
     }
