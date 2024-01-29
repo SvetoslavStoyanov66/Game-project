@@ -21,16 +21,17 @@ public class AnimalFeeder : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && isTrue && !fullFeeder.activeSelf)
+        if(Input.GetKeyDown(KeyCode.E) && isTrue && !fullFeeder.activeSelf && interaction.isChickenFoodSelected())
         {
             emptyFeeder.SetActive(false);
             fullFeeder.SetActive(true);
+            interaction.FoodIremReduction();
         }
         
     }
     private void OnTriggerEnter(Collider other) 
     {
-        if(other.tag == "PLayer" && !fullFeeder.activeSelf)
+        if(other.CompareTag("Player"))
         {
             notifer.SetActive(true);
             isTrue = true;
@@ -38,7 +39,7 @@ public class AnimalFeeder : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if(other.tag == "PLayer")
+        if(other.CompareTag("Player"))
         {
             notifer.SetActive(false);
             isTrue = false;

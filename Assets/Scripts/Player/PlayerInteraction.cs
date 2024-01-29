@@ -217,7 +217,7 @@ public class PlayerInteraction : MonoBehaviour
     }
      public bool isChickenFoodSelected()
     {
-        if(selectedTool.name == "Chicken Food")
+        if(selectedTool != null && selectedTool.name == "Chicken Food")
         {
             return true;
         }
@@ -226,5 +226,25 @@ public class PlayerInteraction : MonoBehaviour
             return false;
         }
     }
+    public void FoodIremReduction()
+    {
+        (selectedTool as ItemData).quantity--;
+        if ((selectedTool as ItemData).quantity <= 0)
+        {
+            for (int i = 0; i < Inventory.Instance.hotbarItems.Length; i++)
+            {
+                if (Inventory.Instance.hotbarItems[i] != null && Inventory.Instance.hotbarItems[i].name == selectedTool.name)
+                {
+                    Inventory.Instance.hotbarItems[i].quantity = 1;
+                    Inventory.Instance.hotbarItems[i] = null;
+                }
+            }
+        }
+
+
+
+        UImanager.Instance.RenderHotbar();
+    }
+
 }
 
