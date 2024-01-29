@@ -215,8 +215,16 @@ public class PlayerInteraction : MonoBehaviour
 
 
     }
-
-
-
+     public bool isChickenFoodSelected()
+    {
+        if(selectedTool.name == "Chicken Food")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
 
