@@ -21,6 +21,9 @@ public class Timer : MonoBehaviour
     public float angle;
     public ParticleSystem particleSystem;
     private bool particleSystemActivated = false;
+    [SerializeField]
+    AnimalFeeder[] animalFeeders = new AnimalFeeder[5];
+    List<AnimalMovement> chickends = new List<AnimalMovement>();
 
     public int hours = 6;
     private int minutes = 0;
