@@ -13,9 +13,7 @@ public class Coop : MonoBehaviour
     [SerializeField]
     GameObject[] chickenBorders = new GameObject[5];
     [SerializeField]
-    Timer timer;
-
-   
+    Timer timer;    
     public void SpownChicken(int id,GameObject prefab,string name)
     {
         

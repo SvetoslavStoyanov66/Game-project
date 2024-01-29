@@ -24,6 +24,8 @@ public class Timer : MonoBehaviour
     [SerializeField]
     AnimalFeeder[] animalFeeders = new AnimalFeeder[5];
     public List<AnimalMovement> chickens = new List<AnimalMovement>();
+    [SerializeField]
+    List<PlacesForEggs> placesForEggs = new List<PlacesForEggs>();
 
     public int hours = 6;
     private int minutes = 0;
@@ -218,6 +220,29 @@ public class Timer : MonoBehaviour
                 {
                     if(feeder.isFull())
                     {
+                        bool spownEgg = false;
+                        foreach(PlacesForEggs place in placesForEggs)
+                        {
+                            if(!place.isThereEgg())
+                            {
+                                spownEgg = true;
+                            }
+                        }
+                        if(spownEgg)
+                        {
+                            while(true)
+                            {
+                                int num = UnityEngine.Random.Range(0,placesForEggs.Count - 1);
+                                if(!placesForEggs[num].isThereEgg())
+                                {
+                                    placesForEggs[num].SpownEgg();
+                                    break;
+                                }
+
+                            }
+
+                        }
+                        
                         feeder.EmptyingFeeder();
                         break;
                     }
