@@ -34361,6 +34361,7 @@ MonoBehaviour:
   - {fileID: 269622717}
   - {fileID: 1366768356}
   - {fileID: 801261906}
+  timer: {fileID: 1790961107}
 --- !u!114 &1399882355 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7133296466578820155, guid: 51343445ef888fc4fa5698c7c102b055,
@@ -44176,6 +44177,13 @@ MonoBehaviour:
   fontSize: 30
   angle: 0
   particleSystem: {fileID: 8154163762502199871}
+  animalFeeders:
+  - {fileID: 1151137612}
+  - {fileID: 1471752513}
+  - {fileID: 2038654755}
+  - {fileID: 1190644023}
+  - {fileID: 1485759709}
+  chickens: []
   hours: 6
   year: 0
   day: 1

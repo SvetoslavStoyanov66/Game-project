@@ -50,4 +50,8 @@ public class AnimalFeeder : MonoBehaviour
         fullFeeder.SetActive(false);
         emptyFeeder.SetActive(true);
     }
+    public bool isFull()
+    {
+        return fullFeeder.activeSelf;    
+    }
 }

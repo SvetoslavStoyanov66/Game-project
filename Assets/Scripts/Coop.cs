@@ -12,6 +12,8 @@ public class Coop : MonoBehaviour
     Transform[] spownPoints = new Transform[5];
     [SerializeField]
     GameObject[] chickenBorders = new GameObject[5];
+    [SerializeField]
+    Timer timer;
 
    
     public void SpownChicken(int id,GameObject prefab,string name)
@@ -25,6 +27,7 @@ public class Coop : MonoBehaviour
             AssignAnimalUI(chicken,chickenBorders[id - 1]);
             AnimalMovement animal = prefab.GetComponent<AnimalMovement>();
             animal.AssignUI(name);
+            timer.chickens.Add(animal);
         }
 
     }

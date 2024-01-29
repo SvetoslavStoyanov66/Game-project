@@ -23,7 +23,7 @@ public class Timer : MonoBehaviour
     private bool particleSystemActivated = false;
     [SerializeField]
     AnimalFeeder[] animalFeeders = new AnimalFeeder[5];
-    List<AnimalMovement> chickends = new List<AnimalMovement>();
+    public List<AnimalMovement> chickens = new List<AnimalMovement>();
 
     public int hours = 6;
     private int minutes = 0;
@@ -211,6 +211,19 @@ public class Timer : MonoBehaviour
                 {
                     land.isRaining = false;
                 }
+            }
+            foreach(AnimalMovement chicken in chickens)
+            {
+                foreach(AnimalFeeder feeder in animalFeeders)
+                {
+                    if(feeder.isFull())
+                    {
+                        feeder.EmptyingFeeder();
+                        break;
+                    }
+
+                }
+
             }
 
 
