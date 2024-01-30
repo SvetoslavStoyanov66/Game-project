@@ -17,7 +17,7 @@ MonoBehaviour:
   gameModel: {fileID: 1058837615601026274, guid: bcd38d040bdd78143b4f168e2e405db2,
     type: 3}
   quantity: 1
-  achievementUnlock: 1
+  achievementUnlock: 0
   achievementDiscription: 
   UnUnlockedThubnail: {fileID: 21300000, guid: c03d65ce416d3044ea94286f8c92162f, type: 3}
   energyFillAmount: 0

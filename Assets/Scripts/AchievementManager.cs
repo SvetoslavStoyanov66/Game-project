@@ -18,6 +18,8 @@ public class AchievementManager : MonoBehaviour
     [SerializeField] float displayTime = 2f; 
     private Queue<string> achievementQueue = new Queue<string>();
     private bool isDisplayingAchievement = false;
+    [SerializeField]
+    Image informationWindow;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -65,10 +67,12 @@ public class AchievementManager : MonoBehaviour
         if(achievementUI.activeSelf)
         {
             achievementUI.SetActive(false);
+            informationWindow.gameObject.SetActive(false);
         }
         else
         {
             achievementUI.SetActive(true);
+            informationWindow.gameObject.SetActive(false);
         }
     }
     private IEnumerator DisplayAchievements()
@@ -95,6 +99,10 @@ public class AchievementManager : MonoBehaviour
     }
 
     isDisplayingAchievement = false;
+}
+public void BackButtonFuntion()
+{
+    informationWindow.gameObject.SetActive(false);
 }
   
 }
