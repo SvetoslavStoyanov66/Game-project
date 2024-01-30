@@ -33,6 +33,12 @@ public class Dialogs : MonoBehaviour
     Animator SeedShopNPCAnim; 
     Animator npcAnimator;
     bool canChangePage = true;
+    [SerializeField]
+    Button BrowseAnimalsFoods;
+    string name;
+    RectTransform leaveRect;
+    RectTransform browseRect;
+    RectTransform browseAnimalsFoodsRect;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -52,6 +58,7 @@ public class Dialogs : MonoBehaviour
     }
     public void StartDialog(string[] dialogArray, string name)
     {
+        this.name = name;
         if (name == "SeedShop")
         {
             browse = browseSeeds;
@@ -84,12 +91,31 @@ public class Dialogs : MonoBehaviour
                 canChangePage = false;
                 index = 0;
                 browse.gameObject.SetActive(true);
+                if(name == "AnimalsShop")
+                {
+                    leaveRect = leave.GetComponent<RectTransform>();
+                    browseRect = browse.GetComponent<RectTransform>();
+                    browseAnimalsFoodsRect = BrowseAnimalsFoods.GetComponent<RectTransform>();
+                    BrowseAnimalsFoods.gameObject.SetActive(true);
+                    leaveRect.anchoredPosition = new Vector2(leaveRect.anchoredPosition.x, -68f);
+                    browseRect.anchoredPosition = new Vector2(browseRect.anchoredPosition.x, 27f);
+                    browseAnimalsFoodsRect.anchoredPosition = new Vector2(browseAnimalsFoodsRect.anchoredPosition.x, -19f);
+                }
                 leave.gameObject.SetActive(true);
                 
             }
             else
             {
                 browse.gameObject.SetActive(false);
+                BrowseAnimalsFoods.gameObject.SetActive(false);
+                if(name == "AnimalsShop")
+                {
+                    leaveRect = leave.GetComponent<RectTransform>();
+                    browseRect = browse.GetComponent<RectTransform>();
+                    browseAnimalsFoodsRect = BrowseAnimalsFoods.GetComponent<RectTransform>();
+                    leaveRect.anchoredPosition = new Vector2(leaveRect.anchoredPosition.x, -49f);
+                    browseRect.anchoredPosition = new Vector2(browseRect.anchoredPosition.x, -1f);
+                }
                 leave.gameObject.SetActive(false);
             }
             if (needToBreak)
