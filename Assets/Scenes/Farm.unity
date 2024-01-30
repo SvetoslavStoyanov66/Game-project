@@ -1819,8 +1819,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.9319232, y: 1.2637339, z: 0.013540899}
-  m_Center: {x: -0.068128586, y: 0.13186678, z: 0.99476}
+  m_Size: {x: 2.9319232, y: 1.2637339, z: 0}
+  m_Center: {x: -0.068128586, y: 0.13186678, z: 0.79168904}
 --- !u!65 &47088085
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1833,7 +1833,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3.0299833, y: 1.3116312, z: 0}
-  m_Center: {x: -0.15678072, y: 0.1558154, z: -0.92687273}
+  m_Center: {x: -0.15678072, y: 0.1558154, z: -0.76731384}
 --- !u!65 &47088086
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1846,7 +1846,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0, y: 1.4156746, z: 2.82991}
-  m_Center: {x: 1.2703451, y: 0.20783703, z: 0.23100932}
+  m_Center: {x: 1.090769, y: 0.20783703, z: 0.23100932}
 --- !u!1 &51500784
 GameObject:
   m_ObjectHideFlags: 0
@@ -35327,6 +35327,21 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0.009785573
       objectReference: {fileID: 0}
+    - target: {fileID: 4833236580748600400, guid: 259e130285e813b498cd61f7e6abf065,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833236580748600400, guid: 259e130285e813b498cd61f7e6abf065,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 1.0538343
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833236580748600400, guid: 259e130285e813b498cd61f7e6abf065,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.032045208
+      objectReference: {fileID: 0}
     - target: {fileID: 8804366859955815802, guid: 259e130285e813b498cd61f7e6abf065,
         type: 3}
       propertyPath: m_Size.y
@@ -35335,7 +35350,7 @@ PrefabInstance:
     - target: {fileID: 8804366859955815802, guid: 259e130285e813b498cd61f7e6abf065,
         type: 3}
       propertyPath: m_Center.y
-      value: 2.2601557
+      value: 2.0437245
       objectReference: {fileID: 0}
     - target: {fileID: 8804366859955815802, guid: 259e130285e813b498cd61f7e6abf065,
         type: 3}
@@ -35355,7 +35370,7 @@ PrefabInstance:
     - target: {fileID: 9200902763222328884, guid: 259e130285e813b498cd61f7e6abf065,
         type: 3}
       propertyPath: m_Center.y
-      value: -2.319492
+      value: -2.0738301
       objectReference: {fileID: 0}
     - target: {fileID: 9200902763222328884, guid: 259e130285e813b498cd61f7e6abf065,
         type: 3}
