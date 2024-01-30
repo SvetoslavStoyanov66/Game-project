@@ -84,12 +84,20 @@ public class PlayerInteraction : MonoBehaviour
                     selectedLand.GrownCrop.SetActive(false);
                     selectedLand.HarvestSeedMultypleColectableSeed();
                     inventory.HarvestCrops(crop);
+                    if(!crop.achievementUnlock)
+                    {
+                        AchievementManager.Instance.UnlockingAchievement(crop.name);
+                    }
                 }
                 else
                 {
                     Destroy(selectedLand.GrownCrop);
                     inventory.HarvestCrops(crop);
                     selectedLand.HarvestSeed();
+                    if(!crop.achievementUnlock)
+                    {
+                        AchievementManager.Instance.UnlockingAchievement(crop.name);
+                    }
                 }
             }
             if (selectedTool != null)

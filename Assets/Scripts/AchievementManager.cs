@@ -10,6 +10,19 @@ public class AchievementManager : MonoBehaviour
     public List<ItemData>  items = new List<ItemData>();
     [SerializeField]
     GameObject achievementUI;
+    public static AchievementManager Instance { get; set; }
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
     void Start() 
     {
         for(int i = 0;i < items.Count; i++)
