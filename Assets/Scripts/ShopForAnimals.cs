@@ -7,6 +7,8 @@ using System;
 public class ShopForAnimals : MonoBehaviour
 { 
     [SerializeField]
+    Canvas canvasForAnimalFood;
+    [SerializeField]
     Canvas canvas;
     [SerializeField]
     GameObject notifier;
@@ -113,9 +115,10 @@ public class ShopForAnimals : MonoBehaviour
         {
             if (selection.activeSelf)
         {
-            if (canvas.enabled && !cantClose)
+            if ((canvas.enabled || canvasForAnimalFood.enabled) && !cantClose)
             {
                 canvas.enabled = false;
+                canvasForAnimalFood.enabled = false;
             }
             else if(!cantUseDialog)
             {
@@ -230,6 +233,12 @@ public class ShopForAnimals : MonoBehaviour
            LeaveButtonInAnimalBuyPanelFunction();  
            ChangingUiPages(animals.cow);  
         }
+    }
+    public void ButtonForAnimalFood()
+    {
+        canvasForAnimalFood.enabled = true;
+        Dialogs.Instance.ResetText();
+        dialogUI.SetActive(false);
     }
 
 }
