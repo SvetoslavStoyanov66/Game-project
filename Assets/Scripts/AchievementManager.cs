@@ -55,10 +55,6 @@ public class AchievementManager : MonoBehaviour
         }
         foreach(AchievementSlot slot in slots)
         {
-            if(slot.nameText != null && itemName == slot.nameText.text)
-            {
-                slot.showExclamationMark = true;
-            }
             slot.UpdateUI();
         }
         if (!isDisplayingAchievement)

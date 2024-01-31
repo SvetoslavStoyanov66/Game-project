@@ -11,7 +11,7 @@ public class AchievementSlot : MonoBehaviour
     [SerializeField]
     Image itemInformationWindow;
     Image exclamationMark;
-    public bool showExclamationMark = false;
+    bool exclamationMarkNeed = true;
 
     public void ItemAssigning(ItemData data)
     {
@@ -30,7 +30,11 @@ public class AchievementSlot : MonoBehaviour
                 nameText.text = item.name;
                 picture.sprite = item.thumbnail;
                 exclamationMark = this.gameObject.transform.GetChild(2).GetComponent<Image>();
-                exclamationMark.gameObject.SetActive(showExclamationMark);
+                if(exclamationMarkNeed)
+                {
+                    exclamationMark.gameObject.SetActive(true);
+                }
+                
             }
             else
             {
@@ -47,8 +51,8 @@ public class AchievementSlot : MonoBehaviour
             Text name = itemInformationWindow.transform.GetChild(0).GetComponent<Text>();
             Text discription = itemInformationWindow.transform.GetChild(1).GetComponent<Text>();
             Image image = itemInformationWindow.transform.GetChild(2).GetComponent<Image>();
-            showExclamationMark = false;
-            exclamationMark.gameObject.SetActive(showExclamationMark);
+            exclamationMark.gameObject.SetActive(false);
+            exclamationMarkNeed = false;
             
 
             name.text = item.name;
