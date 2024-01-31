@@ -48,13 +48,17 @@ public class AchievementManager : MonoBehaviour
     public void UnlockingAchievement(string itemName)
     {
         ItemData foundItem  = items.Find(item => item.name == itemName);
-        if(!foundItem.achievementUnlock && foundItem != null)
+        if(foundItem != null && !foundItem.achievementUnlock)
         {
             foundItem.achievementUnlock = true;
             achievementQueue.Enqueue(itemName);
         }
         foreach(AchievementSlot slot in slots)
         {
+            if(slot.nameText != null && itemName == slot.nameText.text)
+            {
+                slot.showExclamationMark = true;
+            }
             slot.UpdateUI();
         }
         if (!isDisplayingAchievement)

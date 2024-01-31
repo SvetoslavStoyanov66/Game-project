@@ -6,10 +6,13 @@ using UnityEngine.UI;
 public class AchievementSlot : MonoBehaviour
 {
     ItemData item;
-    Text nameText;
+    public Text nameText;
     Image picture;
     [SerializeField]
     Image itemInformationWindow;
+    Image exclamationMark;
+    public bool showExclamationMark = false;
+
     public void ItemAssigning(ItemData data)
     {
         item = data;
@@ -26,6 +29,8 @@ public class AchievementSlot : MonoBehaviour
             {
                 nameText.text = item.name;
                 picture.sprite = item.thumbnail;
+                exclamationMark = this.gameObject.transform.GetChild(2).GetComponent<Image>();
+                exclamationMark.gameObject.SetActive(showExclamationMark);
             }
             else
             {
@@ -42,6 +47,9 @@ public class AchievementSlot : MonoBehaviour
             Text name = itemInformationWindow.transform.GetChild(0).GetComponent<Text>();
             Text discription = itemInformationWindow.transform.GetChild(1).GetComponent<Text>();
             Image image = itemInformationWindow.transform.GetChild(2).GetComponent<Image>();
+            showExclamationMark = false;
+            exclamationMark.gameObject.SetActive(showExclamationMark);
+            
 
             name.text = item.name;
             discription.text = item.achievementDiscription;
