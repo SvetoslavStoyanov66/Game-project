@@ -87,6 +87,7 @@ public class PlayerInteraction : MonoBehaviour
                     if(!crop.achievementUnlock)
                     {
                         AchievementManager.Instance.UnlockingAchievement(crop.name);
+                        AchievementManager.Instance.ExlmactionMarkActivation();
                     }
                 }
                 else
@@ -97,6 +98,7 @@ public class PlayerInteraction : MonoBehaviour
                     if(!crop.achievementUnlock)
                     {
                         AchievementManager.Instance.UnlockingAchievement(crop.name);
+                        AchievementManager.Instance.ExlmactionMarkActivation();
                     }
                 }
             }

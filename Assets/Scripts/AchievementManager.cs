@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,6 +21,8 @@ public class AchievementManager : MonoBehaviour
     private bool isDisplayingAchievement = false;
     [SerializeField]
     Image informationWindow;
+    [SerializeField]
+    Image exclamationMark;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -43,7 +46,6 @@ public class AchievementManager : MonoBehaviour
             slots[i].ItemAssigning(items[i]);
             slots[i].UpdateUI();
         }
-        
     }
     public void UnlockingAchievement(string itemName)
     {
@@ -104,5 +106,21 @@ public void BackButtonFuntion()
 {
     informationWindow.gameObject.SetActive(false);
 }
-  
+public void ApplyExclamationMarkNotfier()
+{
+    bool isTrue = false;
+    foreach(AchievementSlot slot in slots)
+    {
+        if(slot.isExlamactionMarkActive())
+        {
+            isTrue = true;
+            break;
+        }
+    }
+    exclamationMark.gameObject.SetActive(isTrue);
+}  
+public void ExlmactionMarkActivation()
+{
+    exclamationMark.gameObject.SetActive(true);
+}
 }

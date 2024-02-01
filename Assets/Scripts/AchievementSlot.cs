@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -47,18 +47,31 @@ public class AchievementSlot : MonoBehaviour
     {
         if(item.achievementUnlock)
         {
+
             itemInformationWindow.gameObject.SetActive(true);
             Text name = itemInformationWindow.transform.GetChild(0).GetComponent<Text>();
             Text discription = itemInformationWindow.transform.GetChild(1).GetComponent<Text>();
             Image image = itemInformationWindow.transform.GetChild(2).GetComponent<Image>();
             exclamationMark.gameObject.SetActive(false);
             exclamationMarkNeed = false;
-            
 
+            AchievementManager.Instance.ApplyExclamationMarkNotfier();
             name.text = item.name;
+            
             discription.text = item.achievementDiscription;
             image.sprite = item.thumbnail;
         }
 
+    }
+    public bool isExlamactionMarkActive()
+    {
+        if(item != null && item.achievementUnlock)
+        {
+            return exclamationMarkNeed;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
