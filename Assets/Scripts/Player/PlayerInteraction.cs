@@ -236,6 +236,18 @@ public class PlayerInteraction : MonoBehaviour
             return false;
         }
     }
+     public bool isCowFoodSelected()
+    {
+        if(selectedTool != null && selectedTool.name == "Cow Food")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+ 
     public void FoodIremReduction()
     {
         (selectedTool as ItemData).quantity--;

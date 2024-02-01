@@ -35,6 +35,7 @@ public class Coop : MonoBehaviour
         nameText.text = chiken.Name;
     }
 }
+
 class Chiken
     {
         public int ID { get; set; }
