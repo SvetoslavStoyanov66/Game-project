@@ -50,7 +50,9 @@ public class AchievementSlot : MonoBehaviour
 
             itemInformationWindow.gameObject.SetActive(true);
             Text name = itemInformationWindow.transform.GetChild(0).GetComponent<Text>();
-            Text discription = itemInformationWindow.transform.GetChild(1).GetComponent<Text>();
+            Transform scrollViewTransform = itemInformationWindow.transform.GetChild(1);
+            Transform viewPortTransform = scrollViewTransform.GetChild(0);
+            Text discription = viewPortTransform.GetChild(0).GetComponent<Text>();
             Image image = itemInformationWindow.transform.GetChild(2).GetComponent<Image>();
             exclamationMark.gameObject.SetActive(false);
             exclamationMarkNeed = false;
