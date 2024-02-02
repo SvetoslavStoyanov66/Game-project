@@ -17946,7 +17946,7 @@ MonoBehaviour:
   achievementUI: {fileID: 1851002367}
   achievementNotifier: {fileID: 1700183359}
   displayTime: 2
-  informationWindow: {fileID: 0}
+  informationWindow: {fileID: 1370798889}
   exclamationMark: {fileID: 105582328}
 --- !u!4 &648021696
 Transform:
