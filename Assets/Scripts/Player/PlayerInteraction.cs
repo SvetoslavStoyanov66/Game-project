@@ -77,7 +77,6 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (selectedLand.isCropInstantianted == true && selectedTool == null)
             {
-                
                 ItemData crop = selectedLand.crop;
                 if (selectedLand.hasMultyCollectableSeed)
                 {
@@ -100,6 +99,7 @@ public class PlayerInteraction : MonoBehaviour
                         AchievementManager.Instance.UnlockingAchievement(crop.name);
                         AchievementManager.Instance.ExlmactionMarkActivation();
                     }
+                    selectedLand.isCropInstantianted = false;
                 }
             }
             if (selectedTool != null)

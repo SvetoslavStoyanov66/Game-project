@@ -110,6 +110,7 @@ public class Inventory : MonoBehaviour
             {
                 inventoryItems[i] = crop;
                 UImanager.Instance.RenderInventory();
+                BagButtonAnimation.Instance.PlayBagAnimation();
                 return;
             }
         }

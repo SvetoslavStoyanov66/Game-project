@@ -230,6 +230,7 @@ public class Land : MonoBehaviour
             Destroy(harvestedCrop);
             daysForCollectingMultyHarvestableCrops = 3;
             InstantiatedHarvestedCrop = false;
+            isCropInstantianted = false;
         }
     }
     public void Grow()
