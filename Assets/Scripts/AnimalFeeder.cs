@@ -28,7 +28,7 @@ public class AnimalFeeder : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && isTrue && !fullFeeder.activeSelf && (interaction.isChickenFoodSelected() && animalType == animal.Chicken) || (interaction.isCowFoodSelected() && animalType == animal.Cow))
+        if(Input.GetKeyDown(KeyCode.E) && isTrue && !fullFeeder.activeSelf && ((interaction.isChickenFoodSelected() && animalType == animal.Chicken) || (interaction.isCowFoodSelected() && animalType == animal.Cow)))
         {
             emptyFeeder.SetActive(false);
             fullFeeder.SetActive(true);

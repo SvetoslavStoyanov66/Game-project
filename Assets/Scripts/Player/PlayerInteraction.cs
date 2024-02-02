@@ -230,10 +230,12 @@ public class PlayerInteraction : MonoBehaviour
         if(selectedTool != null && selectedTool.name == "Chicken Food")
         {
             return true;
+            Debug.Log(true);
         }
         else
         {
             return false;
+            Debug.Log(false);
         }
     }
      public bool isCowFoodSelected()

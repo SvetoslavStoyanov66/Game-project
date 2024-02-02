@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8d819e31fe161c48a6ef9713656453a, type: 3}
-  m_Name: Cow food
+  m_Name: Cow Food
   m_EditorClassIdentifier: 
   description: 
   thumbnail: {fileID: 21300000, guid: 4a231ba0e81e63849a8f985c228e8acd, type: 3}
