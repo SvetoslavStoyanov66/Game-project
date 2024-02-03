@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Turnip
   m_EditorClassIdentifier: 
   bulgarianName: "\u0420\u044F\u043F\u0430"
-  description: 
+  description: "\u0417\u0435\u043B\u0435\u043D\u0447\u0443\u043A"
   thumbnail: {fileID: 21300000, guid: fa7f6ec9e336014478df8ec6cc02c440, type: 3}
   gameModel: {fileID: 467371298177301529, guid: 3348a70d39926e640bde770ae2521598,
     type: 3}

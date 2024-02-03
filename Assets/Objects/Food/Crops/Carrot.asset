@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Carrot
   m_EditorClassIdentifier: 
   bulgarianName: "\u041C\u043E\u0440\u043A\u043E\u0432\u0438"
-  description: Vegetable
+  description: "\u0417\u0435\u043B\u0435\u043D\u0447\u0443\u043A"
   thumbnail: {fileID: 21300000, guid: 7859881e996433e448600c884b86f6a2, type: 3}
   gameModel: {fileID: 1674138755072895574, guid: 0cd69bb02bc2a374b9ef1be6dd9872ca,
     type: 3}

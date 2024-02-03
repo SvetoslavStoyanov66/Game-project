@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Corn
   m_EditorClassIdentifier: 
   bulgarianName: "\u0426\u0430\u0440\u0435\u0432\u0438\u0446\u0430"
-  description: 
+  description: "\u0417\u0435\u043B\u0435\u043D\u0447\u0443\u043A"
   thumbnail: {fileID: 21300000, guid: 10463709eff18994cab1eecfad36877d, type: 3}
   gameModel: {fileID: 6932504624642726800, guid: ad9c2937318f667499aeb68a39d16bd5,
     type: 3}

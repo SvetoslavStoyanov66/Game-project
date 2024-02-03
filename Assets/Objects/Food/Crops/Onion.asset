@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Onion
   m_EditorClassIdentifier: 
   bulgarianName: "\u041B\u0443\u043A"
-  description: 
+  description: "\u0417\u0435\u043B\u0435\u043D\u0447\u0443\u043A"
   thumbnail: {fileID: 21300000, guid: 7fd6c1a25d69c3241b2e32b698286336, type: 3}
   gameModel: {fileID: 6142101953144403879, guid: 1744a2362712c234eb7079e3f867fb0e,
     type: 3}

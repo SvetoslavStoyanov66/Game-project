@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cucumber
   m_EditorClassIdentifier: 
   bulgarianName: "\u041A\u0440\u0430\u0441\u0442\u0430\u0432\u0438\u0446\u0430"
-  description: 
+  description: "\u0417\u0435\u043B\u0435\u043D\u0447\u0443\u043A"
   thumbnail: {fileID: 21300000, guid: 5caf8981dc763204e9907c4c98730d14, type: 3}
   gameModel: {fileID: 6800767813351584579, guid: 0880c7d7ec5064b4ebef0d6df25016b7,
     type: 3}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Potato
   m_EditorClassIdentifier: 
   bulgarianName: "\u041A\u0430\u0440\u0442\u043E\u0444"
-  description: Vegetable
+  description: "\u0417\u0435\u043B\u0435\u043D\u0447\u0443\u043A"
   thumbnail: {fileID: 21300000, guid: bfc14db329be53a4e9c5d1f7d88885dd, type: 3}
   gameModel: {fileID: 8733661494922999809, guid: a0f16181ffc6d3f43b193d7a51842fe5,
     type: 3}

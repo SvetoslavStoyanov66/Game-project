@@ -30,25 +30,7 @@ public class Bed : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E) && selection.activeSelf /*&& ((time.hours > 14 || (time.hours < 6 && time.hours > 0)) || player.fillAmount < 0.3f)*/)
             {
-
-                player.SleepingOnBed();
-                darkingAnimator.StartDarkenAnimation();
-                CharacterController playerController = FindObjectOfType<Player>().GetComponent<CharacterController>();
-
-                if (playerController != null)
-                {
-                    playerController.enabled = false; // Disable the CharacterController temporarily
-                    Vector3 newPosition = playerController.transform.position;
-                    newPosition = this.gameObject.transform.position;
-                    newPosition.z -= 0.5f;
-                    newPosition.x += 0.1f;
-                    playerController.transform.position = newPosition;
-                    Quaternion newRotation = Quaternion.Euler(0, 180, 0);
-                    player.transform.rotation = newRotation;
-                    StartCoroutine(player.DiseableMovement(3));
-                    playerController.enabled = true;               
-                    animator.BedSleeping();
-                }
+                StartCoroutine(Sleeping());
             }
         }
         
@@ -61,7 +43,7 @@ public class Bed : MonoBehaviour
             selection.SetActive(true);
             notifier.SetActive(true);
             notifierText = notifier.GetComponentInChildren<Text>();
-            notifierText.text = "Press E to go to bed";
+            notifierText.text = "Натисни Е за да легнеш на леглото";
         }
     }
     private void OnTriggerExit(Collider other)
@@ -72,4 +54,27 @@ public class Bed : MonoBehaviour
             notifier.SetActive(false);
         }
     }
+    IEnumerator Sleeping()
+    {
+        CharacterController playerController = FindObjectOfType<Player>().GetComponent<CharacterController>();
+
+                if (playerController != null)
+                {
+                    Quaternion newRotation = Quaternion.Euler(0, 180, 0);
+                    player.transform.rotation = newRotation;
+                    StartCoroutine(player.DiseableMovement(3));
+                    playerController.enabled = false; // Disable the CharacterController temporarily
+                    Vector3 newPosition = playerController.transform.position;
+                    newPosition = this.gameObject.transform.position;
+                    newPosition.z -= 0.5f;
+                    newPosition.x += 0.1f;
+                    newPosition.y += 0.07f;
+                    playerController.transform.position = newPosition;
+                    
+                    animator.BedSleeping();
+                    yield return new WaitForSeconds(3);
+                    playerController.enabled = true;
+                }
+    }
 }
+

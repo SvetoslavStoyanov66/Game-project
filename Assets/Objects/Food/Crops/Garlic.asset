@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Garlic
   m_EditorClassIdentifier: 
   bulgarianName: "\u0427\u0435\u0441\u044A\u043D"
-  description: 
+  description: "\u0417\u0435\u043B\u0435\u043D\u0447\u0443\u043A"
   thumbnail: {fileID: 21300000, guid: c65a2646388781343abf4b2e842e8822, type: 3}
   gameModel: {fileID: 5977049220791060198, guid: eecfd448e73e5f64f8c4d780fb5bd2df,
     type: 3}

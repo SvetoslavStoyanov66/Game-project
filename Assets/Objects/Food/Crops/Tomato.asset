@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tomato
   m_EditorClassIdentifier: 
   bulgarianName: "\u0414\u043E\u043C\u0430\u0442"
-  description: 
+  description: "\u0417\u0435\u043B\u0435\u043D\u0447\u0443\u043A"
   thumbnail: {fileID: 21300000, guid: 79e67125b358a884db56e6dcc7a91bdb, type: 3}
   gameModel: {fileID: 3782003179474635654, guid: b2549277f621787429eb633a3c190e06,
     type: 3}
