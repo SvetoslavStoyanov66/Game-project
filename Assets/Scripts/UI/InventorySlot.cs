@@ -106,7 +106,7 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
         else if(itemToDisplay != null && Shop.Instance.isShopOpen)
         {
-            shopTextName.text = (Inventory.Instance.inventoryItems[slotIndex]).name;
+            shopTextName.text = (Inventory.Instance.inventoryItems[slotIndex]).bulgarianName;
             shopTextDescription.text = (Inventory.Instance.inventoryItems[slotIndex]).description;
             if ((Inventory.Instance.inventoryItems[slotIndex]) is SeedsData)
             {

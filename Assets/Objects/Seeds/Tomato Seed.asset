@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b516b0e90494cd4fab9f3cc28279bfc, type: 3}
   m_Name: Tomato Seed
   m_EditorClassIdentifier: 
+  bulgarianName: "\u0434\u043E\u043C\u0430\u0442\u0435\u043D\u0438 \u0441\u0435\u043C\u0435\u043D\u0430"
   description: 
   thumbnail: {fileID: 21300000, guid: 2c9af42aca5e36d4392a20099766cc17, type: 3}
   gameModel: {fileID: 1829589897649070369, guid: 4dfed28b34ded8b4a941bf6f7fd98230,
@@ -26,6 +27,6 @@ MonoBehaviour:
     type: 3}
   daysToGrow: 1
   cropToYield: {fileID: 11400000, guid: 579e1f2b4521d6c489d3096c27f2cbb2, type: 2}
-  price: 0
+  price: 120
   harvestedGrownCrop: {fileID: 5465248974592420829, guid: 3ab014b904eb0ea4ca19626ec34d3801,
     type: 3}

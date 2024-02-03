@@ -78,4 +78,4 @@ MonoBehaviour:
     \u0438\u043C \u043F\u0440\u043E\u0444\u0438\u043B. "
   UnUnlockedThubnail: {fileID: 21300000, guid: c03d65ce416d3044ea94286f8c92162f, type: 3}
   energyFillAmount: 0
-  sellPrice: 0
+  sellPrice: 90

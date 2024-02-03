@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 809787c93ea44ad47b2251b8810662f9, type: 3}
   m_Name: Carrot Seed
   m_EditorClassIdentifier: 
-  description: Seeds to grow carrots
+  bulgarianName: "\u0441\u0435\u043C\u0435\u043D\u0430 \u043E\u0442 \u043C\u043E\u0440\u043A\u043E\u0432\u0438"
+  description: 
   thumbnail: {fileID: 21300000, guid: a6c4c74840ccab945828cd95d2eced76, type: 3}
   gameModel: {fileID: 8502968951890609132, guid: ab0558707a325b2469cb560fc33b82cc,
     type: 3}
-  quantity: 8
+  quantity: 6
+  achievementUnlock: 0
+  achievementDiscription: 
+  UnUnlockedThubnail: {fileID: 0}
   seedling1: {fileID: 5372306499916422864, guid: 37682187adc5e44448209f0db35d1051,
     type: 3}
   seedling2: {fileID: 1300710976381659829, guid: f9dff1d31090fd4439bf6c033da24120,

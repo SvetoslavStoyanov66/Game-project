@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 809787c93ea44ad47b2251b8810662f9, type: 3}
   m_Name: Cabbage Seed
   m_EditorClassIdentifier: 
-  description: Seeds to grow cabbages
+  bulgarianName: "\u0437\u0435\u043B\u0435\u0432\u043E \u0441\u0435\u043C\u0435"
+  description: 
   thumbnail: {fileID: 21300000, guid: b6d0da8e37c4da747ace13b538d101ef, type: 3}
   gameModel: {fileID: 4684372703169141899, guid: 82ff5f2463ba42a498c9f325a5b7cfe9,
     type: 3}
   quantity: 1
+  achievementUnlock: 0
+  achievementDiscription: 
+  UnUnlockedThubnail: {fileID: 0}
   seedling1: {fileID: 5717065079174108482, guid: 4c3871768f002ce47b430836a4d459e7,
     type: 3}
   seedling2: {fileID: 1408782857151726513, guid: 6c9ecc91c68bb5f4697a3f8880d70372,

@@ -92,7 +92,7 @@ public class AchievementManager : MonoBehaviour
             thumbnailImage.sprite = foundItem.thumbnail;
 
             Text nameText = achievementNotifier.transform.GetChild(1).GetComponent<Text>();
-            nameText.text = foundItem.name;
+            nameText.text = foundItem.bulgarianName;
 
             achievementNotifier.gameObject.SetActive(true);
             yield return new WaitForSeconds(displayTime);

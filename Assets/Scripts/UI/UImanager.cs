@@ -138,7 +138,7 @@ public class UImanager : MonoBehaviour
             return;
         }
         itemDescriptionText.text = data.description;
-        itemNameText.text = data.name;
+        itemNameText.text = data.bulgarianName;
 
         
     }

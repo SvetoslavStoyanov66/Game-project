@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 809787c93ea44ad47b2251b8810662f9, type: 3}
   m_Name: Beetroot Seed
   m_EditorClassIdentifier: 
+  bulgarianName: "\u0441\u0435\u043C\u0435\u043D\u0430 \u043E\u0442 \u0446\u0432\u0435\u043A\u043B\u043E"
   description: 
   thumbnail: {fileID: 21300000, guid: f09cedbd908238743b68f3fbb9f1c5db, type: 3}
   gameModel: {fileID: 2898223409051777433, guid: 6c02526705c2f0c4a8f0381fffa8fe47,
@@ -26,4 +27,4 @@ MonoBehaviour:
     type: 3}
   daysToGrow: 1
   cropToYield: {fileID: 11400000, guid: c15361f1a2d0fd643aaf6917739e4c13, type: 2}
-  price: 0
+  price: 50

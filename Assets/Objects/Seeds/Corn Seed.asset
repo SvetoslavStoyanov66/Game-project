@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b516b0e90494cd4fab9f3cc28279bfc, type: 3}
   m_Name: Corn Seed
   m_EditorClassIdentifier: 
+  bulgarianName: "\u0446\u0430\u0440\u0435\u0432\u0438\u0447\u043D\u0438 \u0441\u0435\u043C\u0435\u043D\u0430"
   description: 
   thumbnail: {fileID: 21300000, guid: 2871fc9081b821946b8becf1a41e3a3d, type: 3}
   gameModel: {fileID: 5195503351388251699, guid: 92b8dccfd6ec50341a01a50e4829f597,

@@ -26,7 +26,7 @@ public class ShopItemSlot : MonoBehaviour
    public void SeedAssigning(SeedsData seed)
    {
        seedData = seed;
-       itemNameText.text = seedData.name;
+       itemNameText.text = seedData.bulgarianName;
        itemPrieceText.text = (seedData.price).ToString();
    }
     private void Update()

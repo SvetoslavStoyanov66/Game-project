@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 809787c93ea44ad47b2251b8810662f9, type: 3}
   m_Name: Turnip Seed
   m_EditorClassIdentifier: 
+  bulgarianName: "\u0441\u0435\u043C\u0435\u043D\u0430 \u043E\u0442 \u0440\u044F\u043F\u0430"
   description: 
   thumbnail: {fileID: 21300000, guid: 7fc0e82c900ff6343871cfa5a2849105, type: 3}
   gameModel: {fileID: 197161616281589, guid: 6d7aba1ee6328c74b87772edce31e719, type: 3}

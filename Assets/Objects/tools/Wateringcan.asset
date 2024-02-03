@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3240c99bea6d54d8b3f25b20602764, type: 3}
   m_Name: Wateringcan
   m_EditorClassIdentifier: 
+  bulgarianName: "\u041B\u0435\u0439\u043A\u0430"
   description: 
   thumbnail: {fileID: 21300000, guid: 9c0d6ec706e01ce448aea81584af092b, type: 3}
   gameModel: {fileID: 0}
+  quantity: 1
+  achievementUnlock: 0
+  achievementDiscription: 
+  UnUnlockedThubnail: {fileID: 0}
   toolType: 1

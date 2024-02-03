@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 809787c93ea44ad47b2251b8810662f9, type: 3}
   m_Name: Broccoli seed
   m_EditorClassIdentifier: 
+  bulgarianName: "\u0441\u0435\u043C\u0435\u043D\u0430 \u043E\u0442 \u0431\u0440\u043E\u043A\u043E\u043B\u0438"
   description: 
   thumbnail: {fileID: 21300000, guid: 1ddc560ed1ef2d04e84c1f67725ccc70, type: 3}
   gameModel: {fileID: 8112912117486023708, guid: e49820bc5e74dc6458e7738a926d78e9,
     type: 3}
-  quantity: 1
+  quantity: 3
   achievementUnlock: 0
   achievementDiscription: 
   UnUnlockedThubnail: {fileID: 0}
@@ -26,4 +27,4 @@ MonoBehaviour:
     type: 3}
   daysToGrow: 1
   cropToYield: {fileID: 11400000, guid: 8fd2ef91817a78b489391eebc7f554de, type: 2}
-  price: 0
+  price: 60
