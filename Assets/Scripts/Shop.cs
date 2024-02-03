@@ -18,9 +18,9 @@ public class Shop : MonoBehaviour
     Button invButton;
     bool isInventoryActive;
     string[] shopFarmingNPCDialog = {
-    "Welcome to my farm supply store! We have a wide variety of seeds and tools to help you grow a bountiful harvest.",
-    "Don't forget to check out our special offers on fertilizer this week. It'll make your crops thrive!",
-    "What will you do?"
+    "Добре дошли в нашия магазин за семена! Имаме всичко, от което се нуждаете за вашата градина.",
+    "Всички наши семена са внимателно подбрани за високо качество и добив, за да осигурим вашата удовлетвореност и успех в градинарството.",
+    "Какво ще искате?"
 };
     [SerializeField]
     GameObject dialogUI;

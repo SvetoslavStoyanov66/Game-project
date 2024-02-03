@@ -86,7 +86,16 @@ public class Dialogs : MonoBehaviour
     {
         foreach (char c in lines[index].ToCharArray())
         {
-            if ((index == lines.Length - 1) && dialogText.text == lines[index])
+            if (needToBreak)
+            {
+                npcAnimator.SetBool("isTalking", false);
+                needToBreak = false;
+                break;
+            }
+            dialogText.text += c;
+            yield return new WaitForSeconds(textSpeed);
+        }
+         if ((index == lines.Length - 1) && dialogText.text == lines[index])
             {
                 canChangePage = false;
                 index = 0;
@@ -118,34 +127,32 @@ public class Dialogs : MonoBehaviour
                 }
                 leave.gameObject.SetActive(false);
             }
-            if (needToBreak)
-            {
-                npcAnimator.SetBool("isTalking", false);
-                needToBreak = false;
-                break;
-            }
-            dialogText.text += c;
-            yield return new WaitForSeconds(textSpeed);
-        }
     }
     public void nextPage()
+{
+    if (index < lines.Length && canChangePage)
     {
-        if (index < lines.Length)
+        if (dialogText.text != lines[index])
         {
-            if (dialogText.text != lines[index] && canChangePage)
-            {
-                needToBreak = true;
-                dialogText.text = lines[index];
-            }
-            else if (canChangePage)
+            needToBreak = true;
+            dialogText.text = lines[index];
+        }
+        else
+        {
+            if (index < lines.Length - 1)
             {
                 index++;
                 dialogText.text = string.Empty;
                 StartCoroutine(TypeLine());
                 npcAnimator.SetBool("isTalking", true);
             }
+            else
+            {
+                canChangePage = false;
+            }
         }
     }
+}
     public void ResetText()
     {
         dialogText.text = string.Empty;
