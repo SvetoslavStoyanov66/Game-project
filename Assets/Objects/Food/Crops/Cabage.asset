@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d819e31fe161c48a6ef9713656453a, type: 3}
   m_Name: Cabage
   m_EditorClassIdentifier: 
+  bulgarianName: "\u0417\u0435\u043B\u0435"
   description: A leafy green vegateble.
   thumbnail: {fileID: 21300000, guid: e5387cc2c6d51bb4191a9236ced75a63, type: 3}
   gameModel: {fileID: 2644592599328963818, guid: bf90ed94b2d91c641a3b8f8ebb855e27,

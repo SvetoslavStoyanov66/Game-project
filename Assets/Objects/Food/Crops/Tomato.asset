@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07d1cc633a06d640ac292a40c943d9d, type: 3}
   m_Name: Tomato
   m_EditorClassIdentifier: 
+  bulgarianName: "\u0414\u043E\u043C\u0430\u0442"
   description: 
   thumbnail: {fileID: 21300000, guid: 79e67125b358a884db56e6dcc7a91bdb, type: 3}
   gameModel: {fileID: 3782003179474635654, guid: b2549277f621787429eb633a3c190e06,

@@ -12,8 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07d1cc633a06d640ac292a40c943d9d, type: 3}
   m_Name: Broccoli
   m_EditorClassIdentifier: 
-  description: "\u0411\u0440\u043E\u043A\u043E\u043B\u0438\u0442\u043E (Brassica
-    oleracea var. italica) \u0435 \u0437\u0435\u043B\u0435\u043D\u0447\u0443\u043A
+  bulgarianName: "\u0411\u0440\u043E\u043A\u043E\u043B\u0438"
+  description: 
+  thumbnail: {fileID: 21300000, guid: f78ff37fe11aefc4990f88811cfb250f, type: 3}
+  gameModel: {fileID: 1058837615601026274, guid: bcd38d040bdd78143b4f168e2e405db2,
+    type: 3}
+  quantity: 1
+  achievementUnlock: 1
+  achievementDiscription: "\u0411\u0440\u043E\u043A\u043E\u043B\u0438\u0442\u043E
+    (Brassica oleracea var. italica) \u0435 \u0437\u0435\u043B\u0435\u043D\u0447\u0443\u043A
     \u043E\u0442 \u0441\u0435\u043C\u0435\u0439\u0441\u0442\u0432\u043E Brassicaceae
     (\u0438\u043B\u0438 Cruciferae), \u0441\u044A\u0449\u043E\u0442\u043E \u0441\u0435\u043C\u0435\u0439\u0441\u0442\u0432\u043E,
     \u043A\u043E\u0435\u0442\u043E \u0432\u043A\u043B\u044E\u0447\u0432\u0430 \u0437\u0435\u043B\u0435,
@@ -69,12 +76,6 @@ MonoBehaviour:
     \u043A\u0430\u0442\u043E \u043F\u043E \u0442\u043E\u0437\u0438 \u043D\u0430\u0447\u0438\u043D
     \u0441\u0435 \u043E\u0431\u043E\u0433\u0430\u0442\u044F\u0432\u0430 \u0445\u0440\u0430\u043D\u0438\u0442\u0435\u043B\u043D\u0438\u044F
     \u0438\u043C \u043F\u0440\u043E\u0444\u0438\u043B. "
-  thumbnail: {fileID: 21300000, guid: f78ff37fe11aefc4990f88811cfb250f, type: 3}
-  gameModel: {fileID: 1058837615601026274, guid: bcd38d040bdd78143b4f168e2e405db2,
-    type: 3}
-  quantity: 1
-  achievementUnlock: 1
-  achievementDiscription: 
   UnUnlockedThubnail: {fileID: 21300000, guid: c03d65ce416d3044ea94286f8c92162f, type: 3}
   energyFillAmount: 0
   sellPrice: 0

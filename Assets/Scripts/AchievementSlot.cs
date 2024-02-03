@@ -58,7 +58,7 @@ public class AchievementSlot : MonoBehaviour
             exclamationMarkNeed = false;
 
             AchievementManager.Instance.ApplyExclamationMarkNotfier();
-            name.text = item.name;
+            name.text = item.bulgarianName;
             
             discription.text = item.achievementDiscription;
             image.sprite = item.thumbnail;
