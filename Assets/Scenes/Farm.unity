@@ -1495,7 +1495,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 15af0544504cff64e8237027a63302a0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 27
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 15af0544504cff64e8237027a63302a0,
         type: 3}
@@ -5231,7 +5231,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press E to fill up the feeder
+  m_Text: "\u041D\u0430\u0442\u0438\u0441\u043D\u0438 \u0415 \u0437\u0430 \u0434\u0430
+    \u043D\u0430\u043F\u044A\u043B\u043D\u0438\u0448 \u0445\u0440\u0430\u043D\u0438\u043B\u043A\u0430\u0442\u0430"
 --- !u!222 &152598165
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8955,7 +8956,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press E to browse animal food
+  m_Text: "\u0420\u0430\u0437\u0433\u043B\u0435\u0434\u0430\u0439 \u0445\u0440\u0430\u043D\u0430
+    \u0437\u0430 \u0436\u0438\u0432\u043E\u0442\u043D\u0438...."
 --- !u!222 &272085601
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9095,7 +9097,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1093746241}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &276737548 stripped
 MonoBehaviour:
@@ -10160,7 +10162,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 32340bd2d22e50043841062b2d5eebcc,
         type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 32340bd2d22e50043841062b2d5eebcc,
         type: 3}
@@ -14264,7 +14266,7 @@ PrefabInstance:
     - target: {fileID: 618155671782540027, guid: 59fa10684a427944f95fc8db0dee218a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 26
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 618155671782540027, guid: 59fa10684a427944f95fc8db0dee218a,
         type: 3}
@@ -15369,7 +15371,7 @@ Transform:
   m_LocalScale: {x: 160.00005, y: 160, z: 160}
   m_Children: []
   m_Father: {fileID: 1093746241}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &546150845
 GameObject:
@@ -15702,9 +15704,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Leave
-
-'
+  m_Text: "\u041D\u0430\u043F\u0443\u0441\u043D\u0438\n"
 --- !u!222 &559628869
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20803,7 +20803,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1093746241}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 50.466003, y: 0, z: 0}
 --- !u!114 &739696303
 MonoBehaviour:
@@ -22073,7 +22073,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9d1092f4f3179094daadfc54332a5103,
         type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d1092f4f3179094daadfc54332a5103,
         type: 3}
@@ -23053,7 +23053,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1093746241}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 55.34, y: 0, z: 0}
 --- !u!114 &803053840
 MonoBehaviour:
@@ -23417,7 +23417,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1093746241}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!108 &810944997
 Light:
@@ -27489,7 +27489,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 04315989a0c454948962a387e007ea14,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 04315989a0c454948962a387e007ea14,
         type: 3}
@@ -30163,7 +30163,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Browse animals....
+  m_Text: "\u0420\u0430\u0437\u0433\u043B\u0435\u0434\u0430\u0439 \u0436\u0438\u0432\u043E\u0442\u043D\u0438...."
 --- !u!222 &1057627066
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -30425,7 +30425,7 @@ RectTransform:
   - {fileID: 767531556}
   - {fileID: 1453262971}
   m_Father: {fileID: 1093746241}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -30965,7 +30965,6 @@ Transform:
   - {fileID: 650605529}
   - {fileID: 1130970562}
   - {fileID: 1865892575}
-  - {fileID: 2091521878}
   - {fileID: 1073695907}
   - {fileID: 1414557850}
   - {fileID: 1587921195}
@@ -36637,7 +36636,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9b2d88a449653be47bed953eb2ccf73c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9b2d88a449653be47bed953eb2ccf73c,
         type: 3}
@@ -40375,7 +40374,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1093746241}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1363391173
 MonoBehaviour:
@@ -42098,7 +42097,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1093746241}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1415405076
 GameObject:
@@ -42475,9 +42474,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Leave
-
-'
+  m_Text: "\u041D\u0430\u043F\u0443\u0441\u043D\u0438\n"
 --- !u!222 &1424928022
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -42840,7 +42837,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Browse buildngs....
+  m_Text: "\u0420\u0430\u0437\u0433\u043B\u0435\u0434\u0430\u0439 \u0441\u0433\u0440\u0430\u0434\u0438..."
 --- !u!222 &1446289639
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -42957,7 +42954,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1093746241}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1452930962 stripped
 Transform:
@@ -45200,7 +45197,7 @@ Transform:
   m_LocalScale: {x: 160.00005, y: 160, z: 160}
   m_Children: []
   m_Father: {fileID: 1093746241}
-  m_RootOrder: 22
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1508967155
 PrefabInstance:
@@ -46614,7 +46611,7 @@ Transform:
   m_LocalScale: {x: 150, y: 150, z: 150}
   m_Children: []
   m_Father: {fileID: 1093746241}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1558083866
 PrefabInstance:
@@ -46987,9 +46984,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Leave
-
-'
+  m_Text: "\u041D\u0430\u043F\u0443\u0441\u043D\u0438\n"
 --- !u!222 &1581844976
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -47368,7 +47363,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1093746241}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1587921196
 BoxCollider:
@@ -48099,7 +48094,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a145e2dae2641cb48ab810327167f906,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a145e2dae2641cb48ab810327167f906,
         type: 3}
@@ -48357,7 +48352,7 @@ PrefabInstance:
     - target: {fileID: 2254858575597357004, guid: 4fc19d3d899f3bc4e8864b36b1029795,
         type: 3}
       propertyPath: m_RootOrder
-      value: 25
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 2254858575597357004, guid: 4fc19d3d899f3bc4e8864b36b1029795,
         type: 3}
@@ -50415,7 +50410,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1093746241}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1696877288
 MonoBehaviour:
@@ -50959,7 +50954,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c5129f466721f7f428956d1fcd039473,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c5129f466721f7f428956d1fcd039473,
         type: 3}
@@ -51694,7 +51689,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1093746241}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!108 &1726583102
 Light:
@@ -54890,7 +54885,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6f652d8b053f0a445ad226fd6a63fa75,
         type: 3}
       propertyPath: m_RootOrder
-      value: 28
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6f652d8b053f0a445ad226fd6a63fa75,
         type: 3}
@@ -58435,7 +58430,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press E to collect egg
+  m_Text: "\u041D\u0430\u0442\u0438\u0441\u043D\u0438 \u0415 \u0437\u0430 \u0434\u0430
+    \u0432\u0437\u0435\u043C\u0435\u0448 \u044F\u0439\u0446\u0435\u0442\u043E"
 --- !u!222 &1959366441
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -58587,7 +58583,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Browse seeds....
+  m_Text: "\u0420\u0430\u0437\u0433\u043B\u0435\u0434\u0430\u0439 \u0441\u0435\u043C\u0435\u043D\u0430...."
 --- !u!222 &1962470100
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -62786,13 +62782,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2091521877}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.65, y: 25.37, z: 1.68}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.5000001, y: -0.5, z: -0.49999997, w: 0.50000006}
+  m_LocalPosition: {x: -0.00041176696, y: -0.011352968, z: 0.0038823637}
+  m_LocalScale: {x: 0.0058823517, y: 0.0058823517, z: 0.0058823517}
   m_Children:
   - {fileID: 875699018}
-  m_Father: {fileID: 1093746241}
-  m_RootOrder: 4
+  m_Father: {fileID: 1633062196}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2091521879
 MonoBehaviour:
