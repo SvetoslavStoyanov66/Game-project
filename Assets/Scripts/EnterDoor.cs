@@ -40,6 +40,7 @@ public class EnterDoor : MonoBehaviour
             outOfTheHouse.SetActive(true);
             homeLight.enabled = true;
             sun.enabled = false;
+            selection.SetActive(false);
             
 
             CharacterController playerController = FindObjectOfType<Player>().GetComponent<CharacterController>();
