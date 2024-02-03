@@ -63,7 +63,7 @@ public class Shop : MonoBehaviour
                 shopUI.enabled = false;
                 invButton.gameObject.SetActive(true);
                 Text notifiText = selection.GetComponentInChildren<Text>();
-                notifiText.text = "Press E to talk";
+                notifiText.text = "Натисно Е за да приказваш";
             }
             else
             {
@@ -72,7 +72,7 @@ public class Shop : MonoBehaviour
                     dialogUI.SetActive(true);
                     StartCoroutine(waitForDialog());
                     Text notifiText = selection.GetComponentInChildren<Text>();
-                    notifiText.text = "Press E to close the shop";
+                    notifiText.text = "Натисни Е за да затвориш";
                 }
                 else
                 {
@@ -133,7 +133,7 @@ public class Shop : MonoBehaviour
         {
             selection.SetActive(true);
             Text notifiText = selection.GetComponentInChildren<Text>();
-            notifiText.text = "Press E to talk";
+            notifiText.text = "Натисни Е за да приказваш";
         }
     }
     private void OnTriggerExit(Collider other)

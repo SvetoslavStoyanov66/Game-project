@@ -66,7 +66,7 @@ public class ExitDoor : MonoBehaviour
             selection.SetActive(true);
             notifier.SetActive(true);
             Text notifiText = notifier.GetComponentInChildren<Text>();
-            notifiText.text = "Press E to leave";
+            notifiText.text = "Натисни Е за да излезеш";
         }
     }
     private void OnTriggerExit(Collider other)

@@ -158,6 +158,7 @@ public class Dialogs : MonoBehaviour
         dialogText.text = string.Empty;
         browse.gameObject.SetActive(false);
         leave.gameObject.SetActive(false);
+        BrowseAnimalsFoods.gameObject.SetActive(false);
         canChangePage = true;
     }
 

@@ -39,7 +39,7 @@ public class Car : MonoBehaviour
    {
        notifier.SetActive(true);
        Text notiText = notifier.GetComponentInChildren<Text>();
-       notiText.text = "Press E to browse travel locations";
+       notiText.text = "Натисни Е за да избереш локация за пътуване";
    }
    private void OnTriggerExit(Collider other)
    {

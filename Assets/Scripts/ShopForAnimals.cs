@@ -20,11 +20,11 @@ public class ShopForAnimals : MonoBehaviour
     [SerializeField]
     Image animalPicture;
     string[] animalShopDialog = {
-    "Welcome to the Animal Emporium! We've got critters of all kinds here for your farm.",
+    "Добре дошли в нашия магазин за животни и храни за тях! Отглеждаме и предлагаме разнообразие от животни, идеални за вашето стопанство или дом.",
 
-    "Ah, the joy of raising animals! Every critter has its own needs and quirks.",
+    "Всички наши продукти за хранене са висококачествени, създадени да поддържат вашите животни здрави и щастливи. Нека заедно намерим най-доброто за вашите нужди.",
 
-    "What will you do?"
+    "Какво ще искате?"
 };
 [SerializeField]
     GameObject dialogUI;
@@ -82,7 +82,7 @@ public class ShopForAnimals : MonoBehaviour
     {
         ChangingUiPages(animals.chiken);
         Text text = notifier.GetComponentInChildren<Text>();
-        text.text = "Press E to Talk";
+        text.text = "Натисни Е за да приказваш";
     }
      private void ChangingUiPages(animals anim)
     {

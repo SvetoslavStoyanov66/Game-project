@@ -54,9 +54,9 @@ public class ShopBuildingUI : MonoBehaviour
     [SerializeField]
     GameObject notifier;
     string[] builderFarmingStructuresDialog = {
-    "Greetings! I specialize in constructing farm buildings such as coops and barns. With a new coop, you can raise chickens for fresh eggs, and a sturdy barn will provide shelter for your livestock."
-   ,"If you're thinking about expanding your farm, I can help you design and build the perfect structure. Just let me know your requirements, and we'll get started on your project!"
-   ,"What will you do?"
+    "Здравейте, добре дошли в офиса ми за архитектура! Специализираме в проектирането на съвременни сгради за селскостопански нужди, като кокошарници и краварници."
+   ,"Гарантираме иновативни и устойчиви решения, които не само отговарят на вашите нужди, но и оптимизират производителността и благосъстоянието на животните."
+   ,"Какво ще искате?"
 };
     [SerializeField]
     List<Image> hoverButtonImages = new List<Image>();
@@ -170,11 +170,11 @@ public class ShopBuildingUI : MonoBehaviour
         }
         else if(BuildingManager.Instance.isThereActiveCoop() || BuildingManager.Instance.isThereActiveCowBuilding())
         {
-             StartCoroutine(TextDuration(4, "Cant build more than one of this building"));
+             StartCoroutine(TextDuration(4, "Не можеш да построиш още една такава сграда"));
         }
         else
         {
-            StartCoroutine(TextDuration(4, "Not enough money"));
+            StartCoroutine(TextDuration(4, "Недостиг на пари"));
         }
         
     }
