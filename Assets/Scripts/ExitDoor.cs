@@ -41,6 +41,7 @@ public class ExitDoor : MonoBehaviour
             outOfTheHouse.SetActive(false);
             homeLight.enabled = false;
             sun.enabled = true;
+            selection.SetActive(false);
 
             CharacterController playerController = FindObjectOfType<Player>().GetComponent<CharacterController>();
 
