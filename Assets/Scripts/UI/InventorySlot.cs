@@ -19,10 +19,13 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     Text itemPriceText;
     int foodPrice;
     int seedPrice;
-    private void Start()
+    private void OnEnable()
     {
         quantityTMP = GetComponentInChildren<TextMeshProUGUI>();
-        UpdateDisplay();
+        if(this.gameObject != null)
+        {
+            UpdateDisplay();
+        }
     }
     
     public void Display(ItemData itemToDisplay)
@@ -40,8 +43,7 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
         else
         {
-            
-                ItemDisplayImage.enabled = false;  // Disable the image component
+            ItemDisplayImage.enabled = false;
         }
         if  (itemToDisplay == null || itemToDisplay.quantity <= 1)
         {
@@ -61,7 +63,7 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public virtual void OnPointerClick(PointerEventData eventData)
     {
-        if (itemToDisplay != null && Shop.Instance == null)
+        if (itemToDisplay != null && (Shop.Instance == null || !Shop.Instance.isShopOpen))
         {
             Inventory.Instance.InventoryToHotBar(slotIndex);
             itemToDisplay = null;
@@ -102,7 +104,7 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (itemToDisplay != null && Shop.Instance == null)
+        if (itemToDisplay != null && (Shop.Instance == null || !Shop.Instance.isShopOpen))
         {
             UImanager.Instance.DisplayItemInfo(itemToDisplay);
         }
@@ -132,7 +134,7 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnPointerExit(PointerEventData eventData)
     {
         
-        if (itemToDisplay != null && Shop.Instance == null)
+        if (itemToDisplay != null && (Shop.Instance == null || !Shop.Instance.isShopOpen))
         {
             UImanager.Instance.DisplayItemInfo(null);
         }

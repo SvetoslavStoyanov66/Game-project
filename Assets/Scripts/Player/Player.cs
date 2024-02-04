@@ -44,14 +44,10 @@ public class Player : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         playerInteraction = GetComponentInChildren<PlayerInteraction>();
         timer = FindObjectOfType<Timer>();  // Find the Timer script in the scene
-
     }
 
     void Update()
     {
-       
-
-    
         Vector3 gravityVector = Vector3.down * gravity;
         characterController.Move(gravityVector * Time.deltaTime);
         float horizontalInput = Input.GetAxis("Horizontal");

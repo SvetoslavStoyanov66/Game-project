@@ -44,7 +44,6 @@ public class UImanager : MonoBehaviour
 
     private void OnEnable()
     {
-        RenderInventory();
         AssignSlotIndexes();
     }
     public void RenderInventory()
@@ -97,7 +96,6 @@ public class UImanager : MonoBehaviour
     private void Update()
     {
         HandleInput();
-        UpdateSlotUI();
     }
 
     public void AssignSlotIndexes()
@@ -262,11 +260,4 @@ public class UImanager : MonoBehaviour
             Debug.LogError("Invalid slot index: " + selectedSlotIndex);
         }
     }
-
-    void UpdateSlotUI()
-    {
-        // Update the color of the selected slot (if needed)
-    }
-
-
 }

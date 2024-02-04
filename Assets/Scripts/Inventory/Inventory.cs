@@ -139,7 +139,5 @@ public class Inventory : MonoBehaviour
         {
             inventoryItems[index] = null;
         }
-
-        UImanager.Instance.RenderInventory();
     }
 }
