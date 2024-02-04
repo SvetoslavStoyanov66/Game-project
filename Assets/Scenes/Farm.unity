@@ -53582,6 +53582,7 @@ MonoBehaviour:
   day: 1
   seasonNum: 0
   MinutesInDay: 0
+  shopInterior: {fileID: 1633062187}
   season: 0
   week: 0
 --- !u!1 &1794713163

@@ -34,11 +34,14 @@ public class ShopItemSlot : MonoBehaviour
         UpdateItemSprite();
     }
 
-   
+
 
     private void UpdateItemSprite()
     {
-        itemImage.sprite = seedData.thumbnail;
+        if (seedData != null && itemImage != null)
+        {
+            itemImage.sprite = seedData.thumbnail;
+        }
     }
 
     public void PurchaseItem()

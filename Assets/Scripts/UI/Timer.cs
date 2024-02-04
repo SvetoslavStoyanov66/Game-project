@@ -36,6 +36,8 @@ public class Timer : MonoBehaviour
     private int lastDay;
 
     public int MinutesInDay;
+    [SerializeField]
+    GameObject shopInterior;
     public enum Season
     {
         Spring,
@@ -183,7 +185,7 @@ public class Timer : MonoBehaviour
         if (lastDay != day)
         {
             lastDay = day;
-            Shop.Instance.AssignSeedValue();
+            StartCoroutine(ShopAssigning());
             foreach (Land land in landObjects)
             {
                 if (land.isWatered == true)
@@ -253,5 +255,12 @@ public class Timer : MonoBehaviour
 
 
         }
+    }
+    IEnumerator ShopAssigning()
+    {
+        shopInterior.SetActive(true);
+        Shop.Instance.AssignSeedValue();
+        yield return new WaitForEndOfFrame();
+        shopInterior.SetActive(false);
     }
 }

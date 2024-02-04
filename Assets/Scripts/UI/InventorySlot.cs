@@ -31,6 +31,11 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     protected void UpdateDisplay()
     {
+        if (ItemDisplayImage == null || quantityTMP == null)
+        {
+            Debug.LogWarning("One or more UI components are not assigned in the inspector.", this);
+            return; // Early return to prevent null reference errors.
+        }
         if (itemToDisplay != null)
         {
             ItemDisplayImage.sprite = itemToDisplay.thumbnail;
@@ -59,7 +64,7 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public virtual void OnPointerClick(PointerEventData eventData)
     {
-        if (itemToDisplay != null && !Shop.Instance.isShopOpen)
+        if (itemToDisplay != null && Shop.Instance == null)
         {
             Inventory.Instance.InventoryToHotBar(slotIndex);
             itemToDisplay = null;
@@ -100,30 +105,29 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (itemToDisplay != null && !Shop.Instance.isShopOpen)
+        if (itemToDisplay != null && Shop.Instance == null)
         {
             UImanager.Instance.DisplayItemInfo(itemToDisplay);
         }
         else if(itemToDisplay != null && Shop.Instance.isShopOpen)
         {
-            shopTextName.text = (Inventory.Instance.inventoryItems[slotIndex]).bulgarianName;
-            shopTextDescription.text = (Inventory.Instance.inventoryItems[slotIndex]).description;
+           
             if ((Inventory.Instance.inventoryItems[slotIndex]) is SeedsData)
             {
                 double sellAmount = Convert.ToDouble((Inventory.Instance.inventoryItems[slotIndex] as SeedsData).price) * 0.75;
                 sellAmount = Math.Round(sellAmount, 2);
                 int sellAmountInt = Convert.ToInt32(sellAmount);
                 seedPrice = sellAmountInt;
-                itemPriceText.text = "Sell price - " +seedPrice.ToString() + "G";
+                //itemPriceText.text = "Sell price - " +seedPrice.ToString() + "G";
             }
             else if ((Inventory.Instance.inventoryItems[slotIndex]) is FoodData)
             {
                 foodPrice = (Inventory.Instance.inventoryItems[slotIndex] as FoodData).sellPrice;
-                itemPriceText.text = "Sell price - " + foodPrice.ToString() + "G";
+                //itemPriceText.text = "Sell price - " + foodPrice.ToString() + "G";
             }
             else
             {
-                itemPriceText.text = "Unsellable";
+                //itemPriceText.text = "Unsellable";
             }
         }
     }
@@ -131,25 +135,23 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnPointerExit(PointerEventData eventData)
     {
         
-        if (itemToDisplay != null && !Shop.Instance.isShopOpen)
+        if (itemToDisplay != null && Shop.Instance == null)
         {
             UImanager.Instance.DisplayItemInfo(null);
         }
         else if (itemToDisplay != null && Shop.Instance.isShopOpen)
         {
-            shopTextName.text = "";
-            shopTextDescription.text = "";
             if ((Inventory.Instance.inventoryItems[slotIndex]) is SeedsData)
             {
-                itemPriceText.text = "";
+                //itemPriceText.text = "";
             }
             else if ((Inventory.Instance.inventoryItems[slotIndex]) is FoodData)
             {
-                itemPriceText.text = "";
+                //itemPriceText.text = "";
             }
             else
             {
-                itemPriceText.text = "";
+                //itemPriceText.text = "";
             }
         }
     }
