@@ -3,11 +3,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
+using System.Data.Common;
 public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     protected ItemData itemToDisplay;
     public Image ItemDisplayImage;
     public int slotIndex;
+    [SerializeField]
     public TextMeshProUGUI quantityTMP;
     [SerializeField]
     private Text shopTextName;
@@ -21,8 +23,8 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         quantityTMP = GetComponentInChildren<TextMeshProUGUI>();
         UpdateDisplay();
-        // Call UpdateDisplay in Start to update the display when the game starts
     }
+    
     public void Display(ItemData itemToDisplay)
     {
         this.itemToDisplay = itemToDisplay;
@@ -31,22 +33,17 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     protected void UpdateDisplay()
     {
-        if (ItemDisplayImage == null || quantityTMP == null)
-        {
-            Debug.LogWarning("One or more UI components are not assigned in the inspector.", this);
-            return; // Early return to prevent null reference errors.
-        }
         if (itemToDisplay != null)
         {
             ItemDisplayImage.sprite = itemToDisplay.thumbnail;
-            ItemDisplayImage.enabled = true;  // Enable the image component
+            ItemDisplayImage.enabled = true;
         }
         else
         {
             
                 ItemDisplayImage.enabled = false;  // Disable the image component
         }
-        if (itemToDisplay == null || itemToDisplay.quantity <= 1)
+        if  (itemToDisplay == null || itemToDisplay.quantity <= 1)
         {
             quantityTMP.text = "";
         }

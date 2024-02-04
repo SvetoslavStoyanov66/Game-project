@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public float moveSpeedScale = 1.0f;
     public float moveSpeed = 5.0f;
     public float fillAmount = 1.0f;  // Corrected typo in variable name
     public Image energyFill;
@@ -62,7 +63,7 @@ public class Player : MonoBehaviour
         // Move the character
         if (movementDirection.magnitude > 0.1f)
         {
-            transform.Translate(movementDirection * moveSpeed * Time.deltaTime, Space.World);
+            transform.Translate(movementDirection * moveSpeed * moveSpeedScale * Time.deltaTime, Space.World);
 
             if (eneableRotation == true)
             {

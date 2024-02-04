@@ -42,12 +42,11 @@ public class UImanager : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void OnEnable()
     {
         RenderInventory();
         AssignSlotIndexes();
     }
-
     public void RenderInventory()
     {
         ItemData[] inventorySlots = Inventory.Instance.inventoryItems;
