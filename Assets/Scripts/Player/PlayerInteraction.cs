@@ -80,9 +80,7 @@ public class PlayerInteraction : MonoBehaviour
                 ItemData crop = selectedLand.crop;
                 if (selectedLand.hasMultyCollectableSeed)
                 {
-                    selectedLand.GrownCrop.SetActive(false);
                     selectedLand.HarvestSeedMultypleColectableSeed();
-                    inventory.HarvestCrops(crop);
                     if(!crop.achievementUnlock)
                     {
                         AchievementManager.Instance.UnlockingAchievement(crop.name);

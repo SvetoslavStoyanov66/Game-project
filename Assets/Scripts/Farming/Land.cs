@@ -206,7 +206,12 @@ public class Land : MonoBehaviour
     {
         if (daysForCollectingMultyHarvestableCrops > 0)
         {
-             daysForCollectingMultyHarvestableCrops--;
+            if(GrownCrop.activeSelf)
+            {
+                daysForCollectingMultyHarvestableCrops--;
+                Inventory.Instance.HarvestCrops(crop);
+            }
+            
             if (!InstantiatedHarvestedCrop)
             {
                 Vector3 position = this.gameObject.transform.position;
@@ -215,10 +220,13 @@ public class Land : MonoBehaviour
                 harvestedCrop = Instantiate(harvestedCrop, position, rotation);
                 harvestedCrop.SetActive(true);
                 InstantiatedHarvestedCrop = true;
+                GrownCrop.SetActive(false);
+
             }
             else
             {
                 harvestedCrop.SetActive(true);
+                GrownCrop.SetActive(false);
             }
 
         }

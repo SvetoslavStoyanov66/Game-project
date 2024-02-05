@@ -7,10 +7,7 @@ public class Rain : MonoBehaviour
     [SerializeField]
     List<Land> lands;
     private float timeSinceLastReset = 0f;
-    private void OnEnable()
-    {
-        
-    }
+    public bool isRaining = false;
     private void Update()
     {
         timeSinceLastReset += Time.deltaTime; // Increment the timer in each frame
