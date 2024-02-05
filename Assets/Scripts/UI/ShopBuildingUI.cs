@@ -53,6 +53,10 @@ public class ShopBuildingUI : MonoBehaviour
 
     [SerializeField]
     GameObject notifier;
+    [SerializeField]
+    Sprite cowSprite;
+    [SerializeField]
+    Sprite chickenSprite;
     string[] builderFarmingStructuresDialog = {
     "Здравейте, добре дошли в офиса ми за архитектура! Специализираме в проектирането на съвременни сгради за селскостопански нужди, като кокошарници и краварници."
    ,"Гарантираме иновативни и устойчиви решения, които не само отговарят на вашите нужди, но и оптимизират производителността и благосъстоянието на животните."
@@ -74,7 +78,7 @@ public class ShopBuildingUI : MonoBehaviour
         switch (buildingPageUI)
         {
            case BuildingPageUI.ChikenBuilding:
-                buildingImage = null;
+                buildingImage.sprite = chickenSprite;
                 nameText.text = "Chiken coop";
                 discriptionText.text = "Building for chikens";
                 moneyText.text = "800";
@@ -87,7 +91,7 @@ public class ShopBuildingUI : MonoBehaviour
                 exitDoor = exitDoorChicken;
                 break;
             case BuildingPageUI.CowBuilding:
-                buildingImage = null;
+                buildingImage.sprite = cowSprite;
                 nameText.text = "Cowshed";
                 discriptionText.text = "Building for cows";
                 moneyText.text = "1200";

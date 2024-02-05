@@ -72,8 +72,10 @@ public class ShopForAnimals : MonoBehaviour
     GameObject cow;
     [SerializeField]
     InputField inputField;
-
-
+    [SerializeField]
+    Sprite chickenSprite;
+    [SerializeField]
+    Sprite cowSprite;
     enum animals
     {
         chiken,cow
@@ -90,7 +92,7 @@ public class ShopForAnimals : MonoBehaviour
         {
            case animals.chiken:
            animalName.text = "Chiken";
-           animalPicture = null;
+           animalPicture.sprite = chickenSprite;
            priece.text = "400";
            smallAnimalImage = smallChickenImage;
            animalCountText.text = chikensCount + "/5";
@@ -100,7 +102,7 @@ public class ShopForAnimals : MonoBehaviour
 
             case animals.cow:
             animalName.text = "Cow";
-            animalPicture = null;
+            animalPicture.sprite = cowSprite;
             priece.text = "600";    
             smallAnimalImage = smallCowImage;
             animalCountText.text = cowCount + "/5";
