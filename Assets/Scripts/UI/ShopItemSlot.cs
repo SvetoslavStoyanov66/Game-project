@@ -51,6 +51,9 @@ public class ShopItemSlot : MonoBehaviour
         {
             Inventory.Instance.HarvestCrops(seedData);
             Money.Instance.BuingItems(seedData.price);
+            Inventory.Instance.Stacks();
+            UImanager.Instance.RenderHotbar();
+            UImanager.Instance.RenderInventory();
             notEnoughMoneyNot.text = "";
         }
         else 

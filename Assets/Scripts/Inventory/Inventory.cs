@@ -115,21 +115,27 @@ public class Inventory : MonoBehaviour
             }
         }
     }
-    private void Stacks()
+    public void Stacks()
+    {
+        StackItems(inventoryItems);
+        StackItems(hotbarItems);
+        EnsureUniqueAcrossContainers();
+    }
+    private void StackItems(ItemData[] items)
     {
         HashSet<string> encounteredItemNames = new HashSet<string>();
         List<int> itemsToRemoveIndices = new List<int>();
 
-        for (int i = 0; i < inventoryItems.Length; i++)
+        for (int i = 0; i < items.Length; i++)
         {
-            if (inventoryItems[i] != null && !encounteredItemNames.Contains(inventoryItems[i].name))
+            if (items[i] != null && !encounteredItemNames.Contains(items[i].name))
             {
-                encounteredItemNames.Add(inventoryItems[i].name);
+                encounteredItemNames.Add(items[i].name);
 
             }
-            else if (inventoryItems[i] != null)
+            else if (items[i] != null)
             {
-                inventoryItems[i].quantity += 1;
+                items[i].quantity += 1;
                 itemsToRemoveIndices.Add(i);
             }
         }
@@ -137,7 +143,27 @@ public class Inventory : MonoBehaviour
         // Remove duplicates, leaving one instance of each item
         foreach (var index in itemsToRemoveIndices)
         {
-            inventoryItems[index] = null;
+            items[index] = null;
         }
     }
+   private void EnsureUniqueAcrossContainers()
+{
+    for (int inventoryIndex = 0; inventoryIndex < inventoryItems.Length; inventoryIndex++)
+    {
+        var inventoryItem = inventoryItems[inventoryIndex];
+        if (inventoryItem != null)
+        {
+            for (int hotbarIndex = 0; hotbarIndex < hotbarItems.Length; hotbarIndex++)
+            {
+                var hotbarItem = hotbarItems[hotbarIndex];
+                if (hotbarItem != null && hotbarItem.name == inventoryItem.name)
+                {
+                    hotbarItem.quantity++;
+                    inventoryItems[inventoryIndex] = null;
+                    break;
+                }
+            }
+        }
+    }
+}
 }

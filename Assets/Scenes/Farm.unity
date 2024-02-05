@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3605,7 +3605,7 @@ PrefabInstance:
     - target: {fileID: 824593251829973885, guid: f6b32b19cda1dcc46a8287f871b729d7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 824593251829973885, guid: f6b32b19cda1dcc46a8287f871b729d7,
         type: 3}
@@ -6098,7 +6098,7 @@ PrefabInstance:
     - target: {fileID: 824593251829973885, guid: f6b32b19cda1dcc46a8287f871b729d7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 824593251829973885, guid: f6b32b19cda1dcc46a8287f871b729d7,
         type: 3}
@@ -9347,18 +9347,18 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   inventoryItems:
-  - {fileID: 11400000, guid: e98046e6b20116945acc6364a108ff1a, type: 2}
+  - {fileID: 0}
   - {fileID: 11400000, guid: b4320fec528968f4a84133ceb12f8b91, type: 2}
-  - {fileID: 11400000, guid: 36be0c8a1d5cac64083b9375af58701e, type: 2}
+  - {fileID: 0}
   - {fileID: 11400000, guid: 93f3b2ee057ea3a4499f9777ccfc8274, type: 2}
   - {fileID: 11400000, guid: 6272edf7005dc51498ddd84f7a3cba5f, type: 2}
   - {fileID: 11400000, guid: 2af1549841cc4ef43a60250a316e266b, type: 2}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 11400000, guid: f6a96dbf19ff82f4c952b749921957e8, type: 2}
-  - {fileID: 11400000, guid: 981545f6fbd55094cb9f78532c598967, type: 2}
-  - {fileID: 11400000, guid: 78635e7bb1da2dd459d99938f5524ab9, type: 2}
-  - {fileID: 11400000, guid: 4daf9bad676df784d85a576f36ed2654, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &299953403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14173,7 +14173,7 @@ PrefabInstance:
     - target: {fileID: 824593251829973885, guid: f6b32b19cda1dcc46a8287f871b729d7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 824593251829973885, guid: f6b32b19cda1dcc46a8287f871b729d7,
         type: 3}
@@ -26466,8 +26466,6 @@ GameObject:
   - component: {fileID: 924936207}
   - component: {fileID: 924936211}
   - component: {fileID: 924936210}
-  - component: {fileID: 924936209}
-  - component: {fileID: 924936208}
   m_Layer: 0
   m_Name: clickImage
   m_TagString: Untagged
@@ -26494,84 +26492,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000061035156, y: 0.00005340576}
   m_SizeDelta: {x: 180, y: 270}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &924936208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 924936206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 924936209}
-          m_MethodName: OnPointerEnter
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 924936209}
-          m_MethodName: OnPointerExit
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 924936209}
-          m_MethodName: PurchaseItem
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &924936209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 924936206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb13cb4be5684d64798da1ee149765c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seedData: {fileID: 0}
-  itemImage: {fileID: 0}
-  itemNameText: {fileID: 0}
-  itemDiscriptionText: {fileID: 0}
-  itemPrieceText: {fileID: 0}
-  notEnoughMoneyNot: {fileID: 1453262972}
-  HoverImage: {fileID: 0}
-  clickIamge: {fileID: 0}
 --- !u!114 &924936210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33247,8 +33167,6 @@ GameObject:
   - component: {fileID: 1148056295}
   - component: {fileID: 1148056299}
   - component: {fileID: 1148056298}
-  - component: {fileID: 1148056297}
-  - component: {fileID: 1148056296}
   m_Layer: 0
   m_Name: clickImage
   m_TagString: Untagged
@@ -33275,84 +33193,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.00005340576}
   m_SizeDelta: {x: 180, y: 270}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1148056296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1148056294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1148056297}
-          m_MethodName: OnPointerEnter
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1148056297}
-          m_MethodName: OnPointerExit
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1148056297}
-          m_MethodName: PurchaseItem
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &1148056297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1148056294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb13cb4be5684d64798da1ee149765c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seedData: {fileID: 0}
-  itemImage: {fileID: 0}
-  itemNameText: {fileID: 0}
-  itemDiscriptionText: {fileID: 0}
-  itemPrieceText: {fileID: 0}
-  notEnoughMoneyNot: {fileID: 1453262972}
-  HoverImage: {fileID: 0}
-  clickIamge: {fileID: 0}
 --- !u!114 &1148056298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44620,7 +44460,7 @@ PrefabInstance:
     - target: {fileID: 824593251829973885, guid: f6b32b19cda1dcc46a8287f871b729d7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 824593251829973885, guid: f6b32b19cda1dcc46a8287f871b729d7,
         type: 3}
@@ -50257,8 +50097,6 @@ GameObject:
   - component: {fileID: 1690453057}
   - component: {fileID: 1690453061}
   - component: {fileID: 1690453060}
-  - component: {fileID: 1690453059}
-  - component: {fileID: 1690453058}
   m_Layer: 0
   m_Name: clickImage
   m_TagString: Untagged
@@ -50285,84 +50123,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.00005340576}
   m_SizeDelta: {x: 180, y: 270}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1690453058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1690453056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1690453059}
-          m_MethodName: OnPointerEnter
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1690453059}
-          m_MethodName: OnPointerExit
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1690453059}
-          m_MethodName: PurchaseItem
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &1690453059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1690453056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb13cb4be5684d64798da1ee149765c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seedData: {fileID: 0}
-  itemImage: {fileID: 0}
-  itemNameText: {fileID: 0}
-  itemDiscriptionText: {fileID: 0}
-  itemPrieceText: {fileID: 0}
-  notEnoughMoneyNot: {fileID: 1453262972}
-  HoverImage: {fileID: 0}
-  clickIamge: {fileID: 0}
 --- !u!114 &1690453060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54711,7 +54471,7 @@ PrefabInstance:
     - target: {fileID: 824593251829973885, guid: f6b32b19cda1dcc46a8287f871b729d7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 824593251829973885, guid: f6b32b19cda1dcc46a8287f871b729d7,
         type: 3}
@@ -56877,7 +56637,7 @@ PrefabInstance:
     - target: {fileID: 824593251829973885, guid: f6b32b19cda1dcc46a8287f871b729d7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 824593251829973885, guid: f6b32b19cda1dcc46a8287f871b729d7,
         type: 3}
