@@ -6788,7 +6788,7 @@ PrefabInstance:
         type: 3}
       propertyPath: itemPriceText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 880643371}
     - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
         type: 3}
       propertyPath: shopTextDescription
@@ -9353,7 +9353,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 93f3b2ee057ea3a4499f9777ccfc8274, type: 2}
   - {fileID: 11400000, guid: 6272edf7005dc51498ddd84f7a3cba5f, type: 2}
   - {fileID: 11400000, guid: 2af1549841cc4ef43a60250a316e266b, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: f6a96dbf19ff82f4c952b749921957e8, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -11429,7 +11429,7 @@ PrefabInstance:
         type: 3}
       propertyPath: itemPriceText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 880643371}
     - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
         type: 3}
       propertyPath: shopTextDescription
@@ -21012,7 +21012,7 @@ PrefabInstance:
         type: 3}
       propertyPath: itemPriceText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 880643371}
     - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
         type: 3}
       propertyPath: shopTextDescription
@@ -21566,7 +21566,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 196}
+  m_AnchoredPosition: {x: 0, y: 279}
   m_SizeDelta: {x: 700, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &767531557
@@ -23176,7 +23176,7 @@ PrefabInstance:
         type: 3}
       propertyPath: itemPriceText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 880643371}
     - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
         type: 3}
       propertyPath: shopTextDescription
@@ -24926,6 +24926,84 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 708949969}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &880643369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 880643370}
+  - component: {fileID: 880643372}
+  - component: {fileID: 880643371}
+  m_Layer: 5
+  m_Name: priece
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &880643370
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880643369}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1852325320}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 316, y: -150}
+  m_SizeDelta: {x: 300, y: 80}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &880643371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880643369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: f5b0941523d740b408015d8e1900c29d, type: 3}
+    m_FontSize: 25
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &880643372
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880643369}
+  m_CullTransparentMesh: 0
 --- !u!1 &880762998
 GameObject:
   m_ObjectHideFlags: 0
@@ -25475,7 +25553,7 @@ PrefabInstance:
         type: 3}
       propertyPath: itemPriceText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 880643371}
     - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
         type: 3}
       propertyPath: shopTextDescription
@@ -29083,7 +29161,7 @@ MonoBehaviour:
   quantityTMP: {fileID: 0}
   shopTextName: {fileID: 0}
   shopTextDescription: {fileID: 0}
-  itemPriceText: {fileID: 0}
+  itemPriceText: {fileID: 880643371}
 --- !u!1 &1035866100
 GameObject:
   m_ObjectHideFlags: 0
@@ -29487,7 +29565,7 @@ PrefabInstance:
         type: 3}
       propertyPath: itemPriceText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 880643371}
     - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
         type: 3}
       propertyPath: shopTextDescription
@@ -29726,7 +29804,7 @@ PrefabInstance:
         type: 3}
       propertyPath: itemPriceText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 880643371}
     - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
         type: 3}
       propertyPath: shopTextDescription
@@ -32755,7 +32833,7 @@ MonoBehaviour:
   quantityTMP: {fileID: 0}
   shopTextName: {fileID: 0}
   shopTextDescription: {fileID: 0}
-  itemPriceText: {fileID: 0}
+  itemPriceText: {fileID: 880643371}
 --- !u!114 &1141287721 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7133296466578820155, guid: 51343445ef888fc4fa5698c7c102b055,
@@ -40040,7 +40118,7 @@ PrefabInstance:
         type: 3}
       propertyPath: itemPriceText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 880643371}
     - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
         type: 3}
       propertyPath: shopTextDescription
@@ -43148,7 +43226,7 @@ PrefabInstance:
         type: 3}
       propertyPath: itemPriceText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 880643371}
     - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
         type: 3}
       propertyPath: shopTextDescription
@@ -49514,7 +49592,7 @@ MonoBehaviour:
   quantityTMP: {fileID: 0}
   shopTextName: {fileID: 0}
   shopTextDescription: {fileID: 0}
-  itemPriceText: {fileID: 0}
+  itemPriceText: {fileID: 880643371}
 --- !u!114 &1661490970 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7133296466578820155, guid: 51343445ef888fc4fa5698c7c102b055,
@@ -51636,7 +51714,7 @@ MonoBehaviour:
   quantityTMP: {fileID: 0}
   shopTextName: {fileID: 0}
   shopTextDescription: {fileID: 0}
-  itemPriceText: {fileID: 0}
+  itemPriceText: {fileID: 880643371}
 --- !u!114 &1730106879 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7133296466578820155, guid: 51343445ef888fc4fa5698c7c102b055,
@@ -52911,7 +52989,7 @@ PrefabInstance:
         type: 3}
       propertyPath: itemPriceText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 880643371}
     - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
         type: 3}
       propertyPath: shopTextDescription
@@ -55447,7 +55525,8 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 880643370}
   m_Father: {fileID: 581584653}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -58004,7 +58083,7 @@ MonoBehaviour:
   quantityTMP: {fileID: 0}
   shopTextName: {fileID: 0}
   shopTextDescription: {fileID: 0}
-  itemPriceText: {fileID: 0}
+  itemPriceText: {fileID: 880643371}
 --- !u!1001 &1950607549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58948,7 +59027,7 @@ PrefabInstance:
         type: 3}
       propertyPath: itemPriceText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 880643371}
     - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
         type: 3}
       propertyPath: shopTextDescription
@@ -63699,7 +63778,7 @@ MonoBehaviour:
   quantityTMP: {fileID: 0}
   shopTextName: {fileID: 0}
   shopTextDescription: {fileID: 0}
-  itemPriceText: {fileID: 0}
+  itemPriceText: {fileID: 880643371}
 --- !u!4 &2136251407 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6007928653183894476, guid: c369b0265d7b8fb409f0ebd0fd135f23,
@@ -65257,7 +65336,7 @@ PrefabInstance:
         type: 3}
       propertyPath: itemPriceText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 880643371}
     - target: {fileID: 7317924216180510858, guid: 652aeee830eaacf4a89af133d5aad810,
         type: 3}
       propertyPath: shopTextDescription
