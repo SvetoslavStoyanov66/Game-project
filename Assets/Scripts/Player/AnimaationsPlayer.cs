@@ -8,6 +8,11 @@ public class AnimaationsPlayer : MonoBehaviour
     Timer timer;
     [SerializeField]
     WateringAnim wateringAnim;
+    [SerializeField]
+    private AudioClip wateringSound;
+    [SerializeField]
+    private AudioClip hoeSound; 
+    private AudioSource audioSource;
 
     void Start()
     {
@@ -16,6 +21,7 @@ public class AnimaationsPlayer : MonoBehaviour
 
         // Find the Player script in the scene
         player = FindObjectOfType<Player>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -76,16 +82,23 @@ public class AnimaationsPlayer : MonoBehaviour
     }
     private IEnumerator ResetHoe(float delay)
     {
-        yield return new WaitForSeconds(delay);
+        audioSource.clip = hoeSound;
+        yield return new WaitForSeconds(0.75f);
+        audioSource.Play();
+        yield return new WaitForSeconds(delay - 0.75f);
         animator.SetBool("IsUsingHoe", false);
+        audioSource.Stop();
     }
     private IEnumerator ResetWatering(float delay)
     {
+        audioSource.clip = wateringSound;
+        audioSource.Play();
         yield return new WaitForSeconds(delay);
         animator.SetBool("IsWatering", false);
         if (wateringAnim != null)
         {
             wateringAnim.WateringCanAnim(false);
+            audioSource.Stop();
         }
     }
     private IEnumerator Sleeping(float delay)
