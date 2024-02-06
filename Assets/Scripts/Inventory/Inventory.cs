@@ -40,7 +40,7 @@ public class Inventory : MonoBehaviour
 
     public void InventoryToHotBar(int inventoryIndex)
     {
-        if (!UImanager.Instance.IsInventoryPanelActive()) // Check if the inventory is active
+        if (!UImanager.Instance.IsInventoryPanelActive())
         {
             Debug.LogError("Inventory is not active. Cannot transfer item to hotbar.");
             return;
@@ -55,24 +55,24 @@ public class Inventory : MonoBehaviour
         ItemData itemToMove = inventoryItems[inventoryIndex];
         if (itemToMove != null)
         {
-            inventoryItems[inventoryIndex] = null;
-
             for (int i = 0; i < hotbarItems.Length; i++)
             {
                 if (hotbarItems[i] == null)
                 {
+                    inventoryItems[inventoryIndex] = null;
                     hotbarItems[i] = itemToMove;
-                    UImanager.Instance.DisplayHotbarItem(itemToMove, i);  // Display the item in the hotbar slot
+                    UImanager.Instance.DisplayHotbarItem(itemToMove, i);
                     return;
                 }
             }
+            UImanager.Instance.RenderInventory();
         }
 
     }
 
     public void HotBarToInventory(int hotbarIndex)
     {
-        if (UImanager.Instance.IsInventoryPanelActive()) // Check if the inventory panel is active
+        if (UImanager.Instance.IsInventoryPanelActive())
         {
             if (hotbarIndex < 0 || hotbarIndex >= hotbarItems.Length)
             {

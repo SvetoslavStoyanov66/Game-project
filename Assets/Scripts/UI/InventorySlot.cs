@@ -68,6 +68,8 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             Inventory.Instance.InventoryToHotBar(slotIndex);
             itemToDisplay = null;
             UpdateDisplay();
+            UImanager.Instance.RenderInventory();
+
         }
         else if (itemToDisplay != null && Shop.Instance.isShopOpen)
         {
