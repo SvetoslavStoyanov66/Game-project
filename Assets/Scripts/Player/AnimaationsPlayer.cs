@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Data.Common;
 using UnityEngine;
 
 public class AnimaationsPlayer : MonoBehaviour
@@ -12,7 +13,10 @@ public class AnimaationsPlayer : MonoBehaviour
     private AudioClip wateringSound;
     [SerializeField]
     private AudioClip hoeSound; 
-    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip movementSound;
+    private AudioSource audioSource1;
+    private AudioSource audioSource2;
 
     void Start()
     {
@@ -21,7 +25,14 @@ public class AnimaationsPlayer : MonoBehaviour
 
         // Find the Player script in the scene
         player = FindObjectOfType<Player>();
-        audioSource = GetComponent<AudioSource>();
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        if (audioSources.Length >= 2)
+        {
+            audioSource1 = audioSources[0];
+            audioSource2 = audioSources[1];
+        }
+        audioSource1.clip = movementSound;
+
     }
 
     void Update()
@@ -33,8 +44,16 @@ public class AnimaationsPlayer : MonoBehaviour
         // Determine if the character is walking
         bool isWalking = Mathf.Abs(horizontal) > 0.1f || Mathf.Abs(vertical) > 0.1f;
 
-        // Set the "walking" parameter in the animator
         animator.SetBool("isWalking", isWalking);
+        if(isWalking && !audioSource1.isPlaying)
+        {
+            audioSource1.Play();
+        }
+        else if(!isWalking && audioSource1.isPlaying)
+        { 
+            audioSource1.clip = movementSound;
+            audioSource1.Stop();
+        }
         
         
     }
@@ -82,23 +101,23 @@ public class AnimaationsPlayer : MonoBehaviour
     }
     private IEnumerator ResetHoe(float delay)
     {
-        audioSource.clip = hoeSound;
+        audioSource2.clip = hoeSound;
         yield return new WaitForSeconds(0.75f);
-        audioSource.Play();
+        audioSource2.Play();
         yield return new WaitForSeconds(delay - 0.75f);
         animator.SetBool("IsUsingHoe", false);
-        audioSource.Stop();
+        audioSource2.Stop();
     }
     private IEnumerator ResetWatering(float delay)
     {
-        audioSource.clip = wateringSound;
-        audioSource.Play();
+        audioSource2.clip = wateringSound;
+        audioSource2.Play();
         yield return new WaitForSeconds(delay);
         animator.SetBool("IsWatering", false);
         if (wateringAnim != null)
         {
             wateringAnim.WateringCanAnim(false);
-            audioSource.Stop();
+            audioSource2.Stop();
         }
     }
     private IEnumerator Sleeping(float delay)
