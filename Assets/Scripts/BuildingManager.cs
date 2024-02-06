@@ -58,6 +58,7 @@ public class BuildingManager : MonoBehaviour
    Canvas animalCanvas2;
    [SerializeField]
    GameObject farm;
+   int buildingPrice;
 
    string structureType;
 
@@ -116,7 +117,7 @@ public class BuildingManager : MonoBehaviour
 
         }
     }
-    public void BuildingAssigning(GameObject building, GameObject actualBuilding,string type)
+    public void BuildingAssigning(GameObject building, GameObject actualBuilding,string type,int price)
     {
         actulaStructure = actualBuilding;
         structure = building;
@@ -128,6 +129,7 @@ public class BuildingManager : MonoBehaviour
         timerCanvas.enabled = false;
         buildingModeCanvas.enabled = true;
         structureType = type;
+        buildingPrice = price;
     }
     public void SaveChangesButton()
     {
@@ -202,6 +204,7 @@ public class BuildingManager : MonoBehaviour
         timerCanvas.enabled = true;
         buildingModeCanvas.enabled = false;
         farm.SetActive(false);
+        Money.Instance.moneyAmount += buildingPrice;
     }
      public void CanInstantiante(bool can)
     {

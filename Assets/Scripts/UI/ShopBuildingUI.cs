@@ -162,11 +162,11 @@ public class ShopBuildingUI : MonoBehaviour
             farm.SetActive(true);
             if(currentPage == BuildingPageUI.ChikenBuilding)
             {
-                BuildingManager.Instance.BuildingAssigning(buildingToInstantiate,actualBuildingToInstatntiante,"chicken");
+                BuildingManager.Instance.BuildingAssigning(buildingToInstantiate,actualBuildingToInstatntiante,"chicken",Convert.ToInt32(moneyText.text));
             }
             else
             {
-                BuildingManager.Instance.BuildingAssigning(buildingToInstantiate,actualBuildingToInstatntiante,"cow");
+                BuildingManager.Instance.BuildingAssigning(buildingToInstantiate,actualBuildingToInstatntiante,"cow",Convert.ToInt32(moneyText.text));
             }
             
             shopUiCanvas.enabled = false;
