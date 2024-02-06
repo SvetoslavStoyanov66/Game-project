@@ -154,7 +154,7 @@ public class UImanager : MonoBehaviour
     }
     void HandleInput()
     {
-        int slotNumber = selectedSlotIndex + 1;  // Adjusting to start from 1-based index
+        int slotNumber = selectedSlotIndex + 1;
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -181,7 +181,6 @@ public class UImanager : MonoBehaviour
             selectedSlotIndex = 5;
         }
 
-        // Check if the selected slot is within the hotbar slots
         if (selectedSlotIndex >= 0 && selectedSlotIndex < hotbarSlots.Length)
         {
             InventorySlot selectedSlot = hotbarSlots[selectedSlotIndex];

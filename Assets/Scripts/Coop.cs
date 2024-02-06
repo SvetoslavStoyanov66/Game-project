@@ -14,6 +14,8 @@ public class Coop : MonoBehaviour
     GameObject[] chickenBorders = new GameObject[5];
     [SerializeField]
     Timer timer;    
+    [SerializeField]
+    Text aveibleEggsText;
     public void SpownChicken(int id,GameObject prefab,string name)
     {
         
@@ -33,6 +35,12 @@ public class Coop : MonoBehaviour
     {
         Text nameText = uiBox.transform.GetChild(1).GetComponent<Text>();
         nameText.text = chiken.Name;
+    }
+    public void EggTextValueAssigning(int value)
+    {
+        int currentEggs = Convert.ToInt32(aveibleEggsText.text);
+        currentEggs += value;
+        aveibleEggsText.text = currentEggs.ToString();
     }
 }
 

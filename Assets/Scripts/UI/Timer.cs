@@ -38,6 +38,8 @@ public class Timer : MonoBehaviour
     public int MinutesInDay;
     [SerializeField]
     GameObject shopInterior;
+    [SerializeField]
+    Coop coop;
     public enum Season
     {
         Spring,
@@ -238,6 +240,7 @@ public class Timer : MonoBehaviour
                                 if(!placesForEggs[num].isThereEgg())
                                 {
                                     placesForEggs[num].SpownEgg();
+                                    coop.EggTextValueAssigning(1);
                                     break;
                                 }
 

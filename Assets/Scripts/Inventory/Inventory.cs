@@ -139,8 +139,6 @@ public class Inventory : MonoBehaviour
                 itemsToRemoveIndices.Add(i);
             }
         }
-
-        // Remove duplicates, leaving one instance of each item
         foreach (var index in itemsToRemoveIndices)
         {
             items[index] = null;
