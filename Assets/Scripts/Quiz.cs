@@ -1,6 +1,6 @@
 ﻿
 using System.Collections.Generic;
-using System.Data;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,10 +17,53 @@ public class Quiz : MonoBehaviour
     [SerializeField]
     GameObject notifier;
     bool canInteract = false;
+    bool cantClose = false;
+    bool cantUseDialog = false;
+    [SerializeField]
+    GameObject dialogUI;
+    Canvas quizCanvas;
+    string[] quizDialog = {
+        "Здравей! Като бизнесмен в селското стопанство, искам да проверя знанията ти за земеделието.",
+        " Подготвен ли си за малко въпроси? При правилни отговори, те очаква възнаграждение.",
+        "Какво ще правиш?"};
+
 
     public void AddQustionDataToList(FoodData.QuestionAndAnswers data)
     {
         questionAndAnswers.Add(data);
+    }
+     void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && canInteract)
+        {
+            notifier.SetActive(false);
+            if (quizCanvas.enabled)
+            {
+                quizCanvas.enabled = false;
+            }
+            else
+            {
+                if (!dialogUI.activeSelf)
+                {
+                    dialogUI.SetActive(true);
+                    StartCoroutine(waitForDialog());
+                    
+                }
+                else
+                {
+                    Dialogs.Instance.nextPage();
+                }
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            quizCanvas.enabled = false;
+        }
+    }
+    IEnumerator waitForDialog()
+    {
+        yield return new WaitForEndOfFrame();
+        Dialogs.Instance.StartDialog(quizDialog, "Quiz");
     }
     private void ButtonAndRewardAssignment()
     {

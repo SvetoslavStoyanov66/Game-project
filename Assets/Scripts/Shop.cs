@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Data.Common;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Shop : MonoBehaviour

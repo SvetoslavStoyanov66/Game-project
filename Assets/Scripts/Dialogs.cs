@@ -77,6 +77,12 @@ public class Dialogs : MonoBehaviour
             leave = leaveAnimals;
             npcAnimator = AnimalShopNPCAnim;
         }
+        else if(name == "Quiz")
+        {
+            browse = browseAnimals;
+            leave = leaveAnimals;
+            npcAnimator = AnimalShopNPCAnim;
+        }
         lines = dialogArray;
         index = 0;
         StartCoroutine(TypeLine());

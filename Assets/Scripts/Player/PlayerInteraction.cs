@@ -146,11 +146,6 @@ public class PlayerInteraction : MonoBehaviour
                 return;
             }
         }
-
-        else
-        {
-            Debug.Log("No land selected or no tool selected.");
-        }
     }
     public void InteractWithFood()
     {
