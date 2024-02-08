@@ -99,6 +99,7 @@ public class Quiz : MonoBehaviour
     }
     public void AcceptTheChallangeButtom()
     {
+        Dialogs.Instance.ResetText();
         waitForDialog2();
     }
     public void AnswerButtonFunction(Text buttonText)
