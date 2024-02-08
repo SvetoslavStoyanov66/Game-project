@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Quiz : MonoBehaviour
 {
@@ -21,13 +22,12 @@ public class Quiz : MonoBehaviour
     bool cantUseDialog = false;
     [SerializeField]
     GameObject dialogUI;
-    Canvas quizCanvas;
+    string question;
+    string correctAnswer;
     string[] quizDialog = {
         "Здравей! Като бизнесмен в селското стопанство, искам да проверя знанията ти за земеделието.",
         " Подготвен ли си за малко въпроси? При правилни отговори, те очаква възнаграждение.",
         "Какво ще правиш?"};
-
-
     public void AddQustionDataToList(FoodData.QuestionAndAnswers data)
     {
         questionAndAnswers.Add(data);
@@ -37,12 +37,6 @@ public class Quiz : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && canInteract)
         {
             notifier.SetActive(false);
-            if (quizCanvas.enabled)
-            {
-                quizCanvas.enabled = false;
-            }
-            else
-            {
                 if (!dialogUI.activeSelf)
                 {
                     dialogUI.SetActive(true);
@@ -53,11 +47,6 @@ public class Quiz : MonoBehaviour
                 {
                     Dialogs.Instance.nextPage();
                 }
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
-        {
-            quizCanvas.enabled = false;
         }
     }
     IEnumerator waitForDialog()
@@ -65,12 +54,22 @@ public class Quiz : MonoBehaviour
         yield return new WaitForEndOfFrame();
         Dialogs.Instance.StartDialog(quizDialog, "Quiz");
     }
+       IEnumerator waitForDialog2()
+    {
+        ButtonAndRewardAssignment();
+        string[] strings = new string[1];
+        strings[0] = question;
+        yield return new WaitForEndOfFrame();
+        Dialogs.Instance.StartDialog(strings, "Quiz2");
+    }
     private void ButtonAndRewardAssignment()
     {
         if (questionAndAnswers.Count > 0)
         {
-            int index = Random.Range(0, questionAndAnswers.Count);
+            int index = UnityEngine.Random.Range(0, questionAndAnswers.Count);
             FoodData.QuestionAndAnswers selectedQA = questionAndAnswers[index];
+            selectedQA.question = question;
+            selectedQA.correctAnswer = correctAnswer;
 
             button.GetComponentInChildren<Text>().text = selectedQA.question;
             button1.GetComponentInChildren<Text>().text = selectedQA.question;
@@ -92,10 +91,23 @@ public class Quiz : MonoBehaviour
         while (n > 1)
         {
             n--;
-            int k = Random.Range(0, n + 1);
+            int k = UnityEngine.Random.Range(0, n + 1);
             T value = list[k];
             list[k] = list[n];
             list[n] = value;
+        }
+    }
+    public void AcceptTheChallangeButtom()
+    {
+        waitForDialog2();
+    }
+    public void AnswerButtonFunction(Text buttonText)
+    {
+        if(buttonText.text == correctAnswer)
+        {
+            Dialogs.Instance.ResetText();
+            ButtonAndRewardAssignment();
+            waitForDialog2();    
         }
     }
     private void OnTriggerEnter()

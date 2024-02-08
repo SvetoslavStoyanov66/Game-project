@@ -26,7 +26,9 @@ public class Dialogs : MonoBehaviour
     [SerializeField]
     Button leaveAnimals;
     [SerializeField]
-    Animator AnimalShopNPCAnim;
+    Button quizButton;
+    [SerializeField]
+    Animator AnimalShopNPCAnim; 
     [SerializeField]
     Animator BuildingShopNPCAnim;
     [SerializeField]
@@ -35,6 +37,12 @@ public class Dialogs : MonoBehaviour
     bool canChangePage = true;
     [SerializeField]
     Button BrowseAnimalsFoods;
+    [SerializeField]
+    Button answerButton1;
+    [SerializeField]
+    Button answerButton2;
+    [SerializeField]
+    Button answerButton3;
     string name;
     RectTransform leaveRect;
     RectTransform browseRect;
@@ -79,7 +87,7 @@ public class Dialogs : MonoBehaviour
         }
         else if(name == "Quiz")
         {
-            browse = browseAnimals;
+            browse = quizButton;
             leave = leaveAnimals;
             npcAnimator = AnimalShopNPCAnim;
         }
@@ -115,8 +123,17 @@ public class Dialogs : MonoBehaviour
                     leaveRect.anchoredPosition = new Vector2(leaveRect.anchoredPosition.x, -68f);
                     browseRect.anchoredPosition = new Vector2(browseRect.anchoredPosition.x, 27f);
                     browseAnimalsFoodsRect.anchoredPosition = new Vector2(browseAnimalsFoodsRect.anchoredPosition.x, -19f);
+                    leave.gameObject.SetActive(true);
                 }
-                leave.gameObject.SetActive(true);
+                else if(name == "Quiz1")
+                {
+                    answerButton1.gameObject.SetActive(true);
+                    answerButton2.gameObject.SetActive(true);
+                    answerButton3.gameObject.SetActive(true);
+                }
+                else{
+                    leave.gameObject.SetActive(true);
+                }
                 
             }
             else
@@ -162,6 +179,9 @@ public class Dialogs : MonoBehaviour
     public void ResetText()
     {
         dialogText.text = string.Empty;
+        answerButton1.gameObject.SetActive(false);
+        answerButton2.gameObject.SetActive(false);
+        answerButton3.gameObject.SetActive(false);
         browse.gameObject.SetActive(false);
         leave.gameObject.SetActive(false);
         BrowseAnimalsFoods.gameObject.SetActive(false);
