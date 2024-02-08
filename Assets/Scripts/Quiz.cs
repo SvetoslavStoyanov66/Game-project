@@ -22,6 +22,8 @@ public class Quiz : MonoBehaviour
     bool cantUseDialog = false;
     [SerializeField]
     GameObject dialogUI;
+    int questionsAsked = 0;
+    const int maxQuestions = 3;
     string question;
     string correctAnswer;
     string[] quizDialog = {
@@ -32,21 +34,21 @@ public class Quiz : MonoBehaviour
     {
         questionAndAnswers.Add(data);
     }
-     void Update()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && canInteract)
         {
             notifier.SetActive(false);
-                if (!dialogUI.activeSelf)
-                {
-                    dialogUI.SetActive(true);
-                    StartCoroutine(waitForDialog());
-                    
-                }
-                else
-                {
-                    Dialogs.Instance.nextPage();
-                }
+            if (!dialogUI.activeSelf)
+            {
+                dialogUI.SetActive(true);
+                StartCoroutine(waitForDialog());
+
+            }
+            else
+            {
+                Dialogs.Instance.nextPage();
+            }
         }
     }
     IEnumerator waitForDialog()
@@ -54,28 +56,25 @@ public class Quiz : MonoBehaviour
         yield return new WaitForEndOfFrame();
         Dialogs.Instance.StartDialog(quizDialog, "Quiz");
     }
-       IEnumerator waitForDialog2()
+    IEnumerator waitForDialog2()
     {
-        if(questionAndAnswers != null && questionAndAnswers.Count > 0) {
-        ButtonAndRewardAssignment();
-        string[] strings = new string[1];
-        strings[0] = question;
-        yield return new WaitForEndOfFrame();
-        Dialogs.Instance.StartDialog(strings, "Quiz2");
+        if (questionAndAnswers != null && questionAndAnswers.Count > 0)
+        {
+            ButtonAndRewardAssignment();
+            string[] strings = new string[1];
+            strings[0] = question;
+            yield return new WaitForEndOfFrame();
+            Dialogs.Instance.StartDialog(strings, "Quiz2");
         }
     }
     private void ButtonAndRewardAssignment()
     {
-        if (questionAndAnswers.Count > 0)
+        if (questionAndAnswers.Count > 0 && questionsAsked < maxQuestions)
         {
             int index = UnityEngine.Random.Range(0, questionAndAnswers.Count);
             FoodData.QuestionAndAnswers selectedQA = questionAndAnswers[index];
             question = selectedQA.question;
             correctAnswer = selectedQA.correctAnswer;
-
-            button.GetComponentInChildren<Text>().text = selectedQA.question;
-            button1.GetComponentInChildren<Text>().text = selectedQA.question;
-            button2.GetComponentInChildren<Text>().text = selectedQA.question;
 
             List<string> answers = new List<string> { selectedQA.correctAnswer, selectedQA.wrongAnswer, selectedQA.wrongAnswer2 };
             Shuffle(answers);
@@ -85,7 +84,19 @@ public class Quiz : MonoBehaviour
             button2.GetComponentInChildren<Text>().text = answers[2];
 
             reward = questionAndAnswers.Count * 20;
+
+            questionAndAnswers.RemoveAt(index);
+            questionsAsked++;
         }
+        else
+        {
+            EndQuiz();
+        }
+    }
+    private void EndQuiz()
+    {
+        Dialogs.Instance.ResetText();
+        dialogUI.SetActive(false);
     }
     private void Shuffle<T>(List<T> list)
     {
@@ -101,20 +112,23 @@ public class Quiz : MonoBehaviour
     }
     public void AcceptTheChallangeButtom()
     {
-        if(questionAndAnswers != null && questionAndAnswers.Count > 0)
+        if (questionAndAnswers != null && questionAndAnswers.Count > 0)
         {
-            DialogSizeChange(1450,500);
+            DialogSizeChange(1450, 500);
             Dialogs.Instance.ResetText();
-            StartCoroutine(waitForDialog2());
+            if(dialogUI.activeSelf) 
+            {
+                StartCoroutine(waitForDialog2());
+            }
         }
     }
     public void AnswerButtonFunction(Text buttonText)
     {
-        if(buttonText.text == correctAnswer)
+        if (buttonText.text == correctAnswer)
         {
             Dialogs.Instance.ResetText();
             ButtonAndRewardAssignment();
-            StartCoroutine(waitForDialog2());  
+            StartCoroutine(waitForDialog2());
         }
     }
     private void OnTriggerEnter()
@@ -128,14 +142,14 @@ public class Quiz : MonoBehaviour
         canInteract = false;
 
     }
-    private void DialogSizeChange(int x,int y)
+    private void DialogSizeChange(int x, int y)
     {
         RectTransform rectTransform = dialogUI.gameObject.GetComponent<RectTransform>();
         rectTransform.sizeDelta = new Vector2(x, y);
-        rectTransform.anchoredPosition = new Vector2(0,-149);
+        rectTransform.anchoredPosition = new Vector2(0, -149);
         Transform textTransform = dialogUI.transform.GetChild(0);
         RectTransform textReactTransform = textTransform.gameObject.GetComponent<RectTransform>();
-        textReactTransform.anchoredPosition = new Vector2(0,71);
-        textReactTransform.sizeDelta = new Vector2(1320,180);
+        textReactTransform.anchoredPosition = new Vector2(0, 71);
+        textReactTransform.sizeDelta = new Vector2(1320, 180);
     }
 }
