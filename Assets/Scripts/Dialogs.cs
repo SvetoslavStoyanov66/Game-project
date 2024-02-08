@@ -125,7 +125,7 @@ public class Dialogs : MonoBehaviour
                     browseAnimalsFoodsRect.anchoredPosition = new Vector2(browseAnimalsFoodsRect.anchoredPosition.x, -19f);
                     leave.gameObject.SetActive(true);
                 }
-                else if(name == "Quiz1")
+                else if(name == "Quiz2")
                 {
                     answerButton1.gameObject.SetActive(true);
                     answerButton2.gameObject.SetActive(true);

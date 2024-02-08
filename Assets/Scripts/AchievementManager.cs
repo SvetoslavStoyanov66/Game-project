@@ -23,6 +23,8 @@ public class AchievementManager : MonoBehaviour
     Image informationWindow;
     [SerializeField]
     Image exclamationMark;
+    [SerializeField]
+    Quiz quiz;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -50,6 +52,7 @@ public class AchievementManager : MonoBehaviour
     public void UnlockingAchievement(string itemName)
     {
         ItemData foundItem  = items.Find(item => item.name == itemName);
+        QuizAssigment(foundItem);
         if(foundItem != null && !foundItem.achievementUnlock)
         {
             foundItem.achievementUnlock = true;
@@ -122,5 +125,11 @@ public void ApplyExclamationMarkNotfier()
 public void ExlmactionMarkActivation()
 {
     exclamationMark.gameObject.SetActive(true);
+}
+ private void QuizAssigment(ItemData item)
+{
+    quiz.AddQustionDataToList((item as FoodData).quiz1);
+    quiz.AddQustionDataToList((item as FoodData).quiz2);
+    quiz.AddQustionDataToList((item as FoodData).quiz3);
 }
 }

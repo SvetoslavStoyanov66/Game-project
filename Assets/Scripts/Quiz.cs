@@ -56,11 +56,13 @@ public class Quiz : MonoBehaviour
     }
        IEnumerator waitForDialog2()
     {
+        if(questionAndAnswers != null && questionAndAnswers.Count > 0) {
         ButtonAndRewardAssignment();
         string[] strings = new string[1];
         strings[0] = question;
         yield return new WaitForEndOfFrame();
         Dialogs.Instance.StartDialog(strings, "Quiz2");
+        }
     }
     private void ButtonAndRewardAssignment()
     {
@@ -68,8 +70,8 @@ public class Quiz : MonoBehaviour
         {
             int index = UnityEngine.Random.Range(0, questionAndAnswers.Count);
             FoodData.QuestionAndAnswers selectedQA = questionAndAnswers[index];
-            selectedQA.question = question;
-            selectedQA.correctAnswer = correctAnswer;
+            question = selectedQA.question;
+            correctAnswer = selectedQA.correctAnswer;
 
             button.GetComponentInChildren<Text>().text = selectedQA.question;
             button1.GetComponentInChildren<Text>().text = selectedQA.question;
@@ -99,8 +101,12 @@ public class Quiz : MonoBehaviour
     }
     public void AcceptTheChallangeButtom()
     {
-        Dialogs.Instance.ResetText();
-        waitForDialog2();
+        if(questionAndAnswers != null && questionAndAnswers.Count > 0)
+        {
+            DialogSizeChange(1450,500);
+            Dialogs.Instance.ResetText();
+            StartCoroutine(waitForDialog2());
+        }
     }
     public void AnswerButtonFunction(Text buttonText)
     {
@@ -108,7 +114,7 @@ public class Quiz : MonoBehaviour
         {
             Dialogs.Instance.ResetText();
             ButtonAndRewardAssignment();
-            waitForDialog2();    
+            StartCoroutine(waitForDialog2());  
         }
     }
     private void OnTriggerEnter()
@@ -121,5 +127,15 @@ public class Quiz : MonoBehaviour
         notifier.SetActive(false);
         canInteract = false;
 
+    }
+    private void DialogSizeChange(int x,int y)
+    {
+        RectTransform rectTransform = dialogUI.gameObject.GetComponent<RectTransform>();
+        rectTransform.sizeDelta = new Vector2(x, y);
+        rectTransform.anchoredPosition = new Vector2(0,-149);
+        Transform textTransform = dialogUI.transform.GetChild(0);
+        RectTransform textReactTransform = textTransform.gameObject.GetComponent<RectTransform>();
+        textReactTransform.anchoredPosition = new Vector2(0,71);
+        textReactTransform.sizeDelta = new Vector2(1320,180);
     }
 }
