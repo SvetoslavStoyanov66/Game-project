@@ -85,7 +85,6 @@ public class Quiz : MonoBehaviour
 
             reward = questionAndAnswers.Count * 20;
 
-            questionAndAnswers.RemoveAt(index);
             questionsAsked++;
         }
         else
@@ -127,7 +126,6 @@ public class Quiz : MonoBehaviour
         if (buttonText.text == correctAnswer)
         {
             Dialogs.Instance.ResetText();
-            ButtonAndRewardAssignment();
             StartCoroutine(waitForDialog2());
         }
     }
