@@ -130,6 +130,7 @@ public class Dialogs : MonoBehaviour
                     answerButton1.gameObject.SetActive(true);
                     answerButton2.gameObject.SetActive(true);
                     answerButton3.gameObject.SetActive(true);
+                    browse.gameObject.SetActive(false);
                 }
                 else{
                     leave.gameObject.SetActive(true);

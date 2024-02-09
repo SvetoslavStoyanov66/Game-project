@@ -26,6 +26,7 @@ public class Quiz : MonoBehaviour
     const int maxQuestions = 3;
     string question;
     string correctAnswer;
+    List<int> askedQuestionsIndices = new List<int>();
     string[] quizDialog = {
         "Здравей! Като бизнесмен в селското стопанство, искам да проверя знанията ти за земеделието.",
         " Подготвен ли си за малко въпроси? При правилни отговори, те очаква възнаграждение.",
@@ -64,14 +65,36 @@ public class Quiz : MonoBehaviour
             string[] strings = new string[1];
             strings[0] = question;
             yield return new WaitForEndOfFrame();
-            Dialogs.Instance.StartDialog(strings, "Quiz2");
+            if(questionsAsked <= maxQuestions)
+            {
+                Dialogs.Instance.StartDialog(strings, "Quiz2");
+            }
+            else
+            {
+                askedQuestionsIndices.Clear();
+                questionsAsked = 0;
+            }
         }
     }
     private void ButtonAndRewardAssignment()
+{
+    if (questionAndAnswers.Count > 0 && questionsAsked < maxQuestions)
     {
-        if (questionAndAnswers.Count > 0 && questionsAsked < maxQuestions)
+        int index = -1;
+        for (int attempt = 0; attempt < questionAndAnswers.Count; attempt++)
         {
-            int index = UnityEngine.Random.Range(0, questionAndAnswers.Count);
+            int tempIndex = UnityEngine.Random.Range(0, questionAndAnswers.Count);
+            if (!askedQuestionsIndices.Contains(tempIndex))
+            {
+                index = tempIndex;
+                break;
+            }
+        }
+
+        if (index != -1)
+        {
+            askedQuestionsIndices.Add(index);
+
             FoodData.QuestionAndAnswers selectedQA = questionAndAnswers[index];
             question = selectedQA.question;
             correctAnswer = selectedQA.correctAnswer;
@@ -87,11 +110,14 @@ public class Quiz : MonoBehaviour
 
             questionsAsked++;
         }
-        else
-        {
-            EndQuiz();
-        }
     }
+    else
+    {
+        questionsAsked++;
+        EndQuiz();
+    }
+}
+
     private void EndQuiz()
     {
         Dialogs.Instance.ResetText();
@@ -113,12 +139,10 @@ public class Quiz : MonoBehaviour
     {
         if (questionAndAnswers != null && questionAndAnswers.Count > 0)
         {
-            DialogSizeChange(1450, 500);
+            questionsAsked = 0;
+            DialogSizeChange(1550, 500);
             Dialogs.Instance.ResetText();
-            if(dialogUI.activeSelf) 
-            {
-                StartCoroutine(waitForDialog2());
-            }
+            StartCoroutine(waitForDialog2());          
         }
     }
     public void AnswerButtonFunction(Text buttonText)
@@ -144,7 +168,7 @@ public class Quiz : MonoBehaviour
     {
         RectTransform rectTransform = dialogUI.gameObject.GetComponent<RectTransform>();
         rectTransform.sizeDelta = new Vector2(x, y);
-        rectTransform.anchoredPosition = new Vector2(0, -149);
+        rectTransform.anchoredPosition = new Vector2(0, -99 );
         Transform textTransform = dialogUI.transform.GetChild(0);
         RectTransform textReactTransform = textTransform.gameObject.GetComponent<RectTransform>();
         textReactTransform.anchoredPosition = new Vector2(0, 71);
