@@ -22,15 +22,15 @@ public class Quiz : MonoBehaviour
     bool cantUseDialog = false;
     [SerializeField]
     GameObject dialogUI;
-    int questionsAsked = 0;
     const int maxQuestions = 3;
     string question;
     string correctAnswer;
-    List<int> askedQuestionsIndices = new List<int>();
     string[] quizDialog = {
         "Здравей! Като бизнесмен в селското стопанство, искам да проверя знанията ти за земеделието.",
         " Подготвен ли си за малко въпроси? При правилни отговори, те очаква възнаграждение.",
         "Какво ще правиш?"};
+    string quizCorrectAnswerResponse = "Чудесно се справихте! Вие наистина знаете тайните на земеделието. Вземете вашата награда за знанието!";
+    string quizIncorrectAnswerResponse = "Жалко, не успяхте този път. Но в земеделието, както и в живота, всяка грешка е урок. Нека това не ви обезкуражава, а ви мотивира да опитате отново!";
     public void AddQustionDataToList(FoodData.QuestionAndAnswers data)
     {
         questionAndAnswers.Add(data);
@@ -65,35 +65,14 @@ public class Quiz : MonoBehaviour
             string[] strings = new string[1];
             strings[0] = question;
             yield return new WaitForEndOfFrame();
-            if(questionsAsked <= maxQuestions)
-            {
-                Dialogs.Instance.StartDialog(strings, "Quiz2");
-            }
-            else
-            {
-                askedQuestionsIndices.Clear();
-                questionsAsked = 0;
-            }
+            Dialogs.Instance.StartDialog(strings, "Quiz2");
         }
     }
     private void ButtonAndRewardAssignment()
 {
-    if (questionAndAnswers.Count > 0 && questionsAsked < maxQuestions)
+    if (questionAndAnswers.Count > 0)
     {
-        int index = -1;
-        for (int attempt = 0; attempt < questionAndAnswers.Count; attempt++)
-        {
-            int tempIndex = UnityEngine.Random.Range(0, questionAndAnswers.Count);
-            if (!askedQuestionsIndices.Contains(tempIndex))
-            {
-                index = tempIndex;
-                break;
-            }
-        }
-
-        if (index != -1)
-        {
-            askedQuestionsIndices.Add(index);
+            int index = UnityEngine.Random.Range(0, questionAndAnswers.Count);
 
             FoodData.QuestionAndAnswers selectedQA = questionAndAnswers[index];
             question = selectedQA.question;
@@ -106,20 +85,13 @@ public class Quiz : MonoBehaviour
             button1.GetComponentInChildren<Text>().text = answers[1];
             button2.GetComponentInChildren<Text>().text = answers[2];
 
-            reward = questionAndAnswers.Count * 20;
-
-            questionsAsked++;
-        }
-    }
-    else
-    {
-        questionsAsked++;
-        EndQuiz();
+            reward = questionAndAnswers.Count * 10;
     }
 }
 
     private void EndQuiz()
     {
+        ResetToDefoultDialogSeze();
         Dialogs.Instance.ResetText();
         dialogUI.SetActive(false);
     }
@@ -139,7 +111,6 @@ public class Quiz : MonoBehaviour
     {
         if (questionAndAnswers != null && questionAndAnswers.Count > 0)
         {
-            questionsAsked = 0;
             DialogSizeChange(1550, 500);
             Dialogs.Instance.ResetText();
             StartCoroutine(waitForDialog2());          
@@ -173,5 +144,15 @@ public class Quiz : MonoBehaviour
         RectTransform textReactTransform = textTransform.gameObject.GetComponent<RectTransform>();
         textReactTransform.anchoredPosition = new Vector2(0, 71);
         textReactTransform.sizeDelta = new Vector2(1320, 180);
+    }
+    private void ResetToDefoultDialogSeze()
+    {
+        RectTransform rectTransform = dialogUI.gameObject.GetComponent<RectTransform>();
+        rectTransform.sizeDelta = new Vector2(1050, 260);
+        rectTransform.anchoredPosition = new Vector2(0, -252);
+        Transform textTransform = dialogUI.transform.GetChild(0);
+        RectTransform textReactTransform = textTransform.gameObject.GetComponent<RectTransform>();
+        textReactTransform.anchoredPosition = new Vector2(0, -6);
+        textReactTransform.sizeDelta = new Vector2(950, 180);
     }
 }
