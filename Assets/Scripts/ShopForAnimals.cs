@@ -91,7 +91,7 @@ public class ShopForAnimals : MonoBehaviour
         switch (anim)
         {
            case animals.chiken:
-           animalName.text = "Chiken";
+           animalName.text = "Кокошка";
            animalPicture.sprite = chickenSprite;
            priece.text = "400";
            smallAnimalImage = smallChickenImage;
@@ -101,7 +101,7 @@ public class ShopForAnimals : MonoBehaviour
                 break;
 
             case animals.cow:
-            animalName.text = "Cow";
+            animalName.text = "Крава";
             animalPicture.sprite = cowSprite;
             priece.text = "600";    
             smallAnimalImage = smallCowImage;

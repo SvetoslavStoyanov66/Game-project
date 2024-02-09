@@ -145,8 +145,11 @@ public class Timer : MonoBehaviour
         if (SunTransform != null)
         {
             MinutesInDay = (hours * 60) + minutes;
-            angle = .25f * MinutesInDay - 90;
-            SunTransform.eulerAngles = new Vector3(angle, 0, 0);
+        float targetAngle = 0.05f * 5 * MinutesInDay - 90;
+
+        angle = Mathf.Lerp(angle, targetAngle, 0.2f);
+
+        SunTransform.eulerAngles = new Vector3(angle, 30, 0);
         }
 
     }
