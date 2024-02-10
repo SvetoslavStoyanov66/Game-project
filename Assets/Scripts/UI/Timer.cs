@@ -68,6 +68,36 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         timerText.fontSize = fontSize;
+        LoadTimeState();
+    }
+    private void SaveTimeState()
+    {
+        TimerSaveData timerData = new TimerSaveData
+        {
+            hours = this.hours,
+            minutes = this.minutes,
+            day = this.day,
+            year = this.year,
+            seasonNum = this.seasonNum,
+        };
+
+        SaveData saveData = new SaveData { timerSaveData = timerData };
+        SaveSystem.SaveGame(saveData, 0);
+    }
+    private void LoadTimeState()
+    {
+        SaveData saveData = SaveSystem.LoadGame(0);
+        if (saveData != null && saveData.timerSaveData != null)
+        {
+            TimerSaveData timerData = saveData.timerSaveData;
+            hours = timerData.hours;
+            minutes = timerData.minutes;
+            day = timerData.day;
+            year = timerData.year;
+            seasonNum = timerData.seasonNum;
+
+            UpdateUI();
+        }
     }
 
     private void Update()
@@ -192,6 +222,7 @@ public class Timer : MonoBehaviour
         if (lastDay != day)
         {
             lastDay = day;
+            SaveTimeState();
             quiz.isQuestioinForDayUsed = false;
             StartCoroutine(ShopAssigning());
             foreach (Land land in landObjects)
