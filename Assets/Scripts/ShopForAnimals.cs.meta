@@ -3,7 +3,32 @@ guid: 285f0237b89614b4a8f48a76621c9cee
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - canvasForAnimalFood: {instanceID: 0}
+  - canvas: {instanceID: 0}
+  - notifier: {instanceID: 0}
+  - animalName: {instanceID: 0}
+  - priece: {instanceID: 0}
+  - animalPicture: {instanceID: 0}
+  - dialogUI: {instanceID: 0}
+  - selection: {instanceID: 0}
+  - animalSelectionUI: {instanceID: 0}
+  - defaultUI: {instanceID: 0}
+  - smallChickenImage: {instanceID: 0}
+  - smallCowImage: {instanceID: 0}
+  - animalCountText: {instanceID: 0}
+  - smallAnimalImage: {instanceID: 0}
+  - noStructureImage: {instanceID: 0}
+  - noStructureImageChicken: {instanceID: 0}
+  - noStructureImageCow: {instanceID: 0}
+  - coop: {instanceID: 0}
+  - cowShed: {instanceID: 0}
+  - chicken1: {instanceID: 0}
+  - chicken2: {instanceID: 0}
+  - cow: {instanceID: 0}
+  - inputField: {instanceID: 0}
+  - chickenSprite: {instanceID: 0}
+  - cowSprite: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
