@@ -47,6 +47,7 @@ public class Dialogs : MonoBehaviour
     RectTransform leaveRect;
     RectTransform browseRect;
     RectTransform browseAnimalsFoodsRect;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -132,6 +133,14 @@ public class Dialogs : MonoBehaviour
                     answerButton3.gameObject.SetActive(true);
                     browse.gameObject.SetActive(false);
                 }
+                else if(name == "Quiz3")
+                {
+                    answerButton1.gameObject.SetActive(false);
+                    answerButton2.gameObject.SetActive(false);
+                    answerButton3.gameObject.SetActive(false);
+                    browse.gameObject.SetActive(false);
+                    leave.gameObject.SetActive(false);
+                }
                 else{
                     leave.gameObject.SetActive(true);
                 }
@@ -153,30 +162,39 @@ public class Dialogs : MonoBehaviour
             }
     }
     public void nextPage()
-{
-    if (index < lines.Length && canChangePage)
     {
-        if (dialogText.text != lines[index])
+         if (name == "Quiz3" && dialogText.text == lines[index])
         {
-            needToBreak = true;
-            dialogText.text = lines[index];
+            ResetToDefoultDialogSeze();
+            ResetText();
+            gameObject.SetActive(false);
         }
-        else
+        else{
+        if (index < lines.Length && canChangePage)
         {
-            if (index < lines.Length - 1)
+            if (dialogText.text != lines[index])
             {
-                index++;
-                dialogText.text = string.Empty;
-                StartCoroutine(TypeLine());
-                npcAnimator.SetBool("isTalking", true);
+                needToBreak = true;
+                dialogText.text = lines[index];
             }
             else
             {
-                canChangePage = false;
+                if (index < lines.Length - 1)
+                {
+                    index++;
+                    dialogText.text = string.Empty;
+                    StartCoroutine(TypeLine());
+                    npcAnimator.SetBool("isTalking", true);
+                }
+                else
+                {
+                    canChangePage = false;
+                }
             }
         }
+        }
+
     }
-}
     public void ResetText()
     {
         dialogText.text = string.Empty;
@@ -188,6 +206,15 @@ public class Dialogs : MonoBehaviour
         BrowseAnimalsFoods.gameObject.SetActive(false);
         canChangePage = true;
     }
-
+private void ResetToDefoultDialogSeze()
+    {
+        RectTransform rectTransform = gameObject.GetComponent<RectTransform>();
+        rectTransform.sizeDelta = new Vector2(1050, 260);
+        rectTransform.anchoredPosition = new Vector2(0, -252);
+        Transform textTransform = transform.GetChild(0);
+        RectTransform textReactTransform = textTransform.gameObject.GetComponent<RectTransform>();
+        textReactTransform.anchoredPosition = new Vector2(0, -6);
+        textReactTransform.sizeDelta = new Vector2(950, 180);
+    }
 
 }

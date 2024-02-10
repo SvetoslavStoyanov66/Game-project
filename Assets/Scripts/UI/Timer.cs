@@ -26,6 +26,8 @@ public class Timer : MonoBehaviour
     public List<AnimalMovement> chickens = new List<AnimalMovement>();
     [SerializeField]
     List<PlacesForEggs> placesForEggs = new List<PlacesForEggs>();
+    [SerializeField]
+    Quiz quiz;
 
     public int hours = 6;
     private int minutes = 0;
@@ -190,6 +192,7 @@ public class Timer : MonoBehaviour
         if (lastDay != day)
         {
             lastDay = day;
+            quiz.isQuestioinForDayUsed = false;
             StartCoroutine(ShopAssigning());
             foreach (Land land in landObjects)
             {
