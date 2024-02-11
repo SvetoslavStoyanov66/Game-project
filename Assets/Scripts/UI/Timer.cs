@@ -85,7 +85,6 @@ public class Timer : MonoBehaviour
     }
     public void SaveStates()
     {
-        Debug.Log("saving");
         SaveData saveData = new SaveData
         {
             timerSaveData = new TimerSaveData
@@ -97,6 +96,7 @@ public class Timer : MonoBehaviour
                 seasonNum = this.seasonNum,
             },
             landsSaveData = new List<LandSaveData>()
+            
         };
 
         foreach (Land land in landObjects)
@@ -119,6 +119,22 @@ public class Timer : MonoBehaviour
             });
 
         }
+        
+         foreach (var item in Inventory.Instance.hotbarItems)
+    {
+        if (item != null)
+        {
+            saveData.hotbarItems.Add(new InventoryItemSaveData(item.name, item.quantity));
+        }
+    }
+
+    foreach (var item in Inventory.Instance.inventoryItems)
+    {
+        if (item != null)
+        {
+            saveData.inventoryItems.Add(new InventoryItemSaveData(item.name, item.quantity));
+        }
+    }
 
         SaveSystem.SaveGame(saveData, 0);
 }

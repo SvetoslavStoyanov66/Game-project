@@ -6,6 +6,8 @@ public class SaveData
 {
     public TimerSaveData timerSaveData;
     public List<LandSaveData> landsSaveData = new List<LandSaveData>();
+    public List<InventoryItemSaveData> hotbarItems = new List<InventoryItemSaveData>();
+    public List<InventoryItemSaveData> inventoryItems = new List<InventoryItemSaveData>();
 
 }
 
@@ -33,4 +35,15 @@ public class LandSaveData
     public bool seed1Exists;
     public bool seed2Exists;
     public bool grownCropExists;
+}
+[System.Serializable]
+public class InventoryItemSaveData
+{
+    public string itemName;
+    public int quantity;
+      public InventoryItemSaveData(string itemName, int quantity)
+    {
+        this.itemName = itemName;
+        this.quantity = quantity;
+    }
 }
