@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,7 +17,7 @@ public class Land : MonoBehaviour
     public GameObject select;
     public bool wasWateredYesterday = false;
     public bool isWatered = false;
-    private bool hasSeedPlanted = false;
+    public bool hasSeedPlanted = false;
     [SerializeField]
     public GameObject seed;
     [SerializeField]
@@ -30,6 +30,7 @@ public class Land : MonoBehaviour
     public int DaysToGrowPorgression;
     public int CurrentDayProgression = 0;
     public ItemData crop;
+    public SeedsData seedData;
     public bool isCropInstantianted = false;
     public bool isRaining;
     private float counter;
@@ -41,12 +42,75 @@ public class Land : MonoBehaviour
     int daysForCollectingMultyHarvestableCrops = 3;
     bool InstantiatedHarvestedCrop = false;
     
-    // Start is called before the first frame update
-    void Start()
+      void Start()
     {
         renderer = GetComponent<Renderer>();
-        SwitchLandStatus(LandStatus.Soil);
+        SwitchLandStatus(landStatus);
     }
+    public void LoadLandState()
+    {
+        SaveData saveData = SaveSystem.LoadGame(0);
+        if (saveData != null && saveData.landsSaveData != null)
+        {
+            LandSaveData landSaveData = saveData.landsSaveData.Find(x => x.id == this.id);
+            if (landSaveData != null)
+            {
+                this.wasWateredYesterday = landSaveData.wasWateredYesterday;
+                this.hasSeedPlanted = landSaveData.hasSeedPlanted;
+                this.CurrentDayProgression = landSaveData.currentDayProgression;
+                this.isCropInstantianted = landSaveData.isCropInstantiated;
+                GameManager gameManager = FindObjectOfType<GameManager>();
+                if (gameManager != null)
+                {
+                    if (!string.IsNullOrEmpty(landSaveData.cropDataName) || landSaveData.cropDataName != "NoCrop")
+                    {
+                        this.crop = gameManager.GetItemDataByName(landSaveData.cropDataName);
+                    }
+
+                    if (!string.IsNullOrEmpty(landSaveData.seedDataName) || landSaveData.cropDataName != "NoSeedData")
+                    {
+                        this.seedData = gameManager.GetItemDataByName(landSaveData.seedDataName) as SeedsData;
+                    }
+                }
+
+                Quaternion desiredRotation = Quaternion.Euler(0, 0f, 0f);
+                Vector3 position = this.gameObject.transform.position;
+                position.y = 0.015f;
+
+                if (landSaveData.hasSeedPlanted && !string.IsNullOrEmpty(landSaveData.cropDataName))
+                {
+                    if (landSaveData.seedExists && crop != null && seedData != null)
+                    {
+                        desiredRotation = Quaternion.Euler(-90f, 0f, 0f);
+                        seed = Instantiate(seedData.gameModel, position, desiredRotation);
+                        seed1 = seedData.seedling1;
+                        seed2 = seedData.seedling2;
+                        GrownCrop = crop.gameModel;
+                    }
+                    else if (landSaveData.seed1Exists && crop != null && seedData != null)
+                    {
+                        seed1 = Instantiate(seedData.seedling1, position, desiredRotation);
+                        seed2 = seedData.seedling2;
+                        GrownCrop = crop.gameModel;
+                    }
+                    else if (landSaveData.seed2Exists && crop != null && seedData != null)
+                    {
+                        seed2 = Instantiate(seedData.seedling2, position, desiredRotation);
+                        GrownCrop = crop.gameModel;
+                    }
+                    else if (landSaveData.grownCropExists && crop != null && seedData != null)
+                    {
+                        GrownCrop = Instantiate(crop.gameModel, position, desiredRotation);
+                    }
+                }
+
+
+
+            }
+        }
+    }
+
+ 
     private void Update()
     {
         if (isRaining && landStatus == LandStatus.Farmland)
@@ -88,81 +152,6 @@ public class Land : MonoBehaviour
         select.SetActive(toggle);
     }
 
-    public void LoadLandData(LandStatus statusToSwich, bool wasWatared)
-    {
-        landStatus = statusToSwich;
-        isWatered = wasWatared;
-
-        Material materialTpSwich = soilMat;
-        switch (statusToSwich)
-        {
-            case LandStatus.Soil:
-                materialTpSwich = soilMat;
-                break;
-            case LandStatus.Farmland:
-                materialTpSwich = farmlandMat;
-                break;
-            case LandStatus.Watared:
-                materialTpSwich = wataredMat;
-                isWatered = true;
-                break;
-        }
-        renderer.material = materialTpSwich;
-    }
-    public void LoadCropData(int id,GameObject seed,GameObject seed1,GameObject seed2,GameObject grownCrop)
-    {
-        this.id = id;
-        this.seed = seed;
-        this.seed1 = seed1;
-        this.seed2 = seed2;
-        this.GrownCrop = grownCrop;
-
-        Vector3 position = this.gameObject.transform.position;
-        position.y = 0;
-        Quaternion desiredRotation = Quaternion.Euler(-90f, 0f, 0f);
-        if (seed != null)
-        {
-            if (seed.tag == "Potato")
-            {
-                position.z += -.2f;
-            }
-            seed = Instantiate(seed, position, desiredRotation);           
-        }
-        else if (seed1 != null)
-        {
-            if(seed1.tag == "Cabbage" || seed1.tag == "Beetroot")
-            {
-                seed1 = Instantiate(seed1, position, desiredRotation);
-            }
-            else
-            {
-                seed1 = Instantiate(seed1, position, Quaternion.identity);
-            }                 
-        }
-        else if (seed2 != null)
-        {
-            if(seed2.tag == "Cabbage" || seed2.tag == "Beetroot")
-            {
-                seed2 = Instantiate(seed2, position, desiredRotation);
-            }
-            else
-            {
-                seed2 = Instantiate(seed2, position, Quaternion.identity);
-            }        
-        }
-        else if (grownCrop != null)
-        {
-            if(gameObject.tag == "Cabbage" || gameObject.tag == "Beetroot")
-            {
-                grownCrop = Instantiate(grownCrop, position, desiredRotation);
-            }
-            else
-            {
-                grownCrop = Instantiate(grownCrop, position, Quaternion.identity);
-            }          
-        }
-
-    }
     public void Interact(string selectedItemName)
     {
         // Change the land state to farmland only if the selected item is a "hoe"
@@ -288,5 +277,6 @@ public class Land : MonoBehaviour
 
         }
     }
+
 }
 

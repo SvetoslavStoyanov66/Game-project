@@ -63,27 +63,66 @@ public class Timer : MonoBehaviour
     public Season season;
 
     public Week week;
+    
 
 
     private void Start()
     {
+        AssignLandIndex();
         timerText.fontSize = fontSize;
         LoadTimeState();
     }
-    private void SaveTimeState()
+    private void AssignLandIndex()
     {
-        TimerSaveData timerData = new TimerSaveData
+        int counter = 0;
+        foreach(Land land in landObjects)
         {
-            hours = this.hours,
-            minutes = this.minutes,
-            day = this.day,
-            year = this.year,
-            seasonNum = this.seasonNum,
+            land.id = counter;
+            land.LoadLandState();
+            counter++;
+        }
+
+    }
+    public void SaveStates()
+    {
+        Debug.Log("saving");
+        SaveData saveData = new SaveData
+        {
+            timerSaveData = new TimerSaveData
+            {
+                hours = this.hours,
+                minutes = this.minutes,
+                day = this.day,
+                year = this.year,
+                seasonNum = this.seasonNum,
+            },
+            landsSaveData = new List<LandSaveData>()
         };
 
-        SaveData saveData = new SaveData { timerSaveData = timerData };
+        foreach (Land land in landObjects)
+        {
+
+            saveData.landsSaveData.Add(new LandSaveData
+            {
+                id = land.id,
+                landStatus = land.landStatus,
+                wasWateredYesterday = land.wasWateredYesterday,
+                hasSeedPlanted = land.hasSeedPlanted,
+                currentDayProgression = land.CurrentDayProgression,
+                isCropInstantiated = land.isCropInstantianted,
+                cropDataName = land.crop != null ? land.crop.name : "NoCrop",
+                seedDataName = land.seedData != null ? land.seedData.name : "NoSeedData",
+                seedExists = land.seed != null,
+                seed1Exists = land.seed1 != null,
+                seed2Exists = land.seed2 != null,
+                grownCropExists = land.GrownCrop != null,
+            });
+
+        }
+
         SaveSystem.SaveGame(saveData, 0);
-    }
+}
+    
     private void LoadTimeState()
     {
         SaveData saveData = SaveSystem.LoadGame(0);
@@ -222,7 +261,6 @@ public class Timer : MonoBehaviour
         if (lastDay != day)
         {
             lastDay = day;
-            SaveTimeState();
             quiz.isQuestioinForDayUsed = false;
             StartCoroutine(ShopAssigning());
             foreach (Land land in landObjects)
@@ -303,4 +341,5 @@ public class Timer : MonoBehaviour
         yield return new WaitForEndOfFrame();
         shopInterior.SetActive(false);
     }
+ 
 }

@@ -180,6 +180,7 @@ public class Player : MonoBehaviour
             timer.day++;
         }
         counter++;
+        timer.SaveStates();
         yield return new WaitForSeconds(5);
         counter = 0;
     }

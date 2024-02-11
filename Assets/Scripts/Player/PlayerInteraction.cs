@@ -193,7 +193,7 @@ public class PlayerInteraction : MonoBehaviour
                 // Set the desired rotation (X: -90 degrees)
                 Quaternion desiredRotation = Quaternion.Euler(-90f, 0f, 0f);
 
-                // Instantiate the seed prefab with the modified position and rotation
+                selectedLand.seedData = seedData;
                 selectedLand.seed = Instantiate(seedData.gameModel, landPosition, desiredRotation);
                 selectedLand.seed1 = seedData.seedling1;
                 selectedLand.seed2 = seedData.seedling2;
