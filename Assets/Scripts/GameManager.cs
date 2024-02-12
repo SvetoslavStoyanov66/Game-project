@@ -79,8 +79,6 @@ public class GameManager : MonoBehaviour
         }
         UImanager.Instance.RenderHotbar();
         UImanager.Instance.RenderInventory();
-       
-
     }
     
 

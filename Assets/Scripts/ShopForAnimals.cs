@@ -41,10 +41,10 @@ public class ShopForAnimals : MonoBehaviour
     int cowCount = 0;
 
     [SerializeField]
-    Image smallChickenImage;
+    Sprite smallChickenImage;
 
     [SerializeField]
-    Image smallCowImage;
+    Sprite smallCowImage;
 
     [SerializeField]
 
@@ -94,7 +94,7 @@ public class ShopForAnimals : MonoBehaviour
            animalName.text = "Кокошка";
            animalPicture.sprite = chickenSprite;
            priece.text = "400";
-           smallAnimalImage = smallChickenImage;
+           smallAnimalImage.sprite = smallChickenImage;
            animalCountText.text = chikensCount + "/5";
            noStructureImage = noStructureImageChicken;
 
@@ -104,7 +104,7 @@ public class ShopForAnimals : MonoBehaviour
             animalName.text = "Крава";
             animalPicture.sprite = cowSprite;
             priece.text = "600";    
-            smallAnimalImage = smallCowImage;
+            smallAnimalImage.sprite = smallCowImage;
             animalCountText.text = cowCount + "/5";
             noStructureImage = noStructureImageCow;
 
