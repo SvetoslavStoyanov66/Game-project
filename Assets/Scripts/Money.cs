@@ -23,7 +23,16 @@ public class Money : MonoBehaviour
     void Start()
     {
         moneyText = GetComponent<Text>();
-        moneyAmount = 2000;
+        moneyAmount = 200;
+        LoadMoneyData();
+    }
+    private void LoadMoneyData()
+    {
+        SaveData saveData = SaveSystem.LoadGame();
+        if (saveData != null && saveData.moneySaveData != null)
+        {
+            moneyAmount = saveData.moneySaveData.moneyAmount;
+        }
     }
 
     

@@ -8,6 +8,7 @@ public class SaveData
     public List<LandSaveData> landsSaveData = new List<LandSaveData>();
     public List<InventoryItemSaveData> hotbarItems = new List<InventoryItemSaveData>();
     public List<InventoryItemSaveData> inventoryItems = new List<InventoryItemSaveData>();
+    public MoneySaveData moneySaveData;
 
 }
 
@@ -45,5 +46,14 @@ public class InventoryItemSaveData
     {
         this.itemName = itemName;
         this.quantity = quantity;
+    }
+}
+[System.Serializable]
+public class MoneySaveData
+{
+    public int moneyAmount;
+      public MoneySaveData(int moneyAmount)
+    {
+        this.moneyAmount = moneyAmount;
     }
 }

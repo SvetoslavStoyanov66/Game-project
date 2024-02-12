@@ -95,7 +95,8 @@ public class Timer : MonoBehaviour
                 year = this.year,
                 seasonNum = this.seasonNum,
             },
-            landsSaveData = new List<LandSaveData>()
+            landsSaveData = new List<LandSaveData>(),
+            moneySaveData = new MoneySaveData(Money.Instance.moneyAmount)
             
         };
 
@@ -135,7 +136,7 @@ public class Timer : MonoBehaviour
             saveData.inventoryItems.Add(new InventoryItemSaveData(item.name, item.quantity));
         }
     }
-
+    
         SaveSystem.SaveGame(saveData);
 }
     
