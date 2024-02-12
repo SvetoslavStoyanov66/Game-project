@@ -9,6 +9,7 @@ public class SaveData
     public List<InventoryItemSaveData> hotbarItems = new List<InventoryItemSaveData>();
     public List<InventoryItemSaveData> inventoryItems = new List<InventoryItemSaveData>();
     public MoneySaveData moneySaveData;
+    public List<ItemUnlockedAchievement> itemsUnlockedAchievement = new List<ItemUnlockedAchievement>();
 
 }
 
@@ -58,5 +59,17 @@ public class MoneySaveData
       public MoneySaveData(int moneyAmount)
     {
         this.moneyAmount = moneyAmount;
+    }
+}
+[System.Serializable]
+public class ItemUnlockedAchievement
+{
+    public string itemName;
+    public bool UnlockedAchievement;
+
+    public ItemUnlockedAchievement(string itemName, bool UnlockedAchievement)
+    {
+        this.itemName = itemName;
+        this.UnlockedAchievement = UnlockedAchievement;
     }
 }

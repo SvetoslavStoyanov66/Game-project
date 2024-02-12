@@ -11,7 +11,7 @@ public class AchievementSlot : MonoBehaviour
     [SerializeField]
     Image itemInformationWindow;
     Image exclamationMark;
-    bool exclamationMarkNeed = true;
+    public bool exclamationMarkNeed = true;
 
     public void ItemAssigning(ItemData data)
     {

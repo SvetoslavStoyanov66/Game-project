@@ -43,12 +43,32 @@ public class AchievementManager : MonoBehaviour
         {
             item.achievementUnlock = false;
         }
+        LoadTimeState();
         for(int i = 0;i < items.Count; i++)
         {
             slots[i].ItemAssigning(items[i]);
+            if(items[i].achievementUnlock)
+            {
+                QuizAssigment(items[i]);
+                slots[i].exclamationMarkNeed = false;
+            }
             slots[i].UpdateUI();
         }
     }
+     private void LoadTimeState()
+    {
+        SaveData saveData = SaveSystem.LoadGame();
+        if (saveData != null && saveData.itemsUnlockedAchievement != null)
+        {
+            foreach(ItemData item in items)
+            {
+                ItemUnlockedAchievement achievementData = saveData.itemsUnlockedAchievement.Find(x => x.itemName == item.name);
+                item.achievementUnlock = achievementData.UnlockedAchievement;
+            }
+          
+        }
+    }
+
     public void UnlockingAchievement(string itemName)
     {
         ItemData foundItem  = items.Find(item => item.name == itemName);

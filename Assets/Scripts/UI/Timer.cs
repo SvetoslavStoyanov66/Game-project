@@ -85,6 +85,7 @@ public class Timer : MonoBehaviour
     }
     public void SaveStates()
     {
+        GameManager gameManager = FindObjectOfType<GameManager>();
         SaveData saveData = new SaveData
         {
             timerSaveData = new TimerSaveData
@@ -98,6 +99,7 @@ public class Timer : MonoBehaviour
             landsSaveData = new List<LandSaveData>(),
             moneySaveData = new MoneySaveData(Money.Instance.moneyAmount)
             
+          
         };
 
         foreach (Land land in landObjects)
@@ -117,7 +119,7 @@ public class Timer : MonoBehaviour
                 seed1Exists = land.seed1 != null,
                 seed2Exists = land.seed2 != null,
                 grownCropExists = land.GrownCrop != null,
-                harvestedCropExist = land.seedData is CollectableSeedData,
+                harvestedCropExist = land.seedData is CollectableSeedData, 
                 daysForMultyHarvestableCrops = land.daysForCollectingMultyHarvestableCrops,
                 isHarvestedCropActive = land.harvestedCrop != null ? land.harvestedCrop.activeSelf : false
             });
@@ -138,6 +140,10 @@ public class Timer : MonoBehaviour
         {
             saveData.inventoryItems.Add(new InventoryItemSaveData(item.name, item.quantity));
         }
+    }
+    foreach(var item in gameManager.allItemData)
+    {
+        saveData.itemsUnlockedAchievement.Add(new ItemUnlockedAchievement(item.name,item.achievementUnlock));
     }
     
         SaveSystem.SaveGame(saveData);
