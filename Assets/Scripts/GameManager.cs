@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    GameObject cowShedBuilding;
+    [SerializeField]
+    GameObject coopBuilding;
     void Start()
     {
         LoadGame();
@@ -19,6 +23,29 @@ public class GameManager : MonoBehaviour
         if (saveData == null)
         {
             return;
+        }
+         if (saveData.buildingsSaveData != null && saveData.buildingsSaveData.Count > 0)
+        {
+
+                BuildingSaveData item = saveData.buildingsSaveData.Find(x => x.buildingName == "coop");
+                BuildingSaveData item2 = saveData.buildingsSaveData.Find(x => x.buildingName == "cowShed");
+
+                if(item != null && item.buildingName == "coop")
+                {
+                    BuildingManager.Instance.coopActive = true;
+                    Vector3 position = new Vector3(item.positionX,item.positionY,item.positionZ);
+                    Quaternion quaternion = Quaternion.Euler(-90,0,-90);
+                    coopBuilding = Instantiate(coopBuilding,position,quaternion);
+                    BuildingManager.Instance.SaveBuildingDoor(coopBuilding);
+                }
+                if(item2 != null && item2.buildingName == "cowShed")
+                {
+                    BuildingManager.Instance.cowBuildingActive = true;
+                    Vector3 position = new Vector3(item2.positionX,item2.positionY,item2.positionZ);
+                    Quaternion quaternion = Quaternion.Euler(0,-90,0);
+                    cowShedBuilding = Instantiate(cowShedBuilding,position,quaternion);
+                    BuildingManager.Instance.SaveBuildingDoor(cowShedBuilding);
+                }
         }
 
 
@@ -52,7 +79,9 @@ public class GameManager : MonoBehaviour
         }
         UImanager.Instance.RenderHotbar();
         UImanager.Instance.RenderInventory();
+       
 
     }
+    
 
 }

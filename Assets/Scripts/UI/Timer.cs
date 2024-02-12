@@ -145,9 +145,32 @@ public class Timer : MonoBehaviour
     {
         saveData.itemsUnlockedAchievement.Add(new ItemUnlockedAchievement(item.name,item.achievementUnlock));
     }
-    
+    if(BuildingManager.Instance.isThereActiveCoop())
+    {
+        Vector3 buildingPosition = BuildingManager.Instance.coopVector;
+        float x = buildingPosition.x;
+        float y = buildingPosition.y;
+        float z = buildingPosition.z;
+        Vector3 buildingRotaion = BuildingManager.Instance.coopQuaternion;
+        float x1 = buildingRotaion.x;
+        float y1 = buildingRotaion.x;
+        float z1 = buildingRotaion.x;
+        saveData.buildingsSaveData.Add(new BuildingSaveData("coop",x,y,z,x1,y1,z1));
+    }
+        if (BuildingManager.Instance.isThereActiveCowBuilding())
+        {
+            Vector3 buildingPosition = BuildingManager.Instance.cowShedVector;
+            float x = buildingPosition.x;
+            float y = buildingPosition.y;
+            float z = buildingPosition.z;
+            Vector3 buildingRotaion = BuildingManager.Instance.cowShedQuaternion;
+            float x1 = buildingRotaion.x;
+            float y1 = buildingRotaion.x;
+            float z1 = buildingRotaion.x;
+            saveData.buildingsSaveData.Add(new BuildingSaveData("cowShed", x, y, z,x1,y1,z1));
+        }
         SaveSystem.SaveGame(saveData);
-}
+    }
     
     private void LoadTimeState()
     {

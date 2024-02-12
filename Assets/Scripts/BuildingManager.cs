@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Data.Common;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -48,8 +49,8 @@ public class BuildingManager : MonoBehaviour
    GameObject cowInteriorDoor;
    [SerializeField]
    ExitDoorForAnimalsBuildings cowExitDoor;
-   bool coopActive = false;
-    bool cowBuildingActive = false;
+   public bool coopActive = false;
+   public bool cowBuildingActive = false;
    [SerializeField]
 
    Canvas animalCanvas;
@@ -61,6 +62,11 @@ public class BuildingManager : MonoBehaviour
    int buildingPrice;
 
    string structureType;
+   public Vector3 coopVector;
+   public Vector3 cowShedVector;
+
+   public Vector3 coopQuaternion;
+   public Vector3 cowShedQuaternion;
 
    
     float moveSpeed = 5.0f;
@@ -101,18 +107,6 @@ public class BuildingManager : MonoBehaviour
 
                 positionForInstantiation.y += 0.1f;
                 actulaStructure = Instantiate(actulaStructure);              
-            }
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                if(structure.name == "Chiken farm 1(Clone)")
-                {
-                     structure.transform.Rotate(0, 0, 90);
-                }
-                else
-                {
-                    structure.transform.Rotate(0, 90, 0);
-                }
-               
             }
 
         }
@@ -170,10 +164,14 @@ public class BuildingManager : MonoBehaviour
     if(structureType == "chicken")
     {
         coopActive = true;
+        coopVector = actulaStructure.transform.position;
+        coopQuaternion = actulaStructure.transform.eulerAngles;
     }
     else
     {
         cowBuildingActive = true;
+        cowShedVector = actulaStructure.transform.position;
+        cowShedQuaternion = actulaStructure.transform.eulerAngles;
     }
     
     
@@ -218,5 +216,41 @@ public class BuildingManager : MonoBehaviour
     {
         return cowBuildingActive;
     }
+    public void SaveBuildingDoor(GameObject Structure)
+    {
+        EnterDoorForAnimalsBuildings door = Structure.GetComponent<EnterDoorForAnimalsBuildings>();
+    if (door != null)
+    {
+        if(Structure.name == "Chiken farm(Clone)")
+        {
+            door.Assigment(coopSelection, coopCamera, coopLight, sun, notifier, coopInteriorDoor,animalCanvas);
+        }
+        else
+        {
+            door.Assigment(cowSelection, cowCamera, cowLight, sun ,cowNotifier, cowInteriorDoor,animalCanvas2);
+        }
+        
+    }
+
+    Transform exitDoorTransform = Structure.gameObject.transform;
+    if (exitDoorTransform.childCount > 0)
+    { 
+        
+             GameObject childObject = exitDoorTransform.GetChild(0).gameObject;
+              if (childObject != null)
+               {
+                   if(Structure.name == "Chiken farm(Clone)")
+                    {
+                        coopExitDoor.DoorAssigment(childObject);
+                    }
+                    else
+                    {
+                        cowExitDoor.DoorAssigment(childObject);
+                    }
+               }
+       
+    }
+    }
+
    
 }
