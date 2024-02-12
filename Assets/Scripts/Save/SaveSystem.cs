@@ -4,12 +4,13 @@ using UnityEngine;
 
 public static class SaveSystem
 {
-     public static void SaveGame(SaveData data, int slot)
+    public static int slot { get; set; }
+     public static void SaveGame(SaveData data)
     {
         string json = JsonUtility.ToJson(data);
         System.IO.File.WriteAllText(Application.persistentDataPath + $"/save{slot}.json", json);
     }
-     public static SaveData LoadGame(int slot)
+     public static SaveData LoadGame()
     {
         string path = Application.persistentDataPath + $"/save{slot}.json";
         if (System.IO.File.Exists(path))

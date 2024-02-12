@@ -5,12 +5,34 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
+    [SerializeField]
+    GameObject slotsMenu;
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape) && slotsMenu.activeSelf)
+        {
+            slotsMenu.SetActive(false);
+        }
+    }
     public void PlayButtonFunction()
     {
-        SceneManager.LoadScene(1);
+        slotsMenu.SetActive(true);
     }
-    public void LeaveButtonFunction()
+
+    public void OpenSettingsButton()
     {
-        Application.Quit();
+
+    }
+
+    public void ExitGameButton()
+    {
+        Application.Quit(); 
+    }
+
+    public void SlotButtonFunction(int num)
+    {
+        SaveSystem.slot = num;
+        SceneManager.LoadScene(1);
     }
 }

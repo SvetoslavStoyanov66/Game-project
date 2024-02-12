@@ -15,29 +15,40 @@ public class GameManager : MonoBehaviour
     }
     public void LoadGame()
     {
-        SaveData saveData = SaveSystem.LoadGame(0);
-
-        Inventory.Instance.hotbarItems = new ItemData[8];
-        for (int i = 0; i < saveData.hotbarItems.Count; i++)
+        SaveData saveData = SaveSystem.LoadGame();
+        if (saveData == null)
         {
-            var itemSaveData = saveData.hotbarItems[i];
-            ItemData item = GetItemDataByName(itemSaveData.itemName);
+            return;
+        }
+
+
+        if (saveData.hotbarItems != null && saveData.hotbarItems.Count > 0)
+        {
+            Inventory.Instance.hotbarItems = new ItemData[8];
+            for (int i = 0; i < saveData.hotbarItems.Count; i++)
             {
-                item.quantity = itemSaveData.quantity;
-                Inventory.Instance.hotbarItems[i] = item;
+                var itemSaveData = saveData.hotbarItems[i];
+                ItemData item = GetItemDataByName(itemSaveData.itemName);
+                {
+                    item.quantity = itemSaveData.quantity;
+                    Inventory.Instance.hotbarItems[i] = item;
+                }
             }
         }
 
-        Inventory.Instance.inventoryItems = new ItemData[12];
-        for (int i = 0; i < saveData.inventoryItems.Count; i++)
+        if (saveData.inventoryItems != null && saveData.inventoryItems.Count > 0)
         {
-            var itemSaveData = saveData.inventoryItems[i];
-            ItemData item = GetItemDataByName(itemSaveData.itemName);
+            Inventory.Instance.inventoryItems = new ItemData[12];
+            for (int i = 0; i < saveData.inventoryItems.Count; i++)
             {
-                item.quantity = itemSaveData.quantity;
-                Inventory.Instance.inventoryItems[i] = item;
-            }
+                var itemSaveData = saveData.inventoryItems[i];
+                ItemData item = GetItemDataByName(itemSaveData.itemName);
+                {
+                    item.quantity = itemSaveData.quantity;
+                    Inventory.Instance.inventoryItems[i] = item;
+                }
 
+            }
         }
         UImanager.Instance.RenderHotbar();
         UImanager.Instance.RenderInventory();

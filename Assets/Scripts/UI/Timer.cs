@@ -136,12 +136,12 @@ public class Timer : MonoBehaviour
         }
     }
 
-        SaveSystem.SaveGame(saveData, 0);
+        SaveSystem.SaveGame(saveData);
 }
     
     private void LoadTimeState()
     {
-        SaveData saveData = SaveSystem.LoadGame(0);
+        SaveData saveData = SaveSystem.LoadGame();
         if (saveData != null && saveData.timerSaveData != null)
         {
             TimerSaveData timerData = saveData.timerSaveData;

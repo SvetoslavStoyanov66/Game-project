@@ -49,7 +49,7 @@ public class Land : MonoBehaviour
     }
     public void LoadLandState()
     {
-        SaveData saveData = SaveSystem.LoadGame(0);
+        SaveData saveData = SaveSystem.LoadGame();
         if (saveData != null && saveData.landsSaveData != null)
         {
             LandSaveData landSaveData = saveData.landsSaveData.Find(x => x.id == this.id);
