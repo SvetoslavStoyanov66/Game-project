@@ -117,6 +117,9 @@ public class Timer : MonoBehaviour
                 seed1Exists = land.seed1 != null,
                 seed2Exists = land.seed2 != null,
                 grownCropExists = land.GrownCrop != null,
+                harvestedCropExist = land.seedData is CollectableSeedData,
+                daysForMultyHarvestableCrops = land.daysForCollectingMultyHarvestableCrops,
+                isHarvestedCropActive = land.harvestedCrop != null ? land.harvestedCrop.activeSelf : false
             });
 
         }

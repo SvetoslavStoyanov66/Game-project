@@ -36,6 +36,9 @@ public class LandSaveData
     public bool seed1Exists;
     public bool seed2Exists;
     public bool grownCropExists;
+    public bool harvestedCropExist;
+    public int daysForMultyHarvestableCrops;
+    public bool isHarvestedCropActive;
 }
 [System.Serializable]
 public class InventoryItemSaveData

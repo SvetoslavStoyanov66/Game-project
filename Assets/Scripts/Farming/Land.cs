@@ -39,7 +39,7 @@ public class Land : MonoBehaviour
 
     public GameObject harvestedCrop;
 
-    int daysForCollectingMultyHarvestableCrops = 3;
+    public int daysForCollectingMultyHarvestableCrops = 3;
     bool InstantiatedHarvestedCrop = false;
     
       void Start()
@@ -81,6 +81,10 @@ public class Land : MonoBehaviour
                 {
                     if (landSaveData.seedExists && crop != null && seedData != null)
                     {
+                        if (seedData.name == "Potato Seed")
+                        {
+                            position.z += -.2f;
+                        }
                         desiredRotation = Quaternion.Euler(-90f, 0f, 0f);
                         seed = Instantiate(seedData.gameModel, position, desiredRotation);
                         seed1 = seedData.seedling1;
@@ -89,18 +93,52 @@ public class Land : MonoBehaviour
                     }
                     else if (landSaveData.seed1Exists && crop != null && seedData != null)
                     {
+                        if (crop.gameModel != null && crop.gameModel.tag == "seed1")
+                        {
+                            desiredRotation = Quaternion.Euler(-90f, 0f, 0f);
+                        }
                         seed1 = Instantiate(seedData.seedling1, position, desiredRotation);
                         seed2 = seedData.seedling2;
                         GrownCrop = crop.gameModel;
                     }
                     else if (landSaveData.seed2Exists && crop != null && seedData != null)
                     {
+                        if (crop.gameModel != null && crop.gameModel.tag == "seed1")
+                        {
+                            desiredRotation = Quaternion.Euler(-90f, 0f, 0f);
+                        }
+
                         seed2 = Instantiate(seedData.seedling2, position, desiredRotation);
                         GrownCrop = crop.gameModel;
                     }
                     else if (landSaveData.grownCropExists && crop != null && seedData != null)
                     {
+                        if (crop.gameModel != null && crop.gameModel.tag == "seed1")
+                        {
+                            desiredRotation = Quaternion.Euler(-90f, 0f, 0f);
+                        }
+                        if(landSaveData.harvestedCropExist)
+                        {
+                            InstantiatedHarvestedCrop = true;
+                            hasMultyCollectableSeed = true;
+                            GrownCrop = Instantiate(crop.gameModel, position, desiredRotation);
+                            daysForCollectingMultyHarvestableCrops = landSaveData.daysForMultyHarvestableCrops;
+                            harvestedCrop = Instantiate((seedData as CollectableSeedData).harvestedGrownCrop, position, desiredRotation);
+                            if(landSaveData.isHarvestedCropActive)
+                            {
+                                GrownCrop.SetActive(false);
+                                harvestedCrop.SetActive(true);
+                            }
+                            else
+                            {
+                                harvestedCrop.SetActive(false);
+                            }
+
+                        }
+                        else
+                        {
                         GrownCrop = Instantiate(crop.gameModel, position, desiredRotation);
+                        }
                     }
                 }
 
