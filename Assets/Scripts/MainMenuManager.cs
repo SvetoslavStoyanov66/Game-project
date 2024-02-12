@@ -62,4 +62,12 @@ public class MainMenuManager : MonoBehaviour
         SaveSystem.slot = num;
         SceneManager.LoadScene(1);
     }
+    public void DeleteButtonFunction(int slot)
+    {
+        SaveSystem.DeleteSaveGame(slot);
+        GameObject textEmpty = sltos[slot].transform.GetChild(2).gameObject;
+        GameObject deleteSlotButton = sltos[slot].transform.GetChild(3).gameObject;
+        textEmpty.SetActive(true);
+        deleteSlotButton.SetActive(false);
+    }
 }

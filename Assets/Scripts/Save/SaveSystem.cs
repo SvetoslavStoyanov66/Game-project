@@ -22,7 +22,7 @@ public static class SaveSystem
         }
         return null;
     }
-    public static void DeleteSaveGame()
+    public static void DeleteSaveGame(int slot)
     {
         string path = Application.persistentDataPath + $"/save{slot}.json";
         if (System.IO.File.Exists(path))
@@ -33,12 +33,14 @@ public static class SaveSystem
     public static bool isSafeSlotEmpty(int slot)
     {
         string path = Application.persistentDataPath + $"/save{slot}.json";
-        string content = File.ReadAllText(path);
-        if (string.IsNullOrWhiteSpace(content))
+
+        if (!System.IO.File.Exists(path))
         {
             return true;
         }
 
-        return false;
+        string content = File.ReadAllText(path);
+
+        return string.IsNullOrWhiteSpace(content);
     }
 }
