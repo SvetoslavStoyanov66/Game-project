@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public static class SaveSystem
 {
@@ -20,5 +21,24 @@ public static class SaveSystem
             return data;
         }
         return null;
+    }
+    public static void DeleteSaveGame()
+    {
+        string path = Application.persistentDataPath + $"/save{slot}.json";
+        if (System.IO.File.Exists(path))
+        {
+            System.IO.File.Delete(path);
+        }
+    }
+    public static bool isSafeSlotEmpty(int slot)
+    {
+        string path = Application.persistentDataPath + $"/save{slot}.json";
+        string content = File.ReadAllText(path);
+        if (string.IsNullOrWhiteSpace(content))
+        {
+            return true;
+        }
+
+        return false;
     }
 }

@@ -7,6 +7,33 @@ public class MainMenuManager : MonoBehaviour
 {
     [SerializeField]
     GameObject slotsMenu;
+    [SerializeField]
+    GameObject[] sltos = new GameObject[3];
+
+    void Start()
+    {
+        if (!SaveSystem.isSafeSlotEmpty(0))
+        {
+            GameObject textEmpty = sltos[0].transform.GetChild(2).gameObject;
+            GameObject deleteSlotButton = sltos[0].transform.GetChild(3).gameObject;
+            textEmpty.SetActive(false);
+            deleteSlotButton.SetActive(true);
+        }
+        if (!SaveSystem.isSafeSlotEmpty(1))
+        {
+            GameObject textEmpty = sltos[1].transform.GetChild(2).gameObject;
+            GameObject deleteSlotButton = sltos[1].transform.GetChild(3).gameObject;
+            textEmpty.SetActive(false);
+            deleteSlotButton.SetActive(true);
+        }
+        if (!SaveSystem.isSafeSlotEmpty(2))
+        {
+            GameObject textEmpty = sltos[2].transform.GetChild(2).gameObject;
+            GameObject deleteSlotButton = sltos[2].transform.GetChild(3).gameObject;
+            textEmpty.SetActive(false);
+            deleteSlotButton.SetActive(true);
+        }
+    }
 
     void Update()
     {
