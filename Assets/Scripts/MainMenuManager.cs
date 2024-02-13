@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -12,26 +13,66 @@ public class MainMenuManager : MonoBehaviour
 
     void Start()
     {
-        if (!SaveSystem.isSafeSlotEmpty(0))
+        SlotStateAssigning(0);
+        SlotStateAssigning(1);
+        SlotStateAssigning(2);
+    }
+    private void SlotStateAssigning(int slot)
+    {
+         if (!SaveSystem.isSafeSlotEmpty(slot))
         {
-            GameObject textEmpty = sltos[0].transform.GetChild(2).gameObject;
-            GameObject deleteSlotButton = sltos[0].transform.GetChild(3).gameObject;
+            GameObject textEmpty = sltos[slot].transform.GetChild(2).gameObject;
+            GameObject deleteSlotButton = sltos[slot].transform.GetChild(3).gameObject;
             textEmpty.SetActive(false);
             deleteSlotButton.SetActive(true);
-        }
-        if (!SaveSystem.isSafeSlotEmpty(1))
-        {
-            GameObject textEmpty = sltos[1].transform.GetChild(2).gameObject;
-            GameObject deleteSlotButton = sltos[1].transform.GetChild(3).gameObject;
-            textEmpty.SetActive(false);
-            deleteSlotButton.SetActive(true);
-        }
-        if (!SaveSystem.isSafeSlotEmpty(2))
-        {
-            GameObject textEmpty = sltos[2].transform.GetChild(2).gameObject;
-            GameObject deleteSlotButton = sltos[2].transform.GetChild(3).gameObject;
-            textEmpty.SetActive(false);
-            deleteSlotButton.SetActive(true);
+            GameObject textGameObject = sltos[slot].transform.GetChild(4).gameObject;
+            textGameObject.SetActive(true);
+            Text textMoneyAmount = textGameObject.GetComponent<Text>();
+            Text yearText = textGameObject.transform.GetChild(3).GetComponent<Text>();
+            Text seasonText = textGameObject.transform.GetChild(4).GetComponent<Text>();
+            Text dateText = textGameObject.transform.GetChild(5).GetComponent<Text>();
+            Text achievementText = textGameObject.transform.GetChild(1).GetComponent<Text>();
+            SaveData saveData = SaveSystem.LoadGameByInt(slot);
+            if (saveData != null && saveData.timerSaveData != null)
+            {
+                TimerSaveData timerData = saveData.timerSaveData;
+                yearText.text = "Година: " + timerData.year;
+                string season = "";
+                switch (timerData.seasonNum)
+                {
+                    case 0:
+                        season = "пролет";
+                        break;
+                    case 1:
+                        season = "лято";
+                        break;
+                    case 2:
+                        season = "есен";
+                        break;
+                    case 3:
+                        season = "зима";
+                        break;
+                }
+                seasonText.text = "Сесон: " + season;
+                dateText.text = "Дата: " + timerData.day;
+            }
+             if (saveData != null && saveData.itemsUnlockedAchievement != null)
+            {
+                int counter = 0;
+                foreach(ItemUnlockedAchievement item in saveData.itemsUnlockedAchievement)
+                {
+                    if(item.UnlockedAchievement)
+                    {
+                        counter++;
+                    }
+                }
+                achievementText.text = counter.ToString();
+            }
+            if (saveData != null && saveData.moneySaveData != null)
+            {
+                textMoneyAmount.text = saveData.moneySaveData.moneyAmount.ToString();
+            }
+
         }
     }
 

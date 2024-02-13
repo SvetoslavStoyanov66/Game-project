@@ -43,4 +43,15 @@ public static class SaveSystem
 
         return string.IsNullOrWhiteSpace(content);
     }
+     public static SaveData LoadGameByInt(int slot)
+    {
+        string path = Application.persistentDataPath + $"/save{slot}.json";
+        if (System.IO.File.Exists(path))
+        {
+            string json = System.IO.File.ReadAllText(path);
+            SaveData data = JsonUtility.FromJson<SaveData>(json);
+            return data;
+        }
+        return null;
+    }
 }

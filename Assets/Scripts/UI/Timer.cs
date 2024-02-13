@@ -32,7 +32,7 @@ public class Timer : MonoBehaviour
     public int hours = 6;
     private int minutes = 0;
     private float elapsedTime;
-    public int year;
+    public int year = 1;
     public int day = 1;
     public int seasonNum;
     private int lastDay;
