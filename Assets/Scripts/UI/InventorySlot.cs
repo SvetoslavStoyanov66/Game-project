@@ -167,7 +167,14 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     }
     public ItemData Get_Item()
     {
-        return Inventory.Instance.hotbarItems[slotIndex];
+        if(Inventory.Instance.hotbarItems[slotIndex] != null)
+        {
+            return Inventory.Instance.hotbarItems[slotIndex];
+        }
+        else
+        {
+            return null;
+        }  
     }
 
 }

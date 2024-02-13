@@ -149,13 +149,20 @@ public class GameManager : MonoBehaviour
              }
         }
         UImanager.Instance.RenderHotbar();
-        UImanager.Instance.RenderInventory();
+        StartCoroutine(Render());
     }
     IEnumerator Spowning(int num,GameObject prefab,string name)
     {
         Coop coop = FindObjectOfType<Coop>();
         yield return new WaitForEndOfFrame();
         coop.SpownChicken(num,prefab,name);
+    }
+      IEnumerator Render()
+    {
+        UImanager.Instance.inventoryPanel.SetActive(true);
+        UImanager.Instance.RenderInventory();
+        yield return new WaitForEndOfFrame();
+        UImanager.Instance.inventoryPanel.SetActive(false);
     }
  
     

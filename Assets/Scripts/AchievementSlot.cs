@@ -55,7 +55,6 @@ public class AchievementSlot : MonoBehaviour
             Text discription = viewPortTransform.GetChild(0).GetComponent<Text>();
             Image image = itemInformationWindow.transform.GetChild(2).GetComponent<Image>();
             Animator animationImage = itemInformationWindow.transform.GetChild(4).GetComponent<Animator>();
-            Debug.LogAssertion(item.name + "Animation");
             if (animationImage.HasState(0, Animator.StringToHash(item.name + "Animation")))
             {
                 animationImage.Play(item.name + "Animation");
