@@ -18,7 +18,7 @@ MonoBehaviour:
   gameModel: {fileID: 6142101953144403879, guid: 1744a2362712c234eb7079e3f867fb0e,
     type: 3}
   quantity: 1
-  achievementUnlock: 0
+  achievementUnlock: 1
   achievementDiscription: "\u041B\u0443\u043A\u044A\u0442 (Allium cepa) \u0435 \u0448\u0438\u0440\u043E\u043A\u043E
     \u0440\u0430\u0437\u043F\u0440\u043E\u0441\u0442\u0440\u0430\u043D\u0435\u043D
     \u0437\u0435\u043B\u0435\u043D\u0447\u0443\u043A, \u043F\u0440\u0438\u043D\u0430\u0434\u043B\u0435\u0436\u0430\u0449

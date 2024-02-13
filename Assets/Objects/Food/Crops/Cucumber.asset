@@ -18,7 +18,7 @@ MonoBehaviour:
   gameModel: {fileID: 6800767813351584579, guid: 0880c7d7ec5064b4ebef0d6df25016b7,
     type: 3}
   quantity: 1
-  achievementUnlock: 0
+  achievementUnlock: 1
   achievementDiscription: "\u041A\u0440\u0430\u0441\u0442\u0430\u0432\u0438\u0446\u0438\u0442\u0435,
     \u043D\u0430\u0443\u0447\u043D\u043E \u0438\u0437\u0432\u0435\u0441\u0442\u043D\u0438
     \u043A\u0430\u0442\u043E Cucumis sativus, \u0441\u0430 \u0448\u0438\u0440\u043E\u043A\u043E

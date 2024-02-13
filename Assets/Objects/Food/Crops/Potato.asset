@@ -18,7 +18,7 @@ MonoBehaviour:
   gameModel: {fileID: 8733661494922999809, guid: a0f16181ffc6d3f43b193d7a51842fe5,
     type: 3}
   quantity: 1
-  achievementUnlock: 0
+  achievementUnlock: 1
   achievementDiscription: "\u041A\u0430\u0440\u0442\u043E\u0444\u0438\u0442\u0435,
     \u043D\u0430\u0443\u0447\u043D\u043E \u0438\u0437\u0432\u0435\u0441\u0442\u043D\u0438
     \u043A\u0430\u0442\u043E Solanum tuberosum, \u0441\u0430 \u043E\u0441\u043D\u043E\u0432\u0435\u043D
