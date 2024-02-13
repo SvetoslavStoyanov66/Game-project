@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -265,6 +266,8 @@ public class Land : MonoBehaviour
             daysForCollectingMultyHarvestableCrops = 3;
             InstantiatedHarvestedCrop = false;
             isCropInstantianted = false;
+            Timer timer = FindObjectOfType<Timer>();
+            timer.aveibleForPickUpCropsCountManagement(-1);
         }
     }
     public void Grow()
@@ -297,10 +300,12 @@ public class Land : MonoBehaviour
                     else if (seed2 != null && GrownCrop != null)
                     {
                         GrownCrop = Instantiate(GrownCrop, position, desiredRotation);
+                        Timer timer = FindObjectOfType<Timer>();
+                        timer.aveibleForPickUpCropsCountManagement(1);
                         isCropInstantianted = true;
                         Destroy(seed2);
                     }
-                    else if(harvestedCrop != null && harvestedCrop.activeSelf)
+                    else if (harvestedCrop != null && harvestedCrop.activeSelf)
                     {
                         GrownCrop.SetActive(true);
                         harvestedCrop.SetActive(false);

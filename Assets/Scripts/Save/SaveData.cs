@@ -23,6 +23,7 @@ public class TimerSaveData
     public int day;
     public int year;
     public int seasonNum;
+    public int aveibleForPickUpCropsCount;
 }
 [System.Serializable]
 public class LandSaveData

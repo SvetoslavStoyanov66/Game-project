@@ -15,10 +15,7 @@ public class PlayerInteraction : MonoBehaviour
     UImanager manager;
     [SerializeField]
     Inventory inventory;
-    [SerializeField]
-    private GameObject wateringCan;
-    [SerializeField]
-    WateringAnim wateringAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -97,6 +94,8 @@ public class PlayerInteraction : MonoBehaviour
                         AchievementManager.Instance.UnlockingAchievement(crop.name);
                         AchievementManager.Instance.ExlmactionMarkActivation();
                     }
+                    Timer timer = FindObjectOfType<Timer>();
+                    timer.aveibleForPickUpCropsCountManagement(-1);
                     selectedLand.isCropInstantianted = false;
                 }
             }

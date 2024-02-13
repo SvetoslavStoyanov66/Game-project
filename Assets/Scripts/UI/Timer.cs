@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Xsl;
@@ -28,6 +29,9 @@ public class Timer : MonoBehaviour
     List<PlacesForEggs> placesForEggs = new List<PlacesForEggs>();
     [SerializeField]
     Quiz quiz;
+    [SerializeField]
+    Text aveibleForPickUpCropsCountText;
+    int aveibleForPickUpCropsCount = 0;
 
     public int hours = 6;
     private int minutes = 0;
@@ -71,6 +75,7 @@ public class Timer : MonoBehaviour
         AssignLandIndex();
         timerText.fontSize = fontSize;
         LoadTimeState();
+        aveibleForPickUpCropsCountManagement(0);
     }
     private void AssignLandIndex()
     {
@@ -82,6 +87,11 @@ public class Timer : MonoBehaviour
             counter++;
         }
 
+    }
+    public void aveibleForPickUpCropsCountManagement(int num)
+    {
+        aveibleForPickUpCropsCount += num;
+        aveibleForPickUpCropsCountText.text = aveibleForPickUpCropsCount.ToString();
     }
     public void SaveStates()
     {
@@ -95,6 +105,7 @@ public class Timer : MonoBehaviour
                 day = this.day,
                 year = this.year,
                 seasonNum = this.seasonNum,
+                aveibleForPickUpCropsCount = this.aveibleForPickUpCropsCount
             },
             landsSaveData = new List<LandSaveData>(),
             moneySaveData = new MoneySaveData(Money.Instance.moneyAmount)
@@ -185,6 +196,7 @@ public class Timer : MonoBehaviour
             day = timerData.day;
             year = timerData.year;
             seasonNum = timerData.seasonNum;
+            aveibleForPickUpCropsCount = timerData.aveibleForPickUpCropsCount;
 
             UpdateUI();
         }
@@ -323,7 +335,7 @@ public class Timer : MonoBehaviour
                 }
             }
             // Generate a random number between 0 and 1
-            float randomChance = Random.Range(0f, 1f);
+            float randomChance = UnityEngine.Random.Range(0f, 1f);
 
             // Activate particle system with a 30% chance
             if (randomChance <= 0.3f)  // 30% chance

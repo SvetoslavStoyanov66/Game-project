@@ -110,5 +110,7 @@ public class MainMenuManager : MonoBehaviour
         GameObject deleteSlotButton = sltos[slot].transform.GetChild(3).gameObject;
         textEmpty.SetActive(true);
         deleteSlotButton.SetActive(false);
+        GameObject textGameObject = sltos[slot].transform.GetChild(4).gameObject;
+        textGameObject.SetActive(false);
     }
 }
