@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,9 +13,55 @@ public class GameManager : MonoBehaviour
     GameObject chickenBrown;
     [SerializeField]
     GameObject chickenWhite;
+    [SerializeField]
+    public Sprite[] sprites;
+    private int currentIndex = 0; 
+    [SerializeField]
+    public Image spriteDisplay;
+    [SerializeField]
+    Sprite spriteForTown;
     void Start()
     {
+        if(SaveSystem.isSafeSlotEmpty(SaveSystem.slot))
+        {
+            spriteDisplay.gameObject.SetActive(true);
+            spriteDisplay.sprite = sprites[0];
+        }
+        else 
+        {
+            Destroy(spriteDisplay.gameObject);
+        }
         LoadGame();
+    }
+     void Update()
+    {
+        if (Input.anyKeyDown && spriteDisplay!=null && spriteDisplay.sprite != spriteForTown)
+        {
+            ChangeSprite();
+        }
+        else if(Input.anyKeyDown  && spriteDisplay!=null)
+        {
+            Destroy(spriteDisplay.gameObject);
+        }
+    }
+    public void EneableTownTurtorial()
+    {
+        spriteDisplay.gameObject.SetActive(true);
+        spriteDisplay.sprite = spriteForTown;
+        spriteDisplay.rectTransform.sizeDelta = new Vector2(1500,750);
+    }
+    void ChangeSprite()
+    {
+        currentIndex++;
+
+        if (currentIndex < sprites.Length)
+        {
+            spriteDisplay.sprite = sprites[currentIndex];
+        }
+        else
+        {
+            spriteDisplay.gameObject.SetActive(false);
+        }
     }
     public List<ItemData> allItemData;
     private GameObject ch;

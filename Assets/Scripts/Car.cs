@@ -70,6 +70,11 @@ public class Car : MonoBehaviour
       darking.animator.SetBool("IsDarken", false);
       yield return new WaitForSeconds(1f);
       animator.SetBool("isDriving", false);
+      GameManager gameManager = FindObjectOfType<GameManager>();
+       if(gameObject.name == "Pickup truck" && gameManager.spriteDisplay != null && SaveSystem.isSafeSlotEmpty(SaveSystem.slot))
+      {
+         gameManager.EneableTownTurtorial();
+      }
       
    }
 }
