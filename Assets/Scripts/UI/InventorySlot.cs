@@ -71,7 +71,7 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             UImanager.Instance.RenderInventory();
 
         }
-        else if (itemToDisplay != null && Shop.Instance.isShopOpen)
+        else if (itemToDisplay != null && Shop.Instance.isShopOpen && itemToDisplay.name != "Hoe" && itemToDisplay.name != "Wateringcan")
         {
             if (Inventory.Instance != null && slotIndex >= 0 && slotIndex < Inventory.Instance.inventoryItems.Length && Inventory.Instance.inventoryItems[slotIndex] != null)
             {

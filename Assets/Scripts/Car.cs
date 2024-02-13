@@ -68,13 +68,13 @@ public class Car : MonoBehaviour
       animator.SetBool("isDriving", true);
       yield return new WaitForSeconds(3f);
       darking.animator.SetBool("IsDarken", false);
+      GameManager gameManager = FindObjectOfType<GameManager>();
+    if (gameObject.name == "Pickup truck" && gameManager.spriteDisplay != null && SaveSystem.isSafeSlotEmpty(SaveSystem.slot))
+    {
+      gameManager.EneableTownTurtorial();
+    }
       yield return new WaitForSeconds(1f);
       animator.SetBool("isDriving", false);
-      GameManager gameManager = FindObjectOfType<GameManager>();
-       if(gameObject.name == "Pickup truck" && gameManager.spriteDisplay != null && SaveSystem.isSafeSlotEmpty(SaveSystem.slot))
-      {
-         gameManager.EneableTownTurtorial();
-      }
-      
-   }
+
+  }
 }
