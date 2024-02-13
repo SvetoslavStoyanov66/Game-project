@@ -33,6 +33,11 @@ public class ExitDoor : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && selection.activeSelf && !house.activeSelf && inHouse.activeSelf)
         {
+            Rain rain = FindObjectOfType<Rain>();
+            if(rain != null)
+            {
+                rain.ExitingBuildingWhileRaining();
+            }
             selection.SetActive(false);
             notifier.SetActive(false);
             house.SetActive(true);

@@ -26,6 +26,11 @@ public class EnterDoorForAnimalsBuildings : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && selection.activeSelf)
         {
+            Rain rain = FindObjectOfType<Rain>();
+            if(rain != null)
+            {
+                rain.EnteringBuildingWhileRaining();
+            }
             MainCamera mainCamera = FindObjectOfType<MainCamera>();
             mainCamera.PlayerFollowing(false);
             selection.SetActive(false);

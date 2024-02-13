@@ -334,6 +334,8 @@ public class Timer : MonoBehaviour
                 {
                     land.isRaining = true;
                 }
+                Rain rain = FindObjectOfType<Rain>();
+                rain.isRaining = true;
             }
             else
             {
@@ -343,6 +345,8 @@ public class Timer : MonoBehaviour
                 {
                     land.isRaining = false;
                 }
+                Rain rain = FindObjectOfType<Rain>();
+                rain.isRaining = false;
             }
             foreach(AnimalMovement chicken in chickens)
             {

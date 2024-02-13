@@ -4,21 +4,21 @@ using static Land;
 
 public class Rain : MonoBehaviour
 {
-    [SerializeField]
-    List<Land> lands;
-    private float timeSinceLastReset = 0f;
     public bool isRaining = false;
-    private void Update()
+    public void EnteringBuildingWhileRaining()
     {
-        timeSinceLastReset += Time.deltaTime; // Increment the timer in each frame
-        foreach (Land landObg in lands)
+        if(isRaining)
         {
-            if (timeSinceLastReset >= 10f)
-            {
-                Debug.Log("Resetting land to Watered");
-                landObg.SwitchLandStatus(LandStatus.Watared);
-                timeSinceLastReset = 0f;
-            }
+            GameObject particleSystem = gameObject.transform.GetChild(0).gameObject;
+            particleSystem.SetActive(false);
+        }
+    }
+    public void ExitingBuildingWhileRaining()
+    {
+        if(isRaining)
+        {
+            GameObject particleSystem = gameObject.transform.GetChild(0).gameObject;
+            particleSystem.SetActive(true);
         }
     }
 }

@@ -32,6 +32,11 @@ public class EnterDoor : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && selection.activeSelf && house.activeSelf && !inHouse.activeSelf)
         {
+            Rain rain = FindObjectOfType<Rain>();
+            if(rain != null)
+            {
+                rain.EnteringBuildingWhileRaining();
+            }
             house.SetActive(false);
             inHouse.SetActive(true);
             selection.SetActive(false);
