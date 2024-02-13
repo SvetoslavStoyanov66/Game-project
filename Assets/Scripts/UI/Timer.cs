@@ -44,20 +44,20 @@ public class Timer : MonoBehaviour
     Coop coop;
     public enum Season
     {
-        Spring,
-        Summer,
-        Fall,
-        Winter
+        Пролет,
+        Лято,
+        Есен,
+        Зима
     }
     public enum Week
     {
-        Saturday,
-        Sunday,
-        Monday,
-        Tuesday,
-        Wednesday,
-        Thursday,
-        Friday
+        Събота,
+        Неделя,
+        Понеделник,
+        Вторник,
+        Сряда,
+        Четвъртък,
+        Петък
     }
 
     public Season season;
