@@ -11,6 +11,7 @@ public class SaveData
     public MoneySaveData moneySaveData;
     public List<ItemUnlockedAchievement> itemsUnlockedAchievement = new List<ItemUnlockedAchievement>();
     public List<BuildingSaveData> buildingsSaveData = new List<BuildingSaveData>();
+    public List<AnimalSaveData> animalsSaveData = new List<AnimalSaveData>();
 
 }
 
@@ -94,4 +95,15 @@ public class BuildingSaveData
         this.rotationY = rotationY;
         this.rotationZ = rotationZ;
     }
+}
+[System.Serializable]
+public class AnimalSaveData
+{
+public string name;
+public string color;
+public AnimalSaveData(string name,string color)
+{
+    this.name = name;
+    this.color = color;
+}
 }

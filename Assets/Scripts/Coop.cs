@@ -16,12 +16,14 @@ public class Coop : MonoBehaviour
     Timer timer;    
     [SerializeField]
     Text aveibleEggsText;
+    List<Chiken> chickensCLass = new List<Chiken>();
     public void SpownChicken(int id,GameObject prefab,string name)
     {
         
         if(id <= 5)
         {
             Chiken chicken = new Chiken(id,prefab,name);
+            chickensCLass.Add(chicken);
             prefab = Instantiate(prefab, spownPoints[id - 1].position ,Quaternion.identity);
             chickenBorders[id - 1].SetActive(true);
             AssignAnimalUI(chicken,chickenBorders[id - 1]);
@@ -30,6 +32,23 @@ public class Coop : MonoBehaviour
             timer.chickens.Add(animal);
         }
 
+    }
+    public void SaveChickenData(SaveData saveData)
+    {
+        foreach(Chiken chiken in chickensCLass)
+        {
+            string color;
+            Debug.Log(chiken.PreFab.name);
+            if(chiken.PreFab.name == "Chicken brown")
+            {
+                color = "brown";
+            }
+            else
+            {
+                color = "white";
+            }
+            saveData.animalsSaveData.Add(new AnimalSaveData(chiken.Name,color));
+        }
     }
     private void AssignAnimalUI(Chiken chiken,GameObject uiBox)
     {

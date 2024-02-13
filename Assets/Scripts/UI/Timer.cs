@@ -98,8 +98,8 @@ public class Timer : MonoBehaviour
             },
             landsSaveData = new List<LandSaveData>(),
             moneySaveData = new MoneySaveData(Money.Instance.moneyAmount)
-            
-          
+
+
         };
 
         foreach (Land land in landObjects)
@@ -119,44 +119,44 @@ public class Timer : MonoBehaviour
                 seed1Exists = land.seed1 != null,
                 seed2Exists = land.seed2 != null,
                 grownCropExists = land.GrownCrop != null,
-                harvestedCropExist = land.seedData is CollectableSeedData, 
+                harvestedCropExist = land.seedData is CollectableSeedData,
                 daysForMultyHarvestableCrops = land.daysForCollectingMultyHarvestableCrops,
                 isHarvestedCropActive = land.harvestedCrop != null ? land.harvestedCrop.activeSelf : false
             });
 
         }
-        
-         foreach (var item in Inventory.Instance.hotbarItems)
-    {
-        if (item != null)
-        {
-            saveData.hotbarItems.Add(new InventoryItemSaveData(item.name, item.quantity));
-        }
-    }
 
-    foreach (var item in Inventory.Instance.inventoryItems)
-    {
-        if (item != null)
+        foreach (var item in Inventory.Instance.hotbarItems)
         {
-            saveData.inventoryItems.Add(new InventoryItemSaveData(item.name, item.quantity));
+            if (item != null)
+            {
+                saveData.hotbarItems.Add(new InventoryItemSaveData(item.name, item.quantity));
+            }
         }
-    }
-    foreach(var item in gameManager.allItemData)
-    {
-        saveData.itemsUnlockedAchievement.Add(new ItemUnlockedAchievement(item.name,item.achievementUnlock));
-    }
-    if(BuildingManager.Instance.isThereActiveCoop())
-    {
-        Vector3 buildingPosition = BuildingManager.Instance.coopVector;
-        float x = buildingPosition.x;
-        float y = buildingPosition.y;
-        float z = buildingPosition.z;
-        Vector3 buildingRotaion = BuildingManager.Instance.coopQuaternion;
-        float x1 = buildingRotaion.x;
-        float y1 = buildingRotaion.x;
-        float z1 = buildingRotaion.x;
-        saveData.buildingsSaveData.Add(new BuildingSaveData("coop",x,y,z,x1,y1,z1));
-    }
+
+        foreach (var item in Inventory.Instance.inventoryItems)
+        {
+            if (item != null)
+            {
+                saveData.inventoryItems.Add(new InventoryItemSaveData(item.name, item.quantity));
+            }
+        }
+        foreach (var item in gameManager.allItemData)
+        {
+            saveData.itemsUnlockedAchievement.Add(new ItemUnlockedAchievement(item.name, item.achievementUnlock));
+        }
+        if (BuildingManager.Instance.isThereActiveCoop())
+        {
+            Vector3 buildingPosition = BuildingManager.Instance.coopVector;
+            float x = buildingPosition.x;
+            float y = buildingPosition.y;
+            float z = buildingPosition.z;
+            Vector3 buildingRotaion = BuildingManager.Instance.coopQuaternion;
+            float x1 = buildingRotaion.x;
+            float y1 = buildingRotaion.x;
+            float z1 = buildingRotaion.x;
+            saveData.buildingsSaveData.Add(new BuildingSaveData("coop", x, y, z, x1, y1, z1));
+        }
         if (BuildingManager.Instance.isThereActiveCowBuilding())
         {
             Vector3 buildingPosition = BuildingManager.Instance.cowShedVector;
@@ -167,8 +167,10 @@ public class Timer : MonoBehaviour
             float x1 = buildingRotaion.x;
             float y1 = buildingRotaion.x;
             float z1 = buildingRotaion.x;
-            saveData.buildingsSaveData.Add(new BuildingSaveData("cowShed", x, y, z,x1,y1,z1));
+            saveData.buildingsSaveData.Add(new BuildingSaveData("cowShed", x, y, z, x1, y1, z1));
         }
+        coop.SaveChickenData(saveData);
+
         SaveSystem.SaveGame(saveData);
     }
     

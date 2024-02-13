@@ -8,11 +8,17 @@ public class GameManager : MonoBehaviour
     GameObject cowShedBuilding;
     [SerializeField]
     GameObject coopBuilding;
+    [SerializeField]
+    GameObject chickenBrown;
+    [SerializeField]
+    GameObject chickenWhite;
     void Start()
     {
         LoadGame();
     }
     public List<ItemData> allItemData;
+    private GameObject ch;
+
     public ItemData GetItemDataByName(string name)
     {
         return allItemData.Find(item => item.name == name);
@@ -77,9 +83,34 @@ public class GameManager : MonoBehaviour
 
             }
         }
+        if(saveData.animalsSaveData != null && saveData.animalsSaveData.Count > 0)
+        {
+            int coutner = 0;
+            foreach(AnimalSaveData animal in saveData.animalsSaveData)
+            {
+                coutner++;
+                GameObject prefab;
+                if(animal.color == "brown")
+                {
+                    prefab = chickenBrown;
+                }
+                else
+                {
+                    prefab = chickenWhite;
+                }
+                StartCoroutine(Spowning(coutner,prefab,animal.name));
+             }
+        }
         UImanager.Instance.RenderHotbar();
         UImanager.Instance.RenderInventory();
     }
+    IEnumerator Spowning(int num,GameObject prefab,string name)
+    {
+        Coop coop = FindObjectOfType<Coop>();
+        yield return new WaitForEndOfFrame();
+        coop.SpownChicken(num,prefab,name);
+    }
+ 
     
 
 }
