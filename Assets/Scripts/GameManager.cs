@@ -87,6 +87,7 @@ public class GameManager : MonoBehaviour
                 {
                     BuildingManager.Instance.coopActive = true;
                     Vector3 position = new Vector3(item.positionX,item.positionY,item.positionZ);
+                    BuildingManager.Instance.coopVector = position;
                     Quaternion quaternion = Quaternion.Euler(-90,0,-90);
                     coopBuilding = Instantiate(coopBuilding,position,quaternion);
                     BuildingManager.Instance.SaveBuildingDoor(coopBuilding);
@@ -95,6 +96,7 @@ public class GameManager : MonoBehaviour
                 {
                     BuildingManager.Instance.cowBuildingActive = true;
                     Vector3 position = new Vector3(item2.positionX,item2.positionY,item2.positionZ);
+                    BuildingManager.Instance.cowShedVector = position;
                     Quaternion quaternion = Quaternion.Euler(0,-90,0);
                     cowShedBuilding = Instantiate(cowShedBuilding,position,quaternion);
                     BuildingManager.Instance.SaveBuildingDoor(cowShedBuilding);
