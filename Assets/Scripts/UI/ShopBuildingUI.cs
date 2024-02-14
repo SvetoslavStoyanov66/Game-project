@@ -19,10 +19,6 @@ public class ShopBuildingUI : MonoBehaviour
     [SerializeField]
     Text moneyText;
     [SerializeField]
-    Text woodText;
-    [SerializeField]
-    Text stoneText;
-    [SerializeField]
     GameObject chikenBuilding;
     [SerializeField]
     GameObject cowBuilding;
@@ -79,11 +75,9 @@ public class ShopBuildingUI : MonoBehaviour
         {
            case BuildingPageUI.ChikenBuilding:
                 buildingImage.sprite = chickenSprite;
-                nameText.text = "Chiken coop";
-                discriptionText.text = "Building for chikens";
+                nameText.text = "Кокошарник";
+                discriptionText.text = "Сграда за отглеждане на кокошки";
                 moneyText.text = "800";
-                woodText.text = "300";
-                stoneText.text = "100";
                 buildingToInstantiate = chikenBuilding;
                 actualBuildingToInstatntiante = actualchikenBuilding;
                 interiorToInstantiate = chikenInterior;
@@ -92,11 +86,9 @@ public class ShopBuildingUI : MonoBehaviour
                 break;
             case BuildingPageUI.CowBuilding:
                 buildingImage.sprite = cowSprite;
-                nameText.text = "Cowshed";
-                discriptionText.text = "Building for cows";
+                nameText.text = "Краварник";
+                discriptionText.text = "Сграда за отглеждане на крави";
                 moneyText.text = "1200";
-                woodText.text = "400";
-                stoneText.text = "200";
                 buildingToInstantiate = cowBuilding;
                 actualBuildingToInstatntiante = actualcowBuilding;
                 interiorToInstantiate = null;
