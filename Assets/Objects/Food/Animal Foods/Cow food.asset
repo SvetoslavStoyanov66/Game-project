@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d819e31fe161c48a6ef9713656453a, type: 3}
   m_Name: Cow food
   m_EditorClassIdentifier: 
+  bulgarianName: "\u0425\u0440\u0430\u043D\u0430 \u0437\u0430 \u043A\u0440\u0430\u0432\u0438"
   description: 
-  thumbnail: {fileID: 21300000, guid: 4a231ba0e81e63849a8f985c228e8acd, type: 3}
+  thumbnail: {fileID: 21300000, guid: 2c82202895d14594ab2203c052561189, type: 3}
   gameModel: {fileID: 0}
-  quantity: 1
+  quantity: 7
   achievementUnlock: 0
   achievementDiscription: 
   UnUnlockedThubnail: {fileID: 0}

@@ -27,7 +27,7 @@ public class AnimalFoodShopSlot : MonoBehaviour
         {
             Money.Instance.BuingItems(priece);
             notEnoughMoneyNot.text = "";
-            Inventory.Instance.HarvestCrops(animalFoodData);
+            StartCoroutine(Render());
         }
         else 
         {
@@ -45,5 +45,14 @@ public class AnimalFoodShopSlot : MonoBehaviour
         notEnoughMoneyNot.text = "Not enough money";
         yield return new WaitForSeconds(num);
         notEnoughMoneyNot.text = "";
+    }
+     IEnumerator Render()
+    {
+        UImanager.Instance.inventoryPanel.SetActive(true);
+        Inventory.Instance.HarvestCrops(animalFoodData);
+        Debug.Log(animalFoodData);
+        UImanager.Instance.RenderInventory();
+        yield return new WaitForEndOfFrame();
+        UImanager.Instance.inventoryPanel.SetActive(false);
     }
 }

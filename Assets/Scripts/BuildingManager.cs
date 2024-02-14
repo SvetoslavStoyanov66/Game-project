@@ -94,7 +94,6 @@ public class BuildingManager : MonoBehaviour
             position.z = 10; // Set the z-coordinate to 10 (or your desired depth)
             Vector3 mousePosition = cameraForBuilding.ScreenToWorldPoint(position);
             structure.transform.position = new Vector3(mousePosition.x, structure.transform.position.y, mousePosition.z);
-            Debug.Log(actulaStructure);
             if (Input.GetMouseButton(0) && canInstantiate)
             {
                 Vector3 positionForInstantiation = structure.transform.position;

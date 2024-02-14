@@ -28,13 +28,24 @@ public class AnimalFeeder : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && isTrue && !fullFeeder.activeSelf && ((interaction.isChickenFoodSelected() && animalType == animal.Chicken) || (interaction.isCowFoodSelected() && animalType == animal.Cow)))
+        if(Input.GetKeyDown(KeyCode.E) && isTrue && !fullFeeder.activeSelf)
         {
-            emptyFeeder.SetActive(false);
-            fullFeeder.SetActive(true);
-            interaction.FoodIremReduction();
+            Debug.Log(animalType);
+            if(interaction.isChickenFoodSelected() && animalType == animal.Chicken)
+            {
+                fillingFeeder();
+            }
+            else if(interaction.isCowFoodSelected() && animalType == animal.Cow)
+            {
+                fillingFeeder();
+            }
         }
-        
+    }
+    private void fillingFeeder()
+    {
+        emptyFeeder.SetActive(false);
+        fullFeeder.SetActive(true);
+        interaction.FoodIremReduction();
     }
     private void OnTriggerEnter(Collider other) 
     {
