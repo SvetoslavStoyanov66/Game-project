@@ -93,7 +93,7 @@ public class ShopForAnimals : MonoBehaviour
            case animals.chiken:
            animalName.text = "Кокошка";
            animalPicture.sprite = chickenSprite;
-           priece.text = "400";
+           priece.text = "150";
            smallAnimalImage.sprite = smallChickenImage;
            animalCountText.text = chikensCount + "/5";
            noStructureImage = noStructureImageChicken;
@@ -103,7 +103,7 @@ public class ShopForAnimals : MonoBehaviour
             case animals.cow:
             animalName.text = "Крава";
             animalPicture.sprite = cowSprite;
-            priece.text = "600";    
+            priece.text = "300";    
             smallAnimalImage.sprite = smallCowImage;
             animalCountText.text = cowCount + "/5";
             noStructureImage = noStructureImageCow;
@@ -203,6 +203,7 @@ public class ShopForAnimals : MonoBehaviour
     }
     public void ConfirmButtonnInAnimalBuyPanelFunction()
     {
+        Money.Instance.moneyAmount -= Convert.ToInt32(priece.text);
         string name = inputField.text;
          if(currentPage == animals.chiken)
         {
