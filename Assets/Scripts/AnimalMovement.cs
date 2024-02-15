@@ -10,27 +10,38 @@ public class AnimalMovement : MonoBehaviour
     private enum MovementState { Moving, Rotating,Staying };
     private MovementState currentState = MovementState.Moving;
 
+    [SerializeField]
+    private ItemData mildData;
     private RaycastHit _hit;
     private Quaternion _targetRotation;
     float secondsStaying = 0;
     float secondsMoving = 0;
-
+    [SerializeField]
+    GameObject notifier;
+    public bool canBeMilked = false;
     Animator animator;
 
    
 
-    string name;
 
-    bool isNotifierActive = false;
+    string name;
+    bool canInteract = false;
+    public bool isNotifierActive = false;
 
     void Start()
     {
         GenerateNewTargetRotation();
+
     }
 
     void Update()
     {
-        if(movementSpeed > 0)
+        if(Input.GetKeyDown(KeyCode.E) && canBeMilked && canInteract)
+        {
+            canBeMilked = false;
+            Inventory.Instance.HarvestCrops(mildData);
+        }
+        if(movementSpeed > -1)
         {
             animator.SetBool("isWalking", true);
         }
@@ -105,10 +116,29 @@ public class AnimalMovement : MonoBehaviour
             GenerateNewTargetRotation();
         }
     }
-    public void AssignUI( string AnimName)
+    public void AssignUI( string AnimName ,ItemData milk,GameObject notifierObject)
     {
         name = AnimName;
         animator = FindObjectOfType<Animator>();
+        mildData = milk;
+        notifier = notifierObject;
     }
+    private void OnTriggerEnter(Collider other) 
+    {
+        if(other.CompareTag("Player") && canBeMilked)
+        {
+            notifier.SetActive(true);
+           canInteract = true; 
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            notifier.SetActive(false);
+           canInteract = false; 
+        }
+    }
+
    
 }

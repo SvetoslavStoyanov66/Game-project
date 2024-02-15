@@ -17,6 +17,7 @@ public class Coop : MonoBehaviour
     [SerializeField]
     Text aveibleEggsText;
     List<Chiken> chickensCLass = new List<Chiken>();
+    
     public void SpownChicken(int id,GameObject prefab,string name)
     {
         
@@ -28,7 +29,7 @@ public class Coop : MonoBehaviour
             chickenBorders[id - 1].SetActive(true);
             AssignAnimalUI(chicken,chickenBorders[id - 1]);
             AnimalMovement animal = prefab.GetComponent<AnimalMovement>();
-            animal.AssignUI(name);
+            animal.AssignUI(name,null,null);
             timer.chickens.Add(animal);
         }
 

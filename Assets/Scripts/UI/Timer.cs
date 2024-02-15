@@ -24,7 +24,13 @@ public class Timer : MonoBehaviour
     private bool particleSystemActivated = false;
     [SerializeField]
     AnimalFeeder[] animalFeeders = new AnimalFeeder[5];
+    [SerializeField]
+    AnimalFeeder[] animalFeeders2 = new AnimalFeeder[5];
     public List<AnimalMovement> chickens = new List<AnimalMovement>();
+    [SerializeField]
+    public List<AnimalMovement> cows = new List<AnimalMovement>();
+    
+
     [SerializeField]
     List<PlacesForEggs> placesForEggs = new List<PlacesForEggs>();
     [SerializeField]
@@ -396,6 +402,18 @@ public class Timer : MonoBehaviour
 
                 }
 
+            }
+            foreach(AnimalMovement cow in cows)
+            {
+                foreach(AnimalFeeder feeder in animalFeeders2)
+                {
+                    if(feeder.isFull())
+                    {
+                        cow.canBeMilked = true;
+                        feeder.EmptyingFeeder();
+                        break;
+                    }
+                }
             }
 
 

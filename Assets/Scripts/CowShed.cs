@@ -9,7 +9,10 @@ public class CowShed : MonoBehaviour
     Transform[] spownPoints = new Transform[5];
     [SerializeField]
     GameObject[] cowsBorders = new GameObject[5];
-
+    [SerializeField]
+    GameObject cowNotifier;
+    [SerializeField]
+    ItemData milkData;
     public void SpownCow(int id,GameObject prefab,string name)
     {
         
@@ -20,7 +23,9 @@ public class CowShed : MonoBehaviour
             cowsBorders[id - 1].SetActive(true);
             AssignAnimalUI(cow,cowsBorders[id - 1]);
             AnimalMovement animal = prefab.GetComponent<AnimalMovement>();
-            animal.AssignUI(name);
+            animal.AssignUI(name,milkData,cowNotifier);
+            Timer timer = FindObjectOfType<Timer>();
+            timer.cows.Add(animal);
         }
 
     }

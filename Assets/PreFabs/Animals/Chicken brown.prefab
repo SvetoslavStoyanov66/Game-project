@@ -78,7 +78,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1017961626491486927}
   - component: {fileID: 1831401441639542605}
-  - component: {fileID: 7046870089792772056}
   - component: {fileID: 5126755535886231138}
   - component: {fileID: -497994153166402502}
   m_Layer: 0
@@ -119,19 +118,8 @@ MonoBehaviour:
   detectionRange: 0.1
   rotationSpeed: 5
   movementSpeed: 2
---- !u!65 &7046870089792772056
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 390500454526703733}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5.213953, y: 4.7723966, z: 7.839459}
-  m_Center: {x: -0.1509052, y: 1.8861991, z: -0.17090715}
+  mildData: {fileID: 0}
+  isNotifierActive: 0
 --- !u!65 &5126755535886231138
 BoxCollider:
   m_ObjectHideFlags: 0
