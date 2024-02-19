@@ -61,7 +61,7 @@ public class MainMenuManager : MonoBehaviour
                         season = "зима";
                         break;
                 }
-                seasonText.text = "Сесон: " + season;
+                seasonText.text = "Сезон: " + season;
                 dateText.text = "Дата: " + timerData.day;
             }
              if (saveData != null && saveData.itemsUnlockedAchievement != null)
