@@ -54,6 +54,7 @@ public class Timer : MonoBehaviour
     Coop coop;
     [SerializeField]
     CowShed cowShed;
+    Rain rain;
     public enum Season
     {
         Пролет,
@@ -80,6 +81,8 @@ public class Timer : MonoBehaviour
 
     private void Start()
     {
+
+         rain = FindObjectOfType<Rain>();
         Debug.Log(Application.persistentDataPath);
         AssignLandIndex();
         timerText.fontSize = fontSize;
@@ -356,7 +359,6 @@ public class Timer : MonoBehaviour
                 {
                     land.isRaining = true;
                 }
-                Rain rain = FindObjectOfType<Rain>();
                 rain.isRaining = true;
             }
             else
@@ -367,7 +369,6 @@ public class Timer : MonoBehaviour
                 {
                     land.isRaining = false;
                 }
-                Rain rain = FindObjectOfType<Rain>();
                 rain.isRaining = false;
             }
             foreach(AnimalMovement chicken in chickens)

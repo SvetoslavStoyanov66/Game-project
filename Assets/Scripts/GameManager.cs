@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     public Image spriteDisplay;
     [SerializeField]
     Sprite spriteForTown;
+    [SerializeField]
+    GameObject prefabCow;
     void Start()
     {
         if(SaveSystem.isSafeSlotEmpty(SaveSystem.slot))
@@ -150,6 +152,16 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(Spowning(coutner,prefab,animal.name));
              }
         }
+        if(saveData.animalsSaveData2 != null && saveData.animalsSaveData2.Count > 0)
+        {
+            int coutner = 0;
+            foreach(AnimalSaveData animal in saveData.animalsSaveData2)
+            {
+                coutner++;
+                StartCoroutine(Spowning2(coutner,prefabCow,animal.name));
+             }
+        }
+ 
         UImanager.Instance.RenderHotbar();
         StartCoroutine(Render());
     }
@@ -158,6 +170,12 @@ public class GameManager : MonoBehaviour
         Coop coop = FindObjectOfType<Coop>();
         yield return new WaitForEndOfFrame();
         coop.SpownChicken(num,prefab,name);
+    }
+    IEnumerator Spowning2(int num,GameObject prefab,string name)
+    {
+        CowShed cowShed = FindObjectOfType<CowShed>();
+        yield return new WaitForEndOfFrame();
+        cowShed.SpownCow(num,prefab,name);
     }
       IEnumerator Render()
     {
