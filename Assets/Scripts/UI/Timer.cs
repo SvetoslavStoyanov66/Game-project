@@ -52,6 +52,8 @@ public class Timer : MonoBehaviour
     GameObject shopInterior;
     [SerializeField]
     Coop coop;
+    [SerializeField]
+    CowShed cowShed;
     public enum Season
     {
         Пролет,
@@ -78,6 +80,7 @@ public class Timer : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log(Application.persistentDataPath);
         AssignLandIndex();
         timerText.fontSize = fontSize;
         LoadTimeState();
@@ -187,6 +190,7 @@ public class Timer : MonoBehaviour
             saveData.buildingsSaveData.Add(new BuildingSaveData("cowShed", x, y, z, x1, y1, z1));
         }
         coop.SaveChickenData(saveData);
+        cowShed.SaveCowsData(saveData);
 
         SaveSystem.SaveGame(saveData);
     }

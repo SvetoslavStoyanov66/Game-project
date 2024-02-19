@@ -13,12 +13,16 @@ public class CowShed : MonoBehaviour
     GameObject cowNotifier;
     [SerializeField]
     ItemData milkData;
+    List<Cow> cows = new List<Cow>();
+    
     public void SpownCow(int id,GameObject prefab,string name)
     {
         
         if(id <= 5)
         {
             Cow cow = new Cow(id,prefab,name);
+            cows.Add(cow);
+
             prefab = Instantiate(prefab, spownPoints[id - 1].position ,Quaternion.identity);
             cowsBorders[id - 1].SetActive(true);
             AssignAnimalUI(cow,cowsBorders[id - 1]);
@@ -29,6 +33,13 @@ public class CowShed : MonoBehaviour
         }
 
     }
+    public void SaveCowsData(SaveData saveData)
+    {
+        foreach(Cow  cow in cows)
+        {
+            saveData.animalsSaveData2.Add(new AnimalSaveData(null,null));
+        }
+    } 
     private void AssignAnimalUI(Cow cow,GameObject uiBox)
     {
         Text nameText = uiBox.transform.GetChild(1).GetComponent<Text>();

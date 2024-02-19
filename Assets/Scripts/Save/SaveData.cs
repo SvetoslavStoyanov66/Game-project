@@ -12,6 +12,7 @@ public class SaveData
     public List<ItemUnlockedAchievement> itemsUnlockedAchievement = new List<ItemUnlockedAchievement>();
     public List<BuildingSaveData> buildingsSaveData = new List<BuildingSaveData>();
     public List<AnimalSaveData> animalsSaveData = new List<AnimalSaveData>();
+    public List<AnimalSaveData> animalsSaveData2 = new List<AnimalSaveData>();
 
 }
 
