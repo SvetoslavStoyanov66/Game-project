@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -10,6 +11,13 @@ public class MainMenuManager : MonoBehaviour
     GameObject slotsMenu;
     [SerializeField]
     GameObject[] sltos = new GameObject[3];
+    [SerializeField]
+    GameObject[] buutonsObjects = new GameObject[3];
+    [SerializeField]
+    GameObject settingsUI;
+    [SerializeField]
+    AudioMixer audioMixer;
+    
 
     void Start()
     {
@@ -90,9 +98,19 @@ public class MainMenuManager : MonoBehaviour
 
     public void OpenSettingsButton()
     {
-
+        settingsUI.SetActive(true);
+        buutonsObjects[0].SetActive(false);
+        buutonsObjects[1].SetActive(false);
+        buutonsObjects[2].SetActive(false);
     }
-
+     public void CloseSettingsButton()
+    {
+        settingsUI.SetActive(false);
+        buutonsObjects[0].SetActive(true);
+        buutonsObjects[1].SetActive(true);
+        buutonsObjects[2].SetActive(true);
+    }
+    
     public void ExitGameButton()
     {
         Application.Quit(); 
@@ -112,5 +130,9 @@ public class MainMenuManager : MonoBehaviour
         deleteSlotButton.SetActive(false);
         GameObject textGameObject = sltos[slot].transform.GetChild(4).gameObject;
         textGameObject.SetActive(false);
+    }
+    public void SetVolume(float volume)
+    {
+       audioMixer.SetFloat("Volume",volume); 
     }
 }
