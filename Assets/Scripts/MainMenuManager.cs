@@ -139,4 +139,8 @@ public class MainMenuManager : MonoBehaviour
     {
         QualitySettings.SetQualityLevel(index);
     }   
+    public void SetFullScreen(bool isFullScreen)
+    {
+        Screen.fullScreen = isFullScreen;
+    }
 }
