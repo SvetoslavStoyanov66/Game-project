@@ -135,4 +135,8 @@ public class MainMenuManager : MonoBehaviour
     {
        audioMixer.SetFloat("Volume",volume); 
     }
+    public void setQuality(int index)
+    {
+        QualitySettings.SetQualityLevel(index);
+    }   
 }
