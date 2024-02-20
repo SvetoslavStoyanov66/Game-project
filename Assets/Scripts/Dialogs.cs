@@ -30,6 +30,10 @@ public class Dialogs : MonoBehaviour
     [SerializeField]
     Animator AnimalShopNPCAnim; 
     [SerializeField]
+    Animator QuizlShopNPCAnim; 
+    [SerializeField]
+
+
     Animator BuildingShopNPCAnim;
     [SerializeField]
     Animator SeedShopNPCAnim; 
@@ -90,7 +94,7 @@ public class Dialogs : MonoBehaviour
         {
             browse = quizButton;
             leave = leaveAnimals;
-            npcAnimator = AnimalShopNPCAnim;
+            npcAnimator = QuizlShopNPCAnim;
         }
         lines = dialogArray;
         index = 0;
