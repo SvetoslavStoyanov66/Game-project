@@ -128,16 +128,16 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
                 sellAmount = Math.Round(sellAmount, 2);
                 int sellAmountInt = Convert.ToInt32(sellAmount);
                 seedPrice = sellAmountInt;
-                itemPriceText.text = "Sell price - " +seedPrice.ToString() + "G";
+                itemPriceText.text = "Цена - " +seedPrice.ToString() + "G";
             }
             else if ((Inventory.Instance.inventoryItems[slotIndex]) is FoodData)
             {
                 foodPrice = (Inventory.Instance.inventoryItems[slotIndex] as FoodData).sellPrice;
-                itemPriceText.text = "Sell price - " + foodPrice.ToString() + "G";
+                itemPriceText.text = "Цена - " + foodPrice.ToString() + "G";
             }
             else
             {
-                itemPriceText.text = "Unsellable";
+                itemPriceText.text = "Не се продава";
             }
         }
     }
